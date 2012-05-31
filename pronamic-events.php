@@ -45,18 +45,39 @@ function pronamic_events_init() {
 			'parent_item_colon' => __('Parent Event:', 'pronamic_events') ,
 			'menu_name' => __('Agenda', 'pronamic_events') , 
 		) , 
-		'public' => false , 
+		'public' => true , 
 		'publicly_queryable' => true , 
 		'show_ui' => true , 
 		'show_in_menu' => true ,  
 		'query_var' => true , 
 		'rewrite' => true , 
-		'capability_type' => 'page' , 
+		'capability_type' => 'post' , 
 		'has_archive' => true , 
 		'rewrite' => array('slug' => 'agenda') ,
 		'menu_icon' =>  plugins_url('/admin/icons/event.png', __FILE__) ,
 		'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt')
 	));
+
+	register_taxonomy('pronamic_event_category', 'pronamic_event' , 
+		array( 
+			'hierarchical' => true , 
+			'labels' => array(
+				'name' => _x('Event categories', 'class general name', 'pronamic_events') , 
+				'singular_name' => _x('Event category', 'class singular name', 'pronamic_events') , 
+				'search_items' =>  __('Search Event categories', 'pronamic_events') , 
+				'all_items' => __('All Event categories', 'pronamic_events') , 
+				'parent_item' => __('Parent Event category', 'pronamic_events') , 
+				'parent_item_colon' => __('Parent Event category:', 'pronamic_events') , 
+				'edit_item' => __('Edit Event category', 'pronamic_events') ,  
+				'update_item' => __('Update Event category', 'pronamic_events') , 
+				'add_new_item' => __('Add New Event category', 'pronamic_events') , 
+				'new_item_name' => __('New Event category Name', 'pronamic_events') , 
+				'menu_name' => __('Event categories', 'pronamic_events') 
+			) , 
+			'show_ui' => true ,
+			'query_var' => true
+		)
+	);
 }
 add_action('init', 'pronamic_events_init');
 
