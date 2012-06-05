@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Events\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-09 15:48+0100\n"
-"PO-Revision-Date: 2012-05-09 15:48+0100\n"
+"POT-Creation-Date: 2012-05-31 10:39+0100\n"
+"PO-Revision-Date: 2012-05-31 10:41+0100\n"
 "Last-Translator: K.Tolsma <kareljan@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "MIME-Version: 1.0\n"
@@ -67,19 +67,65 @@ msgstr "Bovenliggende evenement:"
 msgid "Agenda"
 msgstr "Agenda"
 
+#: pronamic-events.php:65
+msgctxt "class general name"
+msgid "Event categories"
+msgstr "Agenda categorieën"
+
+#: pronamic-events.php:66
+msgctxt "class singular name"
+msgid "Event category"
+msgstr "Agenda categorieën"
+
+#: pronamic-events.php:67
+msgid "Search Event categories"
+msgstr "Doorzoek categorieën"
+
+#: pronamic-events.php:68
+msgid "All Event categories"
+msgstr "Bekijk alle categorieën"
+
+#: pronamic-events.php:69
+msgid "Parent Event category"
+msgstr "Bovenliggende categorie:"
+
+#: pronamic-events.php:70
+msgid "Parent Event category:"
+msgstr "Bovenliggende categorie:"
+
+#: pronamic-events.php:71
+msgid "Edit Event category"
+msgstr "Wijzig categorie"
+
+#: pronamic-events.php:72
+msgid "Update Event category"
+msgstr "Update categorie"
+
+#: pronamic-events.php:73
+msgid "Add New Event category"
+msgstr "Nieuwe categorie toevoegen"
+
+#: pronamic-events.php:74
+msgid "New Event category Name"
+msgstr "Nieuwe categorie naam"
+
 #: pronamic-events.php:75
+msgid "Event categories"
+msgstr "Agenda categorieën"
+
+#: pronamic-events.php:96
 msgid "Event Dates"
 msgstr "Evenement data"
 
-#: pronamic-events.php:84
+#: pronamic-events.php:105
 msgid "Event Location"
 msgstr "Evenement locatie"
 
-#: pronamic-events.php:113
+#: pronamic-events.php:134
 msgid "Start date"
 msgstr "Startdatum"
 
-#: pronamic-events.php:118
+#: pronamic-events.php:139
 msgid "End date"
 msgstr "Einddatum"
 
@@ -986,9 +1032,6 @@ msgstr "Einddatum"
 
 #~ msgid "Search Transactions"
 #~ msgstr "Zoek transacties"
-
-#~ msgid "View all categories"
-#~ msgstr "Bekijk alle categorieën"
 #~ msgctxt "link name"
 
 #~ msgid "Name"
