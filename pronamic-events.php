@@ -80,6 +80,7 @@ function pronamic_events_init() {
 		)
 	);
 }
+
 add_action('init', 'pronamic_events_init');
 
 ////////////////////////////////////////////////////////////
@@ -196,7 +197,7 @@ function pronamic_events_query($query) {
 		$meta_query = array(
 			array(
 				'key' => '_pronamic_end_date' ,
-				'value' => time() ,
+				'value' => strtotime('-1 day') ,
 				'compare' => '>'
 			)
 		);
