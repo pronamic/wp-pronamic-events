@@ -18,6 +18,7 @@ function pronamic_events_rewrite_flush() {
 
     flush_rewrite_rules();
 }
+
 register_activation_hook(__FILE__, 'pronamic_events_rewrite_flush');
 
 ////////////////////////////////////////////////////////////
