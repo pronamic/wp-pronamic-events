@@ -120,26 +120,32 @@ function pronamic_events_dates_box($post) {
 
 	wp_nonce_field(plugin_basename(__FILE__), 'pronamic_events_nonce');
 
-	if(get_post_meta($post->ID, '_pronamic_start_date', true))
+	if(get_post_meta($post->ID, '_pronamic_start_date', true)) {
 		$start_date = date('d-m-Y', get_post_meta($post->ID, '_pronamic_start_date', true));
-	else
+		$start_time = date('H:i', get_post_meta($post->ID, '_pronamic_start_date', true));
+	} else {
 		$start_date = '';
+	}
 	
-	if(get_post_meta($post->ID, '_pronamic_end_date', true))
+	if(get_post_meta($post->ID, '_pronamic_end_date', true)) {
 		$end_date = date('d-m-Y', get_post_meta($post->ID, '_pronamic_end_date', true));
-	else
+		$end_time = date('H:i', get_post_meta($post->ID, '_pronamic_end_date', true));
+	} else {
 		$end_date = $start_date;
+	}
 	
 	?>
 
 	<div>
-		<label for="pronamic_start_date"><?php _e('Start date', 'pronamic_events'); ?></label>
-		<input type="text" id="pronamic_start_date" name="pronamic_start_date" value="<?php echo $start_date; ?>" size="25" />
+		<label for="pronamic_start_date"><?php _e('Start date', 'pronamic_events'); ?></label> <br />
+		<input type="text" id="pronamic_start_date" name="pronamic_start_date" value="<?php echo $start_date; ?>" size="14" />
+		<input type="text" id="pronamic_start_time" name="pronamic_start_time" value="<?php echo $start_time; ?>" size="6" placeholder="00:00" />
 	</div>
 	
 	<div>
-		<label for="pronamic_end_date"><?php _e('End date', 'pronamic_events'); ?></label>
-		<input type="text" id="pronamic_end_date" name="pronamic_end_date" value="<?php echo $end_date; ?>" size="25" />
+		<label for="pronamic_end_date"><?php _e('End date', 'pronamic_events'); ?></label> <br />
+		<input type="text" id="pronamic_end_date" name="pronamic_end_date" value="<?php echo $end_date; ?>" size="14"  />
+		<input type="text" id="pronamic_end_time" name="pronamic_end_time" value="<?php echo $end_time; ?>" size="6" placeholder="00:00" />
 	</div>
 	
 	<?php
@@ -176,8 +182,8 @@ function pronamic_events_save_postdata($post_id) {
 		return;
 		
 	// Define timestamps
-	$start_date_timestamp = strtotime($_POST['pronamic_start_date']);
-	$end_date_timestamp = strtotime($_POST['pronamic_end_date']);
+	$start_date_timestamp = strtotime($_POST['pronamic_start_date'] . ' ' . $_POST['pronamic_start_time']);
+	$end_date_timestamp = strtotime($_POST['pronamic_end_date'] . ' ' . $_POST['pronamic_end_time']);
 	
 	// Save data
 	update_post_meta($post->ID, '_pronamic_start_date', $start_date_timestamp);
