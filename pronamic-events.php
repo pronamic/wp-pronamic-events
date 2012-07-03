@@ -127,6 +127,7 @@ function pronamic_events_dates_box($post) {
 		$start_time = date( 'H:i', $start_timestamp );
 	} else {
 		$start_date = '';
+		$start_time = '';
 	}
 	
 	$end_timestamp = get_post_meta($post->ID, '_pronamic_end_date', true);
@@ -136,6 +137,7 @@ function pronamic_events_dates_box($post) {
 		$end_time = date( 'H:i', $end_timestamp );
 	} else {
 		$end_date = $start_date;
+		$end_time = $start_time;
 	}
 	
 	?>
