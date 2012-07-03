@@ -19,7 +19,7 @@ function pronamic_events_rewrite_flush() {
     flush_rewrite_rules();
 }
 
-register_activation_hook(__FILE__, 'pronamic_events_rewrite_flush');
+register_activation_hook( __FILE__, 'pronamic_events_rewrite_flush' );
 
 ////////////////////////////////////////////////////////////
 
@@ -118,9 +118,9 @@ function pronamic_events_add_dates_box() {
 function pronamic_events_dates_box($post) {
 	global $post;
 
-	wp_nonce_field(plugin_basename(__FILE__), 'pronamic_events_nonce');
+	wp_nonce_field( plugin_basename( __FILE__ ), 'pronamic_events_nonce' );
 	
-	$start_timestamp = get_post_meta($post->ID, '_pronamic_start_date', true);
+	$start_timestamp = get_post_meta( $post->ID, '_pronamic_start_date', true );
 
 	if( ! empty ( $start_timestamp ) ) {
 		$start_date = date( 'd-m-Y', $start_timestamp );
@@ -130,7 +130,7 @@ function pronamic_events_dates_box($post) {
 		$start_time = '';
 	}
 	
-	$end_timestamp = get_post_meta($post->ID, '_pronamic_end_date', true);
+	$end_timestamp = get_post_meta( $post->ID, '_pronamic_end_date', true );
 
 	if( ! empty( $end_timestamp ) ) {
 		$end_date = date( 'd-m-Y', $end_timestamp );
@@ -143,13 +143,13 @@ function pronamic_events_dates_box($post) {
 	?>
 
 	<div>
-		<label for="pronamic_start_date"><?php _e('Start date', 'pronamic_events'); ?></label> <br />
+		<label for="pronamic_start_date"><?php _e( 'Start date', 'pronamic_events' ); ?></label> <br />
 		<input type="text" id="pronamic_start_date" name="pronamic_start_date" value="<?php echo $start_date; ?>" size="14" />
 		<input type="text" id="pronamic_start_time" name="pronamic_start_time" value="<?php echo $start_time; ?>" size="6" placeholder="00:00" />
 	</div>
 	
 	<div>
-		<label for="pronamic_end_date"><?php _e('End date', 'pronamic_events'); ?></label> <br />
+		<label for="pronamic_end_date"><?php _e( 'End date', 'pronamic_events' ); ?></label> <br />
 		<input type="text" id="pronamic_end_date" name="pronamic_end_date" value="<?php echo $end_date; ?>" size="14"  />
 		<input type="text" id="pronamic_end_time" name="pronamic_end_time" value="<?php echo $end_time; ?>" size="6" placeholder="00:00" />
 	</div>
@@ -160,11 +160,11 @@ function pronamic_events_dates_box($post) {
 function pronamic_events_location_box($post) {
 	global $post;
 
-	wp_nonce_field(plugin_basename(__FILE__), 'pronamic_events_nonce');
+	wp_nonce_field( plugin_basename(__FILE__), 'pronamic_events_nonce' );
 	
 	?>
 
-	<input type="text" id="pronamic_location" name="pronamic_location" value="<?php echo get_post_meta($post->ID, '_pronamic_location', true); ?>" size="25" />
+	<input type="text" id="pronamic_location" name="pronamic_location" value="<?php echo get_post_meta( $post->ID, '_pronamic_location', true ); ?>" size="25" />
 	
 	<?php
 }
@@ -175,26 +175,26 @@ function pronamic_events_location_box($post) {
 function pronamic_events_save_postdata($post_id) {
 	global $post;
 
-	if(defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
+	if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
 		return;
 
-	if(!isset($_POST['pronamic_events_nonce']))
+	if( ! isset( $_POST['pronamic_events_nonce'] ) )
 		return;
 
-	if(!wp_verify_nonce( $_POST['pronamic_events_nonce'], plugin_basename(__FILE__)))
+	if( ! wp_verify_nonce( $_POST['pronamic_events_nonce'], plugin_basename( __FILE__ ) ) )
 		return;
 
-	if(!current_user_can('edit_post', $post->ID))
+	if( ! current_user_can( 'edit_post', $post->ID ) )
 		return;
 		
 	// Define timestamps
-	$start_date_timestamp = strtotime($_POST['pronamic_start_date'] . ' ' . $_POST['pronamic_start_time']);
-	$end_date_timestamp = strtotime($_POST['pronamic_end_date'] . ' ' . $_POST['pronamic_end_time']);
+	$start_timestamp = strtotime($_POST['pronamic_start_date'] . ' ' . $_POST['pronamic_start_time']);
+	$end_timestamp = strtotime($_POST['pronamic_end_date'] . ' ' . $_POST['pronamic_end_time']);
 	
 	// Save data
-	update_post_meta($post->ID, '_pronamic_start_date', $start_date_timestamp);
-	update_post_meta($post->ID, '_pronamic_end_date', $end_date_timestamp);
-	update_post_meta($post->ID, '_pronamic_location', $_POST['pronamic_location']);
+	update_post_meta( $post->ID, '_pronamic_start_date', $start_timestamp );
+	update_post_meta( $post->ID, '_pronamic_end_date', $end_timestamp );
+	update_post_meta( $post->ID, '_pronamic_location', $_POST['pronamic_location'] );
 }
 
 ////////////////////////////////////////////////////////////
@@ -205,7 +205,7 @@ function pronamic_events_save_postdata($post_id) {
 function pronamic_events_query($query) {
 	global $wp_the_query;
 
-	if($query->is_main_query() && !is_admin() && $query->is_post_type_archive('pronamic_event')) {
+	if( $query->is_main_query() && !is_admin() && $query->is_post_type_archive('pronamic_event') ) {
 		$meta_query_extra = array(
 			array(
 				'key' => '_pronamic_end_date' ,
@@ -224,7 +224,7 @@ function pronamic_events_query($query) {
 	}
 }
 
-add_action('parse_query', 'pronamic_events_query');
+add_action( 'parse_query', 'pronamic_events_query' );
 
 ////////////////////////////////////////////////////////////
 
@@ -234,13 +234,13 @@ add_action('parse_query', 'pronamic_events_query');
 function pronamic_get_the_start_date($format = null) {
 	global $post;
 
-	if($format == null) {
-		$format = get_option('date_format');
+	if( $format == null ) {
+		$format = get_option( 'date_format' );
 	}
 
-	$start_date = get_post_meta($post->ID, '_pronamic_start_date', true);
+	$start_date = get_post_meta( $post->ID, '_pronamic_start_date', true );
 
-	return date_i18n($format, $start_date);
+	return date_i18n( $format, $start_date );
 }
 
 /**
@@ -256,9 +256,9 @@ function pronamic_the_start_date($format = null) {
 function pronamic_has_start_date() {
 	global $post;
 
-	$start_date = get_post_meta($post->ID, '_pronamic_start_date', true);
+	$start_date = get_post_meta( $post->ID, '_pronamic_start_date', true );
 
-	return !empty($start_date);
+	return ! empty( $start_date );
 }
 
 ////////////////////////////////////////////////////////////
@@ -269,20 +269,20 @@ function pronamic_has_start_date() {
 function pronamic_get_the_end_date($format = null) {
 	global $post;
 
-	if($format == null) {
-		$format = get_option('date_format');
+	if( $format == null ) {
+		$format = get_option( 'date_format' );
 	}
 
-	$end_date = get_post_meta($post->ID, '_pronamic_end_date', true);
+	$end_date = get_post_meta( $post->ID, '_pronamic_end_date', true );
 
-	return date_i18n($format, $end_date);
+	return date_i18n( $format, $end_date );
 }
 
 /**
  * Echo formatted end date
  */
 function pronamic_the_end_date($format = null) {
-	echo pronamic_get_the_end_date($format);
+	echo pronamic_get_the_end_date( $format );
 }
 
 /**
@@ -291,9 +291,9 @@ function pronamic_the_end_date($format = null) {
 function pronamic_has_end_date() {
 	global $post;
 
-	$end_date = get_post_meta($post->ID, '_pronamic_end_date', true);
+	$end_date = get_post_meta( $post->ID, '_pronamic_end_date', true );
 
-	return !empty($end_date);
+	return ! empty( $end_date );
 }
 
 ////////////////////////////////////////////////////////////
