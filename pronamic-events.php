@@ -119,17 +119,21 @@ function pronamic_events_dates_box($post) {
 	global $post;
 
 	wp_nonce_field(plugin_basename(__FILE__), 'pronamic_events_nonce');
+	
+	$start_timestamp = get_post_meta($post->ID, '_pronamic_start_date', true);
 
-	if(get_post_meta($post->ID, '_pronamic_start_date', true)) {
-		$start_date = date('d-m-Y', get_post_meta($post->ID, '_pronamic_start_date', true));
-		$start_time = date('H:i', get_post_meta($post->ID, '_pronamic_start_date', true));
+	if( ! empty ( $start_timestamp ) ) {
+		$start_date = date( 'd-m-Y', $start_timestamp );
+		$start_time = date( 'H:i', $start_timestamp );
 	} else {
 		$start_date = '';
 	}
 	
-	if(get_post_meta($post->ID, '_pronamic_end_date', true)) {
-		$end_date = date('d-m-Y', get_post_meta($post->ID, '_pronamic_end_date', true));
-		$end_time = date('H:i', get_post_meta($post->ID, '_pronamic_end_date', true));
+	$end_timestamp = get_post_meta($post->ID, '_pronamic_end_date', true);
+
+	if( ! empty( $end_timestamp ) ) {
+		$end_date = date( 'd-m-Y', $end_timestamp );
+		$end_time = date( 'H:i', $end_timestamp );
 	} else {
 		$end_date = $start_date;
 	}
@@ -289,3 +293,6 @@ function pronamic_has_end_date() {
 
 	return !empty($end_date);
 }
+
+////////////////////////////////////////////////////////////
+
