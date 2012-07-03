@@ -1,2 +1,0 @@
-wp-pronamic-events
-==================
