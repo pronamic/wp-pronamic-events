@@ -1,5 +1,5 @@
 === Pronamic Events ===
-Contributors: pronamic, remcotolsma, kareljantolsma 
+Contributors: pronamic, remcotolsma, kjtolsma 
 Tags: pronamic, events, agenda
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-events&source=wp-plugin-readme-txt
 Requires at least: 3.0
