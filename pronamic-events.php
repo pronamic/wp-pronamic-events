@@ -3,10 +3,16 @@
 Plugin Name: Pronamic Events
 Plugin URI: http://pronamic.eu/wordpress/events/
 Description: This plugin add some basic Event functionality to WordPress
+
 Version: 1.0
 Requires at least: 3.0
+
 Author: Pronamic
 Author URI: http://pronamic.eu/
+
+Text Domain: pronamic_events
+Domain Path: /languages/
+
 License: GPL
 */
 
