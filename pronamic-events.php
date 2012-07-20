@@ -30,27 +30,60 @@ register_activation_hook( __FILE__, 'pronamic_events_rewrite_flush' );
 ////////////////////////////////////////////////////////////
 
 /**
+ * Add admin columns
+ */
+function pronamic_events_add_columns( $column ) {
+    $column['start_date'] = __( 'Start date', 'pronamic_events' );
+    $column['end_date'] = __( 'End date', 'pronamic_events' );
+ 
+    return $column;
+}
+add_filter( 'manage_pronamic_event_posts_columns', 'pronamic_events_add_columns' );
+
+/**
+ * Add admin rows
+ */
+function pronamic_events_add_rows( $column_name, $post_id ) {
+    switch ( $column_name ) {
+        case 'start_date' :
+
+            echo date( 'd-m-Y', get_post_meta( $post_id, '_pronamic_start_date', true ) );
+            break;
+ 
+        case 'end_date' :
+            echo date( 'd-m-Y', get_post_meta( $post_id, '_pronamic_end_date', true ) );
+            break;
+ 
+        default:
+    }
+}
+ 
+add_filter( 'manage_pronamic_event_posts_custom_column', 'pronamic_events_add_rows', 10, 2 );
+
+////////////////////////////////////////////////////////////
+
+/**
  * Register post type
  */
 function pronamic_events_init() {
-	$relPath = dirname(plugin_basename(__FILE__)) . '/languages/';
+	$relPath = dirname( plugin_basename( __FILE__ ) ) . '/languages/';
 
-	load_plugin_textdomain('pronamic_events', false, $relPath);
+	load_plugin_textdomain( 'pronamic_events', false, $relPath );
 
-	register_post_type('pronamic_event', array(
+	register_post_type( 'pronamic_event', array( 
 		'labels' => array(
-			'name' => _x('Events', 'post type general name', 'pronamic_events') , 
-			'singular_name' => _x('Event', 'post type singular name', 'pronamic_events') , 
-			'add_new' => _x('Add New', 'event', 'pronamic_events') , 
-			'add_new_item' => __('Add New Event', 'pronamic_events') , 
-			'edit_item' => __('Edit Event', 'pronamic_events') , 
-			'new_item' => __('New Event', 'pronamic_events') , 
-			'view_item' => __('View Event', 'pronamic_events') , 
-			'search_items' => __('Search Events', 'pronamic_events') , 
-			'not_found' =>  __('No events found', 'pronamic_events') , 
-			'not_found_in_trash' => __('No events found in Trash', 'pronamic_events') , 
-			'parent_item_colon' => __('Parent Event:', 'pronamic_events') ,
-			'menu_name' => __('Agenda', 'pronamic_events') , 
+			'name' => _x( 'Events', 'post type general name', 'pronamic_events' ) , 
+			'singular_name' => _x( 'Event', 'post type singular name', 'pronamic_events' ) , 
+			'add_new' => _x( 'Add New', 'event', 'pronamic_events' ) , 
+			'add_new_item' => __( 'Add New Event', 'pronamic_events' ) , 
+			'edit_item' => __( 'Edit Event', 'pronamic_events' ) , 
+			'new_item' => __( 'New Event', 'pronamic_events' ) , 
+			'view_item' => __( 'View Event', 'pronamic_events' ) , 
+			'search_items' => __( 'Search Events', 'pronamic_events' ) , 
+			'not_found' =>  __( 'No events found', 'pronamic_events' ) , 
+			'not_found_in_trash' => __( 'No events found in Trash', 'pronamic_events' ) , 
+			'parent_item_colon' => __( 'Parent Event:', 'pronamic_events' ) ,
+			'menu_name' => __( 'Agenda', 'pronamic_events' ) , 
 		) , 
 		'public' => true , 
 		'publicly_queryable' => true , 
@@ -60,26 +93,26 @@ function pronamic_events_init() {
 		'rewrite' => true , 
 		'capability_type' => 'post' , 
 		'has_archive' => true , 
-		'rewrite' => array('slug' => 'agenda') ,
-		'menu_icon' =>  plugins_url('/admin/icons/event.png', __FILE__) ,
-		'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt')
+		'rewrite' => array( 'slug' => 'agenda' ) ,
+		'menu_icon' =>  plugins_url( '/admin/icons/event.png', __FILE__ ) ,
+		'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' )
 	));
 
-	register_taxonomy('pronamic_event_category', 'pronamic_event' , 
+	register_taxonomy( 'pronamic_event_category', 'pronamic_event' , 
 		array( 
 			'hierarchical' => true , 
 			'labels' => array(
-				'name' => _x('Event categories', 'class general name', 'pronamic_events') , 
-				'singular_name' => _x('Event category', 'class singular name', 'pronamic_events') , 
-				'search_items' =>  __('Search Event categories', 'pronamic_events') , 
-				'all_items' => __('All Event categories', 'pronamic_events') , 
-				'parent_item' => __('Parent Event category', 'pronamic_events') , 
-				'parent_item_colon' => __('Parent Event category:', 'pronamic_events') , 
-				'edit_item' => __('Edit Event category', 'pronamic_events') ,  
-				'update_item' => __('Update Event category', 'pronamic_events') , 
-				'add_new_item' => __('Add New Event category', 'pronamic_events') , 
-				'new_item_name' => __('New Event category Name', 'pronamic_events') , 
-				'menu_name' => __('Event categories', 'pronamic_events') 
+				'name' => _x( 'Event categories', 'class general name', 'pronamic_events' ) , 
+				'singular_name' => _x( 'Event category', 'class singular name', 'pronamic_events' ) , 
+				'search_items' =>  __( 'Search Event categories', 'pronamic_events' ) , 
+				'all_items' => __( 'All Event categories', 'pronamic_events' ) , 
+				'parent_item' => __( 'Parent Event category', 'pronamic_events' ) , 
+				'parent_item_colon' => __( 'Parent Event category:', 'pronamic_events' ) , 
+				'edit_item' => __( 'Edit Event category', 'pronamic_events' ) ,  
+				'update_item' => __( 'Update Event category', 'pronamic_events' ) , 
+				'add_new_item' => __( 'Add New Event category', 'pronamic_events' ) , 
+				'new_item_name' => __( 'New Event category Name', 'pronamic_events' ) , 
+				'menu_name' => __( 'Event categories', 'pronamic_events' ) 
 			) , 
 			'show_ui' => true ,
 			'query_var' => true
@@ -87,21 +120,21 @@ function pronamic_events_init() {
 	);
 }
 
-add_action('init', 'pronamic_events_init');
+add_action( 'init', 'pronamic_events_init' );
 
 ////////////////////////////////////////////////////////////
 
 /**
  * Meta boxes
  */
-add_action('add_meta_boxes', 'pronamic_events_add_dates_box');
-add_action('save_post', 'pronamic_events_save_postdata');
+add_action( 'add_meta_boxes', 'pronamic_events_add_dates_box' );
+add_action( 'save_post', 'pronamic_events_save_postdata' );
 
 /* Add metaboxes */
 function pronamic_events_add_dates_box() {
     add_meta_box( 
         'pronamic_events_dates',
-        __( 'Event Dates', 'pronamic_events'),
+        __( 'Event Dates', 'pronamic_events' ),
         'pronamic_events_dates_box',
         'pronamic_event' ,
         'side' ,
@@ -110,7 +143,7 @@ function pronamic_events_add_dates_box() {
 
     add_meta_box( 
         'pronamic_events_location',
-        __( 'Event Location', 'pronamic_events'),
+        __( 'Event Location', 'pronamic_events' ),
         'pronamic_events_location_box',
         'pronamic_event' ,
         'side' ,
@@ -145,28 +178,42 @@ function pronamic_events_dates_box($post) {
 		$end_date = $start_date;
 		$end_time = $start_time;
 	}
-	
+
+	wp_enqueue_script( 'jquery-ui-datepicker' );
+	wp_enqueue_script( 'jquery-ui-datepicker-nl', plugins_url( '/jquery-ui/languages/jquery.ui.datepicker-nl.js', __FILE__ ) );
+	wp_enqueue_style( 'jquery-ui-datepicker', plugins_url( '/jquery-ui/themes/base/jquery.ui.all.css', __FILE__ ) );
+
 	?>
 
 	<div>
 		<label for="pronamic_start_date"><?php _e( 'Start date', 'pronamic_events' ); ?></label> <br />
-		<input type="text" id="pronamic_start_date" name="pronamic_start_date" value="<?php echo $start_date; ?>" size="14" />
+		<input class="pronamic_date" type="text" id="pronamic_start_date" name="pronamic_start_date" value="<?php echo $start_date; ?>" size="14" />
 		<input type="text" id="pronamic_start_time" name="pronamic_start_time" value="<?php echo $start_time; ?>" size="6" placeholder="00:00" />
 	</div>
 	
 	<div>
 		<label for="pronamic_end_date"><?php _e( 'End date', 'pronamic_events' ); ?></label> <br />
-		<input type="text" id="pronamic_end_date" name="pronamic_end_date" value="<?php echo $end_date; ?>" size="14"  />
+		<input class="pronamic_date" type="text" id="pronamic_end_date" name="pronamic_end_date" value="<?php echo $end_date; ?>" size="14"  />
 		<input type="text" id="pronamic_end_time" name="pronamic_end_time" value="<?php echo $end_time; ?>" size="6" placeholder="00:00" />
 	</div>
+
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			var field = $('.pronamic_date');
 	
+			field.datepicker({
+				dateFormat: 'dd-mm-yy'
+			});
+		});
+	</script>
+
 	<?php
 }
 
-function pronamic_events_location_box($post) {
+function pronamic_events_location_box( $post ) {
 	global $post;
 
-	wp_nonce_field( plugin_basename(__FILE__), 'pronamic_events_nonce' );
+	wp_nonce_field( plugin_basename( __FILE__ ), 'pronamic_events_nonce' );
 	
 	?>
 
@@ -194,8 +241,8 @@ function pronamic_events_save_postdata($post_id) {
 		return;
 		
 	// Define timestamps
-	$start_timestamp = strtotime($_POST['pronamic_start_date'] . ' ' . $_POST['pronamic_start_time']);
-	$end_timestamp = strtotime($_POST['pronamic_end_date'] . ' ' . $_POST['pronamic_end_time']);
+	$start_timestamp = strtotime( $_POST['pronamic_start_date'] . ' ' . $_POST['pronamic_start_time'] );
+	$end_timestamp = strtotime( $_POST['pronamic_end_date'] . ' ' . $_POST['pronamic_end_time'] );
 	
 	// Save data
 	update_post_meta( $post->ID, '_pronamic_start_date', $start_timestamp );
@@ -211,11 +258,11 @@ function pronamic_events_save_postdata($post_id) {
 function pronamic_events_query($query) {
 	global $wp_the_query;
 
-	if( $query->is_main_query() && !is_admin() && $query->is_post_type_archive('pronamic_event') ) {
+	if( $query->is_main_query() && !is_admin() && $query->is_post_type_archive( 'pronamic_event' ) ) {
 		$meta_query_extra = array(
 			array(
 				'key' => '_pronamic_end_date' ,
-				'value' => strtotime('-1 day') ,
+				'value' => strtotime( '-1 day' ) ,
 				'compare' => '>'
 			)
 		);
@@ -252,8 +299,8 @@ function pronamic_get_the_start_date($format = null) {
 /**
  * Echo formatted start date
  */
-function pronamic_the_start_date($format = null) {
-	echo pronamic_get_the_start_date($format);
+function pronamic_the_start_date( $format = null ) {
+	echo pronamic_get_the_start_date( $format );
 }
 
 /**
