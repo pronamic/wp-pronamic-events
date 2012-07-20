@@ -4,7 +4,7 @@ Tags: pronamic, events, agenda
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-events&source=wp-plugin-readme-txt
 Requires at least: 3.0
 Tested up to: 3.4.1
-Stable tag: 0.1
+Stable tag: 0.1.1
 
 Pronamic Events is a basic plugin to add some Events functionality.
 
@@ -34,10 +34,13 @@ Upload the Pronamic Events folder to your wp-content/plugins folder.
 
 == Screenshots ==
 
-...
+1. Add new event
 
 
 == Changelog ==
+
+= 0.1.1 =
+*	Added datepicker
 
 = 0.1 =
 *	Initial release
@@ -47,6 +50,7 @@ Upload the Pronamic Events folder to your wp-content/plugins folder.
 
 *	[Pronamic](http://pronamic.eu/)
 *	[Remco Tolsma](http://remcotolsma.nl/)
+*	[Karel-Jan Tolsma](http://kareljantolsma.nl/)
 *	[Markdown's Syntax Documentation][markdown syntax]
 
 [markdown syntax]: http://daringfireball.net/projects/markdown/syntax
