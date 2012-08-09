@@ -260,7 +260,7 @@ add_action( 'save_post', 'pronamic_events_save_postdata' );
 function pronamic_events_query($query) {
 	global $wp_the_query;
 
-	if( $query->is_main_query() && !is_admin() && $query->is_post_type_archive( 'pronamic_event' ) ) {
+	if( ! is_admin() && $query->get( 'post_type' ) == 'pronamic_event' ) {
 		$meta_query_extra = array(
 			array(
 				'key' => '_pronamic_end_date' ,
