@@ -65,13 +65,18 @@ add_filter( 'manage_pronamic_event_posts_custom_column', 'pronamic_events_add_ro
 ////////////////////////////////////////////////////////////
 
 /**
- * Register post type
+ * Pronamic events initialize
  */
 function pronamic_events_init() {
+	// Text domain
 	$relPath = dirname( plugin_basename( __FILE__ ) ) . '/languages/';
 
 	load_plugin_textdomain( 'pronamic_events', false, $relPath );
 
+	// Includes
+	require_once 'pronamic-events-template.php';
+
+	// Post type
 	register_post_type( 'pronamic_event', array( 
 		'labels' => array(
 			'name' => _x( 'Events', 'post type general name', 'pronamic_events' ) , 
@@ -100,6 +105,7 @@ function pronamic_events_init() {
 		'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' )
 	));
 
+	// Taxonomy
 	register_taxonomy( 'pronamic_event_category', 'pronamic_event' , 
 		array( 
 			'hierarchical' => true , 
@@ -280,76 +286,6 @@ function pronamic_events_query($query) {
 }
 
 add_action( 'parse_query', 'pronamic_events_query' );
-
-////////////////////////////////////////////////////////////
-
-/**
- * Return formatted start date
- */
-function pronamic_get_the_start_date($format = null) {
-	global $post;
-
-	if( $format == null ) {
-		$format = get_option( 'date_format' );
-	}
-
-	$start_date = get_post_meta( $post->ID, '_pronamic_start_date', true );
-
-	return date_i18n( $format, $start_date );
-}
-
-/**
- * Echo formatted start date
- */
-function pronamic_the_start_date( $format = null ) {
-	echo pronamic_get_the_start_date( $format );
-}
-
-/**
- * Conditional tag for start date
- */
-function pronamic_has_start_date() {
-	global $post;
-
-	$start_date = get_post_meta( $post->ID, '_pronamic_start_date', true );
-
-	return ! empty( $start_date );
-}
-
-////////////////////////////////////////////////////////////
-
-/**
- * Return formatted end date
- */
-function pronamic_get_the_end_date($format = null) {
-	global $post;
-
-	if( $format == null ) {
-		$format = get_option( 'date_format' );
-	}
-
-	$end_date = get_post_meta( $post->ID, '_pronamic_end_date', true );
-
-	return date_i18n( $format, $end_date );
-}
-
-/**
- * Echo formatted end date
- */
-function pronamic_the_end_date($format = null) {
-	echo pronamic_get_the_end_date( $format );
-}
-
-/**
- * Conditional tag for end date
- */
-function pronamic_has_end_date() {
-	global $post;
-
-	$end_date = get_post_meta( $post->ID, '_pronamic_end_date', true );
-
-	return ! empty( $end_date );
-}
 
 ////////////////////////////////////////////////////////////
 
