@@ -38,6 +38,7 @@ function pronamic_events_add_columns( $column ) {
  
     return $column;
 }
+
 add_filter( 'manage_pronamic_event_posts_columns', 'pronamic_events_add_columns' );
 
 /**
@@ -46,12 +47,13 @@ add_filter( 'manage_pronamic_event_posts_columns', 'pronamic_events_add_columns'
 function pronamic_events_add_rows( $column_name, $post_id ) {
     switch ( $column_name ) {
         case 'start_date' :
-
             echo date( 'd-m-Y', get_post_meta( $post_id, '_pronamic_start_date', true ) );
+
             break;
  
         case 'end_date' :
             echo date( 'd-m-Y', get_post_meta( $post_id, '_pronamic_end_date', true ) );
+
             break;
  
         default:
@@ -127,10 +129,6 @@ add_action( 'init', 'pronamic_events_init' );
 /**
  * Meta boxes
  */
-add_action( 'add_meta_boxes', 'pronamic_events_add_dates_box' );
-add_action( 'save_post', 'pronamic_events_save_postdata' );
-
-/* Add metaboxes */
 function pronamic_events_add_dates_box() {
     add_meta_box( 
         'pronamic_events_dates',
@@ -150,6 +148,8 @@ function pronamic_events_add_dates_box() {
         'high'
     );
 }
+
+add_action( 'add_meta_boxes', 'pronamic_events_add_dates_box' );
 
 /**
  * Print metaboxes
@@ -249,6 +249,8 @@ function pronamic_events_save_postdata($post_id) {
 	update_post_meta( $post->ID, '_pronamic_end_date', $end_timestamp );
 	update_post_meta( $post->ID, '_pronamic_location', $_POST['pronamic_location'] );
 }
+
+add_action( 'save_post', 'pronamic_events_save_postdata' );
 
 ////////////////////////////////////////////////////////////
 
