@@ -33,8 +33,8 @@ register_activation_hook( __FILE__, 'pronamic_events_rewrite_flush' );
  * Add admin columns
  */
 function pronamic_events_add_columns( $column ) {
-    $column['start_date'] = __( 'Start date', 'pronamic_events' );
-    $column['end_date'] = __( 'End date', 'pronamic_events' );
+    $column['pronamic_start_date'] = __( 'Start date', 'pronamic_events' );
+    $column['pronamic_end_date'] = __( 'End date', 'pronamic_events' );
  
     return $column;
 }
@@ -46,12 +46,12 @@ add_filter( 'manage_pronamic_event_posts_columns', 'pronamic_events_add_columns'
  */
 function pronamic_events_add_rows( $column_name, $post_id ) {
     switch ( $column_name ) {
-        case 'start_date' :
+        case 'pronamic_start_date' :
             echo date( 'd-m-Y', get_post_meta( $post_id, '_pronamic_start_date', true ) );
 
             break;
  
-        case 'end_date' :
+        case 'pronamic_end_date' :
             echo date( 'd-m-Y', get_post_meta( $post_id, '_pronamic_end_date', true ) );
 
             break;
