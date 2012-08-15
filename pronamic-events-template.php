@@ -67,3 +67,34 @@ function pronamic_has_end_date() {
 
 	return ! empty( $end_date );
 }
+
+////////////////////////////////////////////////////////////
+
+/**
+ * Get the location of the post
+ * 
+ * @return string
+ */
+function pronamic_get_the_location() {
+	global $post;
+
+	return get_post_meta( $post->ID, '_pronamic_location', true );
+}
+
+/**
+ * Echo the location of the post
+ */
+function pronamic_the_location() {
+	echo pronamic_get_the_location();
+}
+
+/**
+ * Conditional tag for location
+ * 
+ * @return boolean true if post has location, false otherwise
+ */
+function pronamic_has_location() {
+	$location = pronamic_get_the_location();
+
+	return ! empty( $location );
+}
