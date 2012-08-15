@@ -13,6 +13,27 @@ Pronamic Events is a basic plugin to add some Events functionality.
 
 This plugin uses custom post types to add some Events functionality. Pronamic Events allows you to add, edit and remove events.
 
+= Template Functions =
+
+*	Start Date
+	*	pronamic_get_the_start_date( $format = null )
+	*	pronamic_the_start_date( $format = null )
+	*	pronamic_has_start_date()
+*	End Date
+	*	pronamic_get_the_end_date( $format = null )
+	*	pronamic_the_end_date( $format = null )
+	*	pronamic_has_end_date()
+*	Location
+	*	pronamic_get_the_location()
+	*	pronamic_the_location()
+	*	pronamic_has_location()
+
+= Meta Keys =
+
+*	_pronamic_start_date
+*	_pronamic_end_date
+*	_pronamic_location
+
 = Gravity Forms =
 
 With [Gravity Forms](http://www.gravityforms.com/) and the [Gravity Forms + Custom Post Types](http://wordpress.org/extend/plugins/gravity-forms-custom-post-types/)
