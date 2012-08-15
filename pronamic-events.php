@@ -160,24 +160,22 @@ add_action( 'add_meta_boxes', 'pronamic_events_add_dates_box' );
 /**
  * Print metaboxes
  */
-function pronamic_events_dates_box($post) {
-	global $post;
-
+function pronamic_events_dates_box( $post ) {
 	wp_nonce_field( plugin_basename( __FILE__ ), 'pronamic_events_nonce' );
 	
 	$start_timestamp = get_post_meta( $post->ID, '_pronamic_start_date', true );
 
-	if( ! empty ( $start_timestamp ) ) {
+	if( is_numeric( $start_timestamp ) ) {
 		$start_date = date( 'd-m-Y', $start_timestamp );
 		$start_time = date( 'H:i', $start_timestamp );
 	} else {
 		$start_date = '';
 		$start_time = '';
 	}
-	
+
 	$end_timestamp = get_post_meta( $post->ID, '_pronamic_end_date', true );
 
-	if( ! empty( $end_timestamp ) ) {
+	if( is_numeric( $end_timestamp ) ) {
 		$end_date = date( 'd-m-Y', $end_timestamp );
 		$end_time = date( 'H:i', $end_timestamp );
 	} else {
@@ -231,7 +229,7 @@ function pronamic_events_location_box( $post ) {
 /**
  * Save metaboxes
  */
-function pronamic_events_save_post($post_id) {
+function pronamic_events_save_post( $post_id ) {
 	global $post;
 
 	if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
@@ -243,17 +241,28 @@ function pronamic_events_save_post($post_id) {
 	if( ! wp_verify_nonce( $_POST['pronamic_events_nonce'], plugin_basename( __FILE__ ) ) )
 		return;
 
-	if( ! current_user_can( 'edit_post', $post->ID ) )
+	if( ! current_user_can( 'edit_post', $post_id ) )
 		return;
 		
 	// Define timestamps
-	$start_timestamp = strtotime( $_POST['pronamic_start_date'] . ' ' . $_POST['pronamic_start_time'] );
-	$end_timestamp = strtotime( $_POST['pronamic_end_date'] . ' ' . $_POST['pronamic_end_time'] );
+	$start_date = filter_input( INPUT_POST, 'pronamic_start_date', FILTER_SANITIZE_STRING );
+	$start_time = filter_input( INPUT_POST, 'pronamic_start_time', FILTER_SANITIZE_STRING );
+
+	$end_date =  filter_input( INPUT_POST, 'pronamic_end_date', FILTER_SANITIZE_STRING );
+	$end_time =  filter_input( INPUT_POST, 'pronamic_end_time', FILTER_SANITIZE_STRING );
+	
+	$location = filter_input( INPUT_POST, 'pronamic_location', FILTER_SANITIZE_STRING );
+
+	$end_date = empty( $end_date ) ? $start_date : $end_date;
+	$end_time = empty( $end_time ) ? $start_time : $end_time;
+
+	$start_timestamp = strtotime( $start_date . ' ' . $start_time );
+	$end_timestamp = strtotime( $end_date . ' ' . $end_time );
 	
 	// Save data
-	update_post_meta( $post->ID, '_pronamic_start_date', $start_timestamp );
-	update_post_meta( $post->ID, '_pronamic_end_date', $end_timestamp );
-	update_post_meta( $post->ID, '_pronamic_location', $_POST['pronamic_location'] );
+	update_post_meta( $post_id, '_pronamic_start_date', $start_timestamp );
+	update_post_meta( $post_id, '_pronamic_end_date', $end_timestamp );
+	update_post_meta( $post_id, '_pronamic_location', $location );
 }
 
 add_action( 'save_post', 'pronamic_events_save_post' );
