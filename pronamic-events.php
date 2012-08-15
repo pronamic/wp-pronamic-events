@@ -47,12 +47,12 @@ add_filter( 'manage_pronamic_event_posts_columns', 'pronamic_events_add_columns'
 function pronamic_events_add_rows( $column_name, $post_id ) {
     switch ( $column_name ) {
         case 'pronamic_start_date' :
-            echo date( 'd-m-Y', get_post_meta( $post_id, '_pronamic_start_date', true ) );
+        	pronamic_the_start_date( 'd-m-Y' );
 
             break;
  
         case 'pronamic_end_date' :
-            echo date( 'd-m-Y', get_post_meta( $post_id, '_pronamic_end_date', true ) );
+            pronamic_the_end_date( 'd-m-Y' );
 
             break;
  
