@@ -231,7 +231,7 @@ function pronamic_events_location_box( $post ) {
 /**
  * Save metaboxes
  */
-function pronamic_events_save_postdata($post_id) {
+function pronamic_events_save_post($post_id) {
 	global $post;
 
 	if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
@@ -256,7 +256,7 @@ function pronamic_events_save_postdata($post_id) {
 	update_post_meta( $post->ID, '_pronamic_location', $_POST['pronamic_location'] );
 }
 
-add_action( 'save_post', 'pronamic_events_save_postdata' );
+add_action( 'save_post', 'pronamic_events_save_post' );
 
 ////////////////////////////////////////////////////////////
 
