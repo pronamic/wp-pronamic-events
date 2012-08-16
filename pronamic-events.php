@@ -273,8 +273,6 @@ add_action( 'save_post', 'pronamic_events_save_post' );
  * Customize query for the archive page
  */
 function pronamic_events_query($query) {
-	global $wp_the_query;
-
 	if( ! is_admin() && $query->get( 'post_type' ) == 'pronamic_event' ) {
 		$meta_query_extra = array(
 			array(
