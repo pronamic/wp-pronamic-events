@@ -278,7 +278,7 @@ add_action( 'save_post', 'pronamic_events_save_post' );
 function is_pronamic_events_query( WP_Query $query ) {
 	$is_pronamic_events = false;
 
-	if( $query->is_archive() ) {
+	if ( $query->is_archive() ) {
 		$object = $query->get_queried_object();
 
 		$is_pronamic_events = isset( $object, $object->name ) && $object->name == 'pronamic_event';
@@ -291,7 +291,7 @@ function is_pronamic_events_query( WP_Query $query ) {
  * Customize query for the archive page
  */
 function pronamic_events_query( $query ) {
-	if( ! is_admin() && is_pronamic_events_query( $query ) ) {
+	if ( ! is_admin() && is_pronamic_events_query( $query ) ) {
 		$meta_query_extra = array(
 			array(
 				'key' => '_pronamic_end_date' ,
