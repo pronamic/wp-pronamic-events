@@ -61,7 +61,7 @@ function pronamic_the_end_date( $format = null, $post_id = null ) {
 function pronamic_has_end_date( $post_id = null ) {
 	$post_id = ( null === $post_id ) ? get_the_ID() : $post_id;
 
-	$end_date = get_post_meta( $post->ID, '_pronamic_end_date', true );
+	$end_date = get_post_meta( $post_id, '_pronamic_end_date', true );
 
 	return ! empty( $end_date );
 }
