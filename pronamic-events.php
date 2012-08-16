@@ -272,8 +272,16 @@ add_action( 'save_post', 'pronamic_events_save_post' );
 /**
  * Customize query for the archive page
  */
-function pronamic_events_query($query) {
-	if( ! is_admin() && $query->get( 'post_type' ) == 'pronamic_event' ) {
+function pronamic_events_query( $query ) {
+	$is_pronamic_events = (
+		$query->is_post_type_archive( 'pronamic_event' )
+			||
+		$query->is_tax( 'pronamic_event_category' )
+			||
+		$query->get( 'post_type') == 'pronamic_event'
+	);
+
+	if( ! is_admin() && $is_pronamic_events ) {
 		$meta_query_extra = array(
 			array(
 				'key' => '_pronamic_end_date' ,
