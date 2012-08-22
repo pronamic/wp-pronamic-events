@@ -135,18 +135,9 @@ add_action( 'init', 'pronamic_events_init' );
  */
 function pronamic_events_add_dates_box() {
     add_meta_box( 
-        'pronamic_events_dates',
-        __( 'Event Dates', 'pronamic_events' ),
-        'pronamic_events_dates_box',
-        'pronamic_event' ,
-        'side' ,
-        'high'
-    );
-
-    add_meta_box( 
-        'pronamic_events_location',
-        __( 'Event Location', 'pronamic_events' ),
-        'pronamic_events_location_box',
+        'pronamic_event_details',
+        __( 'Event Details', 'pronamic_events' ),
+        'pronamic_event_details_meta_box',
         'pronamic_event' ,
         'side' ,
         'high'
@@ -158,7 +149,7 @@ add_action( 'add_meta_boxes', 'pronamic_events_add_dates_box' );
 /**
  * Print metaboxes
  */
-function pronamic_events_dates_box( $post ) {
+function pronamic_event_details_meta_box( $post ) {
 	wp_nonce_field( plugin_basename( __FILE__ ), 'pronamic_events_nonce' );
 	
 	$start_timestamp = get_post_meta( $post->ID, '_pronamic_start_date', true );
@@ -209,18 +200,11 @@ function pronamic_events_dates_box( $post ) {
 		});
 	</script>
 
-	<?php
-}
+	<div>
+		<label for="pronamic_location"><?php _e( 'Location', 'pronamic_events' ); ?></label> <br />
+		<input type="text" id="pronamic_location" name="pronamic_location" value="<?php echo get_post_meta( $post->ID, '_pronamic_location', true ); ?>" size="25" />
+	</div>
 
-function pronamic_events_location_box( $post ) {
-	global $post;
-
-	wp_nonce_field( plugin_basename( __FILE__ ), 'pronamic_events_nonce' );
-	
-	?>
-
-	<input type="text" id="pronamic_location" name="pronamic_location" value="<?php echo get_post_meta( $post->ID, '_pronamic_location', true ); ?>" size="25" />
-	
 	<?php
 }
 
