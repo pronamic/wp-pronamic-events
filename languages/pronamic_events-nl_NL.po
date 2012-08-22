@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Events\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-31 10:39+0100\n"
-"PO-Revision-Date: 2012-05-31 10:41+0100\n"
-"Last-Translator: K.Tolsma <kareljan@pronamic.nl>\n"
+"POT-Creation-Date: 2012-08-22 16:53+0100\n"
+"PO-Revision-Date: 2012-08-22 16:53+0100\n"
+"Last-Translator: Remco Tolsma <remco@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,118 +16,130 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: pronamic-events.php:35
+#: pronamic-events.php:36
+msgid "Start date"
+msgstr "Startdatum"
+
+#: pronamic-events.php:37
+msgid "End date"
+msgstr "Einddatum"
+
+#: pronamic-events.php:82
 msgctxt "post type general name"
 msgid "Events"
 msgstr "Evenementen"
 
-#: pronamic-events.php:36
+#: pronamic-events.php:83
 msgctxt "post type singular name"
 msgid "Event"
 msgstr "Evenement"
 
-#: pronamic-events.php:37
+#: pronamic-events.php:84
 msgctxt "event"
 msgid "Add New"
-msgstr "Nieuwe toevoegen"
+msgstr "Nieuw evenement"
 
-#: pronamic-events.php:38
+#: pronamic-events.php:85
 msgid "Add New Event"
 msgstr "Nieuw evenement toevoegen"
 
-#: pronamic-events.php:39
+#: pronamic-events.php:86
 msgid "Edit Event"
 msgstr "Wijzig evenement"
 
-#: pronamic-events.php:40
+#: pronamic-events.php:87
 msgid "New Event"
 msgstr "Nieuw evenement"
 
-#: pronamic-events.php:41
+#: pronamic-events.php:88
 msgid "View Event"
 msgstr "Bekijk evenement"
 
-#: pronamic-events.php:42
+#: pronamic-events.php:89
 msgid "Search Events"
 msgstr "Doorzoek evenementen"
 
-#: pronamic-events.php:43
+#: pronamic-events.php:90
 msgid "No events found"
 msgstr "Geen evenementen gevonden"
 
-#: pronamic-events.php:44
+#: pronamic-events.php:91
 msgid "No events found in Trash"
 msgstr "Geen evenementen gevonden in de prullenbak"
 
-#: pronamic-events.php:45
+#: pronamic-events.php:92
 msgid "Parent Event:"
 msgstr "Bovenliggende evenement:"
 
-#: pronamic-events.php:46
+#: pronamic-events.php:93
 msgid "Agenda"
 msgstr "Agenda"
 
-#: pronamic-events.php:65
+#: pronamic-events.php:112
 msgctxt "class general name"
 msgid "Event categories"
 msgstr "Agenda categorieën"
 
-#: pronamic-events.php:66
+#: pronamic-events.php:113
 msgctxt "class singular name"
 msgid "Event category"
 msgstr "Agenda categorieën"
 
-#: pronamic-events.php:67
+#: pronamic-events.php:114
 msgid "Search Event categories"
 msgstr "Doorzoek categorieën"
 
-#: pronamic-events.php:68
+#: pronamic-events.php:115
 msgid "All Event categories"
 msgstr "Bekijk alle categorieën"
 
-#: pronamic-events.php:69
+#: pronamic-events.php:116
 msgid "Parent Event category"
 msgstr "Bovenliggende categorie:"
 
-#: pronamic-events.php:70
+#: pronamic-events.php:117
 msgid "Parent Event category:"
 msgstr "Bovenliggende categorie:"
 
-#: pronamic-events.php:71
+#: pronamic-events.php:118
 msgid "Edit Event category"
 msgstr "Wijzig categorie"
 
-#: pronamic-events.php:72
+#: pronamic-events.php:119
 msgid "Update Event category"
 msgstr "Update categorie"
 
-#: pronamic-events.php:73
+#: pronamic-events.php:120
 msgid "Add New Event category"
 msgstr "Nieuwe categorie toevoegen"
 
-#: pronamic-events.php:74
+#: pronamic-events.php:121
 msgid "New Event category Name"
 msgstr "Nieuwe categorie naam"
 
-#: pronamic-events.php:75
+#: pronamic-events.php:122
 msgid "Event categories"
 msgstr "Agenda categorieën"
 
-#: pronamic-events.php:96
-msgid "Event Dates"
-msgstr "Evenement data"
+#: pronamic-events.php:148
+msgid "Event Details"
+msgstr "Evenement details"
 
-#: pronamic-events.php:105
-msgid "Event Location"
-msgstr "Evenement locatie"
+#: pronamic-events.php:192
+msgid "Start Date:"
+msgstr "Startdatum:"
 
-#: pronamic-events.php:134
-msgid "Start date"
-msgstr "Startdatum"
+#: pronamic-events.php:198
+msgid "End Date:"
+msgstr "Einddatum:"
 
-#: pronamic-events.php:139
-msgid "End date"
-msgstr "Einddatum"
+#: pronamic-events.php:216
+msgid "Location:"
+msgstr "Locatie:"
+
+#: pronamic-events.php:223
+msgid "Website:"
+msgstr "Website:"
 
 #~ msgid "Events"
 #~ msgstr "Agenda"
