@@ -124,9 +124,18 @@ function pronamic_events_init() {
 		'show_ui'      => true,
 		'query_var'    => true
 	) );
+
+	// Actions
+	add_action( 'admin_enqueue_scripts', 'pronamic_events_admin_enqueue_scripts' );
 }
 
 add_action( 'init', 'pronamic_events_init' );
+
+////////////////////////////////////////////////////////////
+
+function pronamic_events_admin_enqueue_scripts( $hook ) {
+	wp_enqueue_style( 'pronamic-events', plugins_url( '/admin/css/pronamic-events.css', __FILE__ ) );
+}
 
 ////////////////////////////////////////////////////////////
 
@@ -135,7 +144,7 @@ add_action( 'init', 'pronamic_events_init' );
  */
 function pronamic_events_add_dates_box() {
     add_meta_box( 
-        'pronamic_event_details',
+        'pronamic_event_meta_box',
         __( 'Event Details', 'pronamic_events' ),
         'pronamic_event_details_meta_box',
         'pronamic_event' ,
@@ -178,31 +187,42 @@ function pronamic_event_details_meta_box( $post ) {
 
 	?>
 
-	<div>
-		<label for="pronamic_start_date"><?php _e( 'Start Date', 'pronamic_events' ); ?></label> <br />
-		<input class="pronamic_date" type="text" id="pronamic_start_date" name="pronamic_start_date" value="<?php echo $start_date; ?>" size="14" />
-		<input type="text" id="pronamic_start_time" name="pronamic_start_time" value="<?php echo $start_time; ?>" size="6" placeholder="00:00" />
-	</div>
-	
-	<div>
-		<label for="pronamic_end_date"><?php _e( 'End Date', 'pronamic_events' ); ?></label> <br />
-		<input class="pronamic_date" type="text" id="pronamic_end_date" name="pronamic_end_date" value="<?php echo $end_date; ?>" size="14"  />
-		<input type="text" id="pronamic_end_time" name="pronamic_end_time" value="<?php echo $end_time; ?>" size="6" placeholder="00:00" />
-	</div>
+	<div class="pronamic-section pronamic-section-first">
+		<div>
+			<label for="pronamic_start_date"><?php _e( 'Start Date:', 'pronamic_events' ); ?></label> <br />
+			<input class="pronamic_date" type="text" id="pronamic_start_date" name="pronamic_start_date" value="<?php echo $start_date; ?>" size="14" />
+			<input type="text" id="pronamic_start_time" name="pronamic_start_time" value="<?php echo $start_time; ?>" size="6" placeholder="00:00" />
+		</div>
 
-	<script type="text/javascript">
-		jQuery(document).ready(function($) {
-			var field = $('.pronamic_date');
+		<div>
+			<label for="pronamic_end_date"><?php _e( 'End Date:', 'pronamic_events' ); ?></label> <br />
+			<input class="pronamic_date" type="text" id="pronamic_end_date" name="pronamic_end_date" value="<?php echo $end_date; ?>" size="14"  />
+			<input type="text" id="pronamic_end_time" name="pronamic_end_time" value="<?php echo $end_time; ?>" size="6" placeholder="00:00" />
+		</div>
 	
-			field.datepicker({
-				dateFormat: 'dd-mm-yy'
+		<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				var field = $('.pronamic_date');
+		
+				field.datepicker({
+					dateFormat: 'dd-mm-yy'
+				});
 			});
-		});
-	</script>
+		</script>
+	</div>
 
-	<div>
-		<label for="pronamic_location"><?php _e( 'Location', 'pronamic_events' ); ?></label> <br />
-		<input type="text" id="pronamic_location" name="pronamic_location" value="<?php echo get_post_meta( $post->ID, '_pronamic_location', true ); ?>" size="25" />
+	<div class="pronamic-section">
+		<div>
+			<label for="pronamic_location"><?php _e( 'Location:', 'pronamic_events' ); ?></label> <br />
+			<input type="text" id="pronamic_location" name="pronamic_location" value="<?php echo get_post_meta( $post->ID, '_pronamic_location', true ); ?>" size="25" />
+		</div>
+	</div>
+
+	<div class="pronamic-section pronamic-section-last">
+		<div>
+			<label for="pronamic_event_url"><?php _e( 'Website:', 'pronamic_events' ); ?></label> <br />
+			<input type="url" id="pronamic_event_url" name="pronamic_event_url" value="<?php echo get_post_meta( $post->ID, '_pronamic_event_url', true ); ?>" size="25" />
+		</div>
 	</div>
 
 	<?php
@@ -234,6 +254,7 @@ function pronamic_events_save_post( $post_id ) {
 	$end_time =  filter_input( INPUT_POST, 'pronamic_end_time', FILTER_SANITIZE_STRING );
 	
 	$location = filter_input( INPUT_POST, 'pronamic_location', FILTER_SANITIZE_STRING );
+	$url = filter_input( INPUT_POST, 'pronamic_event_url', FILTER_SANITIZE_STRING );
 
 	$end_date = empty( $end_date ) ? $start_date : $end_date;
 	$end_time = empty( $end_time ) ? $start_time : $end_time;
@@ -245,6 +266,7 @@ function pronamic_events_save_post( $post_id ) {
 	update_post_meta( $post_id, '_pronamic_start_date', $start_timestamp );
 	update_post_meta( $post_id, '_pronamic_end_date', $end_timestamp );
 	update_post_meta( $post_id, '_pronamic_location', $location );
+	update_post_meta( $post_id, '_pronamic_event_url', $url );
 }
 
 add_action( 'save_post', 'pronamic_events_save_post' );
