@@ -179,13 +179,13 @@ function pronamic_event_details_meta_box( $post ) {
 	?>
 
 	<div>
-		<label for="pronamic_start_date"><?php _e( 'Start date', 'pronamic_events' ); ?></label> <br />
+		<label for="pronamic_start_date"><?php _e( 'Start Date', 'pronamic_events' ); ?></label> <br />
 		<input class="pronamic_date" type="text" id="pronamic_start_date" name="pronamic_start_date" value="<?php echo $start_date; ?>" size="14" />
 		<input type="text" id="pronamic_start_time" name="pronamic_start_time" value="<?php echo $start_time; ?>" size="6" placeholder="00:00" />
 	</div>
 	
 	<div>
-		<label for="pronamic_end_date"><?php _e( 'End date', 'pronamic_events' ); ?></label> <br />
+		<label for="pronamic_end_date"><?php _e( 'End Date', 'pronamic_events' ); ?></label> <br />
 		<input class="pronamic_date" type="text" id="pronamic_end_date" name="pronamic_end_date" value="<?php echo $end_date; ?>" size="14"  />
 		<input type="text" id="pronamic_end_time" name="pronamic_end_time" value="<?php echo $end_time; ?>" size="6" placeholder="00:00" />
 	</div>
