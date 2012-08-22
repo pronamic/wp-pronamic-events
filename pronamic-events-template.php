@@ -96,3 +96,34 @@ function pronamic_has_location( $post_id = null ) {
 
 	return ! empty( $location );
 }
+
+////////////////////////////////////////////////////////////
+
+/**
+ * Get the URL of the event
+ * 
+ * @return string
+ */
+function pronamic_event_get_the_url( $post_id = null ) {
+	$post_id = ( null === $post_id ) ? get_the_ID() : $post_id;
+
+	return get_post_meta( $post_id, '_pronamic_event_url', true );
+}
+
+/**
+ * Echo the URL of the event
+ */
+function pronamic_event_the_url( $post_id = null ) {
+	echo pronamic_event_get_the_url( $post_id );
+}
+
+/**
+ * Conditional tag for Pronamic event
+ * 
+ * @return boolean true if post has URL, false otherwise
+ */
+function pronamic_event_has_url( $post_id = null ) {
+	$url = pronamic_event_get_the_url( $post_id );
+
+	return ! empty( $url );
+}
