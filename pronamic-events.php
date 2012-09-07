@@ -14,6 +14,8 @@ Text Domain: pronamic_events
 Domain Path: /languages/
 
 License: GPL
+
+GitHub URI: https://github.com/pronamic/wp-pronamic-events
 */
 
 /**
