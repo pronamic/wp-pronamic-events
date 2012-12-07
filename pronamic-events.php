@@ -36,7 +36,7 @@ register_activation_hook( __FILE__, 'pronamic_events_rewrite_flush' );
  */
 function pronamic_events_add_columns( $column ) {
     $column['pronamic_start_date'] = __( 'Start Date', 'pronamic_events' );
-    $column['pronamic_end_date'] = __( 'End Date', 'pronamic_events' );
+    $column['pronamic_end_date']   = __( 'End Date', 'pronamic_events' );
  
     return $column;
 }
@@ -306,9 +306,10 @@ function pronamic_events_query( $query ) {
 	if ( ! is_admin() && is_pronamic_events_query( $query ) ) {
 		$meta_query_extra = array(
 			array(
-				'key' => '_pronamic_end_date' ,
-				'value' => strtotime( '-1 day' ) ,
-				'compare' => '>'
+				'key'     => '_pronamic_end_date' ,
+				'value'   => strtotime( '-1 day' ) ,
+				'compare' => '>', 
+				'type'    => 'NUMERIC'
 			)
 		);
 
