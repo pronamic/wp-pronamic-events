@@ -41,7 +41,7 @@ function pronamic_events_add_columns( $column ) {
     return $column;
 }
 
-add_filter( 'manage_pronamic_event_posts_columns', 'pronamic_events_add_columns' );
+add_filter( 'manage_edit-pronamic_event_columns', 'pronamic_events_add_columns' );
 
 /**
  * Add admin rows
@@ -61,8 +61,38 @@ function pronamic_events_add_rows( $column_name, $post_id ) {
         default:
     }
 }
- 
+
 add_filter( 'manage_pronamic_event_posts_custom_column', 'pronamic_events_add_rows', 10, 2 );
+
+function pronamic_events_add_columns_sortable( $columns ) {
+	$columns['pronamic_start_date'] = '_pronamic_start_date';
+	$columns['pronamic_end_date'] = '_pronamic_end_date';
+	
+	return $columns;
+}
+
+add_filter( 'manage_edit-pronamic_event_sortable_columns', 'pronamic_events_add_columns_sortable' );
+
+function pronamic_events_column_orderby( $vars ) {
+	
+	if ( isset( $vars['orderby'] ) && '_pronamic_start_date' == $vars['orderby'] ) {
+		$vars = array_merge( $vars, array(
+			'meta_key' => '_pronamic_start_date',
+			'orderby' => 'meta_value_num'
+		) );
+	}
+
+	if ( isset( $vars['orderby']) && '_pronamic_end_date' == $vars['orderby'] ) {
+		$vars = array_merge( $vars, array(
+			'meta_key' => '_pronamic_end_date',
+			'orderby' => 'meta_value_num'
+		) );
+	}
+
+	return $vars;
+}
+
+add_filter( 'request', 'pronamic_events_column_orderby' );
 
 ////////////////////////////////////////////////////////////
 
