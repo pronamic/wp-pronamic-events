@@ -66,7 +66,7 @@ add_filter( 'manage_pronamic_event_posts_custom_column', 'pronamic_events_add_ro
 
 function pronamic_events_add_columns_sortable( $columns ) {
 	$columns['pronamic_start_date'] = '_pronamic_start_date';
-	$columns['pronamic_end_date'] = '_pronamic_end_date';
+	$columns['pronamic_end_date']   = '_pronamic_end_date';
 	
 	return $columns;
 }
