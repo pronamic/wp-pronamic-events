@@ -108,20 +108,23 @@ function pronamic_events_init() {
 	require_once 'pronamic-events-template.php';
 
 	// Post type
+	$slug = get_option( 'pronamic_event_base' );
+	$slug = empty( $slug ) ? _x( 'events', 'slug', 'pronamic_events' ) : $slug;
+
 	register_post_type( 'pronamic_event', array( 
 		'labels'             => array(
-			'name'               => _x( 'Events', 'post type general name', 'pronamic_events' ) , 
-			'singular_name'      => _x( 'Event', 'post type singular name', 'pronamic_events' ) , 
-			'add_new'            => _x( 'Add New', 'event', 'pronamic_events' ) , 
-			'add_new_item'       => __( 'Add New Event', 'pronamic_events' ) , 
-			'edit_item'          => __( 'Edit Event', 'pronamic_events' ) , 
-			'new_item'           => __( 'New Event', 'pronamic_events' ) , 
-			'view_item'          => __( 'View Event', 'pronamic_events' ) , 
-			'search_items'       => __( 'Search Events', 'pronamic_events' ) , 
-			'not_found'          => __( 'No events found', 'pronamic_events' ) , 
-			'not_found_in_trash' => __( 'No events found in Trash', 'pronamic_events' ) , 
-			'parent_item_colon'  => __( 'Parent Event:', 'pronamic_events' ) ,
-			'menu_name'          => __( 'Agenda', 'pronamic_events' ) , 
+			'name'               => _x( 'Events', 'post type general name', 'pronamic_events' ),
+			'singular_name'      => _x( 'Event', 'post type singular name', 'pronamic_events' ),
+			'add_new'            => _x( 'Add New', 'event', 'pronamic_events' ),
+			'add_new_item'       => __( 'Add New Event', 'pronamic_events' ),
+			'edit_item'          => __( 'Edit Event', 'pronamic_events' ),
+			'new_item'           => __( 'New Event', 'pronamic_events' ),
+			'view_item'          => __( 'View Event', 'pronamic_events' ),
+			'search_items'       => __( 'Search Events', 'pronamic_events' ),
+			'not_found'          => __( 'No events found', 'pronamic_events' ),
+			'not_found_in_trash' => __( 'No events found in Trash', 'pronamic_events' ),
+			'parent_item_colon'  => __( 'Parent Event:', 'pronamic_events' ),
+			'menu_name'          => _x( 'Events', 'menu_name', 'pronamic_events' ),
 		) , 
 		'public'             => true , 
 		'publicly_queryable' => true, 
@@ -131,7 +134,10 @@ function pronamic_events_init() {
 		'rewrite'            => true, 
 		'capability_type'    => 'post', 
 		'has_archive'        => true, 
-		'rewrite'            => array( 'slug' => 'agenda' ),
+		'rewrite'            => array(
+			'slug'       => $slug,
+			'with_front' => false 
+		),
 		'menu_icon'          =>  plugins_url( '/admin/icons/event.png', __FILE__ ),
 		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' )
 	) );
@@ -353,6 +359,74 @@ function pronamic_events_query( $query ) {
 }
 
 add_action( 'parse_query', 'pronamic_events_query' );
+
+////////////////////////////////////////////////////////////
+
+/**
+ * Admin intialize
+ */
+function pronamic_events_admin_init() {
+	// Permalinks
+	// Un we can't add the permalink options to permalink settings page
+	// @see http://core.trac.wordpress.org/ticket/9296
+	add_settings_section(
+		'pronamic_events_permalinks', // id
+		__( 'Permalinks', 'pronamic_events' ), // title
+		'__return_false', // callback
+		'pronamic_events' // page
+	);
+
+	add_settings_field(
+		'pronamic_event_base', // id
+		__( 'Event base', 'pronamic_events' ), // title
+		'pronamic_events_input_text', // callback
+		'pronamic_events', // page
+		'pronamic_events_permalinks', // section
+		array( 'label_for' => 'pronamic_event_base' ) // args
+	);
+
+	// Register settings
+	register_setting( 'pronamic_events', 'pronamic_event_base' );
+}
+
+add_action( 'admin_init', 'pronamic_events_admin_init' );
+
+/**
+ * Admin menu
+ */
+function pronamic_events_admin_menu() {
+	add_submenu_page(
+		'edit.php?post_type=pronamic_event', // parent_slug
+		__( 'Events Settings', 'pronamic_events' ), // page_title
+		__( 'Settings', 'pronamic_events' ), // menu_title
+		'manage_options', // capability
+		'pronamic_events_settings', // menu_slug
+		'pronamic_events_page_settings' // function
+	);
+}
+
+add_action( 'admin_menu', 'pronamic_events_admin_menu' );
+
+function pronamic_events_page_settings() {
+	include 'admin/settings.php';
+}
+
+////////////////////////////////////////////////////////////
+
+/**
+ * Pronamic events input text
+ * 
+ * @param array $args
+ */
+function pronamic_events_input_text( $args ) {
+	printf(
+		'<input name="%s" id="%s" type="text" value="%s" class="%s" />',
+		esc_attr( $args['label_for'] ),
+		esc_attr( $args['label_for'] ),
+		esc_attr( get_option( $args['label_for'] ) ),
+		'regular-text code'
+	);
+}
 
 ////////////////////////////////////////////////////////////
 
