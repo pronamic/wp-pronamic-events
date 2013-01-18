@@ -118,7 +118,7 @@ function pronamic_events_init() {
 			'new_item'           => __( 'New Event', 'pronamic_events' ) , 
 			'view_item'          => __( 'View Event', 'pronamic_events' ) , 
 			'search_items'       => __( 'Search Events', 'pronamic_events' ) , 
-			'not_found'          =>  __( 'No events found', 'pronamic_events' ) , 
+			'not_found'          => __( 'No events found', 'pronamic_events' ) , 
 			'not_found_in_trash' => __( 'No events found in Trash', 'pronamic_events' ) , 
 			'parent_item_colon'  => __( 'Parent Event:', 'pronamic_events' ) ,
 			'menu_name'          => __( 'Agenda', 'pronamic_events' ) , 
