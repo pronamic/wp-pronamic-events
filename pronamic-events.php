@@ -74,7 +74,6 @@ function pronamic_events_add_columns_sortable( $columns ) {
 add_filter( 'manage_edit-pronamic_event_sortable_columns', 'pronamic_events_add_columns_sortable' );
 
 function pronamic_events_column_orderby( $vars ) {
-	
 	if ( isset( $vars['orderby'] ) && '_pronamic_start_date' == $vars['orderby'] ) {
 		$vars = array_merge( $vars, array(
 			'meta_key' => '_pronamic_start_date',
