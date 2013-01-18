@@ -142,7 +142,7 @@ function pronamic_events_init() {
 		'labels'       => array(
 			'name'              => _x( 'Event categories', 'class general name', 'pronamic_events' ), 
 			'singular_name'     => _x( 'Event category', 'class singular name', 'pronamic_events' ), 
-			'search_items'      =>  __( 'Search Event categories', 'pronamic_events' ), 
+			'search_items'      => __( 'Search Event categories', 'pronamic_events' ), 
 			'all_items'         => __( 'All Event categories', 'pronamic_events' ), 
 			'parent_item'       => __( 'Parent Event category', 'pronamic_events' ), 
 			'parent_item_colon' => __( 'Parent Event category:', 'pronamic_events' ), 
