@@ -77,14 +77,14 @@ function pronamic_events_column_orderby( $vars ) {
 	if ( isset( $vars['orderby'] ) && '_pronamic_start_date' == $vars['orderby'] ) {
 		$vars = array_merge( $vars, array(
 			'meta_key' => '_pronamic_start_date',
-			'orderby' => 'meta_value_num'
+			'orderby'  => 'meta_value_num'
 		) );
 	}
 
-	if ( isset( $vars['orderby']) && '_pronamic_end_date' == $vars['orderby'] ) {
+	if ( isset( $vars['orderby'] ) && '_pronamic_end_date' == $vars['orderby'] ) {
 		$vars = array_merge( $vars, array(
 			'meta_key' => '_pronamic_end_date',
-			'orderby' => 'meta_value_num'
+			'orderby'  => 'meta_value_num'
 		) );
 	}
 
