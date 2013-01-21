@@ -63,6 +63,8 @@ Upload the Pronamic Events folder to your wp-content/plugins folder.
 = 0.1.2 =
 *	Added template functions for the location
 *	Improved the documentation in the readme.txt file
+*	Added admin sortable columns for start and end date
+*	Added settings page for events base slug
 
 = 0.1.1 =
 *	Added datepicker
