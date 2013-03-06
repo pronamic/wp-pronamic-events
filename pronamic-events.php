@@ -174,8 +174,8 @@ class Pronamic_Events_Plugin {
 	 * @param array $columns
 	 */
 	public function manage_edit_sortable_columns( $columns ) {
-		$columns['pronamic_start_date'] = '_pronamic_start_date';
-		$columns['pronamic_end_date']   = '_pronamic_end_date';
+		$columns['pronamic_start_date'] = 'pronamic_start_date';
+		$columns['pronamic_end_date']   = 'pronamic_end_date';
 		
 		return $columns;
 	}
@@ -225,14 +225,14 @@ class Pronamic_Events_Plugin {
 	 * @return array
 	 */
 	function request( $request ) {
-		if ( isset( $request['orderby'] ) && '_pronamic_start_date' == $request['orderby'] ) {
+		if ( isset( $request['orderby'] ) && 'pronamic_start_date' == $request['orderby'] ) {
 			$request = array_merge( $request, array(
 				'meta_key' => '_pronamic_start_date',
 				'orderby'  => 'meta_value_num'
 			) );
 		}
 	
-		if ( isset( $request['orderby'] ) && '_pronamic_end_date' == $request['orderby'] ) {
+		if ( isset( $request['orderby'] ) && 'pronamic_end_date' == $request['orderby'] ) {
 			$request = array_merge( $request, array(
 				'meta_key' => '_pronamic_end_date',
 				'orderby'  => 'meta_value_num'
