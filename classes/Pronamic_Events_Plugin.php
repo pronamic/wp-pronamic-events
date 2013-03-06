@@ -31,6 +31,11 @@ class Pronamic_Events_Plugin {
 
 		register_activation_hook( $this->file, array( $this, 'flush_rewrite_rules' ) );
 
+		// Includes
+		require_once $this->dirname . '/includes/functions.php';
+		require_once $this->dirname . '/includes/gravityforms.php';
+		require_once $this->dirname . '/includes/template.php';
+
 		// Global
 		add_action( 'init',        array( $this, 'init' ) );
 		add_action( 'parse_query', array( $this, 'parse_query' ) );
@@ -71,11 +76,6 @@ class Pronamic_Events_Plugin {
 		$rel_path = dirname( plugin_basename( $this->file ) ) . '/languages/';
 
 		load_plugin_textdomain( 'pronamic_events', false, $rel_path );
-
-		// Includes
-		require_once $this->dirname . '/includes/functions.php';
-		require_once $this->dirname . '/includes/gravityforms.php';
-		require_once $this->dirname . '/includes/template.php';
 
 		// Post type
 		$slug = get_option( 'pronamic_event_base' );
