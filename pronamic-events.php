@@ -46,7 +46,8 @@ class Pronamic_Events_Plugin {
 
 		$post_type = 'pronamic_event';
 		
-		add_action( 'init', array( $this, 'init' ) );
+		add_action( 'init',        array( $this, 'init' ) );
+		add_action( 'parse_query', array( $this, 'parse_query' ) );
 
 		add_filter( 'request', array( $this, 'request' ) );
 
@@ -242,6 +243,35 @@ class Pronamic_Events_Plugin {
 	
 		return $request;
 	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Parse query
+	 * 
+	 * @param WP_Query $query
+	 */
+	function parse_query( $query ) {
+		if ( ! is_admin() && is_pronamic_events_query( $query ) ) {
+			$meta_query_extra = array(
+				array(
+					'key'     => '_pronamic_end_date',
+					'value'   => strtotime( '-1 day' ),
+					'compare' => '>',
+					'type'    => 'NUMERIC'
+				)
+			);
+	
+			$meta_query = $query->get( 'meta_query' );
+			$meta_query = wp_parse_args( $meta_query_extra , $meta_query );
+	
+			$query->set( 'meta_query', $meta_query );
+
+			$query->set( 'orderby', 'meta_value_num' );
+			$query->set( 'meta_key', '_pronamic_start_date' );
+			$query->set( 'order', 'ASC' );
+		}
+	}
 }
 
 new Pronamic_Events_Plugin( __FILE__ );
@@ -422,32 +452,6 @@ function is_pronamic_events_query( WP_Query $query ) {
 
 	return $is_pronamic_events;
 }
-
-/**
- * Customize query for the archive page
- */
-function pronamic_events_query( $query ) {
-	if ( ! is_admin() && is_pronamic_events_query( $query ) ) {
-		$meta_query_extra = array(
-			array(
-				'key'     => '_pronamic_end_date' ,
-				'value'   => strtotime( '-1 day' ) ,
-				'compare' => '>', 
-				'type'    => 'NUMERIC'
-			)
-		);
-
-		$meta_query = $query->get( 'meta_query' );
-		$meta_query = wp_parse_args( $meta_query_extra , $meta_query );
-
-		$query->set( 'meta_query', $meta_query );
-		$query->set( 'orderby', 'meta_value_num' );
-		$query->set( 'meta_key', '_pronamic_start_date' );
-		$query->set( 'order', 'ASC' );
-	}
-}
-
-add_action( 'parse_query', 'pronamic_events_query' );
 
 ////////////////////////////////////////////////////////////
 
