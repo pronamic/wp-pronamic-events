@@ -28,6 +28,13 @@ class Pronamic_Events_Plugin_Admin {
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
 
 		add_action( 'save_post', array( $this, 'save_post' ), 10, 2 );
+
+		// Post type
+		$post_type = 'pronamic_event';
+		
+		add_filter( "manage_edit-{$post_type}_columns",          array( $this, 'manage_edit_columns' ) );
+		add_filter( "manage_edit-{$post_type}_sortable_columns", array( $this, 'manage_edit_sortable_columns' ) );
+		add_filter( "manage_{$post_type}_posts_custom_column",   array( $this, 'manage_posts_custom_column' ), 10, 2 );
 	}
 
 	//////////////////////////////////////////////////
@@ -168,5 +175,93 @@ class Pronamic_Events_Plugin_Admin {
 		update_post_meta( $post_id, '_pronamic_end_date', $end_timestamp );
 		update_post_meta( $post_id, '_pronamic_location', $location );
 		update_post_meta( $post_id, '_pronamic_event_url', $url );
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Manage edit columns
+	 *
+	 * @param array $columns
+	 */
+	public function manage_edit_columns( $columns ) {
+		$new_columns = array();
+
+		if( isset( $columns['cb'] ) ) {
+			$new_columns['cb'] = $columns['cb'];
+		}
+
+		// $new_columns['thumbnail'] = __('Thumbnail', 'pronamic_companies');
+
+		if( isset( $columns['title'] ) ) {
+			$new_columns['title'] = $columns['title'];
+		}
+
+		if( isset( $columns['author'] ) ) {
+			$new_columns['author'] = $columns['author'];
+		}
+
+		if( isset( $columns['comments'] ) ) {
+			$new_columns['comments'] = $columns['comments'];
+		}
+
+		if( isset( $columns['date'] ) ) {
+			$new_columns['date'] = $columns['date'];
+		}
+
+		$new_columns['pronamic_start_date'] = __( 'Start Date', 'pronamic_events' );
+		$new_columns['pronamic_end_date']   = __( 'End Date', 'pronamic_events' );
+
+		return array_merge( $new_columns, $columns );
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Manage edit sortable columns
+	 *
+	 * @param array $columns
+	 */
+	public function manage_edit_sortable_columns( $columns ) {
+		$columns['pronamic_start_date'] = 'pronamic_start_date';
+		$columns['pronamic_end_date']   = 'pronamic_end_date';
+
+		return $columns;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Manage posts custom column
+	 *
+	 * @param string $column_name
+	 * @param string $post_id
+	 */
+	function manage_posts_custom_column( $column_name, $post_id ) {
+		switch ( $column_name ) {
+			case 'pronamic_start_date' :
+				// @see http://translate.wordpress.org/projects/wp/3.5.x/admin/nl/default?filters[term]=Y%2Fm%2Fd&filters[user_login]=&filters[status]=current_or_waiting_or_fuzzy_or_untranslated&filter=Filter&sort[by]=priority&sort[how]=desc
+				// @see https://github.com/WordPress/WordPress/blob/3.5.1/wp-admin/includes/class-wp-posts-list-table.php#L572
+
+				$t_time = pronamic_get_the_start_date( __( 'Y/m/d g:i:s A', 'pronamic_events' ), $post_id );
+				$h_time = pronamic_get_the_start_date( __( 'Y/m/d', 'pronamic_events' ), $post_id );
+					
+				printf( '<abbr title="%s">%s</abbr>', $t_time, $h_time );
+
+				break;
+
+			case 'pronamic_end_date' :
+				// @see http://translate.wordpress.org/projects/wp/3.5.x/admin/nl/default?filters[term]=Y%2Fm%2Fd&filters[user_login]=&filters[status]=current_or_waiting_or_fuzzy_or_untranslated&filter=Filter&sort[by]=priority&sort[how]=desc
+				// @see https://github.com/WordPress/WordPress/blob/3.5.1/wp-admin/includes/class-wp-posts-list-table.php#L572
+
+				$t_time = pronamic_get_the_end_date( __( 'Y/m/d g:i:s A', 'pronamic_events' ), $post_id );
+				$h_time = pronamic_get_the_end_date( __( 'Y/m/d', 'pronamic_events' ), $post_id );
+					
+				printf( '<abbr title="%s">%s</abbr>', $t_time, $h_time );
+
+				break;
+
+			default:
+		}
 	}
 }
