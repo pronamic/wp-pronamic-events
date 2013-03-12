@@ -167,8 +167,14 @@ class Pronamic_Events_Plugin_Admin {
 		$end_date = empty( $end_date ) ? $start_date : $end_date;
 		$end_time = empty( $end_time ) ? $start_time : $end_time;
 
-		$start_timestamp = strtotime( $start_date . ' ' . $start_time );
-		$end_timestamp   = strtotime( $end_date . ' ' . $end_time );
+		// Timezone
+		$timezone = new DateTimeZone( get_option( 'timezone_string' ) );
+
+		$start = new DateTime( $start_date . ' ' . $start_time, $timezone );
+		$end   = new DateTime( $end_date . ' ' . $end_time, $timezone );
+
+		$start_timestamp = $start->format( 'U' );
+		$end_timestamp   = $end->format( 'U' );
 
 		// Save data
 		update_post_meta( $post_id, '_pronamic_start_date', $start_timestamp );
