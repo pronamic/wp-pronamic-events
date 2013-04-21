@@ -9,7 +9,7 @@ function pronamic_get_the_start_date( $format = null, $post_id = null ) {
 
 	$start_date = get_post_meta( $post_id, '_pronamic_start_date', true );
 
-	if( is_numeric( $start_date ) ) {
+	if ( is_numeric( $start_date ) ) {
 		return date_i18n( $format, $start_date );
 	}
 }
@@ -43,7 +43,7 @@ function pronamic_get_the_end_date( $format = null, $post_id = null ) {
 
 	$end_date = get_post_meta( $post_id, '_pronamic_end_date', true );
 
-	if( is_numeric( $end_date ) ) {
+	if ( is_numeric( $end_date ) ) {
 		return date_i18n( $format, $end_date );
 	}
 }
