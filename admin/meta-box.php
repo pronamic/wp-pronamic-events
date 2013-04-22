@@ -4,11 +4,9 @@ global $pronamic_events_plugin, $post;
 
 wp_nonce_field( 'pronamic_events_edit_details', 'pronamic_events_nonce' );
 
-$start_timestamp = get_post_meta( $post->ID, '_pronamic_start_date', true );
-
-if ( is_numeric( $start_timestamp ) ) {
-	$start_date = date( 'd-m-Y', $start_timestamp );
-	$start_time = date( 'H:i', $start_timestamp );
+if ( pronamic_has_start_date() ) {
+	$start_date = pronamic_get_the_start_date( 'd-m-Y' );
+	$start_time = pronamic_get_the_start_date( 'H:i' );
 } else {
 	$start_date = '';
 	$start_time = '';
@@ -16,9 +14,9 @@ if ( is_numeric( $start_timestamp ) ) {
 
 $end_timestamp = get_post_meta( $post->ID, '_pronamic_end_date', true );
 
-if ( is_numeric( $end_timestamp ) ) {
-	$end_date = date( 'd-m-Y', $end_timestamp );
-	$end_time = date( 'H:i', $end_timestamp );
+if ( pronamic_has_end_date( ) ) {
+	$end_date = pronamic_get_the_end_date( 'd-m-Y' );
+	$end_time = pronamic_get_the_end_date( 'H:i' );
 } else {
 	$end_date = $start_date;
 	$end_time = $start_time;

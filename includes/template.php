@@ -2,20 +2,25 @@
 
 /**
  * Return formatted start date
+ * 
+ * @see https://github.com/WordPress/WordPress/blob/3.5.1/wp-includes/general-template.php#L1364
+ * @return the start date
  */
 function pronamic_get_the_start_date( $format = null, $post_id = null ) {
-	$format = ( null === $format ) ? get_option( 'date_format' ) : $format;
+	$format  = ( null === $format ) ? get_option( 'date_format' ) : $format;
 	$post_id = ( null === $post_id ) ? get_the_ID() : $post_id;
 
-	$start_date = get_post_meta( $post_id, '_pronamic_start_date', true );
+	$date = get_post_meta( $post_id, '_pronamic_event_start_date', true );
 
-	if ( is_numeric( $start_date ) ) {
-		return date_i18n( $format, $start_date );
+	if ( ! empty( $date ) ) {
+		return mysql2date( $format, $date );
 	}
 }
 
 /**
  * Echo formatted start date
+ * 
+ * @return echo the start date
  */
 function pronamic_the_start_date( $format = null, $post_id = null ) {
 	echo pronamic_get_the_start_date( $format, $post_id );
@@ -23,33 +28,40 @@ function pronamic_the_start_date( $format = null, $post_id = null ) {
 
 /**
  * Conditional tag for start date
+ * 
+ * @return boolean true if has start date, false otherwise
  */
 function pronamic_has_start_date( $post_id = null ) {
 	$post_id = ( null === $post_id ) ? get_the_ID() : $post_id;
 
-	$start_date = get_post_meta( $post_id, '_pronamic_start_date', true );
+	$date = get_post_meta( $post_id, '_pronamic_event_start_date', true );
 
-	return ! empty( $start_date );
+	return ! empty( $date );
 }
 
 ////////////////////////////////////////////////////////////
 
 /**
  * Return formatted end date
+ * 
+ * @see https://github.com/WordPress/WordPress/blob/3.5.1/wp-includes/general-template.php#L1364
+ * @return the end date
  */
 function pronamic_get_the_end_date( $format = null, $post_id = null ) {
-	$format = ( null === $format ) ? get_option( 'date_format' ) : $format;
+	$format  = ( null === $format ) ? get_option( 'date_format' ) : $format;
 	$post_id = ( null === $post_id ) ? get_the_ID() : $post_id;
 
-	$end_date = get_post_meta( $post_id, '_pronamic_end_date', true );
+	$date = get_post_meta( $post_id, '_pronamic_event_end_date', true );
 
-	if ( is_numeric( $end_date ) ) {
-		return date_i18n( $format, $end_date );
+	if ( ! empty( $date ) ) {
+		return mysql2date( $format, $date );
 	}
 }
 
 /**
  * Echo formatted end date
+ * 
+ * @return echo the end date
  */
 function pronamic_the_end_date( $format = null, $post_id = null ) {
 	echo pronamic_get_the_end_date( $format, $post_id );
@@ -57,13 +69,15 @@ function pronamic_the_end_date( $format = null, $post_id = null ) {
 
 /**
  * Conditional tag for end date
+ * 
+ * @return boolean true if has end date, false otherwise
  */
 function pronamic_has_end_date( $post_id = null ) {
 	$post_id = ( null === $post_id ) ? get_the_ID() : $post_id;
 
-	$end_date = get_post_meta( $post_id, '_pronamic_end_date', true );
+	$date = get_post_meta( $post_id, '_pronamic_event_end_date', true );
 
-	return ! empty( $end_date );
+	return ! empty( $date );
 }
 
 ////////////////////////////////////////////////////////////

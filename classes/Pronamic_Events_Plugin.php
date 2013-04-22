@@ -32,6 +32,7 @@ class Pronamic_Events_Plugin {
 		register_activation_hook( $this->file, array( $this, 'flush_rewrite_rules' ) );
 
 		// Includes
+		require_once $this->dirname . '/includes/version.php';
 		require_once $this->dirname . '/includes/functions.php';
 		require_once $this->dirname . '/includes/gravityforms.php';
 		require_once $this->dirname . '/includes/template.php';
