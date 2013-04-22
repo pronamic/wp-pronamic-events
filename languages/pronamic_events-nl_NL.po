@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Events\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-22 12:01+0100\n"
-"PO-Revision-Date: 2013-04-22 12:01+0100\n"
+"POT-Creation-Date: 2013-04-22 14:32+0100\n"
+"PO-Revision-Date: 2013-04-22 14:32+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -34,106 +34,106 @@ msgstr "Locatie:"
 msgid "Website:"
 msgstr "Website:"
 
-#: classes/Pronamic_Events_Plugin.php:79
+#: classes/Pronamic_Events_Plugin.php:88
 msgctxt "slug"
 msgid "events"
 msgstr "agenda"
 
-#: classes/Pronamic_Events_Plugin.php:83
+#: classes/Pronamic_Events_Plugin.php:92
 msgctxt "post type general name"
 msgid "Events"
 msgstr "Evenementen"
 
-#: classes/Pronamic_Events_Plugin.php:84
+#: classes/Pronamic_Events_Plugin.php:93
 msgctxt "post type singular name"
 msgid "Event"
 msgstr "Evenement"
 
-#: classes/Pronamic_Events_Plugin.php:85
+#: classes/Pronamic_Events_Plugin.php:94
 msgctxt "event"
 msgid "Add New"
 msgstr "Nieuw evenement"
 
-#: classes/Pronamic_Events_Plugin.php:86
+#: classes/Pronamic_Events_Plugin.php:95
 msgid "Add New Event"
 msgstr "Nieuw evenement toevoegen"
 
-#: classes/Pronamic_Events_Plugin.php:87
+#: classes/Pronamic_Events_Plugin.php:96
 msgid "Edit Event"
 msgstr "Wijzig evenement"
 
-#: classes/Pronamic_Events_Plugin.php:88
+#: classes/Pronamic_Events_Plugin.php:97
 msgid "New Event"
 msgstr "Nieuw événement"
 
-#: classes/Pronamic_Events_Plugin.php:89
+#: classes/Pronamic_Events_Plugin.php:98
 msgid "View Event"
 msgstr "Bekijk evenement"
 
-#: classes/Pronamic_Events_Plugin.php:90
+#: classes/Pronamic_Events_Plugin.php:99
 msgid "Search Events"
 msgstr "Doorzoek evenementen"
 
-#: classes/Pronamic_Events_Plugin.php:91
+#: classes/Pronamic_Events_Plugin.php:100
 msgid "No events found"
 msgstr "Geen evenementen gevonden"
 
-#: classes/Pronamic_Events_Plugin.php:92
+#: classes/Pronamic_Events_Plugin.php:101
 msgid "No events found in Trash"
 msgstr "Geen evenementen gevonden in de prullenbak"
 
-#: classes/Pronamic_Events_Plugin.php:93
+#: classes/Pronamic_Events_Plugin.php:102
 msgid "Parent Event:"
 msgstr "Bovenliggende événement:"
 
-#: classes/Pronamic_Events_Plugin.php:94
+#: classes/Pronamic_Events_Plugin.php:103
 msgctxt "menu_name"
 msgid "Events"
 msgstr "Evenementen"
 
-#: classes/Pronamic_Events_Plugin.php:116
+#: classes/Pronamic_Events_Plugin.php:125
 msgctxt "class general name"
 msgid "Event categories"
 msgstr "Evenement categorieën"
 
-#: classes/Pronamic_Events_Plugin.php:117
+#: classes/Pronamic_Events_Plugin.php:126
 msgctxt "class singular name"
 msgid "Event category"
 msgstr "Evenement categorieën"
 
-#: classes/Pronamic_Events_Plugin.php:118
+#: classes/Pronamic_Events_Plugin.php:127
 msgid "Search Event categories"
 msgstr "Doorzoek categorieën"
 
-#: classes/Pronamic_Events_Plugin.php:119
+#: classes/Pronamic_Events_Plugin.php:128
 msgid "All Event categories"
 msgstr "Bekijk alle categorieën"
 
-#: classes/Pronamic_Events_Plugin.php:120
+#: classes/Pronamic_Events_Plugin.php:129
 msgid "Parent Event category"
 msgstr "Bovenliggende categorie:"
 
-#: classes/Pronamic_Events_Plugin.php:121
+#: classes/Pronamic_Events_Plugin.php:130
 msgid "Parent Event category:"
 msgstr "Bovenliggende categorie:"
 
-#: classes/Pronamic_Events_Plugin.php:122
+#: classes/Pronamic_Events_Plugin.php:131
 msgid "Edit Event category"
 msgstr "Wijzig categorie"
 
-#: classes/Pronamic_Events_Plugin.php:123
+#: classes/Pronamic_Events_Plugin.php:132
 msgid "Update Event category"
 msgstr "Update categorie"
 
-#: classes/Pronamic_Events_Plugin.php:124
+#: classes/Pronamic_Events_Plugin.php:133
 msgid "Add New Event category"
 msgstr "Nieuwe categorie toevoegen"
 
-#: classes/Pronamic_Events_Plugin.php:125
+#: classes/Pronamic_Events_Plugin.php:134
 msgid "New Event category Name"
 msgstr "Nieuwe categorie naam"
 
-#: classes/Pronamic_Events_Plugin.php:126
+#: classes/Pronamic_Events_Plugin.php:135
 msgid "Event categories"
 msgstr "Evenement categorieën"
 
