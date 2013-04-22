@@ -38,10 +38,15 @@ class Pronamic_Events_Plugin {
 		require_once $this->dirname . '/includes/template.php';
 
 		// Global
-		add_action( 'init',        array( $this, 'init' ) );
-		add_action( 'parse_query', array( $this, 'parse_query' ) );
+		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
 
-		add_filter( 'request',     array( $this, 'request' ) );
+		add_action( 'init',           array( $this, 'init' ) );
+
+		add_action( 'widgets_init',   array( $this, 'widgets_init' ) );
+
+		add_action( 'parse_query',    array( $this, 'parse_query' ) );
+
+		add_filter( 'request',        array( $this, 'request' ) );
 
 		// Admin
 		if ( is_admin() ) {
@@ -63,14 +68,21 @@ class Pronamic_Events_Plugin {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Initialize
+	 * Plugins loaded
 	 */
-	public function init() {
+	public function plugins_loaded() {
 		// Text domain
 		$rel_path = dirname( plugin_basename( $this->file ) ) . '/languages/';
 
 		load_plugin_textdomain( 'pronamic_events', false, $rel_path );
+	}
 
+	//////////////////////////////////////////////////
+
+	/**
+	 * Initialize
+	 */
+	public function init() {
 		// Post type
 		$slug = get_option( 'pronamic_event_base' );
 		$slug = empty( $slug ) ? _x( 'events', 'slug', 'pronamic_events' ) : $slug;
@@ -130,6 +142,15 @@ class Pronamic_Events_Plugin {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Widgets initialize
+	 */
+	public function widgets_init() {
+		register_widget( 'Pronamic_Events_Widget' );
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Request
 	 *
 	 * @see http://codex.wordpress.org/Plugin_API/Filter_Reference/request
@@ -137,7 +158,7 @@ class Pronamic_Events_Plugin {
 	 * @param array $request
 	 * @return array
 	 */
-	function request( $request ) {
+	public function request( $request ) {
 		if ( isset( $request['orderby'] ) && 'pronamic_start_date' == $request['orderby'] ) {
 			$request = array_merge( $request, array(
 				'meta_key' => '_pronamic_start_date',
@@ -162,7 +183,7 @@ class Pronamic_Events_Plugin {
 	 *
 	 * @param WP_Query $query
 	 */
-	function parse_query( $query ) {
+	public function parse_query( $query ) {
 		if ( ! is_admin() && is_pronamic_events_query( $query ) ) {
 			$meta_query_extra = array(
 				array(

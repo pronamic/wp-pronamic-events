@@ -19,6 +19,7 @@ GitHub URI: https://github.com/pronamic/wp-pronamic-events
 */
 
 require_once dirname( __FILE__ ) . '/classes/Pronamic_Events_Plugin.php';
+require_once dirname( __FILE__ ) . '/classes/Pronamic_Events_Widget.php';
 require_once dirname( __FILE__ ) . '/classes/Pronamic_Events_Plugin_Admin.php';
 
 global $pronamic_events_plugin;

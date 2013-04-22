@@ -282,7 +282,7 @@ class Pronamic_Events_Plugin_Admin {
 
 				$t_time = pronamic_get_the_start_date( __( 'Y/m/d g:i:s A', 'pronamic_events' ), $post_id );
 				$h_time = pronamic_get_the_start_date( __( 'Y/m/d', 'pronamic_events' ), $post_id );
-				$hours  = pronamic_get_the_start_date( __( 'H:i', 'pronamic_events' ), $post_id );
+				$hours  = pronamic_get_the_start_date( __( 'g:i:s', 'pronamic_events' ), $post_id );
 
 				printf( '<abbr title="%s">%s</abbr><br />%s', $t_time, $h_time, $hours );
 
@@ -294,7 +294,7 @@ class Pronamic_Events_Plugin_Admin {
 
 				$t_time = pronamic_get_the_end_date( __( 'Y/m/d g:i:s A', 'pronamic_events' ), $post_id );
 				$h_time = pronamic_get_the_end_date( __( 'Y/m/d', 'pronamic_events' ), $post_id );
-				$hours  = pronamic_get_the_end_date( __( 'H:i', 'pronamic_events' ), $post_id );
+				$hours  = pronamic_get_the_end_date( __( 'g:i:s', 'pronamic_events' ), $post_id );
 
 				printf( '<abbr title="%s">%s</abbr><br />%s', $t_time, $h_time, $hours );
 

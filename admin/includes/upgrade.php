@@ -40,7 +40,7 @@ function orbis_events_upgrade_100() {
 		";
 		
 		$query = $wpdb->prepare( $query, $new_key, $old_key, $new_key );
-		
+
 		$wpdb->query( $query );
 	}
 }
