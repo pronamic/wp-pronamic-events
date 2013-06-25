@@ -137,6 +137,35 @@ class Pronamic_Events_Plugin_Admin {
 	 */
 	public function admin_enqueue_scripts( $hook ) {
 		wp_enqueue_style( 'pronamic-events', plugins_url( '/admin/css/pronamic-events.css', $this->plugin->file ) );
+		
+		// Screen		
+		$screen = get_current_screen();
+		
+		if ( isset( $screen, $screen->post_type ) && $screen->post_type == 'pronamic_event' ) {
+			wp_enqueue_script( 'jquery-ui-datepicker' );
+		
+			wp_enqueue_style( 'jquery-ui-datepicker', plugins_url( '/jquery-ui/themes/base/jquery.ui.all.css', $this->plugin->file ) );
+
+			// jQuery UI i18n
+			// https://github.com/jquery/jquery-ui/tree/master/ui/i18n
+
+			$locale = get_locale(); // nl_NL
+			$locale = str_replace( '_', '-', $locale ); // nl-NL
+
+			$names  = array( $locale, 
+				$locale, // nl-NL
+				substr( $locale, 0, 2 ) // nl
+			);
+
+			foreach ( $names as $name ) {
+				$path = sprintf( '/jquery-ui/languages/jquery.ui.datepicker-%s.js', $name );
+				$file = $this->plugin->dirname . $path;
+
+				if ( is_readable( $file ) ) {
+					wp_enqueue_script( 'jquery-ui-datepicker-' . $name, plugins_url( $path, $this->plugin->file ) );
+				}
+			}				
+		}
 	}
 
 	//////////////////////////////////////////////////

@@ -22,11 +22,6 @@ if ( pronamic_has_end_date( ) ) {
 	$end_time = $start_time;
 }
 
-wp_enqueue_script( 'jquery-ui-datepicker' );
-
-wp_enqueue_script( 'jquery-ui-datepicker-nl', plugins_url( '/jquery-ui/languages/jquery.ui.datepicker-nl.js', $pronamic_events_plugin->file ) );
-wp_enqueue_style( 'jquery-ui-datepicker', plugins_url( '/jquery-ui/themes/base/jquery.ui.all.css', $pronamic_events_plugin->file ) );
-
 ?>
 
 <div class="pronamic-section pronamic-section-first">
