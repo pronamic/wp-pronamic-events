@@ -27,7 +27,7 @@ class Pronamic_Events_Plugin {
 	 */
 	public function __construct( $file ) {
 		$this->file    = $file;
-		$this->dirname = dirname( $file );
+		$this->dirname = plugin_dir_path( $file );
 
 		register_activation_hook( $this->file, array( $this, 'flush_rewrite_rules' ) );
 
