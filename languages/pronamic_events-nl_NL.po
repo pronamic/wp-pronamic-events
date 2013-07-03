@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Events\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-22 14:32+0100\n"
-"PO-Revision-Date: 2013-04-22 14:32+0100\n"
+"POT-Creation-Date: 2013-07-03 09:11+0100\n"
+"PO-Revision-Date: 2013-07-03 09:11+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -18,19 +18,19 @@ msgstr ""
 "X-Generator: Poedit 1.5.5\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: admin/meta-box.php:34
+#: admin/meta-box.php:29
 msgid "Start Date:"
 msgstr "Startdatum:"
 
-#: admin/meta-box.php:40
+#: admin/meta-box.php:35
 msgid "End Date:"
 msgstr "Einddatum:"
 
-#: admin/meta-box.php:58
+#: admin/meta-box.php:53
 msgid "Location:"
 msgstr "Locatie:"
 
-#: admin/meta-box.php:65
+#: admin/meta-box.php:60
 msgid "Website:"
 msgstr "Website:"
 
@@ -153,30 +153,30 @@ msgstr "Pronamic evenementen instellingen"
 msgid "Settings"
 msgstr "Instellingen"
 
-#: classes/Pronamic_Events_Plugin_Admin.php:150
+#: classes/Pronamic_Events_Plugin_Admin.php:202
 msgid "Event Details"
 msgstr "Evenement details"
 
-#: classes/Pronamic_Events_Plugin_Admin.php:249
+#: classes/Pronamic_Events_Plugin_Admin.php:301
 msgid "Start Date"
 msgstr "Startdatum"
 
-#: classes/Pronamic_Events_Plugin_Admin.php:250
+#: classes/Pronamic_Events_Plugin_Admin.php:302
 msgid "End Date"
 msgstr "Einddatum"
 
-#: classes/Pronamic_Events_Plugin_Admin.php:283
-#: classes/Pronamic_Events_Plugin_Admin.php:295
+#: classes/Pronamic_Events_Plugin_Admin.php:335
+#: classes/Pronamic_Events_Plugin_Admin.php:347
 msgid "Y/m/d g:i:s A"
 msgstr "j F Y H:i"
 
-#: classes/Pronamic_Events_Plugin_Admin.php:284
-#: classes/Pronamic_Events_Plugin_Admin.php:296
+#: classes/Pronamic_Events_Plugin_Admin.php:336
+#: classes/Pronamic_Events_Plugin_Admin.php:348
 msgid "Y/m/d"
 msgstr "j F Y"
 
-#: classes/Pronamic_Events_Plugin_Admin.php:285
-#: classes/Pronamic_Events_Plugin_Admin.php:297
+#: classes/Pronamic_Events_Plugin_Admin.php:337
+#: classes/Pronamic_Events_Plugin_Admin.php:349
 msgid "g:i:s"
 msgstr "H:i"
 
