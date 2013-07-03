@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Events\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-03 09:11+0100\n"
-"PO-Revision-Date: 2013-07-03 09:11+0100\n"
+"POT-Creation-Date: 2013-07-03 10:52+0100\n"
+"PO-Revision-Date: 2013-07-03 10:52+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -182,7 +182,7 @@ msgstr "H:i"
 
 #: classes/Pronamic_Events_Widget.php:16
 msgid "Pronamic Events"
-msgstr "Pronamic Evenemeten"
+msgstr "Pronamic Evenementen"
 
 #: classes/Pronamic_Events_Widget.php:18
 msgid "The most recent events on your site"
