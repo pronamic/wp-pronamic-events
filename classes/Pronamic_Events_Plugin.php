@@ -27,20 +27,26 @@ class Pronamic_Events_Plugin {
 	 */
 	public function __construct( $file ) {
 		$this->file    = $file;
-		$this->dirname = dirname( $file );
+		$this->dirname = plugin_dir_path( $file );
 
 		register_activation_hook( $this->file, array( $this, 'flush_rewrite_rules' ) );
 
 		// Includes
+		require_once $this->dirname . '/includes/version.php';
 		require_once $this->dirname . '/includes/functions.php';
 		require_once $this->dirname . '/includes/gravityforms.php';
 		require_once $this->dirname . '/includes/template.php';
 
 		// Global
-		add_action( 'init',        array( $this, 'init' ) );
-		add_action( 'parse_query', array( $this, 'parse_query' ) );
+		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
 
-		add_filter( 'request',     array( $this, 'request' ) );
+		add_action( 'init',           array( $this, 'init' ) );
+
+		add_action( 'widgets_init',   array( $this, 'widgets_init' ) );
+
+		add_action( 'parse_query',    array( $this, 'parse_query' ) );
+
+		add_filter( 'request',        array( $this, 'request' ) );
 
 		// Admin
 		if ( is_admin() ) {
@@ -62,14 +68,21 @@ class Pronamic_Events_Plugin {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Initialize
+	 * Plugins loaded
 	 */
-	public function init() {
+	public function plugins_loaded() {
 		// Text domain
 		$rel_path = dirname( plugin_basename( $this->file ) ) . '/languages/';
 
 		load_plugin_textdomain( 'pronamic_events', false, $rel_path );
+	}
 
+	//////////////////////////////////////////////////
+
+	/**
+	 * Initialize
+	 */
+	public function init() {
 		// Post type
 		$slug = get_option( 'pronamic_event_base' );
 		$slug = empty( $slug ) ? _x( 'events', 'slug', 'pronamic_events' ) : $slug;
@@ -89,7 +102,7 @@ class Pronamic_Events_Plugin {
 				'parent_item_colon'  => __( 'Parent Event:', 'pronamic_events' ),
 				'menu_name'          => _x( 'Events', 'menu_name', 'pronamic_events' ),
 			),
-			'public'             => true ,
+			'public'             => true,
 			'publicly_queryable' => true,
 			'show_ui'            => true,
 			'show_in_menu'       => true,
@@ -129,6 +142,15 @@ class Pronamic_Events_Plugin {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Widgets initialize
+	 */
+	public function widgets_init() {
+		register_widget( 'Pronamic_Events_Widget' );
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Request
 	 *
 	 * @see http://codex.wordpress.org/Plugin_API/Filter_Reference/request
@@ -136,7 +158,7 @@ class Pronamic_Events_Plugin {
 	 * @param array $request
 	 * @return array
 	 */
-	function request( $request ) {
+	public function request( $request ) {
 		if ( isset( $request['orderby'] ) && 'pronamic_start_date' == $request['orderby'] ) {
 			$request = array_merge( $request, array(
 				'meta_key' => '_pronamic_start_date',
@@ -158,15 +180,18 @@ class Pronamic_Events_Plugin {
 
 	/**
 	 * Parse query
+	 * 
+	 * @note In PHP 5.1.4, "today" means midnight today, and "now" means the current timestamp.
+	 * http://php.net/manual/en/function.strtotime.php#77541
 	 *
 	 * @param WP_Query $query
 	 */
-	function parse_query( $query ) {
+	public function parse_query( $query ) {
 		if ( ! is_admin() && is_pronamic_events_query( $query ) ) {
 			$meta_query_extra = array(
 				array(
 					'key'     => '_pronamic_end_date',
-					'value'   => strtotime( '-1 day' ),
+					'value'   => strtotime( 'today' ),
 					'compare' => '>',
 					'type'    => 'NUMERIC'
 				)

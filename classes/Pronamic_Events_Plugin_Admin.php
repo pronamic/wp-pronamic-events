@@ -64,12 +64,21 @@ class Pronamic_Events_Plugin_Admin {
 
 		// Register settings
 		register_setting( 'pronamic_events', 'pronamic_event_base' );
+
+		// Maybe update
+		global $pronamic_events_db_version;
+
+		if ( get_option( 'pronamic_events_db_version' ) != $pronamic_events_db_version ) {
+			$this->upgrade();
+
+			update_option( 'pronamic_events_db_version', $pronamic_events_db_version );
+		}
 	}
 
 	/**
 	 * Admin menu
 	 */
-	function admin_menu() {
+	public function admin_menu() {
 		add_submenu_page(
 			'edit.php?post_type=pronamic_event', // parent_slug
 			__( 'Pronamic Events Settings', 'pronamic_events' ), // page_title
@@ -83,9 +92,24 @@ class Pronamic_Events_Plugin_Admin {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Upgrade
+	 */
+	public function upgrade() {
+		require_once $this->plugin->dirname . '/admin/includes/upgrade.php';
+
+		$db_version = get_option( 'pronamic_events_db_version' );
+
+		if ( $db_version < 100 ) {
+			orbis_events_upgrade_100();
+		}
+	}
+	
+	//////////////////////////////////////////////////
+
+	/**
 	 * Page settings
 	 */
-	function page_settings() {
+	public function page_settings() {
 		include $this->plugin->dirname . '/admin/settings.php';
 	}
 
@@ -94,7 +118,7 @@ class Pronamic_Events_Plugin_Admin {
 	 *
 	 * @param array $args
 	 */
-	function input_text( $args ) {
+	public function input_text( $args ) {
 		printf(
 			'<input name="%s" id="%s" type="text" value="%s" class="%s" />',
 			esc_attr( $args['label_for'] ),
@@ -111,8 +135,60 @@ class Pronamic_Events_Plugin_Admin {
 	 *
 	 * @param string $hook
 	 */
-	function admin_enqueue_scripts( $hook ) {
+	public function admin_enqueue_scripts( $hook ) {
 		wp_enqueue_style( 'pronamic-events', plugins_url( '/admin/css/pronamic-events.css', $this->plugin->file ) );
+		
+		// Screen		
+		$screen = get_current_screen();
+		
+		if ( isset( $screen, $screen->post_type ) && $screen->post_type == 'pronamic_event' ) {
+			wp_enqueue_script( 'jquery-ui-datepicker' );
+		
+			wp_enqueue_style( 'jquery-ui-datepicker', plugins_url( '/jquery-ui/themes/base/jquery.ui.all.css', $this->plugin->file ) );
+
+			self::enqueue_jquery_ui_i18n_path( 'datepicker' );
+		}
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Get jQuery UI i18n file
+	 * https://github.com/jquery/jquery-ui/tree/master/ui/i18n
+	 * 
+	 * @param string $module
+	 */
+	private function enqueue_jquery_ui_i18n_path( $module ) {
+		$result = false;
+
+		// Retrive the WordPress locale, for example 'en_GB'
+		$locale = get_locale();
+		
+		// jQuery UI uses 'en-GB' notation, replace underscore with hyphen 
+		$locale = str_replace( '_', '-', $locale );
+		
+		// Create an search array with two variants 'en-GB' and 'en'
+		$search = array(
+			$locale, // en-GB
+			substr( $locale, 0, 2 ) // en
+		);
+		
+		foreach ( $search as $name ) {
+			$path = sprintf( '/jquery-ui/languages/jquery.ui.%s-%s.js', $module, $name );
+
+			$file = $this->plugin->dirname . $path;
+
+			if ( is_readable( $file ) ) {
+				wp_enqueue_script( 
+					'jquery-ui-' . $module . '-' . $name,
+					plugins_url( $path, $this->plugin->file ) 
+				);
+
+				break;
+			}
+		}
+		
+		return $result;
 	}
 
 	//////////////////////////////////////////////////
@@ -120,7 +196,7 @@ class Pronamic_Events_Plugin_Admin {
 	/**
 	 * Add meta boxes
 	 */
-	function add_meta_boxes() {
+	public function add_meta_boxes() {
 		add_meta_box(
 			'pronamic_event_meta_box',
 			__( 'Event Details', 'pronamic_events' ),
@@ -134,14 +210,14 @@ class Pronamic_Events_Plugin_Admin {
 	/**
 	 * Event details meta box
 	 */
-	function event_details_meta_box() {
+	public function event_details_meta_box() {
 		include $this->plugin->dirname . '/admin/meta-box.php';
 	}
 
 	/**
 	 * Save metaboxes
 	 */
-	function save_post( $post_id ) {
+	public function save_post( $post_id ) {
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
 			return;
 
@@ -170,10 +246,23 @@ class Pronamic_Events_Plugin_Admin {
 		$start_timestamp = strtotime( $start_date . ' ' . $start_time );
 		$end_timestamp   = strtotime( $end_date . ' ' . $end_time );
 
+		$start_date     = date( 'Y-m-d H:i:s', $start_timestamp );
+		$start_date_gmt = get_gmt_from_date( $start_date );
+
+		$end_date       = date( 'Y-m-d H:i:s', $end_timestamp );
+		$end_date_gmt   = get_gmt_from_date( $end_date );
+
 		// Save data
 		update_post_meta( $post_id, '_pronamic_start_date', $start_timestamp );
+		update_post_meta( $post_id, '_pronamic_event_start_date', $start_date );
+		update_post_meta( $post_id, '_pronamic_event_start_date_gmt', $start_date_gmt );
+		
 		update_post_meta( $post_id, '_pronamic_end_date', $end_timestamp );
+		update_post_meta( $post_id, '_pronamic_event_end_date', $end_date );
+		update_post_meta( $post_id, '_pronamic_event_end_date_gmt', $end_date_gmt );
+
 		update_post_meta( $post_id, '_pronamic_location', $location );
+
 		update_post_meta( $post_id, '_pronamic_event_url', $url );
 	}
 
@@ -237,7 +326,7 @@ class Pronamic_Events_Plugin_Admin {
 	 * @param string $column_name
 	 * @param string $post_id
 	 */
-	function manage_posts_custom_column( $column_name, $post_id ) {
+	public function manage_posts_custom_column( $column_name, $post_id ) {
 		switch ( $column_name ) {
 			case 'pronamic_start_date' :
 				// @see http://translate.wordpress.org/projects/wp/3.5.x/admin/nl/default?filters[term]=Y%2Fm%2Fd&filters[user_login]=&filters[status]=current_or_waiting_or_fuzzy_or_untranslated&filter=Filter&sort[by]=priority&sort[how]=desc
@@ -245,7 +334,7 @@ class Pronamic_Events_Plugin_Admin {
 
 				$t_time = pronamic_get_the_start_date( __( 'Y/m/d g:i:s A', 'pronamic_events' ), $post_id );
 				$h_time = pronamic_get_the_start_date( __( 'Y/m/d', 'pronamic_events' ), $post_id );
-				$hours  = pronamic_get_the_start_date( __( 'H:i', 'pronamic_events' ), $post_id );
+				$hours  = pronamic_get_the_start_date( __( 'g:i:s', 'pronamic_events' ), $post_id );
 
 				printf( '<abbr title="%s">%s</abbr><br />%s', $t_time, $h_time, $hours );
 
@@ -257,7 +346,7 @@ class Pronamic_Events_Plugin_Admin {
 
 				$t_time = pronamic_get_the_end_date( __( 'Y/m/d g:i:s A', 'pronamic_events' ), $post_id );
 				$h_time = pronamic_get_the_end_date( __( 'Y/m/d', 'pronamic_events' ), $post_id );
-				$hours  = pronamic_get_the_end_date( __( 'H:i', 'pronamic_events' ), $post_id );
+				$hours  = pronamic_get_the_end_date( __( 'g:i:s', 'pronamic_events' ), $post_id );
 
 				printf( '<abbr title="%s">%s</abbr><br />%s', $t_time, $h_time, $hours );
 

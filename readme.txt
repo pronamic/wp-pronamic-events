@@ -4,7 +4,7 @@ Tags: pronamic, events, agenda
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-events&source=wp-plugin-readme-txt
 Requires at least: 3.0
 Tested up to: 3.5.1
-Stable tag: 0.1.3
+Stable tag: 0.2.0
 
 Pronamic Events is a basic plugin to add some Events functionality.
 
@@ -59,6 +59,12 @@ Upload the Pronamic Events folder to your wp-content/plugins folder.
 
 
 == Changelog ==
+
+= 0.2.0 =
+*	Improved saving of start and end dates
+*	Added an "Pronamic Events" widget
+*	jQuery UI datepicker i18n
+*	Events query filter end date greater then today (midnight) instead of -1 day 
 
 = 0.1.3 =
 *	Improved start and end date columns
