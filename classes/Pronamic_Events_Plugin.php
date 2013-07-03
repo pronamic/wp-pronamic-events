@@ -102,7 +102,7 @@ class Pronamic_Events_Plugin {
 				'parent_item_colon'  => __( 'Parent Event:', 'pronamic_events' ),
 				'menu_name'          => _x( 'Events', 'menu_name', 'pronamic_events' ),
 			),
-			'public'             => true ,
+			'public'             => true,
 			'publicly_queryable' => true,
 			'show_ui'            => true,
 			'show_in_menu'       => true,
