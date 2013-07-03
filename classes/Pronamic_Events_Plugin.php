@@ -180,6 +180,9 @@ class Pronamic_Events_Plugin {
 
 	/**
 	 * Parse query
+	 * 
+	 * @note In PHP 5.1.4, "today" means midnight today, and "now" means the current timestamp.
+	 * http://php.net/manual/en/function.strtotime.php#77541
 	 *
 	 * @param WP_Query $query
 	 */
@@ -188,7 +191,7 @@ class Pronamic_Events_Plugin {
 			$meta_query_extra = array(
 				array(
 					'key'     => '_pronamic_end_date',
-					'value'   => strtotime( '-1 day' ),
+					'value'   => strtotime( 'today' ),
 					'compare' => '>',
 					'type'    => 'NUMERIC'
 				)
