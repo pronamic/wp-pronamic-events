@@ -246,24 +246,18 @@ class Pronamic_Events_Plugin_Admin {
 		$start_timestamp = strtotime( $start_date . ' ' . $start_time );
 		$end_timestamp   = strtotime( $end_date . ' ' . $end_time );
 
-		$start_date     = date( 'Y-m-d H:i:s', $start_timestamp );
-		$start_date_gmt = get_gmt_from_date( $start_date );
-
-		$end_date       = date( 'Y-m-d H:i:s', $end_timestamp );
-		$end_date_gmt   = get_gmt_from_date( $end_date );
-
-		// Save data
-		update_post_meta( $post_id, '_pronamic_start_date', $start_timestamp );
-		update_post_meta( $post_id, '_pronamic_event_start_date', $start_date );
-		update_post_meta( $post_id, '_pronamic_event_start_date_gmt', $start_date_gmt );
+		$meta = array(
+			'_pronamic_location'  => $location,
+			'_pronamic_event_url' => $url
+		);
 		
-		update_post_meta( $post_id, '_pronamic_end_date', $end_timestamp );
-		update_post_meta( $post_id, '_pronamic_event_end_date', $end_date );
-		update_post_meta( $post_id, '_pronamic_event_end_date_gmt', $end_date_gmt );
-
-		update_post_meta( $post_id, '_pronamic_location', $location );
-
-		update_post_meta( $post_id, '_pronamic_event_url', $url );
+		$meta = pronamic_events_get_start_date_meta( $start_timestamp, $meta );
+		$meta = pronamic_events_get_end_date_meta( $end_timestamp, $meta );
+		
+		// Save meta data
+		foreach ( $meta as $key => $value ) {
+			update_post_meta( $post_id, $key, $value );
+		}
 	}
 
 	//////////////////////////////////////////////////

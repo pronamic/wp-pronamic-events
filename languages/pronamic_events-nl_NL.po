@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Events\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-03 09:11+0100\n"
-"PO-Revision-Date: 2013-07-03 09:11+0100\n"
+"POT-Creation-Date: 2013-08-22 14:32+0100\n"
+"PO-Revision-Date: 2013-08-22 14:32+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -15,7 +15,7 @@ msgstr ""
 "esc_attr__;_nx:4c,1,2;_nx_noop:4c,1,2;esc_html_x:2c,1;esc_html__;_ex:2c,1\n"
 "X-Poedit-Basepath: ../\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.5.5\n"
+"X-Generator: Poedit 1.5.7\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: admin/meta-box.php:29
@@ -157,32 +157,32 @@ msgstr "Instellingen"
 msgid "Event Details"
 msgstr "Evenement details"
 
-#: classes/Pronamic_Events_Plugin_Admin.php:301
+#: classes/Pronamic_Events_Plugin_Admin.php:295
 msgid "Start Date"
 msgstr "Startdatum"
 
-#: classes/Pronamic_Events_Plugin_Admin.php:302
+#: classes/Pronamic_Events_Plugin_Admin.php:296
 msgid "End Date"
 msgstr "Einddatum"
 
-#: classes/Pronamic_Events_Plugin_Admin.php:335
-#: classes/Pronamic_Events_Plugin_Admin.php:347
+#: classes/Pronamic_Events_Plugin_Admin.php:329
+#: classes/Pronamic_Events_Plugin_Admin.php:341
 msgid "Y/m/d g:i:s A"
 msgstr "j F Y H:i"
 
-#: classes/Pronamic_Events_Plugin_Admin.php:336
-#: classes/Pronamic_Events_Plugin_Admin.php:348
+#: classes/Pronamic_Events_Plugin_Admin.php:330
+#: classes/Pronamic_Events_Plugin_Admin.php:342
 msgid "Y/m/d"
 msgstr "j F Y"
 
-#: classes/Pronamic_Events_Plugin_Admin.php:337
-#: classes/Pronamic_Events_Plugin_Admin.php:349
+#: classes/Pronamic_Events_Plugin_Admin.php:331
+#: classes/Pronamic_Events_Plugin_Admin.php:343
 msgid "g:i:s"
 msgstr "H:i"
 
 #: classes/Pronamic_Events_Widget.php:16
 msgid "Pronamic Events"
-msgstr "Pronamic Evenemeten"
+msgstr "Pronamic Evenementen"
 
 #: classes/Pronamic_Events_Widget.php:18
 msgid "The most recent events on your site"
@@ -195,6 +195,22 @@ msgstr "Titel:"
 #: classes/Pronamic_Events_Widget.php:113
 msgid "Number of posts to show:"
 msgstr "Aantal te tonen berichten:"
+
+#: includes/gravityforms.php:16
+msgid "Is Event Start Date"
+msgstr "Is evenement startdatum"
+
+#: includes/gravityforms.php:23
+msgid "Is Event Start Time"
+msgstr "Is evenement starttijd"
+
+#: includes/gravityforms.php:31
+msgid "Is Event End Date"
+msgstr "Is evenement einddatum"
+
+#: includes/gravityforms.php:38
+msgid "Is Event End Time"
+msgstr "Is evenement eindtijd"
 
 #~ msgid "Agenda"
 #~ msgstr "Agenda"
