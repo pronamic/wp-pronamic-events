@@ -23,3 +23,25 @@ function is_pronamic_events_query( WP_Query $query ) {
 
 	return $is_pronamic_events;
 }
+
+function pronamic_events_get_start_date_meta( $timestamp, array &$meta = array() ) {
+	$date     = date( 'Y-m-d H:i:s', $timestamp );
+	$date_gmt = get_gmt_from_date( $date );
+
+	$meta['_pronamic_start_date']           = $timestamp;
+	$meta['_pronamic_event_start_date']     = $date;
+	$meta['_pronamic_event_start_date_gmt'] = $date_gmt;
+	
+	return $meta;
+}
+
+function pronamic_events_get_end_date_meta( $timestamp, array &$meta = array() ) {
+	$date     = date( 'Y-m-d H:i:s', $timestamp );
+	$date_gmt = get_gmt_from_date( $date );
+
+	$meta['_pronamic_end_date']           = $timestamp;
+	$meta['_pronamic_event_end_date']     = $date;
+	$meta['_pronamic_event_end_date_gmt'] = $date_gmt;
+	
+	return $meta;
+}

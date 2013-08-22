@@ -74,15 +74,25 @@ function pronamic_events_gform_editor_js() {
 add_action( 'gform_editor_js', 'pronamic_events_gform_editor_js' );
 
 function pronamic_events_gform_parse_date( $value, $format ) {
-	$timestamp = false;
-
 	$date_info = GFCommon::parse_date( $value, $format );
 
-	if ( isset( $date_info['month'], $date_info['day'], $date_info['year'] ) ) {
-		$timestamp = mktime( 0, 0, 0, $date_info['month'], $date_info['day'], $date_info['year'] );
+	return $date_info;
+}
+
+function pronamic_events_gform_parse_time( $value ) {
+	$date_info = null;
+
+	$result = date_parse( $value );
+
+	if ( $result ) { 
+		$date_info = array_intersect_key( $result, array(
+			'hour'   => 0,
+			'minute' => 0,
+			'second' => 0
+		) );
 	}
 
-	return $timestamp;
+	return $date_info;
 }
 
 /**
@@ -94,63 +104,57 @@ function pronamic_events_gform_parse_date( $value, $format ) {
  */
 function pronamic_events_gform_post_data( $post_data, $form, $lead ) {
 	$start_date = $end_date = null;
-	
+
+	// Init
+	$start_date = array();
+	$start_time = array();
+	$end_date   = array();
+	$end_time   = array();
+
 	// Form fields
 	foreach ( $form['fields'] as $field ) {
 		if ( isset( $field['isEventStartDate'] ) ) {
-			$is_active = filter_var( $field['isEventStartDate'], FILTER_VALIDATE_BOOLEAN );
+			$has_start_date = filter_var( $field['isEventStartDate'], FILTER_VALIDATE_BOOLEAN );
 	
-			if ( $is_active ) {
-				$value = pronamic_events_gform_parse_date( $lead[$field['id']], $field['dateFormat'] );
-				
-				echo date( 'd-m-Y', $value );
-				echo '<pre>';
-				var_dump($value);
-				echo '</pre>';
-				echo '<pre>';
-				var_dump($field);
-				echo '</pre>';
-				echo '<pre>';
-				var_dump($lead);
-				echo '</pre>';
+			if ( $has_start_date ) {
+				$start_date = pronamic_events_gform_parse_date( $lead[$field['id']], $field['dateFormat'] );
 			}
 		}
 
 		if ( isset( $field['isEventStartTime'] ) ) {
-			$is_active = filter_var( $field['isEventStartTime'], FILTER_VALIDATE_BOOLEAN );
+			$has_start_time = filter_var( $field['isEventStartTime'], FILTER_VALIDATE_BOOLEAN );
 		
-			if ( $is_active ) {
-				$value = $lead[$field['id']];
-				$value = strtotime( $value );
-				echo date( 'd-m-Y H:i:s', $value );
-				echo '<pre>';
-				var_dump($value);
-				echo '</pre>';
-
-				exit;
+			if ( $has_start_time ) {
+				$start_time = pronamic_events_gform_parse_time( $lead[$field['id']] );
 			}
 		}
 
 		if ( isset( $field['isEventEndDate'] ) ) {
-			$is_active = filter_var( $field['isEventEndDate'], FILTER_VALIDATE_BOOLEAN );
+			$has_end_date = filter_var( $field['isEventEndDate'], FILTER_VALIDATE_BOOLEAN );
 		
-			if ( $is_active ) {
-		
+			if ( $has_end_date ) {
+				$end_date = pronamic_events_gform_parse_date( $lead[$field['id']], $field['dateFormat'] );
 			}
 		}
 
 		if ( isset( $field['isEventEndTime'] ) ) {
-			$is_active = filter_var( $field['isEventEndTime'], FILTER_VALIDATE_BOOLEAN );
+			$has_end_time = filter_var( $field['isEventEndTime'], FILTER_VALIDATE_BOOLEAN );
 		
-			if ( $is_active ) {
-		
+			if ( $has_end_time ) {
+				$end_time = pronamic_events_gform_parse_time( $lead[$field['id']] );
 			}
 		}
 	}
+	
+	// Mapping
+	if ( ! isset( $post_data['post_custom_fields'] ) ) {
+		$post_data['post_custom_fields'] = array();
+	}
+	
+	$fields =& $post_data['post_custom_fields'];
 
-	if ( isset( $post_data['post_custom_fields'] ) ) {
-		$fields =& $post_data['post_custom_fields'];
-
+	// Backwards compatibility
+	if ( true ) {
 		// Start date
 		if ( isset( $fields['_pronamic_start_date_date'] ) ) {
 			$start_date = $fields['_pronamic_start_date_date'];
@@ -180,6 +184,24 @@ function pronamic_events_gform_post_data( $post_data, $form, $lead ) {
 				$fields['_pronamic_end_date'] = $end_timestamp;
 			}
 		}
+	}
+
+	// Merge start and end dates togehter, magic!
+	$start = array_merge( $end_date, $end_time, $start_date, $start_time );
+	$end   = array_merge( $start_date, $start_time, $end_date, $end_time );
+
+	if ( ! empty( $start ) && ! empty( $end ) ) {
+		// Merge missing date info with today's date info
+		$today = date_parse( 'today' );
+
+		$start = array_merge( $today, $start );
+		$end   = array_merge( $today, $end );
+
+		$timestamp = mktime( $start['hour'], $start['minute'], $start['second'], $start['month'], $start['day'], $start['year'] );
+		$fields = pronamic_events_get_start_date_meta( $timestamp, $fields );
+
+		$timestamp = mktime( $end['hour'], $end['minute'], $end['second'], $end['month'], $end['day'], $end['year'] );
+		$fields = pronamic_events_get_end_date_meta( $timestamp, $fields );
 	}
 
 	return $post_data;
