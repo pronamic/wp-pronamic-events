@@ -35,7 +35,7 @@ function pronamic_events_gform_field_advanced_settings( $position, $form_id ) {
 			<input type="checkbox" id="pronamic_events_is_end_time" onclick="SetFieldProperty('isEventEndTime', this.checked); ToggleInputName();" />
 
 			<label for="pronamic_events_is_end_time" class="inline">
-				<?php _e( 'Is Event Start Time', 'pronamic_events' ); ?>
+				<?php _e( 'Is Event End Time', 'pronamic_events' ); ?>
 			</label>
 		</li>
 
