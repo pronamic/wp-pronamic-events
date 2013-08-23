@@ -1,0 +1,1299 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Pronamic Events\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-08-22 14:32+0100\n"
+"PO-Revision-Date: 2013-08-22 17:25-0300\n"
+"Last-Translator: Gustavo <gustavo@toborino.com>\n"
+"Language-Team: Pronamic <info@pronamic.nl>\n"
+"Language: nl_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;__ngettext:1,2;__withdesc;_ewithdesc;_c;"
+"_n_noop:1,2;__ngettext_noop:1,2;_x:2c,1;_nc:1,2;esc_attr_e;esc_html_e;"
+"esc_attr__;_nx:4c,1,2;_nx_noop:4c,1,2;esc_html_x:2c,1;esc_html__;_ex:2c,1\n"
+"X-Poedit-Basepath: ../\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/meta-box.php:29
+msgid "Start Date:"
+msgstr "Data inicial:"
+
+#: admin/meta-box.php:35
+msgid "End Date:"
+msgstr "Data final:"
+
+#: admin/meta-box.php:53
+msgid "Location:"
+msgstr "Localização:"
+
+#: admin/meta-box.php:60
+msgid "Website:"
+msgstr "Website:"
+
+#: classes/Pronamic_Events_Plugin.php:88
+msgctxt "slug"
+msgid "events"
+msgstr "agenda"
+
+#: classes/Pronamic_Events_Plugin.php:92
+msgctxt "post type general name"
+msgid "Events"
+msgstr "Eventos"
+
+#: classes/Pronamic_Events_Plugin.php:93
+msgctxt "post type singular name"
+msgid "Event"
+msgstr "Evento"
+
+#: classes/Pronamic_Events_Plugin.php:94
+msgctxt "event"
+msgid "Add New"
+msgstr "Adicionar Novo"
+
+#: classes/Pronamic_Events_Plugin.php:95
+msgid "Add New Event"
+msgstr "Adicionar Novo Evento"
+
+#: classes/Pronamic_Events_Plugin.php:96
+msgid "Edit Event"
+msgstr "Editar Evento"
+
+#: classes/Pronamic_Events_Plugin.php:97
+msgid "New Event"
+msgstr "Novo Evento"
+
+#: classes/Pronamic_Events_Plugin.php:98
+msgid "View Event"
+msgstr "Ver Evento"
+
+#: classes/Pronamic_Events_Plugin.php:99
+msgid "Search Events"
+msgstr "Buscar Eventos"
+
+#: classes/Pronamic_Events_Plugin.php:100
+msgid "No events found"
+msgstr "Nenhum evento encontrado"
+
+#: classes/Pronamic_Events_Plugin.php:101
+msgid "No events found in Trash"
+msgstr "Nenhum evento encontrado na lixeira"
+
+#: classes/Pronamic_Events_Plugin.php:102
+msgid "Parent Event:"
+msgstr "Evento Mãe:"
+
+#: classes/Pronamic_Events_Plugin.php:103
+msgctxt "menu_name"
+msgid "Events"
+msgstr "Eventos"
+
+#: classes/Pronamic_Events_Plugin.php:125
+msgctxt "class general name"
+msgid "Event categories"
+msgstr "Categorias de evento"
+
+#: classes/Pronamic_Events_Plugin.php:126
+msgctxt "class singular name"
+msgid "Event category"
+msgstr "Categoria de evento"
+
+#: classes/Pronamic_Events_Plugin.php:127
+msgid "Search Event categories"
+msgstr "Buscar categorias de evento"
+
+#: classes/Pronamic_Events_Plugin.php:128
+msgid "All Event categories"
+msgstr "Todas as categorias de evento"
+
+#: classes/Pronamic_Events_Plugin.php:129
+msgid "Parent Event category"
+msgstr "Categoria mãe de evento:"
+
+#: classes/Pronamic_Events_Plugin.php:130
+msgid "Parent Event category:"
+msgstr "Categoria mãe de evento:"
+
+#: classes/Pronamic_Events_Plugin.php:131
+msgid "Edit Event category"
+msgstr "Editar categoria de evento"
+
+#: classes/Pronamic_Events_Plugin.php:132
+msgid "Update Event category"
+msgstr "Atualizar categoria"
+
+#: classes/Pronamic_Events_Plugin.php:133
+msgid "Add New Event category"
+msgstr "Adicionar nova categoria de evento"
+
+#: classes/Pronamic_Events_Plugin.php:134
+msgid "New Event category Name"
+msgstr "Nome da nova categoria de evento"
+
+#: classes/Pronamic_Events_Plugin.php:135
+msgid "Event categories"
+msgstr "Categorias de evento"
+
+#: classes/Pronamic_Events_Plugin_Admin.php:51
+msgid "Permalinks"
+msgstr "Permalinks"
+
+#: classes/Pronamic_Events_Plugin_Admin.php:58
+msgid "Event base"
+msgstr "Evento base "
+
+#: classes/Pronamic_Events_Plugin_Admin.php:84
+msgid "Pronamic Events Settings"
+msgstr "Configurações do Pronamic eventos"
+
+#: classes/Pronamic_Events_Plugin_Admin.php:85
+msgid "Settings"
+msgstr "Configurações"
+
+#: classes/Pronamic_Events_Plugin_Admin.php:202
+msgid "Event Details"
+msgstr "Detalhes do evento"
+
+#: classes/Pronamic_Events_Plugin_Admin.php:295
+msgid "Start Date"
+msgstr "Data inicial"
+
+#: classes/Pronamic_Events_Plugin_Admin.php:296
+msgid "End Date"
+msgstr "Data final"
+
+#: classes/Pronamic_Events_Plugin_Admin.php:329
+#: classes/Pronamic_Events_Plugin_Admin.php:341
+msgid "Y/m/d g:i:s A"
+msgstr "j F Y H:i"
+
+#: classes/Pronamic_Events_Plugin_Admin.php:330
+#: classes/Pronamic_Events_Plugin_Admin.php:342
+msgid "Y/m/d"
+msgstr "j F Y"
+
+#: classes/Pronamic_Events_Plugin_Admin.php:331
+#: classes/Pronamic_Events_Plugin_Admin.php:343
+msgid "g:i:s"
+msgstr "H:i"
+
+#: classes/Pronamic_Events_Widget.php:16
+msgid "Pronamic Events"
+msgstr "Pronamic Eventos"
+
+#: classes/Pronamic_Events_Widget.php:18
+msgid "The most recent events on your site"
+msgstr "Os mais recentes eventos em seu site"
+
+#: classes/Pronamic_Events_Widget.php:110
+msgid "Title:"
+msgstr "Título:"
+
+#: classes/Pronamic_Events_Widget.php:113
+msgid "Number of posts to show:"
+msgstr "Nº de posts para mostrar:"
+
+#: includes/gravityforms.php:16
+msgid "Is Event Start Date"
+msgstr "Is Data inicial do evento"
+
+#: includes/gravityforms.php:23
+msgid "Is Event Start Time"
+msgstr "Is Hora inicial do evento"
+
+#: includes/gravityforms.php:31
+msgid "Is Event End Date"
+msgstr "Is Data final do evento"
+
+#: includes/gravityforms.php:38
+msgid "Is Event End Time"
+msgstr "Is Hora final do evento"
+
+#~ msgid "Agenda"
+#~ msgstr "Agenda"
+
+#~ msgid "Start date"
+#~ msgstr "Startdatum"
+
+#~ msgid "End date"
+#~ msgstr "Einddatum"
+
+#~ msgid "iDEAL Settings"
+#~ msgstr "iDEAL instellingen"
+
+#~ msgid "General Settings"
+#~ msgstr "Algemene instellingen"
+
+#~ msgid "Support License Key"
+#~ msgstr "Support licentiecode"
+
+#~ msgid ""
+#~ "The license key is used for access to automatic upgrades and support."
+#~ msgstr ""
+#~ "De licentiecode wordt gebruikt voor automatische upgrades en support."
+
+#~ msgid "Supported Plugins"
+#~ msgstr "Ondersteunde plugins"
+
+#~ msgid "Gravity Forms"
+#~ msgstr "Gravity Forms"
+
+#~ msgid "Jigoshop"
+#~ msgstr "Jigoshop"
+
+#~ msgid "Shopp"
+#~ msgstr "Shopp"
+
+#~ msgid "WooCommerce"
+#~ msgstr "WooCommerce"
+
+#~ msgid "WP e-Commerce"
+#~ msgstr "WP e-Commerce"
+
+#~ msgid "Installation Status"
+#~ msgstr "Installatie status"
+
+#~ msgid "PHP Version"
+#~ msgstr "PHP versie"
+
+#~ msgid "Pronamic iDEAL requires PHP 5.2 or above."
+#~ msgstr "Pronamic iDEAL vereist PHP 5.2 of hoger."
+
+#~ msgid "MySQL Version"
+#~ msgstr "MySQL versie"
+
+#~ msgid "Pronamic iDEAL requires MySQL 5 or above."
+#~ msgstr "Pronamic iDEAL vereist MySQL 5 of hoger."
+
+#~ msgid "WordPress Version"
+#~ msgstr "WordPress versie"
+
+#~ msgid "Pronamic iDEAL requires WordPress 3.2 or above."
+#~ msgstr "Pronamic iDEAL vereist WordPress 3.2 of hoger."
+
+#~ msgid "Time"
+#~ msgstr "Tijd"
+
+#~ msgid "Registered Hashing Algorithms"
+#~ msgstr "Geregistreerde hashing algoritmen"
+
+#~ msgid "Pronamic iDEAL requires the \"sha1\" hashing algorithm."
+#~ msgstr "Pronamic iDEAL vereist de \"sha1\" hashing algoritme."
+
+#~ msgid "Save"
+#~ msgstr "Opslaan"
+
+#~ msgid "Update"
+#~ msgstr "Update"
+
+#~ msgid "iDEAL Pages Generator"
+#~ msgstr "iDEAL pagina's generator"
+
+#~ msgid ""
+#~ "This page allows you to easily create pages for each iDEAL payment status."
+#~ msgstr ""
+#~ "Via deze pagina kunt u eenvoudig pagina's aanmaken voor de verschillende "
+#~ "iDEAL betalingsstatussen."
+
+#~ msgid "iDEAL"
+#~ msgstr "iDEAL"
+
+#~ msgid "ideal"
+#~ msgstr "ideal"
+
+#~ msgid "iDEAL payment error"
+#~ msgstr "iDEAL betalingsfout"
+
+#~ msgid "error"
+#~ msgstr "fout"
+
+#~ msgid ""
+#~ "<p>Unfortunately an error has occurred during your iDEAL payment.</p>"
+#~ msgstr "<p>Helaas is er een fout opgetreden tijdens uw iDEAL betaling.</p>"
+
+#~ msgid "iDEAL payment canceled"
+#~ msgstr "iDEAL betaling geannuleerd"
+
+#~ msgid "cancelled"
+#~ msgstr "geannuleerd"
+
+#~ msgid "<p>You canceled the iDEAL payment.</p>"
+#~ msgstr "<p>U heeft de iDEAL betaling geannuleerd.</p>"
+
+#~ msgid "iDEAL payment unknown"
+#~ msgstr "iDEAL betaling onbekend"
+
+#~ msgid "unknown"
+#~ msgstr "onbekend"
+
+#~ msgid "<p>The status of your iDEAL payment is unknown.</p>"
+#~ msgstr "<p>De status van uw iDEAL betaling is onbekend.</p>"
+
+#~ msgid "iDEAL payment expired"
+#~ msgstr "iDEAL betaling verlopen"
+
+#~ msgid "expired"
+#~ msgstr "verlopen"
+
+#~ msgid "<p>Unfortunately your iDEAL payment session has expired.</p>"
+#~ msgstr "<p>Uw iDEAL betalingssessie is helaas verlopen.</p>"
+
+#~ msgid "iDEAL payment completed"
+#~ msgstr "iDEAL betaling voltooid"
+
+#~ msgid "completed"
+#~ msgstr "voltooid"
+
+#~ msgid "<p>The payment process is successfully completed.</p>"
+#~ msgstr "<p>Het betalingsproces is succesvol voltooid.</p>"
+
+#~ msgid "Slug"
+#~ msgstr "Slug"
+
+#~ msgid "Content"
+#~ msgstr "Inhoud"
+
+#~ msgid "Generate Pages"
+#~ msgstr "Genereer pagina's"
+
+#~ msgid "The payment status is: %s"
+#~ msgstr "De betaling status is: %s"
+
+#~ msgid "iDEAL Payment"
+#~ msgstr "iDEAL betaling"
+
+#~ msgid "General"
+#~ msgstr "Algemeen"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Transaction"
+#~ msgstr "Transactie"
+
+#~ msgid "Purchase ID"
+#~ msgstr "Aankoop ID"
+
+#~ msgid "Transaction ID"
+#~ msgstr "Transactie ID"
+
+#~ msgid "Description"
+#~ msgstr "Beschrijving"
+
+#~ msgid "Amount"
+#~ msgstr "Bedrag"
+
+#~ msgid "Expiration Period"
+#~ msgstr "Vervalperiode"
+
+#~ msgid "Status"
+#~ msgstr "Status"
+
+#~ msgid "Consumer"
+#~ msgstr "Consument"
+
+#~ msgid "Name"
+#~ msgstr "Naam"
+
+#~ msgid "Account Number"
+#~ msgstr "Rrekeningnummer"
+
+#~ msgid "City"
+#~ msgstr "Plaats"
+
+#~ msgid "Configuration"
+#~ msgstr "Configuratie"
+
+#~ msgid "Source"
+#~ msgstr "Bron"
+
+#~ msgid "Status Request"
+#~ msgstr "Status verzoek"
+
+#~ msgid "iDEAL Payments"
+#~ msgstr "iDEAL betalingen"
+
+#~ msgid "iDEAL Configurations"
+#~ msgstr "iDEAL configuraties"
+
+#~ msgid "iDEAL Documentation"
+#~ msgstr "iDEAL documentatie"
+
+#~ msgid "version %s"
+#~ msgstr "versie %s"
+
+#~ msgid "Configuration deleted."
+#~ msgid_plural "Configurations deleted."
+#~ msgstr[0] "Configuratie verwijderd."
+#~ msgstr[1] "Configuraties verwijderd."
+
+#~ msgid "Bulk Actions"
+#~ msgstr "Acties"
+
+#~ msgid "Delete"
+#~ msgstr "Verwijder"
+
+#~ msgid "Apply"
+#~ msgstr "Toepassen"
+
+#~ msgid "Merchant ID"
+#~ msgstr "Winkelier ID"
+
+#~ msgid "Sub ID"
+#~ msgstr "Sub ID"
+
+#~ msgid "Mode"
+#~ msgstr "Modus"
+
+#~ msgid "Dashboard"
+#~ msgstr "Dashboard"
+
+#~ msgid "Number Payments"
+#~ msgstr "Aantal betalingen"
+
+#~ msgid "Edit"
+#~ msgstr "Bewerken"
+
+#~ msgid "Tests"
+#~ msgstr "Tests"
+
+#~ msgid "Not available"
+#~ msgstr "Niet beschikbaar"
+
+#~ msgid "iDEAL Variants"
+#~ msgstr "iDEAL varianten"
+
+#~ msgid "Provider"
+#~ msgstr "Provider"
+
+#~ msgid "Method"
+#~ msgstr "Methode"
+
+#~ msgid "Easy"
+#~ msgstr "Easy"
+
+#~ msgid "Basic"
+#~ msgstr "Basis"
+
+#~ msgid "OmniKassa"
+#~ msgstr "OmniKassa"
+
+#~ msgid "Advanced"
+#~ msgstr "Geavanceerd"
+
+#~ msgid "Unknown"
+#~ msgstr "Onbekend"
+
+#~ msgid "Test"
+#~ msgstr "Test"
+
+#~ msgid "Live"
+#~ msgstr "Live"
+
+#~ msgid ""
+#~ "Unfortunately we could not generate a certificate resource from the given "
+#~ "CSR (Certificate Signing Request)."
+#~ msgstr ""
+#~ "Helaas konden we geen certificaat resource generen vanuit de opgeven CSR "
+#~ "(Certificate Signing Request)."
+
+#~ msgid "Unfortunately we could not generate a private key."
+#~ msgstr "We konden helaas niet een privé sleutel genereren."
+
+#~ msgid "Configuration updated, %s."
+#~ msgstr "Configuratie geüpdate, %s."
+
+#~ msgid "back to overview"
+#~ msgstr "terug naar overzicht"
+
+#~ msgid "iDEAL Configuration"
+#~ msgstr "iDEAL configuratie"
+
+#~ msgid "Variant"
+#~ msgstr "Variant"
+
+#~ msgid ""
+#~ "You receive the merchant ID (also known as: acceptant ID) from your iDEAL "
+#~ "provider."
+#~ msgstr ""
+#~ "Je ontvangt de winkelier ID (ook wel: merchant ID of acceptant ID) van je "
+#~ "iDEAL provider."
+
+#~ msgid "You receive the sub ID from your iDEAL provider, the default is: %s."
+#~ msgstr "Je ontvangt de sub ID van je iDEAL provider, standaard is dit: %s."
+
+#~ msgid "Hash Key"
+#~ msgstr "Hash sleutel"
+
+#~ msgid ""
+#~ "You configure the hash key (also known as: key or secret key) in the "
+#~ "iDEAL dashboard of your iDEAL provider."
+#~ msgstr ""
+#~ "Je configureert de hash sleutel (ook wel: sleutel of geheime sleutel) in "
+#~ "het iDEAL dashboard van je iDEAL provider."
+
+#~ msgid "Private Key Password"
+#~ msgstr "Privé sleutel wachtwoord"
+
+#~ msgid "Private Key"
+#~ msgstr "Privé sleutel"
+
+#~ msgid "Download Private Key"
+#~ msgstr "Download privé sleutel"
+
+#~ msgid "Private Certificate"
+#~ msgstr "Privé certificaat"
+
+#~ msgid "SHA Fingerprint: %s"
+#~ msgstr "SHA vingerafdruk: %s"
+
+#~ msgid "Download Private Certificate"
+#~ msgstr "Download privé certificaat"
+
+#~ msgid "Private Key and Certificate Generator"
+#~ msgstr "Privé sleutel en certificaat generator"
+
+#~ msgid "Number Days Valid"
+#~ msgstr "Aantal dagen geldig"
+
+#~ msgid ""
+#~ "specify the length of time for which the generated certificate will be "
+#~ "valid, in days. "
+#~ msgstr ""
+#~ "specificieer hoelang de gegenereerde certificaat geldig moet zijn in "
+#~ "dagen."
+
+#~ msgid "Country"
+#~ msgstr "Land"
+
+#~ msgid "2 letter code [NL]"
+#~ msgstr "2 letters code [NL]"
+
+#~ msgid "State or Province"
+#~ msgstr "Staat of provincie"
+
+#~ msgid "full name [Friesland]"
+#~ msgstr "volledige naam [Friesland]"
+
+#~ msgid "Locality"
+#~ msgstr "Localiteit"
+
+#~ msgid "eg, city"
+#~ msgstr "bijvoorbeeld, stad"
+
+#~ msgid "Organization"
+#~ msgstr "Organisatie"
+
+#~ msgid "eg, company [Pronamic]"
+#~ msgstr "bijvoorbeeld, bedrijf [Pronamic]"
+
+#~ msgid "Organization Unit"
+#~ msgstr "Organisatie unit"
+
+#~ msgid "eg, section"
+#~ msgstr "bijvoorbeeld, sectie"
+
+#~ msgid "Common Name"
+#~ msgstr "Algemene naam"
+
+#~ msgid "eg, YOUR name"
+#~ msgstr "bijvoorbeeld, uw naam"
+
+#~ msgid ""
+#~ "Do you have an iDEAL subscription with Rabobank or ING Bank, please fill "
+#~ "in the domainname of your website."
+#~ msgstr ""
+#~ "Heb je een iDEAL abonnement bij de Rabobank of ING bank, vul dan de "
+#~ "domeinnaam van deze website in."
+
+#~ msgid ""
+#~ "Do you have an iDEAL subscription with ABN AMRO, please fill in "
+#~ "\"ideal_<strong>company</strong>\", where \"company\" is your company "
+#~ "name (as specified in the request for the subscription). The value must "
+#~ "not exceed 25 characters."
+#~ msgstr ""
+#~ "Heb je een iDEAL abonnement bij ABN AMRO, vul dan "
+#~ "\"ideal_<strong>bedrijf</strong>\", waar \"bedrijf\" is uw bedrijfsnaam "
+#~ "(zoals opgegevens bij de aanvraag van iDEAL). De waarde moet niet langer "
+#~ "zijn dan 25 tekens."
+
+#~ msgid "Email Address"
+#~ msgstr "E-mailadres"
+
+#~ msgid "Generate"
+#~ msgstr "Genereer"
+
+#~ msgid "iDEAL Tests"
+#~ msgstr "iDEAL tests"
+
+#~ msgid "We could not find any feed with the ID \"%s\"."
+#~ msgstr "We konden geen feed vinden met de ID \"%s\"."
+
+#~ msgid "Info"
+#~ msgstr "Info"
+
+#~ msgid "Retrieve Issuers Lists"
+#~ msgstr "Ophalen banken lijsten"
+
+#~ msgid "Mandatory Tests"
+#~ msgstr "Verplichte tests"
+
+#~ msgid "Test Case %s"
+#~ msgstr "Test %s"
+
+#~ msgid "Code"
+#~ msgstr "Code"
+
+#~ msgid "Message"
+#~ msgstr "Bericht"
+
+#~ msgid "Detail"
+#~ msgstr "Detail"
+
+#~ msgid "Consumer Message"
+#~ msgstr "Consumenten bericht"
+
+#~ msgid "iDEAL Feeds"
+#~ msgstr "iDEAL feeds"
+
+#~ msgid "Feed deleted."
+#~ msgid_plural "Feeds deleted."
+#~ msgstr[0] "Feed verwijderd."
+#~ msgstr[1] "Feeds verwijderd."
+
+#~ msgid "Form"
+#~ msgstr "Formulier"
+
+#~ msgid "Transaction Description"
+#~ msgstr "Transactie beschrijving"
+
+#~ msgid "Condition"
+#~ msgstr "Conditie"
+
+#~ msgid "To get started, please configure your %s."
+#~ msgstr "Om te beginnen configureer je %s."
+
+#~ msgid "Active"
+#~ msgstr "Actief"
+
+#~ msgid "Inactive"
+#~ msgstr "Inactief"
+
+#~ msgid "Enabled"
+#~ msgstr "Ingeschakeld"
+
+#~ msgid "Disabled"
+#~ msgstr "Uitgeschakeld"
+
+#~ msgid "Search Lead"
+#~ msgstr "Zoek inzending"
+
+#~ msgid "iDEAL Feed"
+#~ msgstr "iDEAL feed"
+
+#~ msgid "Feed updated, %s."
+#~ msgstr "Feed geüpdate, %s."
+
+#~ msgid "back to list"
+#~ msgstr "terug naar lijst"
+
+#~ msgid "Gravity Form"
+#~ msgstr "Gravity Form"
+
+#~ msgid "&mdash; Select a form &mdash;"
+#~ msgstr "&mdash; Selecteer een formulier &mdash;"
+
+#~ msgid "No iDEAL configurations found, %s."
+#~ msgstr "Geen iDEAL configuraties gevonden, %s."
+
+#~ msgid "create an iDEAL configuration"
+#~ msgstr "creëer een iDEAL configuratie"
+
+#~ msgid "&mdash; Select configuration &mdash; "
+#~ msgstr "&mdash; Selecteer configuratie &mdash;"
+
+#~ msgid ""
+#~ "Maximum number of charachters is 32, you should also consider the use of "
+#~ "variables Gravity Forms. An generated description that is longer than 32 "
+#~ "characters will be automatically truncated."
+#~ msgstr ""
+#~ "Maximum aantal tekens 32 is, hou daarbij ook rekening met het gebruik van "
+#~ "Gravity Forms variabelen. Een gegeneerde beschrijving die langer is dan "
+#~ "32 tekens zal automatisch worden afgekapt."
+
+#~ msgid ""
+#~ "Merge Tag Examples: Entry Id = <code>{entry_id}</code>, Form Id = <code>"
+#~ "{form_id}</code>, Form Title = <code>{form_title}</code>"
+#~ msgstr ""
+#~ "Samenvoegen tag voorbeelden: Inzending ID = <code>{entry_id}</code>, "
+#~ "Formulier ID = <code>{form_id}</code>, Formulier titel = <code>"
+#~ "{form_title}</code>"
+
+#~ msgid "Options"
+#~ msgstr "Opties"
+
+#~ msgid "Send admin notification only when payment is received."
+#~ msgstr ""
+#~ "Verstuur beheerder notificatie alleen wanneer de betaling is ontvangen. "
+
+#~ msgid "Send user notification only when payment is received."
+#~ msgstr ""
+#~ "Verstuur gebruiker notificatie alleen wanneer de betaling is ontvangen. "
+
+#~ msgid "Create post only when payment is received."
+#~ msgstr "Maak alleen een bericht wanneer de betaling is ontvangen."
+
+#~ msgid "iDEAL Condition"
+#~ msgstr "iDEAL conditie"
+
+#~ msgid "Enable"
+#~ msgstr "Inschakelen"
+
+#~ msgid "Send to iDEAL if "
+#~ msgstr "Verstuur naar iDEAL als"
+
+#~ msgid "is"
+#~ msgstr "is"
+
+#~ msgid "is not"
+#~ msgstr "is niet"
+
+#~ msgid ""
+#~ "To create a condition, your form must have a drop down, checkbox or "
+#~ "multiple choice field."
+#~ msgstr ""
+#~ "Om een conditie in te stellen moet je formulier een selectieveld, "
+#~ "selectievakje of meerkeuzeveld bevatten."
+
+#~ msgid "Status Links"
+#~ msgstr "Status koppelingen"
+
+#~ msgid "Open"
+#~ msgstr "Open"
+
+#~ msgid "Success"
+#~ msgstr "Succes"
+
+#~ msgid "Cancel"
+#~ msgstr "Annuleren"
+
+#~ msgid "Error"
+#~ msgstr "Fout"
+
+#~ msgid "Expired"
+#~ msgstr "Verlopen"
+
+#~ msgid "Page:"
+#~ msgstr "Pagina:"
+
+#~ msgid "&mdash; Select &mdash;"
+#~ msgstr "&mdash; Selecteren &mdash;"
+
+#~ msgid "URL:"
+#~ msgstr "URL:"
+
+#~ msgid "Customer Name"
+#~ msgstr "Klant  naam"
+
+#~ msgid "E-Mail Address"
+#~ msgstr "E-mailadres"
+
+#~ msgid "Owner Address"
+#~ msgstr "Eigenaar adres"
+
+#~ msgid "Owner City"
+#~ msgstr "Eigenaar woonplaats"
+
+#~ msgid "Owner ZIP"
+#~ msgstr "Eigenaar postcode"
+
+#~ msgid "Update user role"
+#~ msgstr "Update gebruikersrol"
+
+#~ msgid "Pronamic iDEAL"
+#~ msgstr "Pronamic iDEAL"
+
+#~ msgid "Purchase #%s"
+#~ msgstr "Aankoop #%s"
+
+#~ msgid "Order %s"
+#~ msgstr "Bestelling %s"
+
+#~ msgid "&mdash; Select configuration &mdash;"
+#~ msgstr "&mdash; Selecteer configuratie &mdash;"
+
+#~ msgid ""
+#~ "<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free "
+#~ "payments of %d, you should enter an valid license key on the %s."
+#~ msgstr ""
+#~ "<strong>Pronamic iDEAL beperkt:</strong> U heeft het maximaal aantal "
+#~ "gratis betalingen van %d overschreden, u dient een geldige licentie "
+#~ "sleutel in te voeren op de %s."
+
+#~ msgid "iDEAL settings page"
+#~ msgstr "iDEAL instellingen pagina"
+
+#~ msgid "iDEAL Administrator"
+#~ msgstr "iDEAL beheerder"
+
+#~ msgid "Administrator"
+#~ msgstr "Beheerder"
+
+#~ msgid "Cancelled"
+#~ msgstr "Geannuleerd"
+
+#~ msgid "Failure"
+#~ msgstr "Storing"
+
+#~ msgid "Pay with iDEAL"
+#~ msgstr "Betaal met iDEAL"
+
+#~ msgid "Payments"
+#~ msgstr "Betalingen"
+
+#~ msgid "Pages Generator"
+#~ msgstr "Pagina's generator"
+
+#~ msgid "Variants"
+#~ msgstr "Varianten"
+
+#~ msgid "Documentation"
+#~ msgstr "Documentatie"
+
+#~ msgid "Configurations"
+#~ msgstr "Configuraties"
+
+#~ msgid "Date"
+#~ msgstr "Datum"
+
+#~ msgid "Details"
+#~ msgstr "Details"
+
+#~ msgid "iDEAL payment cancelled."
+#~ msgstr "iDEAL betaling geannuleerd."
+
+#~ msgid "iDEAL payment expired."
+#~ msgstr "iDEAL betaling verlopen."
+
+#~ msgid "iDEAL payment failed."
+#~ msgstr "iDEAL betaling mislukt."
+
+#~ msgid "iDEAL payment completed."
+#~ msgstr "iDEAL betaling voltooid."
+
+#~ msgid "iDEAL payment open."
+#~ msgstr "iDEAL betaling open."
+
+#~ msgid "iDEAL payment unknown."
+#~ msgstr "iDEAL betaling onbekend."
+
+#~ msgid "Order #%s"
+#~ msgstr "Bestelling #%s"
+
+#~ msgid "Enable/Disable"
+#~ msgstr "Inschakelen/uitschakelen"
+
+#~ msgid "Enable iDEAL"
+#~ msgstr "iDEAL inschakelen"
+
+#~ msgid "This controls the title which the user sees during checkout."
+#~ msgstr ""
+#~ "Hiermee beheert u de titel die gebruikers zien tijdens het afrekenen."
+
+#~ msgid ""
+#~ "Give the customer instructions for paying via iDEAL, and let them know "
+#~ "that their order won't be shipping until the money is received."
+#~ msgstr ""
+#~ "Geef de klant instructies voor het betalen via iDEAL, en laat hen weten "
+#~ "dat hun bestelling niet zal worden verstuurd totdat het geld is ontvangen."
+
+#~ msgid ""
+#~ "With iDEAL you can easily pay online in the secure environment of your "
+#~ "own bank."
+#~ msgstr ""
+#~ "Via iDEAL kunt u vertrouwd, veilig en gemakkelijk online betalen via de "
+#~ "veilige omgeving van uw eigen bank."
+
+#~ msgid "Select an iDEAL configuration."
+#~ msgstr "Selecteer een iDEAL configuratie."
+
+#~ msgid "Choose your bank"
+#~ msgstr "Kies uw bank"
+
+#~ msgid ""
+#~ "Paying with iDEAL is not possible. Please try again later or pay another "
+#~ "way."
+#~ msgstr ""
+#~ "Betalen met iDEAL is nu niet mogelijk. Probeer het later nogmaals of "
+#~ "betaal op een andere manier."
+
+#~ msgid "Awaiting iDEAL payment"
+#~ msgstr "In afwachting van iDEAL betaling"
+
+#~ msgid ""
+#~ "Check the payment of order #%s in your <a href=\"%s\">iDEAL dashboard</a> "
+#~ "and <a href=\"%s\">update the status of the order</a>."
+#~ msgstr ""
+#~ "Controleer de betaling voor bestelling #%s in uw <a href=\"%s\">iDEAL "
+#~ "dashboard</a> en <a href=\"%s\">update de status van de bestelling</a>."
+
+#~ msgid "Check iDEAL payment"
+#~ msgstr "Controleer iDEAL betaling"
+
+#~ msgid "Check iDEAL payment for order #%s"
+#~ msgstr "Controleer iDEAL betaling voor bestelling #%s"
+
+#~ msgid "iDEAL Options"
+#~ msgstr "iDEAL opties"
+
+#~ msgid "Yes"
+#~ msgstr "Ja"
+
+#~ msgid "No"
+#~ msgstr "Nee"
+
+#~ msgid "ClassiPress"
+#~ msgstr "ClassiPress"
+
+#~ msgid "Advertisement %s"
+#~ msgstr "Advertentie %s"
+
+#~ msgid "iDEAL Issuer"
+#~ msgstr "iDEAL bank"
+
+#~ msgid "Select configuration"
+#~ msgstr "Selecteer configuratie"
+
+#~ msgid "Payment of the order has been cancelled."
+#~ msgstr "Betaling van de bestelling is geannuleerd."
+
+#~ msgid "An unexpected error occured during transaction."
+#~ msgstr "Een overwachte fout vond plaats tijdens de transactie."
+
+#~ msgid "The maximum transaction time expired."
+#~ msgstr "De maximale transactie tijd is verlopen."
+
+#~ msgid "The transaction failed for an unknown reason."
+#~ msgstr "De transactie is mislukt om een onbekende reden."
+
+#~ msgid "Transaction was not finished and was left open."
+#~ msgstr "Transactie is niet afgerond en is open gelaten."
+
+#~ msgid "Errors"
+#~ msgstr "Fouten"
+
+#~ msgid "Shipping"
+#~ msgstr "Verzending"
+
+#~ msgid "Tax"
+#~ msgstr "BTW"
+
+#~ msgid "Create iDEAL feed"
+#~ msgstr "Creëer iDEAL feed"
+
+#~ msgid "Edit iDEAL feed"
+#~ msgstr "Bewerk iDEAL feed"
+
+#~ msgid "Issuer Drop Down"
+#~ msgstr "Banken uitschuifkeuzelijst"
+
+#~ msgid "iDEAL Fields"
+#~ msgstr "iDEAL velden"
+
+#~ msgid "Entry #%s"
+#~ msgstr "Inzending #%s"
+
+#~ msgid "This controls the description which the user sees during checkout."
+#~ msgstr ""
+#~ "Hiermee beheert u de titel die gebruikers zien tijdens het afrekenen."
+
+#~ msgid "Pending iDEAL payment."
+#~ msgstr "In afwachting van iDEAL betaling."
+
+#, fuzzy
+#~ msgid "Ad %s"
+#~ msgstr "Bestelling %s"
+
+#~ msgid ""
+#~ "Thank you for your order, please click the button below to pay with iDEAL."
+#~ msgstr ""
+#~ "Hartelijk dank voor uw bestelling, klik dan op de onderstaande knop om te "
+#~ "betalen met iDEAL."
+
+#~ msgid ""
+#~ "We are awaiting your payment, to pay for this order please use the "
+#~ "following link: <a href=\"%s\">Pay</a>"
+#~ msgstr ""
+#~ "Wij wachten op uw betaling, om te betalen voor deze bestelling kunt u de "
+#~ "volgende link gebruiken: <a href=\"%s\">Betalen</a>"
+
+#~ msgid "Delete iDEAL plugin"
+#~ msgstr "Verwijder iDEAL plugin"
+
+#~ msgid ""
+#~ "Warning! This will delete all iDEAL configurations, payments and options."
+#~ msgstr ""
+#~ "Waarschuwing! Deze operatie verwijderd alle iDEAL configuraties, "
+#~ "betalingen en opties."
+
+#~ msgid "Uninstall"
+#~ msgstr "Verwijder"
+
+#~ msgid "Customer Message"
+#~ msgstr "Klant  bericht"
+
+#, fuzzy
+#~ msgid "Method Title"
+#~ msgstr "Methode"
+
+#~ msgid "shipping"
+#~ msgstr "verzending"
+
+#~ msgid "iDEAL Bank"
+#~ msgstr "iDEAL bank"
+
+#~ msgid "Execute"
+#~ msgstr "Uitvoeren"
+
+#~ msgid "iDeal Payment"
+#~ msgstr "iDEAL betaling"
+
+#~ msgid "password"
+#~ msgstr "wachtwoord"
+
+#~ msgid "Gravity Forms payment %s"
+#~ msgstr "Gravity Forms betaling %s"
+
+#, fuzzy
+#~ msgid "iDEAL Feed Settings"
+#~ msgstr "iDEAL instellingen"
+
+#~ msgid "iDEAL Form Settings"
+#~ msgstr "iDEAL formulier instellingen"
+
+#~ msgid "Links"
+#~ msgstr "Koppelingen"
+
+#~ msgid "Pay"
+#~ msgstr "Betalen"
+
+#, fuzzy
+#~ msgid "iDEAL Purchase"
+#~ msgstr "iDEAL aankopen"
+
+#~ msgid "iDEAL Transactions"
+#~ msgstr "iDEAL transacties"
+
+#~ msgid "Currency"
+#~ msgstr "Valuta"
+
+#~ msgid "Language"
+#~ msgstr "Taal"
+
+#~ msgid "Entrance Code"
+#~ msgstr "Entree code"
+
+#~ msgid "Issuer ID"
+#~ msgstr "Issuer ID"
+
+#~ msgid "Rabobank"
+#~ msgstr "Rabobank"
+
+#~ msgid "ING"
+#~ msgstr "ING"
+
+#~ msgid "ABN AMRO"
+#~ msgstr "ABN AMRO"
+
+#~ msgid "Search Transactions"
+#~ msgstr "Zoek transacties"
+
+#~ msgctxt "link name"
+#~ msgid "Name"
+#~ msgstr "Naam"
+
+#, fuzzy
+#~ msgid "URL"
+#~ msgstr "URL:"
+
+#, fuzzy
+#~ msgid "Visible"
+#~ msgstr "Uitgeschakeld"
+
+#~ msgid "Production"
+#~ msgstr "Productie"
+
+#, fuzzy
+#~ msgid "iDEAL Setting"
+#~ msgstr "iDEAL instellingen"
+
+#~ msgid "Select a form"
+#~ msgstr "Selecteer een formulier"
+
+#~ msgid "Select settings"
+#~ msgstr "Selecteer conf"
+
+#~ msgid "Acquirer"
+#~ msgstr "Acquirer"
+
+#~ msgid "Acceptant ID"
+#~ msgstr "Acceptant ID"
+
+#~ msgid "Key"
+#~ msgstr "Sleutel"
+
+#~ msgid "Uninstall iDEAL Add-On"
+#~ msgstr "Verwijder iDEAL Add-On"
+
+#~ msgid "Custom URL:"
+#~ msgstr "Maatwerk URL:"
+
+#~ msgctxt "post type general name"
+#~ msgid "Blocks"
+#~ msgstr "Blokken"
+
+#~ msgctxt "post type singular name"
+#~ msgid "Block"
+#~ msgstr "Blok"
+
+#~ msgid "Add New Block"
+#~ msgstr "Nieuw blok toevoegen"
+
+#~ msgid "Edit Block"
+#~ msgstr "Blok wijzigen"
+
+#~ msgid "New Block"
+#~ msgstr "Nieuw blok"
+
+#~ msgid "View Block"
+#~ msgstr "Bekijk blok"
+
+#~ msgid "Search Blocks"
+#~ msgstr "Blokken zoeken"
+
+#~ msgid "Blocks"
+#~ msgstr "Blokken"
+
+#~ msgid "http://pronamic.eu/"
+#~ msgstr "http://pronamic.nl/"
+
+#~ msgid "http://pronamic.eu/contact/"
+#~ msgstr "http://pronamic.nl/contact/"
+
+#~ msgid "Support"
+#~ msgstr "Support"
+
+#~ msgid "Telephone: %s"
+#~ msgstr "Telefoon: %s"
+
+#~ msgid "+31 516 481 200"
+#~ msgstr "0516 481 200"
+
+#~ msgid "support@pronamic.eu"
+#~ msgstr "support@pronamic.nl"
+
+#~ msgid "News"
+#~ msgstr "Nieuws"
+
+#~ msgid "Concept and realisation by %s"
+#~ msgstr "Concept en realisatie door %s"
+
+#~ msgid "Pronamic - Internet, marketing & WordPress specialist"
+#~ msgstr "Pronamic - Internet, marketing & WordPress specialist"
+
+#~ msgid "Developed by:"
+#~ msgstr "Ontwikkeld door:"
+
+#~ msgid "info@pronamic.eu"
+#~ msgstr "info@pronamic.nl"
+
+#~ msgid "T: %s"
+#~ msgstr "T: %s"
+
+#~ msgid "Latitude"
+#~ msgstr "Breedtegraad"
+
+#~ msgid "Longitude"
+#~ msgstr "Lengtegraad"
+
+#~ msgid "Width"
+#~ msgstr "Breedte"
+
+#~ msgid "Height"
+#~ msgstr "Hoogte"
+
+#~ msgid "Show Google Maps"
+#~ msgstr "Google Maps weergeven"
+
+#~ msgid "Configuration - Pronamic Google Maps"
+#~ msgstr "Configuratie - Pronamic Google Maps"
+
+#~ msgid "Post type"
+#~ msgstr "Bericht type"
+
+#~ msgid "Activate Google Maps"
+#~ msgstr "Activeer Google Maps"
+
+#~ msgid "Use this widget to add an Google Maps as a widget."
+#~ msgstr "Gebruik deze widget om Google Maps toe te voegen."
+
+#~ msgid "Google Maps"
+#~ msgstr "Google Maps"
+
+#~ msgid "pixels"
+#~ msgstr "pixels"
+
+#~ msgid "percent"
+#~ msgstr "procent"
+
+#~ msgid "Pronamic Google Maps"
+#~ msgstr "Pronamic Google Maps"
+
+#~ msgid "Click to toggle"
+#~ msgstr "Klik om te wisselen"
+
+#~ msgid "Donate $10, $20 or $50!"
+#~ msgstr "Doneer $10, $20 of $50!"
+
+#~ msgid ""
+#~ "This plugin has cost us countless hours of work, if you use it, please "
+#~ "donate a token of your appreciation!"
+#~ msgstr ""
+#~ "Het ons veel uren werken gekost om deze plugin te ontwikkelen, als je het "
+#~ "gebruikt, doneer a.u.b. voor je waardering!"
+
+#~ msgid "Latest news from Pronamic"
+#~ msgstr "Laatste nieuws van Pronamic"
+
+#~ msgid "no news items, feed might be broken..."
+#~ msgstr "geen nieuws items, feed is waarschijnlijk niet bereikbaar..."
+
+#~ msgid "Subscribe with RSS"
+#~ msgstr "Aanmelden voor RSS"
+
+#~ msgid "Subscribe by e-mail"
+#~ msgstr "Aanmelden via e-mail"
+
+#~ msgid "Like this plugin?"
+#~ msgstr "Vind je deze plugin leuk?"
+
+#~ msgid "Why not do any or all of the following:"
+#~ msgstr "Waarom doe je niet één van de volgende dingen:"
+
+#~ msgid "Link to it so other folks can find out about it."
+#~ msgstr "Link naar ons zodat anderen deze plugin ook ontdekken."
+
+#~ msgid "Give it a good rating on WordPress.org."
+#~ msgstr "Geef het een goede score op WordPress.org."
+
+#~ msgid "Let other people know that it works with your WordPress setup."
+#~ msgstr "Laat anderen weten dat het werk op je WordPress installatie."
+
+#~ msgid "Save Changes"
+#~ msgstr "Wijzigingen opslaan"
+
+#~ msgid "Found a bug?"
+#~ msgstr "Bug gevonden?"
