@@ -4,7 +4,7 @@ Tags: pronamic, events, agenda
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-events&source=wp-plugin-readme-txt
 Requires at least: 3.0
 Tested up to: 3.5.1
-Stable tag: 0.2.1
+Stable tag: 0.2.2
 
 Pronamic Events is a basic plugin to add some Events functionality.
 
@@ -63,6 +63,9 @@ Upload the Pronamic Events folder to your wp-content/plugins folder.
 
 
 == Changelog ==
+
+= 0.2.2 =
+*	Added Brazilian Portuguese translation thanks to Gustavo Magalhães
 
 = 0.2.1 =
 *	Improved support for Gravity Forms + Custom Post Types plugin
