@@ -64,6 +64,9 @@ Upload the Pronamic Events folder to your wp-content/plugins folder.
 
 == Changelog ==
 
+= 0.2.3 =
+*	Added French translations thanks to Gwendal Leriche.
+
 = 0.2.2 =
 *	Added Brazilian Portuguese translation thanks to Gustavo Magalhães
 
