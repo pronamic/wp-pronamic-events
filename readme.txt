@@ -3,8 +3,8 @@ Contributors: pronamic, remcotolsma, kjtolsma
 Tags: pronamic, events, agenda
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-events&source=wp-plugin-readme-txt
 Requires at least: 3.0
-Tested up to: 3.5.1
-Stable tag: 0.2.2
+Tested up to: 3.8
+Stable tag: 0.2.3
 
 Pronamic Events is a basic plugin to add some Events functionality.
 
@@ -66,6 +66,7 @@ Upload the Pronamic Events folder to your wp-content/plugins folder.
 
 = 0.2.3 =
 *	Added French translations thanks to Gwendal Leriche.
+*       Added a new filter to the Pronamic Events Archive timestamp. 'pronamic_event_parse_query_timestamp'. It expects a timestamp returned.
 
 = 0.2.2 =
 *	Added Brazilian Portuguese translation thanks to Gustavo Magalhães
