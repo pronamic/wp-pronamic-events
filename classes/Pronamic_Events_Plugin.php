@@ -191,7 +191,7 @@ class Pronamic_Events_Plugin {
 			$meta_query_extra = array(
 				array(
 					'key'     => '_pronamic_end_date',
-					'value'   => strtotime( 'today' ),
+					'value'   => apply_filters( 'pronamic_event_parse_query_timestamp', strtotime( 'today' ) ),
 					'compare' => '>',
 					'type'    => 'NUMERIC'
 				)
