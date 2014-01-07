@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Events\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-22 14:32+0100\n"
-"PO-Revision-Date: 2013-08-22 14:32+0100\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-events\n"
+"POT-Creation-Date: 2014-01-07 12:18:13+00:00\n"
+"PO-Revision-Date: 2014-01-07 13:18+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -13,10 +13,9 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e;_n:1,2;__ngettext:1,2;__withdesc;_ewithdesc;_c;"
 "_n_noop:1,2;__ngettext_noop:1,2;_x:2c,1;_nc:1,2;esc_attr_e;esc_html_e;"
 "esc_attr__;_nx:4c,1,2;_nx_noop:4c,1,2;esc_html_x:2c,1;esc_html__;_ex:2c,1\n"
-"X-Poedit-Basepath: ../\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.5.7\n"
-"X-Poedit-SearchPath-0: .\n"
+"X-Generator: Poedit 1.6.3\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 
 #: admin/meta-box.php:29
 msgid "Start Date:"
@@ -134,8 +133,8 @@ msgid "New Event category Name"
 msgstr "Nieuwe categorie naam"
 
 #: classes/Pronamic_Events_Plugin.php:135
-msgid "Event categories"
-msgstr "Evenement categorieën"
+msgid "Categories"
+msgstr "Categorieën"
 
 #: classes/Pronamic_Events_Plugin_Admin.php:51
 msgid "Permalinks"
@@ -180,6 +179,7 @@ msgstr "j F Y"
 msgid "g:i:s"
 msgstr "H:i"
 
+#. Plugin Name of the plugin/theme
 #: classes/Pronamic_Events_Widget.php:16
 msgid "Pronamic Events"
 msgstr "Pronamic Evenementen"
@@ -211,6 +211,23 @@ msgstr "Is evenement einddatum"
 #: includes/gravityforms.php:38
 msgid "Is Event End Time"
 msgstr "Is evenement eindtijd"
+
+#. Plugin URI of the plugin/theme
+msgid "http://wp.pronamic.eu/plugins/pronamic-events/"
+msgstr "http://wp.pronamic.eu/plugins/pronamic-events/"
+
+#. Description of the plugin/theme
+msgid "This plugin add some basic Event functionality to WordPress."
+msgstr ""
+"Deze plugin voegt een basis evenementen functionaliteit toe aan WordPress."
+
+#. Author of the plugin/theme
+msgid "Pronamic"
+msgstr "Pronamic"
+
+#. Author URI of the plugin/theme
+msgid "http://www.pronamic.eu/"
+msgstr "http://www.pronamic.nl/"
 
 #~ msgid "Agenda"
 #~ msgstr "Agenda"
@@ -725,12 +742,12 @@ msgstr "Is evenement eindtijd"
 #~ "32 tekens zal automatisch worden afgekapt."
 
 #~ msgid ""
-#~ "Merge Tag Examples: Entry Id = <code>{entry_id}</code>, Form Id = <code>"
-#~ "{form_id}</code>, Form Title = <code>{form_title}</code>"
+#~ "Merge Tag Examples: Entry Id = <code>{entry_id}</code>, Form Id = "
+#~ "<code>{form_id}</code>, Form Title = <code>{form_title}</code>"
 #~ msgstr ""
 #~ "Samenvoegen tag voorbeelden: Inzending ID = <code>{entry_id}</code>, "
-#~ "Formulier ID = <code>{form_id}</code>, Formulier titel = <code>"
-#~ "{form_title}</code>"
+#~ "Formulier ID = <code>{form_id}</code>, Formulier titel = "
+#~ "<code>{form_title}</code>"
 
 #~ msgid "Options"
 #~ msgstr "Opties"
@@ -812,9 +829,6 @@ msgstr "Is evenement eindtijd"
 
 #~ msgid "Update user role"
 #~ msgstr "Update gebruikersrol"
-
-#~ msgid "Pronamic iDEAL"
-#~ msgstr "Pronamic iDEAL"
 
 #~ msgid "Purchase #%s"
 #~ msgstr "Aankoop #%s"
@@ -1176,12 +1190,6 @@ msgstr "Is evenement eindtijd"
 
 #~ msgid "Blocks"
 #~ msgstr "Blokken"
-
-#~ msgid "http://pronamic.eu/"
-#~ msgstr "http://pronamic.nl/"
-
-#~ msgid "http://pronamic.eu/contact/"
-#~ msgstr "http://pronamic.nl/contact/"
 
 #~ msgid "Support"
 #~ msgstr "Support"
