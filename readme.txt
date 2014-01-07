@@ -72,6 +72,7 @@ Upload the Pronamic Events folder to your wp-content/plugins folder.
 = 1.0.0 =
 *	Added French translations thanks to Gwendal Leriche.
 *	Added a new filter to the Pronamic Events Archive timestamp. 'pronamic_event_parse_query_timestamp'. It expects a timestamp returned.
+*	Display events sorted by start date with a fallback to publication date.
 
 = 0.2.2 =
 *	Added Brazilian Portuguese translation thanks to Gustavo Magalhães

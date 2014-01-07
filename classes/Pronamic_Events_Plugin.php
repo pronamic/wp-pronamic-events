@@ -202,7 +202,7 @@ class Pronamic_Events_Plugin {
 
 			$query->set( 'meta_query', $meta_query );
 
-			$query->set( 'orderby', 'meta_value_num' );
+			$query->set( 'orderby', 'meta_value_num date' );
 			$query->set( 'meta_key', '_pronamic_start_date' );
 			$query->set( 'order', 'ASC' );
 		}
