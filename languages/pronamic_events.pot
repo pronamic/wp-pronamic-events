@@ -1,0 +1,225 @@
+# Copyright (C) 2014 Pronamic Events
+# This file is distributed under the same license as the Pronamic Events package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Pronamic Events 1.0.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-events\n"
+"POT-Creation-Date: 2014-01-07 12:18:13+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: admin/meta-box.php:29
+msgid "Start Date:"
+msgstr ""
+
+#: admin/meta-box.php:35
+msgid "End Date:"
+msgstr ""
+
+#: admin/meta-box.php:53
+msgid "Location:"
+msgstr ""
+
+#: admin/meta-box.php:60
+msgid "Website:"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:88
+msgctxt "slug"
+msgid "events"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:92
+msgctxt "post type general name"
+msgid "Events"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:93
+msgctxt "post type singular name"
+msgid "Event"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:94
+msgctxt "event"
+msgid "Add New"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:95
+msgid "Add New Event"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:96
+msgid "Edit Event"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:97
+msgid "New Event"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:98
+msgid "View Event"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:99
+msgid "Search Events"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:100
+msgid "No events found"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:101
+msgid "No events found in Trash"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:102
+msgid "Parent Event:"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:103
+msgctxt "menu_name"
+msgid "Events"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:125
+msgctxt "class general name"
+msgid "Event categories"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:126
+msgctxt "class singular name"
+msgid "Event category"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:127
+msgid "Search Event categories"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:128
+msgid "All Event categories"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:129
+msgid "Parent Event category"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:130
+msgid "Parent Event category:"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:131
+msgid "Edit Event category"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:132
+msgid "Update Event category"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:133
+msgid "Add New Event category"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:134
+msgid "New Event category Name"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:135
+msgid "Categories"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin_Admin.php:51
+msgid "Permalinks"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin_Admin.php:58
+msgid "Event base"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin_Admin.php:84
+msgid "Pronamic Events Settings"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin_Admin.php:85
+msgid "Settings"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin_Admin.php:202
+msgid "Event Details"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin_Admin.php:295
+msgid "Start Date"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin_Admin.php:296
+msgid "End Date"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin_Admin.php:329
+#: classes/Pronamic_Events_Plugin_Admin.php:341
+msgid "Y/m/d g:i:s A"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin_Admin.php:330
+#: classes/Pronamic_Events_Plugin_Admin.php:342
+msgid "Y/m/d"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin_Admin.php:331
+#: classes/Pronamic_Events_Plugin_Admin.php:343
+msgid "g:i:s"
+msgstr ""
+
+#. #-#-#-#-#  pronamic_events.pot (Pronamic Events 1.0.0)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: classes/Pronamic_Events_Widget.php:16
+msgid "Pronamic Events"
+msgstr ""
+
+#: classes/Pronamic_Events_Widget.php:18
+msgid "The most recent events on your site"
+msgstr ""
+
+#: classes/Pronamic_Events_Widget.php:110
+msgid "Title:"
+msgstr ""
+
+#: classes/Pronamic_Events_Widget.php:113
+msgid "Number of posts to show:"
+msgstr ""
+
+#: includes/gravityforms.php:16
+msgid "Is Event Start Date"
+msgstr ""
+
+#: includes/gravityforms.php:23
+msgid "Is Event Start Time"
+msgstr ""
+
+#: includes/gravityforms.php:31
+msgid "Is Event End Date"
+msgstr ""
+
+#: includes/gravityforms.php:38
+msgid "Is Event End Time"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://wp.pronamic.eu/plugins/pronamic-events/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "This plugin add some basic Event functionality to WordPress."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Pronamic"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.pronamic.eu/"
+msgstr ""
