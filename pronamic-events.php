@@ -1,14 +1,14 @@
 <?php
 /*
 Plugin Name: Pronamic Events
-Plugin URI: http://pronamic.eu/wordpress/events/
-Description: This plugin add some basic Event functionality to WordPress
+Plugin URI: http://wp.pronamic.eu/plugins/pronamic-events/
+Description: This plugin add some basic Event functionality to WordPress.
 
-Version: 0.2.2
+Version: 1.0.0
 Requires at least: 3.0
 
 Author: Pronamic
-Author URI: http://pronamic.eu/
+Author URI: http://www.pronamic.eu/
 
 Text Domain: pronamic_events
 Domain Path: /languages/
