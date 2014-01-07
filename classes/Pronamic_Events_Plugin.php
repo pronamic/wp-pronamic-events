@@ -112,10 +112,10 @@ class Pronamic_Events_Plugin {
 			'has_archive'        => true,
 			'rewrite'            => array(
 				'slug'       => $slug,
-				'with_front' => false
+				'with_front' => false,
 			),
 			'menu_icon'          =>  plugins_url( '/admin/icons/event.png', $this->file ),
-			'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' )
+			'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' ),
 		) );
 
 		// Taxonomy
@@ -132,10 +132,10 @@ class Pronamic_Events_Plugin {
 				'update_item'       => __( 'Update Event category', 'pronamic_events' ),
 				'add_new_item'      => __( 'Add New Event category', 'pronamic_events' ),
 				'new_item_name'     => __( 'New Event category Name', 'pronamic_events' ),
-				'menu_name'         => __( 'Event categories', 'pronamic_events' )
+				'menu_name'         => __( 'Categories', 'pronamic_events' ),
 			),
 			'show_ui'      => true,
-			'query_var'    => true
+			'query_var'    => true,
 		) );
 	}
 
@@ -162,14 +162,14 @@ class Pronamic_Events_Plugin {
 		if ( isset( $request['orderby'] ) && 'pronamic_start_date' == $request['orderby'] ) {
 			$request = array_merge( $request, array(
 				'meta_key' => '_pronamic_start_date',
-				'orderby'  => 'meta_value_num'
+				'orderby'  => 'meta_value_num',
 			) );
 		}
 
 		if ( isset( $request['orderby'] ) && 'pronamic_end_date' == $request['orderby'] ) {
 			$request = array_merge( $request, array(
 				'meta_key' => '_pronamic_end_date',
-				'orderby'  => 'meta_value_num'
+				'orderby'  => 'meta_value_num',
 			) );
 		}
 
@@ -193,7 +193,7 @@ class Pronamic_Events_Plugin {
 					'key'     => '_pronamic_end_date',
 					'value'   => strtotime( 'today' ),
 					'compare' => '>',
-					'type'    => 'NUMERIC'
+					'type'    => 'NUMERIC',
 				)
 			);
 
