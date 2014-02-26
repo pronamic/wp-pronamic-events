@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Pronamic Events
-Plugin URI: http://wp.pronamic.eu/plugins/pronamic-events/
+Plugin URI: http://www.happywp.com/plugins/pronamic-events/
 Description: This plugin add some basic Event functionality to WordPress.
 
 Version: 1.0.0
