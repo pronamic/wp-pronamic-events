@@ -40,7 +40,7 @@ if ( pronamic_has_end_date( ) ) {
 	<script type="text/javascript">
 		jQuery(document).ready(function($) {
 			var field = $('.pronamic_date');
-	
+
 			field.datepicker({
 				dateFormat: 'dd-mm-yy'
 			});
