@@ -213,7 +213,7 @@ class Pronamic_Events_Plugin_Admin {
 	 * Event details meta box
 	 */
 	public function event_details_meta_box() {
-		include $this->plugin->dirname . '/admin/meta-box.php';
+		include $this->plugin->dirname . '/admin/meta-box-event-details.php';
 	}
 
 	/**
