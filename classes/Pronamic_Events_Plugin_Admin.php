@@ -31,7 +31,7 @@ class Pronamic_Events_Plugin_Admin {
 
 		// Post type
 		$post_type = 'pronamic_event';
-		
+
 		add_filter( "manage_edit-{$post_type}_columns",          array( $this, 'manage_edit_columns' ) );
 		add_filter( "manage_edit-{$post_type}_sortable_columns", array( $this, 'manage_edit_sortable_columns' ) );
 		add_filter( "manage_{$post_type}_posts_custom_column",   array( $this, 'manage_posts_custom_column' ), 10, 2 );
@@ -103,7 +103,7 @@ class Pronamic_Events_Plugin_Admin {
 			orbis_events_upgrade_100();
 		}
 	}
-	
+
 	//////////////////////////////////////////////////
 
 	/**
@@ -137,13 +137,13 @@ class Pronamic_Events_Plugin_Admin {
 	 */
 	public function admin_enqueue_scripts( $hook ) {
 		wp_enqueue_style( 'pronamic-events', plugins_url( '/admin/css/pronamic-events.css', $this->plugin->file ) );
-		
-		// Screen		
+
+		// Screen
 		$screen = get_current_screen();
-		
+
 		if ( isset( $screen, $screen->post_type ) && $screen->post_type == 'pronamic_event' ) {
 			wp_enqueue_script( 'jquery-ui-datepicker' );
-		
+
 			wp_enqueue_style( 'jquery-ui-datepicker', plugins_url( '/jquery-ui/themes/base/jquery.ui.all.css', $this->plugin->file ) );
 
 			self::enqueue_jquery_ui_i18n_path( 'datepicker' );
@@ -155,7 +155,7 @@ class Pronamic_Events_Plugin_Admin {
 	/**
 	 * Get jQuery UI i18n file
 	 * https://github.com/jquery/jquery-ui/tree/master/ui/i18n
-	 * 
+	 *
 	 * @param string $module
 	 */
 	private function enqueue_jquery_ui_i18n_path( $module ) {
@@ -163,31 +163,33 @@ class Pronamic_Events_Plugin_Admin {
 
 		// Retrive the WordPress locale, for example 'en_GB'
 		$locale = get_locale();
-		
-		// jQuery UI uses 'en-GB' notation, replace underscore with hyphen 
+
+		// jQuery UI uses 'en-GB' notation, replace underscore with hyphen
 		$locale = str_replace( '_', '-', $locale );
-		
+
 		// Create an search array with two variants 'en-GB' and 'en'
 		$search = array(
-			$locale, // en-GB
-			substr( $locale, 0, 2 ) // en
+			// en-GB
+			$locale,
+			// en
+			substr( $locale, 0, 2 ),
 		);
-		
+
 		foreach ( $search as $name ) {
 			$path = sprintf( '/jquery-ui/languages/jquery.ui.%s-%s.js', $module, $name );
 
 			$file = $this->plugin->dirname . $path;
 
 			if ( is_readable( $file ) ) {
-				wp_enqueue_script( 
+				wp_enqueue_script(
 					'jquery-ui-' . $module . '-' . $name,
-					plugins_url( $path, $this->plugin->file ) 
+					plugins_url( $path, $this->plugin->file )
 				);
 
 				break;
 			}
 		}
-		
+
 		return $result;
 	}
 
@@ -218,24 +220,28 @@ class Pronamic_Events_Plugin_Admin {
 	 * Save metaboxes
 	 */
 	public function save_post( $post_id ) {
-		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 			return;
+		}
 
-		if ( ! isset( $_POST['pronamic_events_nonce'] ) )
+		if ( ! isset( $_POST['pronamic_events_nonce'] ) ) {
 			return;
+		}
 
-		if ( ! wp_verify_nonce( $_POST['pronamic_events_nonce'], 'pronamic_events_edit_details' ) )
+		if ( ! wp_verify_nonce( $_POST['pronamic_events_nonce'], 'pronamic_events_edit_details' ) ) {
 			return;
+		}
 
-		if ( ! current_user_can( 'edit_post', $post_id ) )
+		if ( ! current_user_can( 'edit_post', $post_id ) ) {
 			return;
+		}
 
 		// Define timestamps
 		$start_date = filter_input( INPUT_POST, 'pronamic_start_date', FILTER_SANITIZE_STRING );
 		$start_time = filter_input( INPUT_POST, 'pronamic_start_time', FILTER_SANITIZE_STRING );
 
-		$end_date =  filter_input( INPUT_POST, 'pronamic_end_date', FILTER_SANITIZE_STRING );
-		$end_time =  filter_input( INPUT_POST, 'pronamic_end_time', FILTER_SANITIZE_STRING );
+		$end_date = filter_input( INPUT_POST, 'pronamic_end_date', FILTER_SANITIZE_STRING );
+		$end_time = filter_input( INPUT_POST, 'pronamic_end_time', FILTER_SANITIZE_STRING );
 
 		$location = filter_input( INPUT_POST, 'pronamic_location', FILTER_SANITIZE_STRING );
 		$url      = filter_input( INPUT_POST, 'pronamic_event_url', FILTER_SANITIZE_STRING );
@@ -248,12 +254,12 @@ class Pronamic_Events_Plugin_Admin {
 
 		$meta = array(
 			'_pronamic_location'  => $location,
-			'_pronamic_event_url' => $url
+			'_pronamic_event_url' => $url,
 		);
-		
+
 		$meta = pronamic_events_get_start_date_meta( $start_timestamp, $meta );
 		$meta = pronamic_events_get_end_date_meta( $end_timestamp, $meta );
-		
+
 		// Save meta data
 		foreach ( $meta as $key => $value ) {
 			update_post_meta( $post_id, $key, $value );
@@ -270,25 +276,25 @@ class Pronamic_Events_Plugin_Admin {
 	public function manage_edit_columns( $columns ) {
 		$new_columns = array();
 
-		if( isset( $columns['cb'] ) ) {
+		if ( isset( $columns['cb'] ) ) {
 			$new_columns['cb'] = $columns['cb'];
 		}
 
 		// $new_columns['thumbnail'] = __('Thumbnail', 'pronamic_companies');
 
-		if( isset( $columns['title'] ) ) {
+		if ( isset( $columns['title'] ) ) {
 			$new_columns['title'] = $columns['title'];
 		}
 
-		if( isset( $columns['author'] ) ) {
+		if ( isset( $columns['author'] ) ) {
 			$new_columns['author'] = $columns['author'];
 		}
 
-		if( isset( $columns['comments'] ) ) {
+		if ( isset( $columns['comments'] ) ) {
 			$new_columns['comments'] = $columns['comments'];
 		}
 
-		if( isset( $columns['date'] ) ) {
+		if ( isset( $columns['date'] ) ) {
 			$new_columns['date'] = $columns['date'];
 		}
 

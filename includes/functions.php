@@ -13,7 +13,7 @@ function is_pronamic_events_query( WP_Query $query ) {
 		// Check 'post_type' var
 		$is_pronamic_events = $query->get( 'post_type' ) == 'pronamic_event';
 
-		if( ! $is_pronamic_events ) {
+		if ( ! $is_pronamic_events ) {
 			// Check queried object
 			$object = $query->get_queried_object();
 
@@ -31,7 +31,7 @@ function pronamic_events_get_start_date_meta( $timestamp, array &$meta = array()
 	$meta['_pronamic_start_date']           = $timestamp;
 	$meta['_pronamic_event_start_date']     = $date;
 	$meta['_pronamic_event_start_date_gmt'] = $date_gmt;
-	
+
 	return $meta;
 }
 
@@ -42,6 +42,6 @@ function pronamic_events_get_end_date_meta( $timestamp, array &$meta = array() )
 	$meta['_pronamic_end_date']           = $timestamp;
 	$meta['_pronamic_event_end_date']     = $date;
 	$meta['_pronamic_event_end_date_gmt'] = $date_gmt;
-	
+
 	return $meta;
 }

@@ -114,7 +114,7 @@ class Pronamic_Events_Plugin {
 				'slug'       => $slug,
 				'with_front' => false,
 			),
-			'menu_icon'          =>  plugins_url( '/admin/icons/event.png', $this->file ),
+			'menu_icon'          => plugins_url( '/admin/icons/event.png', $this->file ),
 			'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' ),
 		) );
 
@@ -180,7 +180,7 @@ class Pronamic_Events_Plugin {
 
 	/**
 	 * Parse query
-	 * 
+	 *
 	 * @note In PHP 5.1.4, "today" means midnight today, and "now" means the current timestamp.
 	 * http://php.net/manual/en/function.strtotime.php#77541
 	 *
@@ -194,7 +194,7 @@ class Pronamic_Events_Plugin {
 					'value'   => apply_filters( 'pronamic_event_parse_query_timestamp', strtotime( 'today' ) ),
 					'compare' => '>',
 					'type'    => 'NUMERIC',
-				)
+				),
 			);
 
 			$meta_query = $query->get( 'meta_query' );
