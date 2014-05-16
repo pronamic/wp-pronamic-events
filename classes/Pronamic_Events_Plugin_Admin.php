@@ -204,7 +204,7 @@ class Pronamic_Events_Plugin_Admin {
 			__( 'Event Details', 'pronamic_events' ),
 			array( $this, 'event_details_meta_box' ),
 			'pronamic_event' ,
-			'side' ,
+			'normal' ,
 			'high'
 		);
 	}
