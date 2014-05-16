@@ -10,29 +10,3 @@
 #adminmenu #menu-posts-pronamic_events.wp-menu-open div.wp-menu-image {
 	background-position: 7px 7px;
 }
-
-/**
- * Pronamic Events meta box
- */
-#pronamic_event_meta_box .pronamic-section {
-    border-style: solid;
-    border-width: 1px 0;
-
-	border-bottom-color: #DFDFDF;
-    border-top-color: #FFFFFF;
-
-    padding: 6px 10px 8px;
-}
-
-#pronamic_event_meta_box .inside {
-    margin: 0;
-    padding: 0;	
-}
-
-#pronamic_event_meta_box .pronamic-section-first {
-    border-top-width: 0;
-}
-
-#pronamic_event_meta_box .pronamic-section-last {
-    border-bottom-width: 0;
-}
