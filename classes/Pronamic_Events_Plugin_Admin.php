@@ -200,9 +200,18 @@ class Pronamic_Events_Plugin_Admin {
 	 */
 	public function add_meta_boxes() {
 		add_meta_box(
-			'pronamic_event_meta_box',
+			'pronamic_events_details_meta_box',
 			__( 'Event Details', 'pronamic_events' ),
-			array( $this, 'event_details_meta_box' ),
+			array( $this, 'meta_box_event_details' ),
+			'pronamic_event' ,
+			'normal' ,
+			'high'
+		);
+
+		add_meta_box(
+			'pronamic_events__repeat_meta_box',
+			__( 'Event Repeat', 'pronamic_events' ),
+			array( $this, 'meta_box_event_repeat' ),
 			'pronamic_event' ,
 			'normal' ,
 			'high'
@@ -210,10 +219,17 @@ class Pronamic_Events_Plugin_Admin {
 	}
 
 	/**
-	 * Event details meta box
+	 * Meta box for event details
 	 */
-	public function event_details_meta_box() {
+	public function meta_box_event_details() {
 		include $this->plugin->dirname . '/admin/meta-box-event-details.php';
+	}
+
+	/**
+	 * Meta box for event repeat
+	 */
+	public function meta_box_event_repeat() {
+		include $this->plugin->dirname . '/admin/meta-box-event-repeat.php';
 	}
 
 	/**

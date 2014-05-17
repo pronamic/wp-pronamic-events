@@ -69,6 +69,9 @@ Upload the Pronamic Events folder to your wp-content/plugins folder.
 
 == Changelog ==
 
+= 1.1.0 =
+*	Moved event details meta box from the side to the normal part of the edit post screen.
+
 = 1.0.0 =
 *	Added French translations thanks to Gwendal Leriche.
 *	Added a new filter to the Pronamic Events Archive timestamp. 'pronamic_event_parse_query_timestamp'. It expects a timestamp returned.
