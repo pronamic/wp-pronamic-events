@@ -27,7 +27,7 @@ class Pronamic_Events_Plugin_Admin {
 
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
 
-		add_action( 'save_post', array( $this, 'save_post' ), 10, 2 );
+		add_action( 'save_post', array( $this, 'save_post' ) );
 
 		// Post type
 		$post_type = 'pronamic_event';
@@ -203,17 +203,8 @@ class Pronamic_Events_Plugin_Admin {
 			'pronamic_events_details_meta_box',
 			__( 'Event Details', 'pronamic_events' ),
 			array( $this, 'meta_box_event_details' ),
-			'pronamic_event' ,
-			'normal' ,
-			'high'
-		);
-
-		add_meta_box(
-			'pronamic_events__repeat_meta_box',
-			__( 'Event Repeat', 'pronamic_events' ),
-			array( $this, 'meta_box_event_repeat' ),
-			'pronamic_event' ,
-			'normal' ,
+			'pronamic_event',
+			'normal',
 			'high'
 		);
 	}
@@ -222,14 +213,9 @@ class Pronamic_Events_Plugin_Admin {
 	 * Meta box for event details
 	 */
 	public function meta_box_event_details() {
-		include $this->plugin->dirname . '/admin/meta-box-event-details.php';
-	}
+		wp_nonce_field( 'pronamic_events_edit_details', 'pronamic_events_nonce' );
 
-	/**
-	 * Meta box for event repeat
-	 */
-	public function meta_box_event_repeat() {
-		include $this->plugin->dirname . '/admin/meta-box-event-repeat.php';
+		include $this->plugin->dirname . '/admin/meta-box-event-details.php';
 	}
 
 	/**

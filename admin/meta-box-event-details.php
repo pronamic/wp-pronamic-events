@@ -2,8 +2,6 @@
 
 global $pronamic_events_plugin, $post;
 
-wp_nonce_field( 'pronamic_events_edit_details', 'pronamic_events_nonce' );
-
 if ( pronamic_has_start_date() ) {
 	$start_date = pronamic_get_the_start_date( 'd-m-Y' );
 	$start_time = pronamic_get_the_start_date( 'H:i' );

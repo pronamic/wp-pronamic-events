@@ -50,7 +50,12 @@ class Pronamic_Events_Plugin {
 
 		// Admin
 		if ( is_admin() ) {
-			new Pronamic_Events_Plugin_Admin( $this );
+			$this->admin = new Pronamic_Events_Plugin_Admin( $this );
+		}
+
+		// Events repeat
+		if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
+			new Pronamic_Events_Repeat( $this );
 		}
 	}
 

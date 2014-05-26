@@ -1,133 +1,148 @@
-# Copyright (C) 2014 Pronamic Events
-# This file is distributed under the same license as the Pronamic Events package.
+# Copyright (C) 2014 Pronamic
+# This file is distributed under the GPL.
 msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Events 1.0.0\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-events\n"
-"POT-Creation-Date: 2014-01-07 12:18:13+00:00\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-events\n"
+"POT-Creation-Date: 2014-05-26 09:39:03+00:00\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: admin/meta-box.php:29
-msgid "Start Date:"
+#: admin/meta-box-event-details.php:31
+#: classes/Pronamic_Events_Plugin_Admin.php:308
+msgid "Start Date"
 msgstr ""
 
-#: admin/meta-box.php:35
-msgid "End Date:"
+#: admin/meta-box-event-details.php:40
+#: classes/Pronamic_Events_Plugin_Admin.php:309
+msgid "End Date"
 msgstr ""
 
-#: admin/meta-box.php:53
-msgid "Location:"
+#: admin/meta-box-event-details.php:49
+msgid "Location"
 msgstr ""
 
-#: admin/meta-box.php:60
-msgid "Website:"
+#: admin/meta-box-event-details.php:57
+msgid "Website"
 msgstr ""
 
-#: classes/Pronamic_Events_Plugin.php:88
-msgctxt "slug"
-msgid "events"
+#: admin/meta-box-event-repeat.php:9
+msgid "&mdash; Select Repeat &mdash;"
 msgstr ""
 
-#: classes/Pronamic_Events_Plugin.php:92
-msgctxt "post type general name"
-msgid "Events"
+#: admin/meta-box-event-repeat.php:10
+msgid "Daily"
 msgstr ""
 
-#: classes/Pronamic_Events_Plugin.php:93
-msgctxt "post type singular name"
-msgid "Event"
+#: admin/meta-box-event-repeat.php:11
+msgid "Weekly"
 msgstr ""
 
-#: classes/Pronamic_Events_Plugin.php:94
-msgctxt "event"
-msgid "Add New"
+#: admin/meta-box-event-repeat.php:12
+msgid "Monthly"
 msgstr ""
 
-#: classes/Pronamic_Events_Plugin.php:95
-msgid "Add New Event"
+#: admin/meta-box-event-repeat.php:13
+msgid "Annually"
 msgstr ""
 
-#: classes/Pronamic_Events_Plugin.php:96
-msgid "Edit Event"
+#: admin/meta-box-event-repeat.php:27
+msgid "Frequency"
 msgstr ""
 
-#: classes/Pronamic_Events_Plugin.php:97
-msgid "New Event"
+#: admin/meta-box-event-repeat.php:48
+msgid "Repeat every"
 msgstr ""
 
-#: classes/Pronamic_Events_Plugin.php:98
-msgid "View Event"
+#: admin/meta-box-event-repeat.php:66
+msgid "parts"
 msgstr ""
 
-#: classes/Pronamic_Events_Plugin.php:99
-msgid "Search Events"
+#: admin/meta-box-event-repeat.php:71
+msgid "Ends On"
+msgstr ""
+
+#: admin/meta-box-event-repeat.php:80
+msgid "After %s instances"
+msgstr ""
+
+#: admin/meta-box-event-repeat.php:93
+msgid "Until %s"
+msgstr ""
+
+#: admin/meta-box-event-repeats.php:53
+msgid "Date"
 msgstr ""
 
 #: classes/Pronamic_Events_Plugin.php:100
-msgid "No events found"
+msgid "Add New Event"
 msgstr ""
 
 #: classes/Pronamic_Events_Plugin.php:101
-msgid "No events found in Trash"
+msgid "Edit Event"
 msgstr ""
 
 #: classes/Pronamic_Events_Plugin.php:102
-msgid "Parent Event:"
+msgid "New Event"
 msgstr ""
 
 #: classes/Pronamic_Events_Plugin.php:103
-msgctxt "menu_name"
-msgid "Events"
+msgid "View Event"
 msgstr ""
 
-#: classes/Pronamic_Events_Plugin.php:125
-msgctxt "class general name"
-msgid "Event categories"
+#: classes/Pronamic_Events_Plugin.php:104
+msgid "Search Events"
 msgstr ""
 
-#: classes/Pronamic_Events_Plugin.php:126
-msgctxt "class singular name"
-msgid "Event category"
+#: classes/Pronamic_Events_Plugin.php:105
+msgid "No events found"
 msgstr ""
 
-#: classes/Pronamic_Events_Plugin.php:127
-msgid "Search Event categories"
+#: classes/Pronamic_Events_Plugin.php:106
+msgid "No events found in Trash"
 msgstr ""
 
-#: classes/Pronamic_Events_Plugin.php:128
-msgid "All Event categories"
-msgstr ""
-
-#: classes/Pronamic_Events_Plugin.php:129
-msgid "Parent Event category"
-msgstr ""
-
-#: classes/Pronamic_Events_Plugin.php:130
-msgid "Parent Event category:"
-msgstr ""
-
-#: classes/Pronamic_Events_Plugin.php:131
-msgid "Edit Event category"
+#: classes/Pronamic_Events_Plugin.php:107
+msgid "Parent Event:"
 msgstr ""
 
 #: classes/Pronamic_Events_Plugin.php:132
-msgid "Update Event category"
+msgid "Search Event categories"
 msgstr ""
 
 #: classes/Pronamic_Events_Plugin.php:133
-msgid "Add New Event category"
+msgid "All Event categories"
 msgstr ""
 
 #: classes/Pronamic_Events_Plugin.php:134
-msgid "New Event category Name"
+msgid "Parent Event category"
 msgstr ""
 
 #: classes/Pronamic_Events_Plugin.php:135
+msgid "Parent Event category:"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:136
+msgid "Edit Event category"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:137
+msgid "Update Event category"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:138
+msgid "Add New Event category"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:139
+msgid "New Event category Name"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:140
 msgid "Categories"
 msgstr ""
 
@@ -147,36 +162,34 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: classes/Pronamic_Events_Plugin_Admin.php:202
+#: classes/Pronamic_Events_Plugin_Admin.php:204
 msgid "Event Details"
 msgstr ""
 
-#: classes/Pronamic_Events_Plugin_Admin.php:295
-msgid "Start Date"
-msgstr ""
-
-#: classes/Pronamic_Events_Plugin_Admin.php:296
-msgid "End Date"
-msgstr ""
-
-#: classes/Pronamic_Events_Plugin_Admin.php:329
-#: classes/Pronamic_Events_Plugin_Admin.php:341
+#: classes/Pronamic_Events_Plugin_Admin.php:342
+#: classes/Pronamic_Events_Plugin_Admin.php:354
 msgid "Y/m/d g:i:s A"
 msgstr ""
 
-#: classes/Pronamic_Events_Plugin_Admin.php:330
-#: classes/Pronamic_Events_Plugin_Admin.php:342
+#: classes/Pronamic_Events_Plugin_Admin.php:343
+#: classes/Pronamic_Events_Plugin_Admin.php:355
 msgid "Y/m/d"
 msgstr ""
 
-#: classes/Pronamic_Events_Plugin_Admin.php:331
-#: classes/Pronamic_Events_Plugin_Admin.php:343
+#: classes/Pronamic_Events_Plugin_Admin.php:344
+#: classes/Pronamic_Events_Plugin_Admin.php:356
 msgid "g:i:s"
 msgstr ""
 
-#. #-#-#-#-#  pronamic_events.pot (Pronamic Events 1.0.0)  #-#-#-#-#
+#: classes/Pronamic_Events_Repeat_Admin.php:34
+msgid "Event Repeat"
+msgstr ""
+
+#: classes/Pronamic_Events_Repeat_Admin.php:43
+msgid "Event Repeats"
+msgstr ""
+
 #. Plugin Name of the plugin/theme
-#: classes/Pronamic_Events_Widget.php:16
 msgid "Pronamic Events"
 msgstr ""
 
@@ -184,11 +197,11 @@ msgstr ""
 msgid "The most recent events on your site"
 msgstr ""
 
-#: classes/Pronamic_Events_Widget.php:110
+#: classes/Pronamic_Events_Widget.php:108
 msgid "Title:"
 msgstr ""
 
-#: classes/Pronamic_Events_Widget.php:113
+#: classes/Pronamic_Events_Widget.php:111
 msgid "Number of posts to show:"
 msgstr ""
 
@@ -209,7 +222,7 @@ msgid "Is Event End Time"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "http://wp.pronamic.eu/plugins/pronamic-events/"
+msgid "http://www.happywp.com/plugins/pronamic-events/"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -222,4 +235,39 @@ msgstr ""
 
 #. Author URI of the plugin/theme
 msgid "http://www.pronamic.eu/"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:93
+msgctxt "slug"
+msgid "events"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:97
+msgctxt "post type general name"
+msgid "Events"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:98
+msgctxt "post type singular name"
+msgid "Event"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:99
+msgctxt "event"
+msgid "Add New"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:108
+msgctxt "menu_name"
+msgid "Events"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:130
+msgctxt "class general name"
+msgid "Event categories"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:131
+msgctxt "class singular name"
+msgid "Event category"
 msgstr ""
