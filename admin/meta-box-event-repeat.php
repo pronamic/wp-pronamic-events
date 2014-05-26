@@ -2,7 +2,7 @@
 
 $options = array(
 	'0'        => __( '&mdash; Select Repeat &mdash;', 'pronamic_events' ),
-	'daily'	   => __( 'Daily', 'pronamic_events' ),
+	'daily'    => __( 'Daily', 'pronamic_events' ),
 	'weekly'   => __( 'Weekly', 'pronamic_events' ),
 	'monthly'  => __( 'Monthly', 'pronamic_events' ),
 	'annually' => __( 'Annually', 'pronamic_events' ),
