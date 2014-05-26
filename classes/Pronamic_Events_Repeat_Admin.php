@@ -124,6 +124,7 @@ class Pronamic_Events_Repeat_Admin {
 		if ( $period ) {
 			remove_filter( 'save_post', array( $this->plugin->admin, 'save_post' ) );
 			remove_filter( 'save_post', array( $this, 'save_post' ) );
+			remove_filter( 'save_post', array( $this, 'save_repeats' ) );
 
 			foreach ( $period as $date ) {
 				$post_data = array(
@@ -139,6 +140,7 @@ class Pronamic_Events_Repeat_Admin {
 
 			add_filter( 'save_post', array( $this->plugin->admin, 'save_post' ) );
 			add_filter( 'save_post', array( $this, 'save_post' ) );
+			add_filter( 'save_post', array( $this, 'save_repeats' ) );
 		}
 	}
 }

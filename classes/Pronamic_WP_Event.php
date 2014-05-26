@@ -61,7 +61,7 @@ class Pronamic_WP_Event {
 
 		// Period
 		if ( isset( $end ) ) {
-			$start    = new DateTime( $start_date );
+			$start = new DateTime( $start_date );
 
 			$interval = new DateInterval( $interval_spec );
 
