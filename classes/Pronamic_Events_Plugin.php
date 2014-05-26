@@ -114,7 +114,7 @@ class Pronamic_Events_Plugin {
 				'slug'       => $slug,
 				'with_front' => false,
 			),
-			'menu_icon'          => plugins_url( '/admin/icons/event.png', $this->file ),
+			'menu_icon'          => 'dashicons-calendar',
 			'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' ),
 		) );
 
