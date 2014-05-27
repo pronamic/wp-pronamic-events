@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Events\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-events\n"
-"POT-Creation-Date: 2014-05-26 09:39:03+00:00\n"
-"PO-Revision-Date: 2014-05-26 11:39+0100\n"
+"POT-Creation-Date: 2014-05-27 14:59:56+00:00\n"
+"PO-Revision-Date: 2014-05-27 17:00+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -17,21 +17,21 @@ msgstr ""
 "X-Generator: Poedit 1.6.5\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: admin/meta-box-event-details.php:31
-#: classes/Pronamic_Events_Plugin_Admin.php:308
+#: admin/meta-box-event-details.php:29
+#: classes/Pronamic_Events_Plugin_Admin.php:303
 msgid "Start Date"
 msgstr "Startdatum"
 
-#: admin/meta-box-event-details.php:40
-#: classes/Pronamic_Events_Plugin_Admin.php:309
+#: admin/meta-box-event-details.php:38
+#: classes/Pronamic_Events_Plugin_Admin.php:304
 msgid "End Date"
 msgstr "Einddatum"
 
-#: admin/meta-box-event-details.php:49
+#: admin/meta-box-event-details.php:47
 msgid "Location"
 msgstr "Locatie"
 
-#: admin/meta-box-event-details.php:57
+#: admin/meta-box-event-details.php:55
 msgid "Website"
 msgstr "Website"
 
@@ -79,9 +79,13 @@ msgstr "Na %s instanties"
 msgid "Until %s"
 msgstr "Tot %s"
 
-#: admin/meta-box-event-repeats.php:53
+#: admin/meta-box-event-repeats.php:16
 msgid "Date"
 msgstr "Datum"
+
+#: admin/meta-box-event-repeats.php:38
+msgid "No repeats available for this event."
+msgstr "Geen herhalingen beschikbaar voor dit evenement."
 
 #: classes/Pronamic_Events_Plugin.php:100
 msgid "Add New Event"
@@ -171,26 +175,26 @@ msgstr "Instellingen"
 msgid "Event Details"
 msgstr "Evenement details"
 
-#: classes/Pronamic_Events_Plugin_Admin.php:342
-#: classes/Pronamic_Events_Plugin_Admin.php:354
+#: classes/Pronamic_Events_Plugin_Admin.php:337
+#: classes/Pronamic_Events_Plugin_Admin.php:349
 msgid "Y/m/d g:i:s A"
 msgstr "j F Y H:i"
 
-#: classes/Pronamic_Events_Plugin_Admin.php:343
-#: classes/Pronamic_Events_Plugin_Admin.php:355
+#: classes/Pronamic_Events_Plugin_Admin.php:338
+#: classes/Pronamic_Events_Plugin_Admin.php:350
 msgid "Y/m/d"
 msgstr "j F Y"
 
-#: classes/Pronamic_Events_Plugin_Admin.php:344
-#: classes/Pronamic_Events_Plugin_Admin.php:356
+#: classes/Pronamic_Events_Plugin_Admin.php:339
+#: classes/Pronamic_Events_Plugin_Admin.php:351
 msgid "g:i:s"
 msgstr "H:i"
 
-#: classes/Pronamic_Events_Repeat_Admin.php:34
+#: classes/Pronamic_Events_Repeat_Admin.php:37
 msgid "Event Repeat"
 msgstr "Evenement herhaling"
 
-#: classes/Pronamic_Events_Repeat_Admin.php:43
+#: classes/Pronamic_Events_Repeat_Admin.php:46
 msgid "Event Repeats"
 msgstr "Evenement herhalingen"
 

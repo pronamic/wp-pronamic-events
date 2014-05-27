@@ -20,7 +20,7 @@ class Pronamic_Events_Repeat_Admin {
 		$this->plugin = $plugin;
 
 		// Actions
-		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
+		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 10, 2 );
 
 		add_action( 'save_post', array( $this, 'save_post' ) );
 		add_action( 'save_post', array( $this, 'save_repeats' ) );
@@ -31,31 +31,33 @@ class Pronamic_Events_Repeat_Admin {
 	/**
 	 * Add meta boxes
 	 */
-	public function add_meta_boxes() {
-		add_meta_box(
-			'pronamic_events_repeat_meta_box',
-			__( 'Event Repeat', 'pronamic_events' ),
-			array( $this, 'meta_box_event_repeat' ),
-			'pronamic_event',
-			'normal',
-			'high'
-		);
+	public function add_meta_boxes( $post_type, $post ) {
+		if ( 0 == $post->post_parent ) {
+			add_meta_box(
+				'pronamic_events_repeat_meta_box',
+				__( 'Event Repeat', 'pronamic_events' ),
+				array( $this, 'meta_box_event_repeat' ),
+				'pronamic_event',
+				'normal',
+				'high'
+			);
 
-		add_meta_box(
-			'pronamic_events_repeats_meta_box',
-			__( 'Event Repeats', 'pronamic_events' ),
-			array( $this, 'meta_box_event_repeats' ),
-			'pronamic_event',
-			'normal',
-			'high'
-		);
+			add_meta_box(
+				'pronamic_events_repeats_meta_box',
+				__( 'Event Repeats', 'pronamic_events' ),
+				array( $this, 'meta_box_event_repeats' ),
+				'pronamic_event',
+				'normal',
+				'high'
+			);
+		}
 	}
 
 	/**
 	 * Meta box for event repeat
 	 */
 	public function meta_box_event_repeat() {
-		wp_nonce_field( 'pronamic_events_edit_repeat', 'pronamic_events_nonce' );
+		wp_nonce_field( 'pronamic_events_edit_repeat', 'pronamic_events_nonce_repeat' );
 
 		include $this->plugin->dirname . '/admin/meta-box-event-repeat.php';
 	}
@@ -79,11 +81,11 @@ class Pronamic_Events_Repeat_Admin {
 			return;
 		}
 
-		if ( ! isset( $_POST['pronamic_events_nonce'] ) ) {
+		if ( ! isset( $_POST['pronamic_events_nonce_repeat'] ) ) {
 			return;
 		}
 
-		if ( ! wp_verify_nonce( $_POST['pronamic_events_nonce'], 'pronamic_events_edit_repeat' ) ) {
+		if ( ! wp_verify_nonce( $_POST['pronamic_events_nonce_repeat'], 'pronamic_events_edit_repeat' ) ) {
 			return;
 		}
 
@@ -132,10 +134,11 @@ class Pronamic_Events_Repeat_Admin {
 					'post_content' => $post->post_content,
 					'post_title'   => $post->post_title,
 					'post_author'  => $post->post_author,
+					'post_parent'  => $post->ID,
+					'post_status'  => $post->post_status,
 				);
 
 				$repeat_post_id = wp_insert_post( $post_data );
-
 			}
 
 			add_filter( 'save_post', array( $this->plugin->admin, 'save_post' ) );

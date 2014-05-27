@@ -20,6 +20,7 @@ $ends_on_count = get_post_meta( $post->ID, '_pronamic_event_ends_on_count', true
 $ends_on_until = get_post_meta( $post->ID, '_pronamic_event_ends_on_until', true );
 
 ?>
+
 <table class="form-table">
 	<tbody>
 		<tr>

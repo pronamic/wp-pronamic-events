@@ -120,6 +120,7 @@ class Pronamic_Events_Plugin {
 				'with_front' => false,
 			),
 			'menu_icon'          => 'dashicons-calendar',
+			'hierarchical'       => true,
 			'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' ),
 		) );
 

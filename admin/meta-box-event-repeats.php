@@ -8,25 +8,34 @@ global $post;
 $event  = new Pronamic_WP_Event( $post );
 $period = $event->get_period();
 
-?>
-<table>
-	<thead>
-		<tr>
-			<th scope="col"><?php _e( 'Date', 'pronamic_events' ); ?></th>
-		</tr>
-	</thead>
+if ( $period ) : ?>
 
-	<tbody>
-
-		<?php foreach ( $period as $date ) : ?>
-
+	<table>
+		<thead>
 			<tr>
-				<td>
-					<?php echo date_i18n( get_option( 'date_format' ), $date->getTimestamp() ); ?>
-				</td>
+				<th scope="col"><?php _e( 'Date', 'pronamic_events' ); ?></th>
 			</tr>
+		</thead>
 
-		<?php endforeach; ?>
+		<tbody>
 
-	</tbody>
-</table>
+			<?php foreach ( $period as $date ) : ?>
+
+				<tr>
+					<td>
+						<?php echo date_i18n( get_option( 'date_format' ), $date->getTimestamp() ); ?>
+					</td>
+				</tr>
+
+			<?php endforeach; ?>
+
+		</tbody>
+	</table>
+
+<?php else : ?>
+
+	<p>
+		<?php _e( 'No repeats available for this event.', 'pronamic_events' ); ?>
+	</p>
+
+<?php endif; ?>

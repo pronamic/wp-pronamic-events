@@ -43,14 +43,19 @@ class Pronamic_WP_Event {
 			'annually' => 'Y',
 		);
 
-		$interval_spec = 'P' . $interval . $periods[ $frequency ];
+		// Interval specification
+		$interval_spec = null;
+
+		if ( isset( $periods[ $frequency ] ) ) {
+			$interval_spec = 'P' . $interval . $periods[ $frequency ];
+		}
 
 		// End
 		$end = null;
 
 		switch ( $ends_on ) {
 			case 'count':
-				$end = $ends_on_count;
+				$end = (int) $ends_on_count;
 
 				break;
 			case 'until':
@@ -60,12 +65,12 @@ class Pronamic_WP_Event {
 		}
 
 		// Period
-		if ( isset( $end ) ) {
+		if ( isset( $end, $interval_spec ) ) {
 			$start = new DateTime( $start_date );
 
 			$interval = new DateInterval( $interval_spec );
 
-			$period = new DatePeriod( $start, $interval, $end );
+			$period = new DatePeriod( $start, $interval, $end, DatePeriod::EXCLUDE_START_DATE );
 		}
 
 		return $period;

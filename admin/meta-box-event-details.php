@@ -22,6 +22,14 @@ if ( pronamic_has_end_date( ) ) {
 
 ?>
 
+<?php if ( 0 != $post->post_parent ) : ?>
+
+	<p>
+		<em><?php _e( 'This event is part of a repeated series.', 'pronamic_events' ); ?></em>
+	</p>
+
+<?php endif; ?>
+
 <table class="form-table">
 	<tbody>
 		<tr>
