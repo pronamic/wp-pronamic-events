@@ -33,14 +33,13 @@ class Pronamic_Events_Widget extends WP_Widget {
 
 		$title = apply_filters( 'widget_title', $instance['title'] );
 
-		if ( empty( $instance['number'] ) || ! $number = absint( $instance['number'] ) ) {
+			if ( empty( $instance['number'] ) || ! $number = absint( $instance['number'] ) ) {
 			$number = 10;
 		}
 
 		// Query start
 		$original_query = $wp_query;
 
-		$wp_query = null;
 		$wp_query = new WP_Query( array(
 			'post_type'           => 'pronamic_event',
 			'posts_per_page'      => $number,
@@ -61,11 +60,9 @@ class Pronamic_Events_Widget extends WP_Widget {
 			$template = $pronamic_events_plugin->dirname . '/templates/widget-pronamic-events.php';
 		}
 
-		echo $args['before_widget'];
-
+		echo isset($args['before_widget']) ? $args['before_widget'] : null; 
 		include $template;
-
-		echo $args['$after_widget'];
+		echo isset($args['after_widtget']) ? $args['$after_widget'] : null;
 
 		// Query reset
 		$wp_query = null;
