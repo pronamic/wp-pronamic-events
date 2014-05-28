@@ -63,7 +63,7 @@ class Pronamic_Events_Plugin_Admin {
 		);
 		add_settings_field(
 			'pronamic_event_history', // id
-			__( 'Show events in past days (blank for none)', 'pronamic_events' ), // title
+			__( 'Show events in past days (blank for none, "&" for all)', 'pronamic_events' ), // title
 			array( $this, 'input_text' ), // callback
 			'pronamic_events', // page
 			'pronamic_events_permalinks', // section

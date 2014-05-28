@@ -194,29 +194,38 @@ class Pronamic_Events_Plugin {
 	 */
 	public function parse_query( $query ) {
 		if ( ! is_admin() && is_pronamic_events_query( $query ) ) {
+			$this->limit_query_history($query);
 			
-			if(!($daysInPast = get_option('pronamic_event_history')) || !is_numeric($daysInPast)) {
-				$daysInPast = 0;
-			}
-			$queryFromStamp = mktime(0,0,0) - $daysInPast * 86400; // Today 00:00 minus X days of historic events
-
-			$meta_query_extra = array(
-				array(
-					'key'     => '_pronamic_end_date',
-					'value'   => apply_filters( 'pronamic_event_parse_query_timestamp', $queryFromStamp ),
-					'compare' => '>',
-					'type'    => 'NUMERIC',
-				),
-			);
-
-			$meta_query = $query->get( 'meta_query' );
-			$meta_query = wp_parse_args( $meta_query_extra , $meta_query );
-
-			$query->set( 'meta_query', $meta_query );
-
 			$query->set( 'orderby', 'meta_value_num date' );
 			$query->set( 'meta_key', '_pronamic_start_date' );
 			$query->set( 'order', 'ASC' );
 		}
+	}
+	
+	public function limit_query_history($query) {
+		if(!($daysInPast = get_option('pronamic_event_history'))) {
+			$daysInPast = 0;
+		}
+		
+		if(trim($daysInPast) == '&') {
+			return; // No limits needed
+		}
+		
+		if(!is_numeric($daysInPast)) {
+			return; // No valid number of days in past
+		}
+		
+		$limitStamp = mktime(0,0,0) - $daysInPast * 86400; // Today 00:00 minus X days of historic events
+		$meta_query = $query->get( 'meta_query' );
+		$meta_query_extra = array(
+			array(
+				'key'     => '_pronamic_end_date',
+				'value'   => apply_filters( 'pronamic_event_parse_query_timestamp', $limitStamp ),
+				'compare' => '>',
+				'type'    => 'NUMERIC',
+			),
+		);
+		$meta_query = wp_parse_args( $meta_query_extra , $meta_query );
+		$query->set( 'meta_query', $meta_query );
 	}
 }
