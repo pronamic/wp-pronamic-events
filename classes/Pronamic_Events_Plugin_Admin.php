@@ -61,9 +61,18 @@ class Pronamic_Events_Plugin_Admin {
 			'pronamic_events_permalinks', // section
 			array( 'label_for' => 'pronamic_event_base' ) // args
 		);
+		add_settings_field(
+			'pronamic_event_history', // id
+			__( 'Show events in past days (blank for none)', 'pronamic_events' ), // title
+			array( $this, 'input_text' ), // callback
+			'pronamic_events', // page
+			'pronamic_events_permalinks', // section
+			array( 'label_for' => 'pronamic_event_history' ) // args
+		);
 
 		// Register settings
 		register_setting( 'pronamic_events', 'pronamic_event_base' );
+		register_setting( 'pronamic_events', 'pronamic_event_history' );
 
 		// Maybe update
 		global $pronamic_events_db_version;
