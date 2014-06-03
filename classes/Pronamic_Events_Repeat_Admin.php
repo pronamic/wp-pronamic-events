@@ -95,6 +95,7 @@ class Pronamic_Events_Repeat_Admin {
 
 		// Definition
 		$definition = array(
+			'_pronamic_event_repeat'           => FILTER_SANITIZE_STRING,
 			'_pronamic_event_repeat_frequency' => FILTER_SANITIZE_STRING,
 			'_pronamic_event_repeat_interval'  => FILTER_SANITIZE_STRING,
 			'_pronamic_event_ends_on'          => FILTER_SANITIZE_STRING,
@@ -121,24 +122,47 @@ class Pronamic_Events_Repeat_Admin {
 
 		$event = new Pronamic_WP_Event( $post );
 
-		$period = $event->get_period();
+		$repeat_events = $event->get_repeat_events();
 
-		if ( $period ) {
+		$data = $event->get_period_data();
+
+		if ( $data ) {
 			remove_filter( 'save_post', array( $this->plugin->admin, 'save_post' ) );
 			remove_filter( 'save_post', array( $this, 'save_post' ) );
 			remove_filter( 'save_post', array( $this, 'save_repeats' ) );
 
-			foreach ( $period as $date ) {
-				$post_data = array(
-					'post_type'    => 'pronamic_event',
-					'post_content' => $post->post_content,
-					'post_title'   => $post->post_title,
-					'post_author'  => $post->post_author,
-					'post_parent'  => $post->ID,
-					'post_status'  => $post->post_status,
-				);
+			foreach ( $data as $e ) {
+				$hash_code = $e->get_event_hash_code();
 
-				$repeat_post_id = wp_insert_post( $post_data );
+				if ( isset( $repeat_events[ $hash_code ] ) ) {
+					// Post already exists
+				} else {
+					$post_data = array(
+						'post_type'    => $post->post_type,
+						'post_content' => $post->post_content,
+						'post_title'   => $post->post_title,
+						'post_author'  => $post->post_author,
+						'post_parent'  => $post->ID,
+						'post_status'  => $post->post_status,
+					);
+
+					$repeat_post_id = wp_insert_post( $post_data );
+
+					$start_timestamp = $e->get_start()->format( 'U' );
+					$end_timestamp   = $e->get_end()->format( 'U' );
+
+					$meta = array(
+
+					);
+
+					$meta = pronamic_events_get_start_date_meta( $start_timestamp, $meta );
+					$meta = pronamic_events_get_end_date_meta( $end_timestamp, $meta );
+
+					// Save meta data
+					foreach ( $meta as $key => $value ) {
+						update_post_meta( $repeat_post_id, $key, $value );
+					}
+				}
 			}
 
 			add_filter( 'save_post', array( $this->plugin->admin, 'save_post' ) );

@@ -5,6 +5,8 @@
 
 global $post;
 
+$event = new Pronamic_WP_Event( $post );
+
 $options = array(
 	'0'        => __( '&mdash; Select Repeat &mdash;', 'pronamic_events' ),
 	'daily'    => __( 'Daily', 'pronamic_events' ),
@@ -13,6 +15,7 @@ $options = array(
 	'annually' => __( 'Annually', 'pronamic_events' ),
 );
 
+$repeat        = get_post_meta( $post->ID, '_pronamic_event_repeat', true );
 $frequency     = get_post_meta( $post->ID, '_pronamic_event_repeat_frequency', true );
 $interval      = get_post_meta( $post->ID, '_pronamic_event_repeat_interval', true );
 $ends_on       = get_post_meta( $post->ID, '_pronamic_event_ends_on', true );
@@ -23,6 +26,17 @@ $ends_on_until = get_post_meta( $post->ID, '_pronamic_event_ends_on_until', true
 
 <table class="form-table">
 	<tbody>
+		<tr>
+			<th scope="row">
+				<label for="pronamic_event_repeat"><?php _e( 'Repeat', 'pronamic_events' ); ?></label>
+			</th>
+			<td>
+				<label for="pronamic_event_repeat">
+					<input type="checkbox" value="1" id="pronamic_event_repeat" name="_pronamic_event_repeat" <?php checked( $repeat ); ?> />
+					<?php _e( 'Enable repeat', 'pronamic_events' ); ?>
+				</label>
+			</td>
+		</tr>
 		<tr>
 			<th scope="row">
 				<label for="pronamic_event_repeat_frequency"><?php _e( 'Frequency', 'pronamic_events' ); ?></label>
@@ -97,6 +111,14 @@ $ends_on_until = get_post_meta( $post->ID, '_pronamic_event_ends_on_until', true
 
 					?>
 				</div>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">
+				<?php _e( 'Number Repeats', 'pronamic_events' ); ?>
+			</th>
+			<td>
+				<?php echo $event->get_number_repeats(); ?>
 			</td>
 		</tr>
 	</tbody>

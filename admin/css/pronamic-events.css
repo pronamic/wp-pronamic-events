@@ -1,3 +1,5 @@
+@CHARSET "UTF-8";
+
 /**
  * Pronamic Events menu image
  */
@@ -9,4 +11,28 @@
 #adminmenu #menu-posts-pronamic_events:hover div.wp-menu-image ,
 #adminmenu #menu-posts-pronamic_events.wp-menu-open div.wp-menu-image {
 	background-position: 7px 7px;
+}
+
+/**
+ * Table
+ * @see https://github.com/WordPress/WordPress/blob/3.9/wp-admin/css/common.css#L431
+ */
+.pronamic-event-repeats-table {
+	border-spacing: 0;
+	width: 100%;
+	clear: both;
+	margin: 0;
+}
+
+.pronamic-event-repeats-table thead th {
+	border-bottom: 1px solid #e1e1e1;
+}
+
+.pronamic-event-repeats-table td,
+.pronamic-event-repeats-table th {
+	padding: 8px 10px;
+}
+
+.pronamic-event-repeats-table th {
+	text-align: left;
 }
