@@ -123,7 +123,13 @@ class Pronamic_Events_Plugin {
 			),
 			'menu_icon'          => 'dashicons-calendar',
 			'hierarchical'       => true,
-			'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' ),
+			'supports'           => array(
+				'title',
+				'editor',
+				'author',
+				'thumbnail',
+				'excerpt',
+			),
 		) );
 
 		// Taxonomy
