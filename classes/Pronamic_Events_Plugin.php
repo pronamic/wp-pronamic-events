@@ -48,6 +48,8 @@ class Pronamic_Events_Plugin {
 
 		add_filter( 'request',        array( $this, 'request' ) );
 
+		add_action( 'the_post',       array( $this, 'the_post' ) );
+
 		// Admin
 		if ( is_admin() ) {
 			$this->admin = new Pronamic_Events_Plugin_Admin( $this );
@@ -212,5 +214,29 @@ class Pronamic_Events_Plugin {
 			$query->set( 'meta_key', '_pronamic_start_date' );
 			$query->set( 'order', 'ASC' );
 		}
+	}
+
+	/**
+	 * When the_post is called, put product data into a global.
+	 *
+	 * @param mixed $post
+	 * @return WC_Product
+	 */
+	function the_post( $post ) {
+		global $pronamic_event;
+
+		unset( $pronamic_event );
+
+		if ( is_int( $post ) ) {
+			$post = get_post( $post );
+		}
+
+		if ( $post->post_type != 'pronamic_event' ) {
+			return;
+		}
+
+		$pronamic_event = new Pronamic_WP_Event( $post );
+
+		return $pronamic_event;
 	}
 }
