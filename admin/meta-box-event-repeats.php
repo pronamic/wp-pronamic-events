@@ -39,3 +39,39 @@ if ( $period ) : ?>
 	</p>
 
 <?php endif; ?>
+
+<?php
+
+$posts = $event->get_repeat_posts();
+
+$query = new WP_Query( $event->get_repeat_posts_query_args() );
+
+if ( $query->have_posts() ) : ?>
+
+	<table>
+		<thead>
+			<tr>
+				<th scope="col"><?php _e( 'ID', 'pronamic_events' ); ?></th>
+				<th scope="col"><?php _e( 'Title', 'pronamic_events' ); ?></th>
+			</tr>
+		</thead>
+
+		<tbody>
+
+			<?php while ( $query->have_posts() ) : $query->the_post(); ?>
+
+				<tr>
+					<td>
+						<?php echo get_the_ID(); ?>
+					</td>
+					<td>
+						<?php the_title(); ?>
+					</td>
+				</tr>
+
+			<?php endwhile; ?>
+
+		</tbody>
+	</table>
+
+<?php endif; ?>
