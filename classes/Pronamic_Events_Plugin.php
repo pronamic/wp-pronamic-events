@@ -129,6 +129,8 @@ class Pronamic_Events_Plugin {
 				'author',
 				'thumbnail',
 				'excerpt',
+				'pronamic_event',
+				'pronamic_event_repeat',
 			),
 		) );
 
