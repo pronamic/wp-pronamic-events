@@ -75,4 +75,21 @@ class Pronamic_WP_Event {
 
 		return $period;
 	}
+
+	//////////////////////////////////////////////////
+
+	public function get_repeat_posts_query_args() {
+		$args = array(
+			'post_type'   => 'pronamic_event',
+			'post_parent' => $this->post->ID,
+		);
+
+		return $args;
+	}
+
+	public function get_repeat_posts() {
+		$posts = get_posts( $this->get_repeat_posts_query_args() );
+
+		return $posts;
+	}
 }
