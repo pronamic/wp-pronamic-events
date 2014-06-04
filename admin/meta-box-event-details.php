@@ -62,11 +62,11 @@ if ( pronamic_has_end_date( ) ) {
 </table>
 
 <script type="text/javascript">
-	jQuery(document).ready(function($) {
-		var field = $('.pronamic_date');
+	jQuery( document ).ready( function( $ ) {
+		var field = $( '.pronamic_date' );
 
-		field.datepicker({
+		field.datepicker( {
 			dateFormat: 'dd-mm-yy'
-		});
-	});
+		} );
+	} );
 </script>
