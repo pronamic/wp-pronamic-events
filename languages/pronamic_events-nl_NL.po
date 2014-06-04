@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Events\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-events\n"
-"POT-Creation-Date: 2014-06-04 09:22:29+00:00\n"
-"PO-Revision-Date: 2014-06-04 11:23+0100\n"
+"POT-Creation-Date: 2014-06-04 09:42:50+00:00\n"
+"PO-Revision-Date: 2014-06-04 11:42+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -258,11 +258,11 @@ msgstr "Instellingen"
 msgid "Event Details"
 msgstr "Evenement details"
 
-#: classes/Pronamic_Events_Repeat_Admin.php:38
+#: classes/Pronamic_Events_RepeatModule_Admin.php:38
 msgid "Event Repeat"
 msgstr "Evenement herhaling"
 
-#: classes/Pronamic_Events_Repeat_Admin.php:48
+#: classes/Pronamic_Events_RepeatModule_Admin.php:48
 msgid "Event Repeats"
 msgstr "Evenement herhalingen"
 

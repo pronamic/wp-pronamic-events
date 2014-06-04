@@ -57,7 +57,7 @@ class Pronamic_Events_Plugin {
 
 		// Events repeat
 		if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
-			new Pronamic_Events_Repeat( $this );
+			$this->repeat_module = new Pronamic_Events_RepeatModule( $this );
 		}
 	}
 

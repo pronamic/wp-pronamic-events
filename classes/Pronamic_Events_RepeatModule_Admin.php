@@ -3,7 +3,7 @@
 /**
  * Pronamic Events repeat admin
  */
-class Pronamic_Events_Repeat_Admin {
+class Pronamic_Events_RepeatModule_Admin {
 	/**
 	 * Plugin
 	 *
@@ -127,7 +127,7 @@ class Pronamic_Events_Repeat_Admin {
 		$repeat_events = $event->get_repeat_events();
 
 		$data = new ArrayIterator( $event->get_period_data() );
-		$data = new LimitIterator( $data, 0, Pronamic_Events_Repeat::MAX_REPEATS );
+		$data = new LimitIterator( $data, 0, Pronamic_Events_RepeatModule::MAX_REPEATS );
 
 		if ( $data ) {
 			// Remove filters

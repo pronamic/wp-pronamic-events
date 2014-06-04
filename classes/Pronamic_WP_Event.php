@@ -151,7 +151,7 @@ class Pronamic_WP_Event implements Pronamic_DateEventInterface {
 		$defaults = array(
 			'post_type'      => $this->post->post_type,
 			'post_parent'    => $this->post->ID,
-			'posts_per_page' => Pronamic_Events_Repeat::MAX_REPEATS,
+			'posts_per_page' => Pronamic_Events_RepeatModule::MAX_REPEATS,
 			'orderby'        => 'meta_value_num date',
 			'meta_key'       => '_pronamic_start_date',
 		);

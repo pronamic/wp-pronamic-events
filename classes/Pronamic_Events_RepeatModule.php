@@ -3,7 +3,7 @@
 /**
  * Pronamic Events plugin
  */
-class Pronamic_Events_Repeat {
+class Pronamic_Events_RepeatModule {
 	/**
 	 * Maximum repeat
 	 *
@@ -30,7 +30,7 @@ class Pronamic_Events_Repeat {
 
 		// Admin
 		if ( is_admin() ) {
-			new Pronamic_Events_Repeat_Admin( $plugin );
+			$this->admin = new Pronamic_Events_RepeatModule_Admin( $plugin );
 		}
 	}
 }

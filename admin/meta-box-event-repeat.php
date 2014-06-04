@@ -148,7 +148,7 @@ $ends_on_until = get_post_meta( $post->ID, '_pronamic_event_ends_on_until', true
 				<td>
 					<?php echo $event->get_number_repeats(); ?>
 
-					<span class="description"><br /><?php printf( __( 'Note: Due to performance there is currently an maximum of %d repeats.', 'pronamic_events' ), Pronamic_Events_Repeat::MAX_REPEATS ); ?></span>
+					<span class="description"><br /><?php printf( __( 'Note: Due to performance there is currently an maximum of %d repeats.', 'pronamic_events' ), Pronamic_Events_RepeatModule::MAX_REPEATS ); ?></span>
 				</td>
 			</tr>
 		</tbody>
