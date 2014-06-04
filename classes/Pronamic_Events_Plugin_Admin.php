@@ -278,34 +278,23 @@ class Pronamic_Events_Plugin_Admin {
 	 * @param array $columns
 	 */
 	public function manage_edit_columns( $columns ) {
+		$columns['pronamic_start_date'] = __( 'Start Date', 'pronamic_events' );
+		$columns['pronamic_end_date']   = __( 'End Date', 'pronamic_events' );
+
 		$new_columns = array();
 
-		if ( isset( $columns['cb'] ) ) {
-			$new_columns['cb'] = $columns['cb'];
+		foreach ( $columns as $name => $label ) {
+			if ( 'author' == $name ) {
+				$new_columns['pronamic_start_date'] = $columns['pronamic_start_date'];
+				$new_columns['pronamic_end_date']   = $columns['pronamic_end_date'];
+			}
+
+			$new_columns[ $name ] = $label;
 		}
 
-		// $new_columns['thumbnail'] = __('Thumbnail', 'pronamic_companies');
+		$columns = $new_columns;
 
-		if ( isset( $columns['title'] ) ) {
-			$new_columns['title'] = $columns['title'];
-		}
-
-		if ( isset( $columns['author'] ) ) {
-			$new_columns['author'] = $columns['author'];
-		}
-
-		if ( isset( $columns['comments'] ) ) {
-			$new_columns['comments'] = $columns['comments'];
-		}
-
-		if ( isset( $columns['date'] ) ) {
-			$new_columns['date'] = $columns['date'];
-		}
-
-		$new_columns['pronamic_start_date'] = __( 'Start Date', 'pronamic_events' );
-		$new_columns['pronamic_end_date']   = __( 'End Date', 'pronamic_events' );
-
-		return array_merge( $new_columns, $columns );
+		return $columns;
 	}
 
 	//////////////////////////////////////////////////
