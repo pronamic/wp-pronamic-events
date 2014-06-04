@@ -155,9 +155,7 @@ class Pronamic_Events_Repeat_Admin {
 					$start_timestamp = $e->get_start()->format( 'U' );
 					$end_timestamp   = $e->get_end()->format( 'U' );
 
-					$meta = array(
-
-					);
+					$meta = array();
 
 					$meta = pronamic_events_get_start_date_meta( $start_timestamp, $meta );
 					$meta = pronamic_events_get_end_date_meta( $end_timestamp, $meta );
