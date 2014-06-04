@@ -21,16 +21,10 @@ class Pronamic_Events_RepeatEventHelper {
 
 	//////////////////////////////////////////////////
 
-	public function get_start_date() {
-		$date = get_post_meta( $this->post->ID, '_pronamic_event_start_date', true );
+	public function is_repeat_enabled() {
+		$repeat_enabled = get_post_meta( $event->post->ID, '_pronamic_event_repeat_frequency', true );
 
-		return $date;
-	}
-
-	public function get_end_date() {
-		$date = get_post_meta( $this->post->ID, '_pronamic_event_end_date', true );
-
-		return $date;
+		return $repeat_enabled;
 	}
 
 	//////////////////////////////////////////////////

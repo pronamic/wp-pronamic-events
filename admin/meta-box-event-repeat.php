@@ -171,7 +171,13 @@ $ends_on_until = get_post_meta( $post->ID, '_pronamic_event_ends_on_until', true
 
 			// Post submit
 			$( '#post' ).submit( function() {
-				return confirm( '<?php echo esc_js( __( 'Note: All events in the series are changed.', 'pronamic_events' ) ); ?>' );
+				var submit = true;
+
+				if ( $( '#pronamic_event_repeat' ).prop( 'checked' ) ) {
+					submit = confirm( '<?php echo esc_js( __( 'Note: All events in the series are changed.', 'pronamic_events' ) ); ?>' );
+				}
+
+				return submit;
 			} );
 		} );
 	</script>

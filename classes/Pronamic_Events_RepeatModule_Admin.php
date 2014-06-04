@@ -24,6 +24,8 @@ class Pronamic_Events_RepeatModule_Admin {
 
 		add_action( 'save_post', array( $this, 'save_post' ) );
 		add_action( 'save_post', array( $this, 'save_repeats' ) );
+
+		add_filter( 'manage_pronamic_events_columns', array( $this, 'manage_pronamic_events_columns' ) );
 	}
 
 	//////////////////////////////////////////////////
@@ -97,7 +99,7 @@ class Pronamic_Events_RepeatModule_Admin {
 
 		// Definition
 		$definition = array(
-			'_pronamic_event_repeat'           => FILTER_SANITIZE_STRING,
+			'_pronamic_event_repeat'           => FILTER_VALIDATE_BOOLEAN,
 			'_pronamic_event_repeat_frequency' => FILTER_SANITIZE_STRING,
 			'_pronamic_event_repeat_interval'  => FILTER_SANITIZE_STRING,
 			'_pronamic_event_ends_on'          => FILTER_SANITIZE_STRING,
@@ -131,7 +133,7 @@ class Pronamic_Events_RepeatModule_Admin {
 		$data = new ArrayIterator( $repeat_helper->get_period_data() );
 		$data = new LimitIterator( $data, 0, Pronamic_Events_RepeatModule::MAX_REPEATS );
 
-		if ( $data ) {
+		if ( $repeat_helper->is_repeat_enabled() && $data ) {
 			// Remove filters
 			remove_filter( 'save_post', array( $this->plugin->admin, 'save_post' ) );
 			remove_filter( 'save_post', array( $this, 'save_post' ) );
@@ -245,5 +247,18 @@ class Pronamic_Events_RepeatModule_Admin {
 			add_filter( 'save_post', array( $this, 'save_post' ) );
 			add_filter( 'save_post', array( $this, 'save_repeats' ) );
 		}
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Manage edit columns
+	 *
+	 * @param array $columns
+	 */
+	public function manage_pronamic_events_columns( $columns ) {
+		$columns['pronamic_event_repeat'] = sprintf( '<span class="dashicons dashicons-backup" title="%s" />', __( 'Repeat', 'pronamic_events' ) );
+
+		return $columns;
 	}
 }

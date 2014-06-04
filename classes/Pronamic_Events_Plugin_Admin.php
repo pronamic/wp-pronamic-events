@@ -28,13 +28,6 @@ class Pronamic_Events_Plugin_Admin {
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 10, 2 );
 
 		add_action( 'save_post', array( $this, 'save_post' ) );
-
-		// Post type
-		$post_type = 'pronamic_event';
-
-		add_filter( "manage_edit-{$post_type}_columns",          array( $this, 'manage_edit_columns' ) );
-		add_filter( "manage_edit-{$post_type}_sortable_columns", array( $this, 'manage_edit_sortable_columns' ) );
-		add_filter( "manage_{$post_type}_posts_custom_column",   array( $this, 'manage_posts_custom_column' ), 10, 2 );
 	}
 
 	//////////////////////////////////////////////////
@@ -43,6 +36,16 @@ class Pronamic_Events_Plugin_Admin {
 	 * Admin intialize
 	 */
 	function admin_init() {
+		foreach ( get_post_types( array( 'public' => true ) ) as $post_type ) {
+			if ( post_type_supports( $post_type, 'pronamic_event' ) ) {
+				$screen_id = 'edit-' . $post_type;
+
+				add_filter( 'manage_' . $post_type . '_posts_columns', array( $this, 'manage_posts_columns' ), 10, 1 );
+				add_action( 'manage_' . $post_type . '_posts_custom_column', array( $this, 'manage_posts_custom_column' ), 10, 2 );
+				add_action( 'manage_' . $screen_id . '_sortable_columns', array( $this, 'post_sortable_columns' ), 10 );
+			}
+		}
+
 		// Permalinks
 		// Un we can't add the permalink options to permalink settings page
 		// @see http://core.trac.wordpress.org/ticket/9296
@@ -277,16 +280,22 @@ class Pronamic_Events_Plugin_Admin {
 	 *
 	 * @param array $columns
 	 */
-	public function manage_edit_columns( $columns ) {
-		$columns['pronamic_start_date'] = __( 'Start Date', 'pronamic_events' );
-		$columns['pronamic_end_date']   = __( 'End Date', 'pronamic_events' );
+	public function manage_posts_columns( $columns ) {
+		$columns['pronamic_start_date']   = __( 'Start Date', 'pronamic_events' );
+		$columns['pronamic_end_date']     = __( 'End Date', 'pronamic_events' );
+
+		$columns = apply_filters( 'manage_pronamic_events_columns', $columns );
 
 		$new_columns = array();
 
 		foreach ( $columns as $name => $label ) {
 			if ( 'author' == $name ) {
-				$new_columns['pronamic_start_date'] = $columns['pronamic_start_date'];
-				$new_columns['pronamic_end_date']   = $columns['pronamic_end_date'];
+				$new_columns['pronamic_start_date']   = $columns['pronamic_start_date'];
+				$new_columns['pronamic_end_date']     = $columns['pronamic_end_date'];
+
+				if ( isset( $columns['pronamic_event_repeat'] ) ) {
+					$new_columns['pronamic_event_repeat'] = $columns['pronamic_event_repeat'];
+				}
 			}
 
 			$new_columns[ $name ] = $label;
@@ -304,7 +313,7 @@ class Pronamic_Events_Plugin_Admin {
 	 *
 	 * @param array $columns
 	 */
-	public function manage_edit_sortable_columns( $columns ) {
+	public function post_sortable_columns( $columns ) {
 		$columns['pronamic_start_date'] = 'pronamic_start_date';
 		$columns['pronamic_end_date']   = 'pronamic_end_date';
 
@@ -320,6 +329,8 @@ class Pronamic_Events_Plugin_Admin {
 	 * @param string $post_id
 	 */
 	public function manage_posts_custom_column( $column_name, $post_id ) {
+		$post = get_post( $post_id );
+
 		switch ( $column_name ) {
 			case 'pronamic_start_date' :
 				// @see http://translate.wordpress.org/projects/wp/3.5.x/admin/nl/default?filters[term]=Y%2Fm%2Fd&filters[user_login]=&filters[status]=current_or_waiting_or_fuzzy_or_untranslated&filter=Filter&sort[by]=priority&sort[how]=desc
@@ -342,6 +353,16 @@ class Pronamic_Events_Plugin_Admin {
 				$hours  = pronamic_get_the_end_date( __( 'g:i:s', 'pronamic_events' ), $post_id );
 
 				printf( '<abbr title="%s">%s</abbr><br />%s', $t_time, $h_time, $hours );
+
+				break;
+
+			case 'pronamic_event_repeat' :
+
+				$repeat = get_post_meta( $post_id, '_pronamic_event_repeat', true );
+
+				if ( $repeat || $post->post_parent ) {
+					echo '<span class="dashicons dashicons-backup" />';
+				}
 
 				break;
 
