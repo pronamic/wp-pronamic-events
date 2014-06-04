@@ -32,24 +32,26 @@ class Pronamic_Events_Repeat_Admin {
 	 * Add meta boxes
 	 */
 	public function add_meta_boxes( $post_type, $post ) {
-		if ( 0 == $post->post_parent ) {
+		if ( post_type_supports( $post_type, 'pronamic_event_repeat' ) ) {
 			add_meta_box(
 				'pronamic_events_repeat_meta_box',
 				__( 'Event Repeat', 'pronamic_events' ),
 				array( $this, 'meta_box_event_repeat' ),
-				'pronamic_event',
+				$post_type,
 				'normal',
 				'high'
 			);
 
-			add_meta_box(
-				'pronamic_events_repeats_meta_box',
-				__( 'Event Repeats', 'pronamic_events' ),
-				array( $this, 'meta_box_event_repeats' ),
-				'pronamic_event',
-				'normal',
-				'high'
-			);
+			if ( 0 == $post->post_parent ) {
+				add_meta_box(
+					'pronamic_events_repeats_meta_box',
+					__( 'Event Repeats', 'pronamic_events' ),
+					array( $this, 'meta_box_event_repeats' ),
+					$post_type,
+					'normal',
+					'high'
+				);
+			}
 		}
 	}
 
@@ -124,9 +126,11 @@ class Pronamic_Events_Repeat_Admin {
 
 		$repeat_events = $event->get_repeat_events();
 
-		$data = $event->get_period_data();
+		$data = new ArrayIterator( $event->get_period_data() );
+		$data = new LimitIterator( $data, 0, Pronamic_Events_Repeat::MAX_REPEATS );
 
 		if ( $data ) {
+			// Remove filters
 			remove_filter( 'save_post', array( $this->plugin->admin, 'save_post' ) );
 			remove_filter( 'save_post', array( $this, 'save_post' ) );
 			remove_filter( 'save_post', array( $this, 'save_repeats' ) );
@@ -134,18 +138,18 @@ class Pronamic_Events_Repeat_Admin {
 			foreach ( $data as $e ) {
 				$hash_code = $e->get_event_hash_code();
 
-				if ( isset( $repeat_events[ $hash_code ] ) ) {
-					// Post already exists
-				} else {
-					$post_data = array(
-						'post_type'    => $post->post_type,
-						'post_content' => $post->post_content,
-						'post_title'   => $post->post_title,
-						'post_author'  => $post->post_author,
-						'post_parent'  => $post->ID,
-						'post_status'  => $post->post_status,
-					);
+				$post_data = array(
+					'post_title'   => $post->post_title,
+					'post_content' => $post->post_content,
+					'post_author'  => $post->post_author,
+					'post_parent'  => $post->ID,
+					'post_status'  => $post->post_status,
+					'post_type'    => $post->post_type,
+				);
 
+				if ( isset( $repeat_events[ $hash_code ] ) ) {
+
+				} else {
 					$repeat_post_id = wp_insert_post( $post_data );
 
 					$start_timestamp = $e->get_start()->format( 'U' );
@@ -165,6 +169,78 @@ class Pronamic_Events_Repeat_Admin {
 				}
 			}
 
+			/*
+			 * Sync posts
+			 */
+
+			// Post
+			$post_data = array(
+				'post_title'   => $post->post_title,
+				'post_content' => $post->post_content,
+				'post_author'  => $post->post_author,
+				'post_parent'  => $post->ID,
+				'post_status'  => $post->post_status,
+				'post_type'    => $post->post_type,
+			);
+
+			// Meta
+			$ignore = array_flip( array(
+				'_edit_last',
+				'_pronamic_start_date',
+				'_pronamic_event_start_date',
+				'_pronamic_event_start_date_gmt',
+				'_pronamic_end_date',
+				'_pronamic_event_end_date',
+				'_pronamic_event_end_date_gmt',
+				'_pronamic_event_repeat',
+				'_pronamic_event_repeat_frequency',
+				'_pronamic_event_repeat_interval',
+				'_pronamic_event_ends_on',
+				'_pronamic_event_ends_on_count',
+				'_pronamic_event_ends_on_until',
+				'_edit_lock',
+			) );
+
+			$post_custom = get_post_custom( $post->ID );
+			$post_custom = array_diff_key( $post_custom, $ignore );
+
+			// Taxonomies
+			$taxonomies = array();
+
+			$taxonomy_names = get_object_taxonomies( $post );
+			foreach ( $taxonomy_names as $taxonomy ) {
+				$terms = wp_get_object_terms( $post->ID, $taxonomy, array( 'fields' => 'ids' ) );
+
+				$taxonomies[ $taxonomy ] = $terms;
+			}
+
+			// Posts
+			$args = $event->get_repeat_posts_query_args( array( 'fields' => 'ids' ) );
+
+			$post_ids = get_posts( $args );
+
+			foreach ( $post_ids as $post_id ) {
+				// Post
+				$post_data['ID'] = $post_id;
+
+				wp_update_post( $post_data );
+
+				// Meta
+				foreach ( $post_custom as $meta_key => $meta_values ) {
+					delete_post_meta( $post_id, $meta_key );
+
+					foreach ( $meta_values as $meta_value ) {
+						add_post_meta( $post_id, $meta_key, $meta_value );
+					}
+				}
+
+				// Taxonomies
+				foreach ( $taxonomies as $taxonomy => $terms ) {
+					wp_set_object_terms( $post_id, $terms, $taxonomy );
+				}
+			}
+
+			// Add filters
 			add_filter( 'save_post', array( $this->plugin->admin, 'save_post' ) );
 			add_filter( 'save_post', array( $this, 'save_post' ) );
 			add_filter( 'save_post', array( $this, 'save_repeats' ) );

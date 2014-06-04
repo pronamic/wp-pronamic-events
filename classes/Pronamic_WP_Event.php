@@ -147,14 +147,16 @@ class Pronamic_WP_Event implements Pronamic_DateEventInterface {
 
 	//////////////////////////////////////////////////
 
-	public function get_repeat_posts_query_args() {
-		$args = array(
+	public function get_repeat_posts_query_args( $args = array() ) {
+		$defaults = array(
 			'post_type'      => $this->post->post_type,
 			'post_parent'    => $this->post->ID,
-			'posts_per_page' => 20,
+			'posts_per_page' => Pronamic_Events_Repeat::MAX_REPEATS,
 			'orderby'        => 'meta_value_num date',
 			'meta_key'       => '_pronamic_start_date',
 		);
+
+		$args = wp_parse_args( $args, $defaults );
 
 		return $args;
 	}

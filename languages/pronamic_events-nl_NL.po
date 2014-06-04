@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Events\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-events\n"
-"POT-Creation-Date: 2014-06-03 14:19:25+00:00\n"
-"PO-Revision-Date: 2014-06-03 16:19+0100\n"
+"POT-Creation-Date: 2014-06-04 09:22:29+00:00\n"
+"PO-Revision-Date: 2014-06-04 11:23+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -17,25 +17,21 @@ msgstr ""
 "X-Generator: Poedit 1.6.5\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: admin/meta-box-event-details.php:28
-msgid "This event is part of a repeated series."
-msgstr "Dit evenement is onderdeel van een herhaalde reeks."
-
-#: admin/meta-box-event-details.php:37 admin/meta-box-event-repeats.php:23
-#: classes/Pronamic_Events_Plugin_Admin.php:303
+#: admin/meta-box-event-details.php:29 admin/meta-box-event-repeats.php:20
+#: classes/Pronamic_Events_Plugin_Admin.php:305
 msgid "Start Date"
 msgstr "Startdatum"
 
-#: admin/meta-box-event-details.php:46 admin/meta-box-event-repeats.php:24
-#: classes/Pronamic_Events_Plugin_Admin.php:304
+#: admin/meta-box-event-details.php:38 admin/meta-box-event-repeats.php:21
+#: classes/Pronamic_Events_Plugin_Admin.php:306
 msgid "End Date"
 msgstr "Einddatum"
 
-#: admin/meta-box-event-details.php:55
+#: admin/meta-box-event-details.php:47
 msgid "Location"
 msgstr "Locatie"
 
-#: admin/meta-box-event-details.php:63
+#: admin/meta-box-event-details.php:55
 msgid "Website"
 msgstr "Website"
 
@@ -59,77 +55,118 @@ msgstr "Maandelijks"
 msgid "Annually"
 msgstr "Jaarlijks"
 
-#: admin/meta-box-event-repeat.php:31
+#: admin/meta-box-event-repeat.php:19
+msgid "days"
+msgstr "dagen"
+
+#: admin/meta-box-event-repeat.php:20
+msgid "weeks"
+msgstr "weken"
+
+#: admin/meta-box-event-repeat.php:21
+msgid "moths"
+msgstr "maanden"
+
+#: admin/meta-box-event-repeat.php:22
+msgid "year"
+msgstr "jaar"
+
+#: admin/meta-box-event-repeat.php:40
+msgid "This event is part of a <a href=\"%s\">repeated series</a>."
+msgstr "Dit evenement is onderdeel van een <a href=\"%s\">herhaalde reeks</a>."
+
+#: admin/meta-box-event-repeat.php:53
 msgid "Repeat"
 msgstr "Herhalen"
 
-#: admin/meta-box-event-repeat.php:36
+#: admin/meta-box-event-repeat.php:58
 msgid "Enable repeat"
 msgstr "Herhalen inschakelen"
 
-#: admin/meta-box-event-repeat.php:42
+#: admin/meta-box-event-repeat.php:64
 msgid "Frequency"
 msgstr "Herhaald"
 
-#: admin/meta-box-event-repeat.php:63
+#: admin/meta-box-event-repeat.php:91
 msgid "Repeat every"
 msgstr "Herhaal iedere"
 
-#: admin/meta-box-event-repeat.php:81
-msgid "parts"
-msgstr "delen"
+#: admin/meta-box-event-repeat.php:109
+msgid "days/weeks/months/year"
+msgstr "dagen/weken/maanden/jaar"
 
-#: admin/meta-box-event-repeat.php:86
+#: admin/meta-box-event-repeat.php:114
 msgid "Ends On"
 msgstr "Eindigt op"
 
-#: admin/meta-box-event-repeat.php:95
+#: admin/meta-box-event-repeat.php:123
 msgid "After %s instances"
 msgstr "Na %s instanties"
 
-#: admin/meta-box-event-repeat.php:108
+#: admin/meta-box-event-repeat.php:136
 msgid "Until %s"
 msgstr "Tot %s"
 
-#: admin/meta-box-event-repeat.php:118
+#: admin/meta-box-event-repeat.php:146
 msgid "Number Repeats"
 msgstr "Aantal herhalingen"
 
-#: admin/meta-box-event-repeats.php:22
+#: admin/meta-box-event-repeat.php:151
+msgid "Note: Due to performance there is currently an maximum of %d repeats."
+msgstr ""
+"Let op: Vanwege prestaties is er momenteel een maximum van %d herhalingen."
+
+#: admin/meta-box-event-repeat.php:172
+msgid "Note: All events in the series are changed."
+msgstr "Let op: Alle afspraken in de reeks worden gewijzigd."
+
+#: admin/meta-box-event-repeats.php:19
 msgid "Title"
 msgstr "Titel"
 
-#: admin/meta-box-event-repeats.php:25
-msgid "Part of repeated series"
-msgstr "Onderdeel van herhaalde reeks"
+#: admin/meta-box-event-repeats.php:22
+msgid "In Series"
+msgstr "In reeks"
 
-#: admin/meta-box-event-repeats.php:40 admin/meta-box-event-repeats.php:51
-#: classes/Pronamic_Events_Plugin_Admin.php:337
-#: classes/Pronamic_Events_Plugin_Admin.php:349
+#: admin/meta-box-event-repeats.php:23
+msgid "Actions"
+msgstr "Acties"
+
+#: admin/meta-box-event-repeats.php:38 admin/meta-box-event-repeats.php:49
+#: classes/Pronamic_Events_Plugin_Admin.php:339
+#: classes/Pronamic_Events_Plugin_Admin.php:351
 msgid "Y/m/d g:i:s A"
 msgstr "j F Y H:i"
 
-#: admin/meta-box-event-repeats.php:41 admin/meta-box-event-repeats.php:52
-#: classes/Pronamic_Events_Plugin_Admin.php:338
-#: classes/Pronamic_Events_Plugin_Admin.php:350
+#: admin/meta-box-event-repeats.php:39 admin/meta-box-event-repeats.php:50
+#: classes/Pronamic_Events_Plugin_Admin.php:340
+#: classes/Pronamic_Events_Plugin_Admin.php:352
 msgid "Y/m/d"
 msgstr "j F Y"
 
-#: admin/meta-box-event-repeats.php:42 admin/meta-box-event-repeats.php:53
-#: classes/Pronamic_Events_Plugin_Admin.php:339
-#: classes/Pronamic_Events_Plugin_Admin.php:351
+#: admin/meta-box-event-repeats.php:40 admin/meta-box-event-repeats.php:51
+#: classes/Pronamic_Events_Plugin_Admin.php:341
+#: classes/Pronamic_Events_Plugin_Admin.php:353
 msgid "g:i:s"
 msgstr "H:i"
 
-#: admin/meta-box-event-repeats.php:64
+#: admin/meta-box-event-repeats.php:62
 msgid "Yes"
 msgstr "Ja"
 
-#: admin/meta-box-event-repeats.php:64
+#: admin/meta-box-event-repeats.php:62
 msgid "No"
 msgstr "Nee"
 
-#: admin/meta-box-event-repeats.php:78
+#: admin/meta-box-event-repeats.php:67
+msgid "Edit"
+msgstr "Bewerken"
+
+#: admin/meta-box-event-repeats.php:68
+msgid "Trash"
+msgstr "Prullenbak"
+
+#: admin/meta-box-event-repeats.php:80
 msgid "No repeats available for this event."
 msgstr "Geen herhalingen beschikbaar voor dit evenement."
 
@@ -165,39 +202,39 @@ msgstr "Geen evenementen gevonden in de prullenbak"
 msgid "Parent Event:"
 msgstr "Bovenliggende événement:"
 
-#: classes/Pronamic_Events_Plugin.php:135
+#: classes/Pronamic_Events_Plugin.php:143
 msgid "Search Event categories"
 msgstr "Doorzoek categorieën"
 
-#: classes/Pronamic_Events_Plugin.php:136
+#: classes/Pronamic_Events_Plugin.php:144
 msgid "All Event categories"
 msgstr "Bekijk alle categorieën"
 
-#: classes/Pronamic_Events_Plugin.php:137
+#: classes/Pronamic_Events_Plugin.php:145
 msgid "Parent Event category"
 msgstr "Bovenliggende categorie:"
 
-#: classes/Pronamic_Events_Plugin.php:138
+#: classes/Pronamic_Events_Plugin.php:146
 msgid "Parent Event category:"
 msgstr "Bovenliggende categorie:"
 
-#: classes/Pronamic_Events_Plugin.php:139
+#: classes/Pronamic_Events_Plugin.php:147
 msgid "Edit Event category"
 msgstr "Wijzig categorie"
 
-#: classes/Pronamic_Events_Plugin.php:140
+#: classes/Pronamic_Events_Plugin.php:148
 msgid "Update Event category"
 msgstr "Update categorie"
 
-#: classes/Pronamic_Events_Plugin.php:141
+#: classes/Pronamic_Events_Plugin.php:149
 msgid "Add New Event category"
 msgstr "Nieuwe categorie toevoegen"
 
-#: classes/Pronamic_Events_Plugin.php:142
+#: classes/Pronamic_Events_Plugin.php:150
 msgid "New Event category Name"
 msgstr "Nieuwe categorie naam"
 
-#: classes/Pronamic_Events_Plugin.php:143
+#: classes/Pronamic_Events_Plugin.php:151
 msgid "Categories"
 msgstr "Categorieën"
 
@@ -217,7 +254,7 @@ msgstr "Pronamic evenementen instellingen"
 msgid "Settings"
 msgstr "Instellingen"
 
-#: classes/Pronamic_Events_Plugin_Admin.php:204
+#: classes/Pronamic_Events_Plugin_Admin.php:205
 msgid "Event Details"
 msgstr "Evenement details"
 
@@ -225,7 +262,7 @@ msgstr "Evenement details"
 msgid "Event Repeat"
 msgstr "Evenement herhaling"
 
-#: classes/Pronamic_Events_Repeat_Admin.php:47
+#: classes/Pronamic_Events_Repeat_Admin.php:48
 msgid "Event Repeats"
 msgstr "Evenement herhalingen"
 
@@ -303,15 +340,21 @@ msgctxt "menu_name"
 msgid "Events"
 msgstr "Evenementen"
 
-#: classes/Pronamic_Events_Plugin.php:133
+#: classes/Pronamic_Events_Plugin.php:141
 msgctxt "class general name"
 msgid "Event categories"
 msgstr "Evenement categorieën"
 
-#: classes/Pronamic_Events_Plugin.php:134
+#: classes/Pronamic_Events_Plugin.php:142
 msgctxt "class singular name"
 msgid "Event category"
 msgstr "Evenement categorieën"
+
+#~ msgid "Part of repeated series"
+#~ msgstr "Onderdeel van herhaalde reeks"
+
+#~ msgid "parts"
+#~ msgstr "delen"
 
 #~ msgid "ID"
 #~ msgstr "ID"
@@ -543,9 +586,6 @@ msgstr "Evenement categorieën"
 #~ msgstr[0] "Configuratie verwijderd."
 #~ msgstr[1] "Configuraties verwijderd."
 
-#~ msgid "Bulk Actions"
-#~ msgstr "Acties"
-
 #~ msgid "Delete"
 #~ msgstr "Verwijder"
 
@@ -563,9 +603,6 @@ msgstr "Evenement categorieën"
 
 #~ msgid "Dashboard"
 #~ msgstr "Dashboard"
-
-#~ msgid "Edit"
-#~ msgstr "Bewerken"
 
 #~ msgid "Tests"
 #~ msgstr "Tests"

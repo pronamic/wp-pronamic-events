@@ -9,9 +9,6 @@ $event  = new Pronamic_WP_Event( $post );
 
 $repeat_events = $event->get_repeat_events();
 
-// $start_period = $event->get_period();
-// echo iterator_count( $start_period ), '<br />';
-
 $data = $event->get_period_data();
 
 if ( $repeat_events ) : ?>
@@ -22,7 +19,8 @@ if ( $repeat_events ) : ?>
 				<th scope="col"><?php _e( 'Title', 'pronamic_events' ); ?></th>
 				<th scope="col"><?php _e( 'Start Date', 'pronamic_events' ); ?></th>
 				<th scope="col"><?php _e( 'End Date', 'pronamic_events' ); ?></th>
-				<th scope="col"><?php _e( 'Part of repeated series', 'pronamic_events' ); ?></th>
+				<th scope="col"><?php _e( 'In Series', 'pronamic_events' ); ?></th>
+				<th scope="col"><?php _e( 'Actions', 'pronamic_events' ); ?></th>
 			</tr>
 		</thead>
 
@@ -64,6 +62,10 @@ if ( $repeat_events ) : ?>
 						echo isset( $data[ $hash_key ] ) ? __( 'Yes', 'pronamic_events' ) : __( 'No', 'pronamic_events' );
 
 						?>
+					</td>
+					<td class="pronamic-event-repeats-actions">
+						<?php edit_post_link( __( 'Edit', 'pronamic_events' ), null, null, $repeat_event->post->ID ); ?> |
+						<a class="submitdelete" href="<?php echo get_delete_post_link( $repeat_event->post->ID ); ?>"><?php _e( 'Trash', 'pronamic_events' ); ?></a>
 					</td>
 				</tr>
 

@@ -5,6 +5,15 @@
  */
 class Pronamic_Events_Repeat {
 	/**
+	 * Maximum repeat
+	 *
+	 * @var int
+	 */
+	const MAX_REPEATS = 50;
+
+	//////////////////////////////////////////////////
+
+	/**
 	 * Plugin
 	 *
 	 * @var Pronamic_Events_Plugin

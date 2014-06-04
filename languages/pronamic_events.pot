@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Events 1.0.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-events\n"
-"POT-Creation-Date: 2014-06-03 14:19:25+00:00\n"
+"POT-Creation-Date: 2014-06-04 09:22:29+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,25 +12,21 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: admin/meta-box-event-details.php:28
-msgid "This event is part of a repeated series."
-msgstr ""
-
-#: admin/meta-box-event-details.php:37 admin/meta-box-event-repeats.php:23
-#: classes/Pronamic_Events_Plugin_Admin.php:303
+#: admin/meta-box-event-details.php:29 admin/meta-box-event-repeats.php:20
+#: classes/Pronamic_Events_Plugin_Admin.php:305
 msgid "Start Date"
 msgstr ""
 
-#: admin/meta-box-event-details.php:46 admin/meta-box-event-repeats.php:24
-#: classes/Pronamic_Events_Plugin_Admin.php:304
+#: admin/meta-box-event-details.php:38 admin/meta-box-event-repeats.php:21
+#: classes/Pronamic_Events_Plugin_Admin.php:306
 msgid "End Date"
 msgstr ""
 
-#: admin/meta-box-event-details.php:55
+#: admin/meta-box-event-details.php:47
 msgid "Location"
 msgstr ""
 
-#: admin/meta-box-event-details.php:63
+#: admin/meta-box-event-details.php:55
 msgid "Website"
 msgstr ""
 
@@ -54,77 +50,117 @@ msgstr ""
 msgid "Annually"
 msgstr ""
 
-#: admin/meta-box-event-repeat.php:31
+#: admin/meta-box-event-repeat.php:19
+msgid "days"
+msgstr ""
+
+#: admin/meta-box-event-repeat.php:20
+msgid "weeks"
+msgstr ""
+
+#: admin/meta-box-event-repeat.php:21
+msgid "moths"
+msgstr ""
+
+#: admin/meta-box-event-repeat.php:22
+msgid "year"
+msgstr ""
+
+#: admin/meta-box-event-repeat.php:40
+msgid "This event is part of a <a href=\"%s\">repeated series</a>."
+msgstr ""
+
+#: admin/meta-box-event-repeat.php:53
 msgid "Repeat"
 msgstr ""
 
-#: admin/meta-box-event-repeat.php:36
+#: admin/meta-box-event-repeat.php:58
 msgid "Enable repeat"
 msgstr ""
 
-#: admin/meta-box-event-repeat.php:42
+#: admin/meta-box-event-repeat.php:64
 msgid "Frequency"
 msgstr ""
 
-#: admin/meta-box-event-repeat.php:63
+#: admin/meta-box-event-repeat.php:91
 msgid "Repeat every"
 msgstr ""
 
-#: admin/meta-box-event-repeat.php:81
-msgid "parts"
+#: admin/meta-box-event-repeat.php:109
+msgid "days/weeks/months/year"
 msgstr ""
 
-#: admin/meta-box-event-repeat.php:86
+#: admin/meta-box-event-repeat.php:114
 msgid "Ends On"
 msgstr ""
 
-#: admin/meta-box-event-repeat.php:95
+#: admin/meta-box-event-repeat.php:123
 msgid "After %s instances"
 msgstr ""
 
-#: admin/meta-box-event-repeat.php:108
+#: admin/meta-box-event-repeat.php:136
 msgid "Until %s"
 msgstr ""
 
-#: admin/meta-box-event-repeat.php:118
+#: admin/meta-box-event-repeat.php:146
 msgid "Number Repeats"
 msgstr ""
 
-#: admin/meta-box-event-repeats.php:22
+#: admin/meta-box-event-repeat.php:151
+msgid "Note: Due to performance there is currently an maximum of %d repeats."
+msgstr ""
+
+#: admin/meta-box-event-repeat.php:172
+msgid "Note: All events in the series are changed."
+msgstr ""
+
+#: admin/meta-box-event-repeats.php:19
 msgid "Title"
 msgstr ""
 
-#: admin/meta-box-event-repeats.php:25
-msgid "Part of repeated series"
+#: admin/meta-box-event-repeats.php:22
+msgid "In Series"
 msgstr ""
 
-#: admin/meta-box-event-repeats.php:40 admin/meta-box-event-repeats.php:51
-#: classes/Pronamic_Events_Plugin_Admin.php:337
-#: classes/Pronamic_Events_Plugin_Admin.php:349
+#: admin/meta-box-event-repeats.php:23
+msgid "Actions"
+msgstr ""
+
+#: admin/meta-box-event-repeats.php:38 admin/meta-box-event-repeats.php:49
+#: classes/Pronamic_Events_Plugin_Admin.php:339
+#: classes/Pronamic_Events_Plugin_Admin.php:351
 msgid "Y/m/d g:i:s A"
 msgstr ""
 
-#: admin/meta-box-event-repeats.php:41 admin/meta-box-event-repeats.php:52
-#: classes/Pronamic_Events_Plugin_Admin.php:338
-#: classes/Pronamic_Events_Plugin_Admin.php:350
+#: admin/meta-box-event-repeats.php:39 admin/meta-box-event-repeats.php:50
+#: classes/Pronamic_Events_Plugin_Admin.php:340
+#: classes/Pronamic_Events_Plugin_Admin.php:352
 msgid "Y/m/d"
 msgstr ""
 
-#: admin/meta-box-event-repeats.php:42 admin/meta-box-event-repeats.php:53
-#: classes/Pronamic_Events_Plugin_Admin.php:339
-#: classes/Pronamic_Events_Plugin_Admin.php:351
+#: admin/meta-box-event-repeats.php:40 admin/meta-box-event-repeats.php:51
+#: classes/Pronamic_Events_Plugin_Admin.php:341
+#: classes/Pronamic_Events_Plugin_Admin.php:353
 msgid "g:i:s"
 msgstr ""
 
-#: admin/meta-box-event-repeats.php:64
+#: admin/meta-box-event-repeats.php:62
 msgid "Yes"
 msgstr ""
 
-#: admin/meta-box-event-repeats.php:64
+#: admin/meta-box-event-repeats.php:62
 msgid "No"
 msgstr ""
 
-#: admin/meta-box-event-repeats.php:78
+#: admin/meta-box-event-repeats.php:67
+msgid "Edit"
+msgstr ""
+
+#: admin/meta-box-event-repeats.php:68
+msgid "Trash"
+msgstr ""
+
+#: admin/meta-box-event-repeats.php:80
 msgid "No repeats available for this event."
 msgstr ""
 
@@ -160,39 +196,39 @@ msgstr ""
 msgid "Parent Event:"
 msgstr ""
 
-#: classes/Pronamic_Events_Plugin.php:135
+#: classes/Pronamic_Events_Plugin.php:143
 msgid "Search Event categories"
 msgstr ""
 
-#: classes/Pronamic_Events_Plugin.php:136
+#: classes/Pronamic_Events_Plugin.php:144
 msgid "All Event categories"
 msgstr ""
 
-#: classes/Pronamic_Events_Plugin.php:137
+#: classes/Pronamic_Events_Plugin.php:145
 msgid "Parent Event category"
 msgstr ""
 
-#: classes/Pronamic_Events_Plugin.php:138
+#: classes/Pronamic_Events_Plugin.php:146
 msgid "Parent Event category:"
 msgstr ""
 
-#: classes/Pronamic_Events_Plugin.php:139
+#: classes/Pronamic_Events_Plugin.php:147
 msgid "Edit Event category"
 msgstr ""
 
-#: classes/Pronamic_Events_Plugin.php:140
+#: classes/Pronamic_Events_Plugin.php:148
 msgid "Update Event category"
 msgstr ""
 
-#: classes/Pronamic_Events_Plugin.php:141
+#: classes/Pronamic_Events_Plugin.php:149
 msgid "Add New Event category"
 msgstr ""
 
-#: classes/Pronamic_Events_Plugin.php:142
+#: classes/Pronamic_Events_Plugin.php:150
 msgid "New Event category Name"
 msgstr ""
 
-#: classes/Pronamic_Events_Plugin.php:143
+#: classes/Pronamic_Events_Plugin.php:151
 msgid "Categories"
 msgstr ""
 
@@ -212,7 +248,7 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: classes/Pronamic_Events_Plugin_Admin.php:204
+#: classes/Pronamic_Events_Plugin_Admin.php:205
 msgid "Event Details"
 msgstr ""
 
@@ -220,7 +256,7 @@ msgstr ""
 msgid "Event Repeat"
 msgstr ""
 
-#: classes/Pronamic_Events_Repeat_Admin.php:47
+#: classes/Pronamic_Events_Repeat_Admin.php:48
 msgid "Event Repeats"
 msgstr ""
 
@@ -297,12 +333,12 @@ msgctxt "menu_name"
 msgid "Events"
 msgstr ""
 
-#: classes/Pronamic_Events_Plugin.php:133
+#: classes/Pronamic_Events_Plugin.php:141
 msgctxt "class general name"
 msgid "Event categories"
 msgstr ""
 
-#: classes/Pronamic_Events_Plugin.php:134
+#: classes/Pronamic_Events_Plugin.php:142
 msgctxt "class singular name"
 msgid "Event category"
 msgstr ""

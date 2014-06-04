@@ -141,7 +141,7 @@ class Pronamic_Events_Plugin_Admin {
 		// Screen
 		$screen = get_current_screen();
 
-		if ( isset( $screen, $screen->post_type ) && $screen->post_type == 'pronamic_event' ) {
+		if ( isset( $screen, $screen->post_type ) && post_type_supports( $screen->post_type, 'pronamic_event' ) ) {
 			wp_enqueue_script( 'jquery-ui-datepicker' );
 
 			wp_enqueue_style( 'jquery-ui-datepicker', plugins_url( '/jquery-ui/themes/base/jquery.ui.all.css', $this->plugin->file ) );
@@ -199,14 +199,16 @@ class Pronamic_Events_Plugin_Admin {
 	 * Add meta boxes
 	 */
 	public function add_meta_boxes( $post_type, $post ) {
-		add_meta_box(
-			'pronamic_events_details_meta_box',
-			__( 'Event Details', 'pronamic_events' ),
-			array( $this, 'meta_box_event_details' ),
-			'pronamic_event',
-			'normal',
-			'high'
-		);
+		if ( post_type_supports( $post_type, 'pronamic_event' ) || post_type_supports( $post_type, 'pronamic_event_repeat' ) ) {
+			add_meta_box(
+				'pronamic_events_details_meta_box',
+				__( 'Event Details', 'pronamic_events' ),
+				array( $this, 'meta_box_event_details' ),
+				$post_type,
+				'normal',
+				'high'
+			);
+		}
 	}
 
 	/**

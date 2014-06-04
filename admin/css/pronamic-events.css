@@ -36,3 +36,11 @@
 .pronamic-event-repeats-table th {
 	text-align: left;
 }
+
+.pronamic-event-repeats-table .actions {
+	color: #DDD;
+} 
+
+.pronamic-event-repeats-table .submitdelete {
+	color: #A00;
+}
