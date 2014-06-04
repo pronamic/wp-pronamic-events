@@ -23,6 +23,7 @@ require_once dirname( __FILE__ ) . '/classes/Pronamic_Events_Widget.php';
 require_once dirname( __FILE__ ) . '/classes/Pronamic_Events_Plugin_Admin.php';
 require_once dirname( __FILE__ ) . '/classes/Pronamic_Events_RepeatModule.php';
 require_once dirname( __FILE__ ) . '/classes/Pronamic_Events_RepeatModule_Admin.php';
+require_once dirname( __FILE__ ) . '/classes/Pronamic_Events_RepeatEventHelper.php';
 require_once dirname( __FILE__ ) . '/classes/Pronamic_DateEventInterface.php';
 require_once dirname( __FILE__ ) . '/classes/Pronamic_DateEvent.php';
 require_once dirname( __FILE__ ) . '/classes/Pronamic_WP_Event.php';

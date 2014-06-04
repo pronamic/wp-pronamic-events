@@ -7,6 +7,8 @@ global $post;
 
 $event = new Pronamic_WP_Event( $post );
 
+$repeat_helper = new Pronamic_Events_RepeatEventHelper( $event );
+
 $options = array(
 	'0'        => __( '&mdash; Select Repeat &mdash;', 'pronamic_events' ),
 	'daily'    => __( 'Daily', 'pronamic_events' ),
@@ -146,7 +148,7 @@ $ends_on_until = get_post_meta( $post->ID, '_pronamic_event_ends_on_until', true
 					<?php _e( 'Number Repeats', 'pronamic_events' ); ?>
 				</th>
 				<td>
-					<?php echo $event->get_number_repeats(); ?>
+					<?php echo $repeat_helper->get_number_repeats(); ?>
 
 					<span class="description"><br /><?php printf( __( 'Note: Due to performance there is currently an maximum of %d repeats.', 'pronamic_events' ), Pronamic_Events_RepeatModule::MAX_REPEATS ); ?></span>
 				</td>

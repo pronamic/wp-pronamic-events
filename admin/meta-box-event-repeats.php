@@ -7,9 +7,11 @@ global $post;
 
 $event  = new Pronamic_WP_Event( $post );
 
-$repeat_events = $event->get_repeat_events();
+$repeat_helper = new Pronamic_Events_RepeatEventHelper( $event );
 
-$data = $event->get_period_data();
+$repeat_events = $repeat_helper->get_repeat_events();
+
+$data = $repeat_helper->get_period_data();
 
 if ( $repeat_events ) : ?>
 

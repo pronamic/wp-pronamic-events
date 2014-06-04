@@ -124,9 +124,11 @@ class Pronamic_Events_RepeatModule_Admin {
 
 		$event = new Pronamic_WP_Event( $post );
 
-		$repeat_events = $event->get_repeat_events();
+		$repeat_helper = new Pronamic_Events_RepeatEventHelper( $event );
 
-		$data = new ArrayIterator( $event->get_period_data() );
+		$repeat_events = $repeat_helper->get_repeat_events();
+
+		$data = new ArrayIterator( $repeat_helper->get_period_data() );
 		$data = new LimitIterator( $data, 0, Pronamic_Events_RepeatModule::MAX_REPEATS );
 
 		if ( $data ) {
@@ -213,7 +215,7 @@ class Pronamic_Events_RepeatModule_Admin {
 			}
 
 			// Posts
-			$args = $event->get_repeat_posts_query_args( array( 'fields' => 'ids' ) );
+			$args = $repeat_helper->get_repeat_posts_query_args( array( 'fields' => 'ids' ) );
 
 			$post_ids = get_posts( $args );
 
