@@ -70,7 +70,12 @@ Upload the Pronamic Events folder to your wp-content/plugins folder.
 == Changelog ==
 
 = 1.1.0 =
-*	Moved event details meta box from the side to the normal part of the edit post screen.
+*	Tweak - Moved event details meta box from the side to the normal part of the edit post screen.
+*	Tweak - WordPress Coding Standards optimizations.
+*	Feature - Added support for recurring event, create daily, weekly, monthly and yearly event patterns.
+*	Tweak - Use post type supports to enable event meta boxes.
+*	Tweak - Replaced custom menu icon with an WordPress dash icon.
+*	Tweak - Removed the deprecated WordPress screen icon.
 
 = 1.0.0 =
 *	Added French translations thanks to Gwendal Leriche.
