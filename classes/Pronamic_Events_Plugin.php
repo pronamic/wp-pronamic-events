@@ -50,6 +50,8 @@ class Pronamic_Events_Plugin {
 
 		add_action( 'the_post',       array( $this, 'the_post' ) );
 
+		add_filter( 'post_class', array( $this, 'post_class' ), 10, 3 );
+
 		// Admin
 		if ( is_admin() ) {
 			$this->admin = new Pronamic_Events_Plugin_Admin( $this );
@@ -277,12 +279,31 @@ class Pronamic_Events_Plugin {
 			$post = get_post( $post );
 		}
 
-		if ( $post->post_type != 'pronamic_event' ) {
+		if ( 'pronamic_event' != $post->post_type ) {
 			return;
 		}
 
 		$pronamic_event = new Pronamic_WP_Event( $post );
 
 		return $pronamic_event;
+	}
+
+	/**
+	 * Post class
+	 *
+	 * @see https://core.trac.wordpress.org/browser/tags/3.9.1/src/wp-includes/post-template.php#L457
+	 */
+	public function post_class( $classes, $class, $post_id ) {
+		$post = get_post( $post_id );
+
+		if ( 'pronamic_event' == $post->post_type ) {
+			$end = get_post_meta( $post_id, '_pronamic_end_date', true );
+
+			if ( $end < time() ) {
+				$classes[] = 'event-ended';
+			}
+		}
+
+		return $classes;
 	}
 }

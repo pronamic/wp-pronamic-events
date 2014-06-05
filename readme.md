@@ -41,6 +41,12 @@ Type: `string`
 Default: `pronamic_event_start_date`
 
 
+## Post Class
+
+The Pronamic Events will automatic add the `event-ended` post class if an 
+event is ended.
+
+
 ## Resources
 
 *	http://wp-events-plugin.com/
