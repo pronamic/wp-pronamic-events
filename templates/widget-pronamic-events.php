@@ -1,12 +1,12 @@
+<?php
+
+if ( ! empty( $title ) ) {
+	echo $args['before_title'] . $title . $args['after_title'];
+}
+
+?>
+
 <?php if ( have_posts() ) : ?>
-
-	<?php
-
-	if ( ! empty( $title ) ) {
-		echo $args['before_title'] . $title . $args['after_title'];
-	}
-
-	?>
 
 	<ul>
 
@@ -21,5 +21,11 @@
 		<?php endwhile; ?>
 
 	</ul>
+
+<?php else : ?>
+
+	<p>
+		<em><?php _e( 'No upcoming events.', 'pronamic_events' ); ?></em>
+	</p>
 
 <?php endif; ?>
