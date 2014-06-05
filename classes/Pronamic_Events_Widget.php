@@ -65,7 +65,7 @@ class Pronamic_Events_Widget extends WP_Widget {
 
 		include $template;
 
-		echo $args['$after_widget'];
+		echo $args['after_widget'];
 
 		// Query reset
 		$wp_query = null;

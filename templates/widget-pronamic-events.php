@@ -3,7 +3,7 @@
 	<?php
 
 	if ( ! empty( $title ) ) {
-		echo $before_title . $title . $after_title;
+		echo $args['before_title'] . $title . $args['after_title'];
 	}
 
 	?>
