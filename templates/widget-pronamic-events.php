@@ -1,12 +1,12 @@
-<?php if ( have_posts() ) : ?>
-
-	<?php
+<?php
 
 	if ( ! empty( $title ) ) {
-		echo $before_title . $title . $after_title;
+		echo isset($before_title) ? $before_title : null;
+		echo '<h1 class="widget-title">' . $title . '</h1>';
+		echo isset($after_title) ? $after_title : null;
 	}
 
-	?>
+if ( have_posts() ) { ?>
 
 	<ul>
 
@@ -22,4 +22,8 @@
 
 	</ul>
 
-<?php endif; ?>
+<?php 
+
+} else {
+	echo __( 'No upcoming events', 'pronamic_events' );
+}
