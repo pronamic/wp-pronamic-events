@@ -22,7 +22,7 @@ class Pronamic_Events_RepeatEventHelper {
 	//////////////////////////////////////////////////
 
 	public function is_repeat_enabled() {
-		$repeat_enabled = get_post_meta( $event->post->ID, '_pronamic_event_repeat_frequency', true );
+		$repeat_enabled = get_post_meta( $this->event->post->ID, '_pronamic_event_repeat', true );
 
 		return $repeat_enabled;
 	}
@@ -58,7 +58,7 @@ class Pronamic_Events_RepeatEventHelper {
 		$interval      = get_post_meta( $post_id, '_pronamic_event_repeat_interval', true );
 		$ends_on       = get_post_meta( $post_id, '_pronamic_event_ends_on', true );
 		$ends_on_count = get_post_meta( $post_id, '_pronamic_event_ends_on_count', true );
-		$ends_on_until = get_post_meta( $$post_id, '_pronamic_event_ends_on_until', true );
+		$ends_on_until = get_post_meta( $post_id, '_pronamic_event_ends_on_until', true );
 
 		// Periods
 		$periods = array(
