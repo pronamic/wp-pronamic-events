@@ -65,8 +65,18 @@ class Pronamic_Events_Plugin_Admin {
 			array( 'label_for' => 'pronamic_event_base' ) // args
 		);
 
+		add_settings_field(
+			'pronamic_event_category_base', // id
+			__( 'Category base', 'pronamic_events' ), // title
+			array( __CLASS__, 'input_text' ), // callback
+			'pronamic_events', // page
+			'pronamic_events_permalinks', // section
+			array( 'label_for' => 'pronamic_event_category_base' ) // args
+		);
+
 		// Register settings
 		register_setting( 'pronamic_events', 'pronamic_event_base' );
+		register_setting( 'pronamic_events', 'pronamic_event_category_base' );
 
 		// Maybe update
 		global $pronamic_events_db_version;

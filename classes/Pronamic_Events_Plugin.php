@@ -140,6 +140,9 @@ class Pronamic_Events_Plugin {
 		) );
 
 		// Taxonomy
+		$slug = get_option( 'pronamic_event_category_base' );
+		$slug = empty( $slug ) ? _x( 'event-category', 'slug', 'pronamic_events' ) : $slug;
+
 		register_taxonomy( 'pronamic_event_category', 'pronamic_event', array(
 			'hierarchical' => true,
 			'labels'       => array(
@@ -157,6 +160,7 @@ class Pronamic_Events_Plugin {
 			),
 			'show_ui'      => true,
 			'query_var'    => true,
+			'rewrite'      => array( 'slug' => $slug ),
 		) );
 	}
 
