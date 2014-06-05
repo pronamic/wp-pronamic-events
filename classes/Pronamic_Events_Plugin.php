@@ -44,7 +44,7 @@ class Pronamic_Events_Plugin {
 
 		add_action( 'widgets_init',   array( $this, 'widgets_init' ) );
 
-		add_action( 'parse_query',    array( $this, 'parse_query' ) );
+		add_action( 'pre_get_posts',  array( $this, 'pre_get_posts' ) );
 
 		add_filter( 'request',        array( $this, 'request' ) );
 
@@ -198,19 +198,58 @@ class Pronamic_Events_Plugin {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Parse query
+	 * Pre get posts
 	 *
 	 * @note In PHP 5.1.4, "today" means midnight today, and "now" means the current timestamp.
 	 * http://php.net/manual/en/function.strtotime.php#77541
 	 *
 	 * @param WP_Query $query
 	 */
-	public function parse_query( $query ) {
+	public function pre_get_posts( $query ) {
+		// Order
+		$orderby = $query->get( 'orderby' );
+		$order   = $query->get( 'order' );
+
+		// Date
+		$date_after = $query->get( 'pronamic_event_date_after' );
+
+		// Defaults
 		if ( ! is_admin() && is_pronamic_events_query( $query ) ) {
+			// Default - Date after
+			if ( '' == $date_after ) {
+				$date_after = strtotime( 'today' );
+
+				$query->set( 'pronamic_event_date_after', $date_after );
+			}
+
+			// Default - Order by
+			if ( empty( $orderby ) ) {
+				// Default = Start date
+				$orderby = 'pronamic_event_start_date';
+
+				$query->set( 'orderby', $orderby );
+			}
+
+			if ( $orderby == 'pronamic_event_start_date' && empty( $order ) ) {
+				// Default = Ascending
+				$order = 'ASC';
+
+				$query->set( 'order', $order );
+			}
+		}
+
+		// Order by
+		if ( 'pronamic_event_start_date' == $orderby ) {
+			$query->set( 'orderby', 'meta_value_num date' );
+			$query->set( 'meta_key', '_pronamic_start_date' );
+		}
+
+		// Date after
+		if ( ! empty( $date_after ) ) {
 			$meta_query_extra = array(
 				array(
 					'key'     => '_pronamic_end_date',
-					'value'   => apply_filters( 'pronamic_event_parse_query_timestamp', strtotime( 'today' ) ),
+					'value'   => apply_filters( 'pronamic_event_parse_query_timestamp', $date_after ),
 					'compare' => '>',
 					'type'    => 'NUMERIC',
 				),
@@ -220,10 +259,6 @@ class Pronamic_Events_Plugin {
 			$meta_query = wp_parse_args( $meta_query_extra , $meta_query );
 
 			$query->set( 'meta_query', $meta_query );
-
-			$query->set( 'orderby', 'meta_value_num date' );
-			$query->set( 'meta_key', '_pronamic_start_date' );
-			$query->set( 'order', 'ASC' );
 		}
 	}
 
