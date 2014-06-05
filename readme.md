@@ -4,37 +4,28 @@ Pronamic Events is a basic plugin to add some Events functionality.
 
 ## WordPress Query
 
-```
-<?php
-
+```php
 $query = new WP_Query( array(
 	'post_type'                 => 'pronamic_event',
 	'pronamic_event_date_after' => strtotime( 'today' ), // default
 	'orderby'                   => 'pronamic_event_start_date', // default
 ) );
-
 ```
 
-```
-<?php
-
+```php
 $query = new WP_Query( array(
 	'post_type'                 => 'pronamic_event',
 	'pronamic_event_date_after' => strtotime( '-1 month' ),
 	'orderby'                   => 'date',
 ) );
-
 ```
 
-```
-<?php
-
+```php
 $query = new WP_Query( array(
 	'post_type'                 => 'pronamic_event',
 	'pronamic_event_date_after' => false,
 	'orderby'                   => 'pronamic_event_start_date',
 ) );
-
 ```
 
 ### Parameters
