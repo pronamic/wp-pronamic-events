@@ -27,6 +27,8 @@ class Pronamic_Events_Widget extends WP_Widget {
 	 *
 	 * @param array $args     Widget arguments.
 	 * @param array $instance Saved values from database.
+	 *
+	 * @SuppressWarnings(PHPMD.UnusedLocalVariable)
 	 */
 	public function widget( $args, $instance ) {
 		global $pronamic_events_plugin, $wp_query;
@@ -83,6 +85,8 @@ class Pronamic_Events_Widget extends WP_Widget {
 	 * @param array $old_instance Previously saved values from database.
 	 *
 	 * @return array Updated safe values to be saved.
+	 *
+	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();

@@ -296,6 +296,8 @@ class Pronamic_Events_Plugin {
 	 * Post class
 	 *
 	 * @see https://core.trac.wordpress.org/browser/tags/3.9.1/src/wp-includes/post-template.php#L457
+	 *
+	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public function post_class( $classes, $class, $post_id ) {
 		$post = get_post( $post_id );

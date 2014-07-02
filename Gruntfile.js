@@ -25,6 +25,18 @@ module.exports = function( grunt ) {
 			}
 		},
 
+		// PHP Mess Detector
+		phpmd: {
+			application: {
+				dir: '.'
+			},
+			options: {
+				exclude: 'node_modules',
+				reportFormat: 'xml',
+				rulesets: 'phpmd.ruleset.xml'
+			}
+		},
+
 		// JSHint
 		jshint: {
 			files: ['Gruntfile.js' ],
@@ -112,6 +124,7 @@ module.exports = function( grunt ) {
 
 	grunt.loadNpmTasks( 'grunt-phplint' );
 	grunt.loadNpmTasks( 'grunt-phpcs' );
+	grunt.loadNpmTasks( 'grunt-phpmd' );
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
 	grunt.loadNpmTasks( 'grunt-contrib-copy' );
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );

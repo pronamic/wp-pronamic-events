@@ -25,7 +25,7 @@ class Pronamic_Events_Plugin_Admin {
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 
-		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 10, 2 );
+		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
 
 		add_action( 'save_post', array( $this, 'save_post' ) );
 	}
@@ -148,7 +148,7 @@ class Pronamic_Events_Plugin_Admin {
 	 *
 	 * @param string $hook
 	 */
-	public function admin_enqueue_scripts( $hook ) {
+	public function admin_enqueue_scripts() {
 		wp_enqueue_style( 'pronamic-events', plugins_url( '/admin/css/pronamic-events.css', $this->plugin->file ) );
 
 		// Screen
@@ -211,7 +211,7 @@ class Pronamic_Events_Plugin_Admin {
 	/**
 	 * Add meta boxes
 	 */
-	public function add_meta_boxes( $post_type, $post ) {
+	public function add_meta_boxes( $post_type ) {
 		if ( post_type_supports( $post_type, 'pronamic_event' ) || post_type_supports( $post_type, 'pronamic_event_repeat' ) ) {
 			add_meta_box(
 				'pronamic_events_details_meta_box',

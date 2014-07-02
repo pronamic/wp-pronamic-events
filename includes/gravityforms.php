@@ -6,7 +6,7 @@
  * @param int $position
  * @param int $form_id
  */
-function pronamic_events_gform_field_advanced_settings( $position, $form_id ) {
+function pronamic_events_gform_field_advanced_settings( $position ) {
 	if ( $position == 100 ) : ?>
 
 		<li class="date_format_setting field_setting" style="display: list-item;">
@@ -42,7 +42,7 @@ function pronamic_events_gform_field_advanced_settings( $position, $form_id ) {
 	<?php endif;
 }
 
-add_action( 'gform_field_advanced_settings', 'pronamic_events_gform_field_advanced_settings', 10, 2 );
+add_action( 'gform_field_advanced_settings', 'pronamic_events_gform_field_advanced_settings' );
 
 /**
  * Gravity Forms - Editor JavaScript
