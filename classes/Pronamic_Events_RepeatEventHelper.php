@@ -150,6 +150,7 @@ class Pronamic_Events_RepeatEventHelper {
 		$defaults = array(
 				'post_type'      => $post->post_type,
 				'post_parent'    => $post->ID,
+				'post_status'    => 'any',
 				'posts_per_page' => Pronamic_Events_RepeatModule::MAX_REPEATS,
 				'orderby'        => 'meta_value_num date',
 				'meta_key'       => '_pronamic_start_date',
