@@ -58,7 +58,7 @@ if ( pronamic_has_end_date( ) ) {
 			),
 		);
 
-		$fields = apply_filters( 'pronamic_event_fields', $fields );
+		$fields = apply_filters( 'pronamic_event_fields', $fields, $post );
 
 		foreach ( $fields as $field ) : ?>
 
