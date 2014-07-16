@@ -59,6 +59,19 @@ $ends_on_until = get_post_meta( $post->ID, '_pronamic_event_ends_on_until', true
 						<input type="checkbox" value="1" id="pronamic_event_repeat" name="_pronamic_event_repeat" <?php checked( $repeat ); ?> />
 						<?php _e( 'Enable repeat', 'pronamic_events' ); ?>
 					</label>
+
+					<script type="text/javascript">
+						jQuery( document ).ready( function( $ ) {
+							var $repeat = $( '#pronamic_event_repeat' );
+							var $meta_box = $( '#pronamic_events_repeats_meta_box' );
+
+							$repeat.change( function() {
+								$meta_box.toggle( $repeat.prop( 'checked' ) );
+							} );
+
+							$meta_box.toggle( $repeat.prop( 'checked' ) );
+						} );
+					</script>
 				</td>
 			</tr>
 			<tr>
