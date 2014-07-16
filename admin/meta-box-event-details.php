@@ -42,22 +42,37 @@ if ( pronamic_has_end_date( ) ) {
 				<input type="text" id="pronamic_end_time" name="pronamic_end_time" value="<?php echo $end_time; ?>" size="6" placeholder="00:00" />
 			</td>
 		</tr>
-		<tr>
-			<th scope="row">
-				<label for="pronamic_location"><?php _e( 'Location', 'pronamic_events' ); ?></label>
-			</th>
-			<td>
-				<input type="text" id="pronamic_location" name="pronamic_location" value="<?php echo get_post_meta( $post->ID, '_pronamic_location', true ); ?>" size="25" />
-			</td>
-		</tr>
-		<tr>
-			<th scope="row">
-				<label for="pronamic_event_url"><?php _e( 'Website', 'pronamic_events' ); ?></label> <br />
-			</th>
-			<td>
-				<input type="url" id="pronamic_event_url" name="pronamic_event_url" value="<?php echo get_post_meta( $post->ID, '_pronamic_event_url', true ); ?>" size="25" />
-			</td>
-		</tr>
+
+		<?php
+
+		$fields = array(
+			'location' => array(
+				'id'       => 'pronamic_location',
+				'label'    => __( 'Location', 'pronamic_events' ),
+				'meta_key' => '_pronamic_location',
+			),
+			'website' => array(
+				'id'       => 'pronamic_event_url',
+				'label'    => __( 'Website', 'pronamic_events' ),
+				'meta_key' => '_pronamic_event_url',
+			),
+		);
+
+		$fields = apply_filters( 'pronamic_event_fields', $fields );
+
+		foreach ( $fields as $field ) : ?>
+
+			<tr>
+				<th scope="row">
+					<label for="<?php echo esc_attr( $field['id'] ); ?>"><?php echo esc_html( $field['label'] ); ?></label>
+				</th>
+				<td>
+					<input type="text" id="<?php echo esc_attr( $field['id'] ); ?>" name="<?php echo esc_attr( $field['id'] ); ?>" value="<?php echo get_post_meta( $post->ID, $field['meta_key'], true ); ?>" size="25" />
+				</td>
+			</tr>
+
+		<?php endforeach; ?>
+
 	</tbody>
 </table>
 
