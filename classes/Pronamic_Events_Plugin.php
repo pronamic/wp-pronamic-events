@@ -44,7 +44,7 @@ class Pronamic_Events_Plugin {
 
 		add_action( 'widgets_init',   array( $this, 'widgets_init' ) );
 
-		add_action( 'pre_get_posts',  array( $this, 'pre_get_posts' ) );
+		add_action( 'pre_get_posts',  array( $this, 'pre_get_posts' ), 100 );
 
 		add_filter( 'request',        array( $this, 'request' ) );
 
