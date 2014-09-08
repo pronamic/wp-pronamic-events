@@ -236,7 +236,7 @@ class Pronamic_Events_Plugin {
 				$query->set( 'orderby', $orderby );
 			}
 
-			if ( $orderby == 'pronamic_event_start_date' && empty( $order ) ) {
+			if ( 'pronamic_event_start_date' == $orderby && empty( $order ) ) {
 				// Default = Ascending
 				$order = 'ASC';
 
