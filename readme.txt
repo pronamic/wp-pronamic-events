@@ -4,7 +4,7 @@ Tags: pronamic, events, agenda
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-events&source=wp-plugin-readme-txt
 Requires at least: 3.0
 Tested up to: 3.8
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 
 Pronamic Events is a basic plugin to add some Events functionality.
 
@@ -76,6 +76,7 @@ Upload the Pronamic Events folder to your wp-content/plugins folder.
 *	Tweak - Use post type supports to enable event meta boxes.
 *	Tweak - Replaced custom menu icon with an WordPress dash icon.
 *	Tweak - Removed the deprecated WordPress screen icon.
+*	Feature - Added event status and automatisch upcoming and passed event status updater.
 
 = 1.0.0 =
 *	Added French translations thanks to Gwendal Leriche.
