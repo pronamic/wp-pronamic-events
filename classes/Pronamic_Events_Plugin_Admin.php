@@ -46,6 +46,32 @@ class Pronamic_Events_Plugin_Admin {
 			}
 		}
 
+		// General
+		add_settings_section(
+			'pronamic_events_general', // id
+			__( 'General', 'pronamic_events' ), // title
+			'__return_false', // callback
+			'pronamic_events' // page
+		);
+
+		add_settings_field(
+			'pronamic_event_status_upcoming', // id
+			__( 'Upcoming Event Status', 'pronamic_events' ), // title
+			array( $this, 'dropdown_statuses' ), // callback
+			'pronamic_events', // page
+			'pronamic_events_general', // section
+			array( 'label_for' => 'pronamic_event_status_upcoming' ) // args
+		);
+
+		add_settings_field(
+			'pronamic_event_status_passed', // id
+			__( 'Passed Event Status ', 'pronamic_events' ), // title
+			array( $this, 'dropdown_statuses' ), // callback
+			'pronamic_events', // page
+			'pronamic_events_general', // section
+			array( 'label_for' => 'pronamic_event_status_passed' ) // args
+		);
+
 		// Permalinks
 		// Un we can't add the permalink options to permalink settings page
 		// @see http://core.trac.wordpress.org/ticket/9296
@@ -74,9 +100,22 @@ class Pronamic_Events_Plugin_Admin {
 			array( 'label_for' => 'pronamic_event_category_base' ) // args
 		);
 
+		add_settings_field(
+			'pronamic_event_status_base', // id
+			__( 'Status base', 'pronamic_events' ), // title
+			array( __CLASS__, 'input_text' ), // callback
+			'pronamic_events', // page
+			'pronamic_events_permalinks', // section
+			array( 'label_for' => 'pronamic_event_status_base' ) // args
+		);
+
 		// Register settings
+		register_setting( 'pronamic_events', 'pronamic_event_status_upcoming' );
+		register_setting( 'pronamic_events', 'pronamic_event_status_passed' );
+
 		register_setting( 'pronamic_events', 'pronamic_event_base' );
 		register_setting( 'pronamic_events', 'pronamic_event_category_base' );
+		register_setting( 'pronamic_events', 'pronamic_event_status_base' );
 
 		// Maybe update
 		global $pronamic_events_db_version;
@@ -139,6 +178,22 @@ class Pronamic_Events_Plugin_Admin {
 			esc_attr( get_option( $args['label_for'] ) ),
 			'regular-text code'
 		);
+	}
+
+	/**
+	 * Pronamic events input text
+	 *
+	 * @param array $args
+	 */
+	public function dropdown_statuses( $args ) {
+		wp_dropdown_categories( array(
+			'show_option_none' => __( '&mdash; Select Status &mdash;', 'pronamic_events' ),
+			'hide_empty'       => false,
+			'selected'         => get_option( $args['label_for'] ),
+			'name'             => $args['label_for'],
+			'id'               => $args['label_for'],
+			'taxonomy'         => 'pronamic_event_status',
+		) );
 	}
 
 	//////////////////////////////////////////////////
@@ -281,6 +336,13 @@ class Pronamic_Events_Plugin_Admin {
 		foreach ( $meta as $key => $value ) {
 			update_post_meta( $post_id, $key, $value );
 		}
+
+		// Status update
+		$this->plugin->event_status_update( $post_id );
+
+		wp_clear_scheduled_hook( 'pronamic_event_status_update', array( $post_id ) );
+
+		wp_schedule_single_event( $end_timestamp, 'pronamic_event_status_update', array( $post_id ) );
 	}
 
 	//////////////////////////////////////////////////

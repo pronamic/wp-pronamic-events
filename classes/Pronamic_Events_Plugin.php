@@ -46,6 +46,8 @@ class Pronamic_Events_Plugin {
 
 		add_action( 'pre_get_posts', array( $this, 'pre_get_posts' ), 100 );
 
+		add_action( 'pronamic_event_status_update', array( $this, 'event_status_update' ) );
+
 		// Filters
 		add_filter( 'request', array( $this, 'request' ) );
 
@@ -140,7 +142,7 @@ class Pronamic_Events_Plugin {
 			),
 		) );
 
-		// Taxonomy
+		// Category
 		$slug = get_option( 'pronamic_event_category_base' );
 		$slug = empty( $slug ) ? _x( 'event-category', 'slug', 'pronamic_events' ) : $slug;
 
@@ -158,6 +160,30 @@ class Pronamic_Events_Plugin {
 				'add_new_item'      => __( 'Add New Event category', 'pronamic_events' ),
 				'new_item_name'     => __( 'New Event category Name', 'pronamic_events' ),
 				'menu_name'         => __( 'Categories', 'pronamic_events' ),
+			),
+			'show_ui'      => true,
+			'query_var'    => true,
+			'rewrite'      => array( 'slug' => $slug ),
+		) );
+
+		// Status
+		$slug = get_option( 'pronamic_event_status_base' );
+		$slug = empty( $slug ) ? _x( 'event-status', 'slug', 'pronamic_events' ) : $slug;
+
+		register_taxonomy( 'pronamic_event_status', 'pronamic_event', array(
+			'hierarchical' => true,
+			'labels'       => array(
+				'name'              => _x( 'Event statuses', 'class general name', 'pronamic_events' ),
+				'singular_name'     => _x( 'Event status', 'class singular name', 'pronamic_events' ),
+				'search_items'      => __( 'Search Event statuses', 'pronamic_events' ),
+				'all_items'         => __( 'All Event statuses', 'pronamic_events' ),
+				'parent_item'       => __( 'Parent Event status', 'pronamic_events' ),
+				'parent_item_colon' => __( 'Parent Event status:', 'pronamic_events' ),
+				'edit_item'         => __( 'Edit Event status', 'pronamic_events' ),
+				'update_item'       => __( 'Update Event status', 'pronamic_events' ),
+				'add_new_item'      => __( 'Add New Event status', 'pronamic_events' ),
+				'new_item_name'     => __( 'New Event status Name', 'pronamic_events' ),
+				'menu_name'         => __( 'Statuses', 'pronamic_events' ),
 			),
 			'show_ui'      => true,
 			'query_var'    => true,
@@ -312,5 +338,34 @@ class Pronamic_Events_Plugin {
 		}
 
 		return $classes;
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Event status update
+	 *
+	 * @param int $post_id
+	 */
+	public function event_status_update( $post_id ) {
+		$end = intval( get_post_meta( $post_id, '_pronamic_end_date', true ) );
+
+		// Warning: some functions may return term_ids as strings which will be interpreted as slugs consisting of numeric characters!
+		// @see http://codex.wordpress.org/Function_Reference/wp_set_object_terms
+		$status_upcoming = intval( get_option( 'pronamic_event_status_upcoming' ) );
+		$status_passed   = intval( get_option( 'pronamic_event_status_passed' ) );
+
+		$statuses = wp_get_object_terms( $post_id, 'pronamic_event_status', array( 'fields' => 'ids' ) );
+
+		// @see http://stackoverflow.com/a/9268826
+		$statuses = array_diff( $statuses, array( $status_upcoming, $status_passed ) );
+
+		if ( $end > time() ) {
+			$statuses[] = $status_upcoming;
+		} else {
+			$statuses[] = $status_passed;
+		}
+
+		wp_set_object_terms( $post_id, $statuses, 'pronamic_event_status' );
 	}
 }

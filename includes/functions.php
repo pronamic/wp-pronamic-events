@@ -9,7 +9,7 @@
 function is_pronamic_events_query( WP_Query $query ) {
 	$is_pronamic_events = false;
 
-	if ( $query->is_archive() ) {
+	if ( $query->is_archive() && ! $query->is_tax( 'pronamic_event_status' ) ) {
 		// Check 'post_type' var
 		$is_pronamic_events = post_type_supports( $query->get( 'post_type' ), 'pronamic_event' );
 
