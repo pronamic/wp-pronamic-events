@@ -37,18 +37,19 @@ class Pronamic_Events_Plugin {
 		require_once $this->dirname . '/includes/gravityforms.php';
 		require_once $this->dirname . '/includes/template.php';
 
-		// Global
+		// Actions
 		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
 
-		add_action( 'init',           array( $this, 'init' ) );
+		add_action( 'init', array( $this, 'init' ) );
 
-		add_action( 'widgets_init',   array( $this, 'widgets_init' ) );
+		add_action( 'widgets_init', array( $this, 'widgets_init' ) );
 
-		add_action( 'pre_get_posts',  array( $this, 'pre_get_posts' ), 100 );
+		add_action( 'pre_get_posts', array( $this, 'pre_get_posts' ), 100 );
 
-		add_filter( 'request',        array( $this, 'request' ) );
+		// Filters
+		add_filter( 'request', array( $this, 'request' ) );
 
-		add_action( 'the_post',       array( $this, 'the_post' ) );
+		add_action( 'the_post', array( $this, 'the_post' ) );
 
 		add_filter( 'post_class', array( $this, 'post_class' ), 10, 3 );
 
