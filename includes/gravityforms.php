@@ -165,7 +165,7 @@ function pronamic_events_gform_post_data( $post_data, $form, $lead ) {
 
 			$start_timestamp = strtotime( $start_date );
 
-			if ( $start_timestamp !== false ) {
+			if ( false !== $start_timestamp ) {
 				$fields['_pronamic_start_date'] = $start_timestamp;
 			}
 		}
@@ -180,7 +180,7 @@ function pronamic_events_gform_post_data( $post_data, $form, $lead ) {
 
 			$end_timestamp = strtotime( $end_date );
 
-			if ( $end_timestamp !== false ) {
+			if ( false !== $end_timestamp ) {
 				$fields['_pronamic_end_date'] = $end_timestamp;
 			}
 		}
