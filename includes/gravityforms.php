@@ -2,11 +2,11 @@
 
 /**
  * Gravity Forms - Field advanced settings
- * 
+ *
  * @param int $position
  * @param int $form_id
  */
-function pronamic_events_gform_field_advanced_settings( $position, $form_id ) {
+function pronamic_events_gform_field_advanced_settings( $position ) {
 	if ( $position == 100 ) : ?>
 
 		<li class="date_format_setting field_setting" style="display: list-item;">
@@ -42,7 +42,7 @@ function pronamic_events_gform_field_advanced_settings( $position, $form_id ) {
 	<?php endif;
 }
 
-add_action( 'gform_field_advanced_settings', 'pronamic_events_gform_field_advanced_settings', 10, 2 );
+add_action( 'gform_field_advanced_settings', 'pronamic_events_gform_field_advanced_settings' );
 
 /**
  * Gravity Forms - Editor JavaScript
@@ -55,7 +55,7 @@ function pronamic_events_gform_editor_js() {
 				var isEventStartDate = typeof field.isEventStartDate == "boolean" ? field.isEventStartDate : false;
 				jQuery("#pronamic_events_is_start_date").prop( "checked", isEventStartDate );
 
-				var isEventEndDate = typeof field.isEventEndDate == "boolean" ? field.isEventEndDate : false; 			
+				var isEventEndDate = typeof field.isEventEndDate == "boolean" ? field.isEventEndDate : false;
 				jQuery("#pronamic_events_is_end_date").prop( "checked", isEventEndDate );
 			}
 
@@ -63,7 +63,7 @@ function pronamic_events_gform_editor_js() {
 				var isEventStartTime = typeof field.isEventStartTime == "boolean" ? field.isEventStartTime : false;
 				jQuery("#pronamic_events_is_start_time").prop( "checked", isEventStartTime );
 
-				var isEventEndTime = typeof field.isEventEndTime == "boolean" ? field.isEventEndTime : false; 			
+				var isEventEndTime = typeof field.isEventEndTime == "boolean" ? field.isEventEndTime : false;
 				jQuery("#pronamic_events_is_end_time").prop( "checked", isEventEndTime );
 			}
 		});
@@ -84,11 +84,11 @@ function pronamic_events_gform_parse_time( $value ) {
 
 	$result = date_parse( $value );
 
-	if ( $result ) { 
+	if ( $result ) {
 		$date_info = array_intersect_key( $result, array(
 			'hour'   => 0,
 			'minute' => 0,
-			'second' => 0
+			'second' => 0,
 		) );
 	}
 
@@ -115,42 +115,42 @@ function pronamic_events_gform_post_data( $post_data, $form, $lead ) {
 	foreach ( $form['fields'] as $field ) {
 		if ( isset( $field['isEventStartDate'] ) ) {
 			$has_start_date = filter_var( $field['isEventStartDate'], FILTER_VALIDATE_BOOLEAN );
-	
+
 			if ( $has_start_date ) {
-				$start_date = pronamic_events_gform_parse_date( $lead[$field['id']], $field['dateFormat'] );
+				$start_date = pronamic_events_gform_parse_date( $lead[ $field['id'] ], $field['dateFormat'] );
 			}
 		}
 
 		if ( isset( $field['isEventStartTime'] ) ) {
 			$has_start_time = filter_var( $field['isEventStartTime'], FILTER_VALIDATE_BOOLEAN );
-		
+
 			if ( $has_start_time ) {
-				$start_time = pronamic_events_gform_parse_time( $lead[$field['id']] );
+				$start_time = pronamic_events_gform_parse_time( $lead[ $field['id'] ] );
 			}
 		}
 
 		if ( isset( $field['isEventEndDate'] ) ) {
 			$has_end_date = filter_var( $field['isEventEndDate'], FILTER_VALIDATE_BOOLEAN );
-		
+
 			if ( $has_end_date ) {
-				$end_date = pronamic_events_gform_parse_date( $lead[$field['id']], $field['dateFormat'] );
+				$end_date = pronamic_events_gform_parse_date( $lead[ $field['id'] ], $field['dateFormat'] );
 			}
 		}
 
 		if ( isset( $field['isEventEndTime'] ) ) {
 			$has_end_time = filter_var( $field['isEventEndTime'], FILTER_VALIDATE_BOOLEAN );
-		
+
 			if ( $has_end_time ) {
-				$end_time = pronamic_events_gform_parse_time( $lead[$field['id']] );
+				$end_time = pronamic_events_gform_parse_time( $lead[ $field['id'] ] );
 			}
 		}
 	}
-	
+
 	// Mapping
 	if ( ! isset( $post_data['post_custom_fields'] ) ) {
 		$post_data['post_custom_fields'] = array();
 	}
-	
+
 	$fields =& $post_data['post_custom_fields'];
 
 	// Backwards compatibility
@@ -162,10 +162,10 @@ function pronamic_events_gform_post_data( $post_data, $form, $lead ) {
 			if ( isset( $fields['_pronamic_start_date_time'] ) ) {
 				$start_date .= ' ' . $fields['_pronamic_start_date_time'];
 			}
-				
+
 			$start_timestamp = strtotime( $start_date );
 
-			if ( $start_timestamp !== false ) {
+			if ( false !== $start_timestamp ) {
 				$fields['_pronamic_start_date'] = $start_timestamp;
 			}
 		}
@@ -177,10 +177,10 @@ function pronamic_events_gform_post_data( $post_data, $form, $lead ) {
 			if ( isset( $fields['_pronamic_end_date_time'] ) ) {
 				$end_date .= ' ' . $fields['_pronamic_end_date_time'];
 			}
-				
+
 			$end_timestamp = strtotime( $end_date );
 
-			if ( $end_timestamp !== false ) {
+			if ( false !== $end_timestamp ) {
 				$fields['_pronamic_end_date'] = $end_timestamp;
 			}
 		}

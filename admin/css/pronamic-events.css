@@ -1,3 +1,5 @@
+@CHARSET "UTF-8";
+
 /**
  * Pronamic Events menu image
  */
@@ -12,27 +14,33 @@
 }
 
 /**
- * Pronamic Events meta box
+ * Table
+ * @see https://github.com/WordPress/WordPress/blob/3.9/wp-admin/css/common.css#L431
  */
-#pronamic_event_meta_box .pronamic-section {
-    border-style: solid;
-    border-width: 1px 0;
-
-	border-bottom-color: #DFDFDF;
-    border-top-color: #FFFFFF;
-
-    padding: 6px 10px 8px;
+.pronamic-event-repeats-table {
+	border-spacing: 0;
+	width: 100%;
+	clear: both;
+	margin: 0;
 }
 
-#pronamic_event_meta_box .inside {
-    margin: 0;
-    padding: 0;	
+.pronamic-event-repeats-table thead th {
+	border-bottom: 1px solid #e1e1e1;
 }
 
-#pronamic_event_meta_box .pronamic-section-first {
-    border-top-width: 0;
+.pronamic-event-repeats-table td,
+.pronamic-event-repeats-table th {
+	padding: 8px 10px;
 }
 
-#pronamic_event_meta_box .pronamic-section-last {
-    border-bottom-width: 0;
+.pronamic-event-repeats-table th {
+	text-align: left;
+}
+
+.pronamic-event-repeats-table .actions {
+	color: #DDD;
+} 
+
+.pronamic-event-repeats-table .submitdelete {
+	color: #A00;
 }

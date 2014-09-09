@@ -9,15 +9,15 @@
 function is_pronamic_events_query( WP_Query $query ) {
 	$is_pronamic_events = false;
 
-	if ( $query->is_archive() ) {
+	if ( $query->is_archive() && ! $query->is_tax( 'pronamic_event_status' ) ) {
 		// Check 'post_type' var
-		$is_pronamic_events = $query->get( 'post_type' ) == 'pronamic_event';
+		$is_pronamic_events = post_type_supports( $query->get( 'post_type' ), 'pronamic_event' );
 
-		if( ! $is_pronamic_events ) {
+		if ( ! $is_pronamic_events ) {
 			// Check queried object
 			$object = $query->get_queried_object();
 
-			$is_pronamic_events = isset( $object, $object->name ) && $object->name == 'pronamic_event';
+			$is_pronamic_events = isset( $object, $object->name ) && post_type_supports( $object->name, 'pronamic_event' );
 		}
 	}
 
@@ -31,7 +31,7 @@ function pronamic_events_get_start_date_meta( $timestamp, array &$meta = array()
 	$meta['_pronamic_start_date']           = $timestamp;
 	$meta['_pronamic_event_start_date']     = $date;
 	$meta['_pronamic_event_start_date_gmt'] = $date_gmt;
-	
+
 	return $meta;
 }
 
@@ -42,6 +42,6 @@ function pronamic_events_get_end_date_meta( $timestamp, array &$meta = array() )
 	$meta['_pronamic_end_date']           = $timestamp;
 	$meta['_pronamic_event_end_date']     = $date;
 	$meta['_pronamic_event_end_date_gmt'] = $date_gmt;
-	
+
 	return $meta;
 }
