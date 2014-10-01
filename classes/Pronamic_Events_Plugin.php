@@ -127,7 +127,7 @@ class Pronamic_Events_Plugin {
 				'with_front' => false,
 			),
 			'menu_icon'          => 'dashicons-calendar',
-			'hierarchical'       => true,
+			'hierarchical'       => false,
 			'supports'           => array(
 				'title',
 				'editor',
