@@ -11,7 +11,12 @@ function is_pronamic_events_query( WP_Query $query ) {
 
 	if ( $query->is_archive() && ! $query->is_tax( 'pronamic_event_status' ) ) {
 		// Check 'post_type' var
-		$is_pronamic_events = post_type_supports( $query->get( 'post_type' ), 'pronamic_event' );
+		// Note: post_type could also be an array
+		$post_type = $query->get( 'post_type' );
+
+		if ( ! empty( $post_type ) && ! is_array( $post_type ) ) {
+			$is_pronamic_events = post_type_supports( $post_type, 'pronamic_event' );
+		}
 
 		if ( ! $is_pronamic_events ) {
 			// Check queried object
