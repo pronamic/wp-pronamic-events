@@ -250,7 +250,9 @@ class Pronamic_Events_Plugin {
 		if ( ! is_admin() && is_pronamic_events_query( $query ) ) {
 			// Default - Date after
 			if ( '' === $date_after ) {
-				$date_after = strtotime( 'today' );
+				$date_after = 'today';
+				$date_after = apply_filters( 'pronamic_event_date_after', $date_after );
+				$date_after = strtotime( $date_after );
 
 				$query->set( 'pronamic_event_date_after', $date_after );
 			}

@@ -41,6 +41,21 @@ Type: `string`
 Default: `pronamic_event_start_date`
 
 
+## WordPress Filters
+
+### pronamic_event_date_after
+
+```php
+function prefix_pronamic_event_date_after( $date_after ) {
+	$date_after = '-2 days';
+	
+	return $date_after;
+}
+
+add_filter( 'pronamic_event_date_after', 'prefix_pronamic_event_date_after' );
+```
+
+
 ## Post Class
 
 The Pronamic Events will automatic add the `event-ended` post class if an 
