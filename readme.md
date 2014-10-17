@@ -46,7 +46,7 @@ Default: `pronamic_event_start_date`
 ### pronamic_events_date_offset
 
 ```php
-function prefix_pronamic_events_date_offset( $offset ) {
+function prefix_pronamic_events_date_offset( $offset = 'today' ) {
 	$offset = '-2 days';
 	
 	return $offset;
