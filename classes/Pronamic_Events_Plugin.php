@@ -299,7 +299,7 @@ class Pronamic_Events_Plugin {
 	 * When the_post is called, put product data into a global.
 	 *
 	 * @param mixed $post
-	 * @return WC_Product
+	 * @return Pronamic_WP_Event
 	 */
 	function the_post( $post ) {
 		global $pronamic_event;
