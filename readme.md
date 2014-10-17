@@ -43,7 +43,7 @@ Default: `pronamic_event_start_date`
 
 ## WordPress Filters
 
-### pronamic_event_date_after
+### pronamic_events_date_offset
 
 ```php
 function prefix_pronamic_events_date_offset( $offset ) {
