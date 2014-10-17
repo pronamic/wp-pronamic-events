@@ -46,13 +46,13 @@ Default: `pronamic_event_start_date`
 ### pronamic_event_date_after
 
 ```php
-function prefix_pronamic_event_date_after( $date_after ) {
-	$date_after = '-2 days';
+function prefix_pronamic_events_date_offset( $offset ) {
+	$offset = '-2 days';
 	
-	return $date_after;
+	return $offset;
 }
 
-add_filter( 'pronamic_event_date_after', 'prefix_pronamic_event_date_after' );
+add_filter( 'pronamic_events_date_offset', 'prefix_pronamic_events_date_offset' );
 ```
 
 
