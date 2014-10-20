@@ -10,7 +10,7 @@ module.exports = function( grunt ) {
 					'-lf': null
 				}
 			},
-			all: [ '**/*.php' ]
+			all: [ '**/*.php', '!node_modules/**', '!wp-svn/**' ]
 		},
 
 		// PHP Code Sniffer
