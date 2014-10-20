@@ -70,7 +70,7 @@ Upload the Pronamic Events folder to your wp-content/plugins folder.
 == Changelog ==
 
 = 1.1.1 =
-*	Tweak - Added 'pronamic_event_date_after' filter.
+*	Tweak - Added 'pronamic_events_date_offset' filter.
 
 = 1.1.0 =
 *	Tweak - Moved event details meta box from the side to the normal part of the edit post screen.
