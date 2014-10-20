@@ -4,7 +4,7 @@ Tags: pronamic, events, agenda
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-events&source=wp-plugin-readme-txt
 Requires at least: 3.0
 Tested up to: 4.0
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 
 Pronamic Events is a basic plugin to add some Events functionality.
 
@@ -68,6 +68,9 @@ Upload the Pronamic Events folder to your wp-content/plugins folder.
 
 
 == Changelog ==
+
+= 1.1.1 =
+*	Tweak - Added 'pronamic_event_date_after' filter.
 
 = 1.1.0 =
 *	Tweak - Moved event details meta box from the side to the normal part of the edit post screen.

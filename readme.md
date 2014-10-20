@@ -41,6 +41,21 @@ Type: `string`
 Default: `pronamic_event_start_date`
 
 
+## WordPress Filters
+
+### pronamic_events_date_offset
+
+```php
+function prefix_pronamic_events_date_offset( $offset = 'today' ) {
+	$offset = '-2 days';
+	
+	return $offset;
+}
+
+add_filter( 'pronamic_events_date_offset', 'prefix_pronamic_events_date_offset' );
+```
+
+
 ## Post Class
 
 The Pronamic Events will automatic add the `event-ended` post class if an 

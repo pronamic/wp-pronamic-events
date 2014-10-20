@@ -127,7 +127,7 @@ class Pronamic_Events_Plugin {
 				'with_front' => false,
 			),
 			'menu_icon'          => 'dashicons-calendar',
-			'hierarchical'       => true,
+			'hierarchical'       => false,
 			'supports'           => array(
 				'title',
 				'editor',
@@ -250,7 +250,9 @@ class Pronamic_Events_Plugin {
 		if ( ! is_admin() && is_pronamic_events_query( $query ) ) {
 			// Default - Date after
 			if ( '' === $date_after ) {
-				$date_after = strtotime( 'today' );
+				$offset = apply_filters( 'pronamic_events_date_offset', 'today' );
+
+				$date_after = strtotime( $offset );
 
 				$query->set( 'pronamic_event_date_after', $date_after );
 			}
@@ -299,7 +301,7 @@ class Pronamic_Events_Plugin {
 	 * When the_post is called, put product data into a global.
 	 *
 	 * @param mixed $post
-	 * @return WC_Product
+	 * @return Pronamic_WP_Event
 	 */
 	function the_post( $post ) {
 		global $pronamic_event;
