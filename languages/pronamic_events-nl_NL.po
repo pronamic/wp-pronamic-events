@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Events\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-events\n"
-"POT-Creation-Date: 2014-10-20 10:05:55+00:00\n"
-"PO-Revision-Date: 2014-10-20 12:06+0100\n"
+"POT-Creation-Date: 2014-10-31 14:32:01+00:00\n"
+"PO-Revision-Date: 2014-10-31 15:38+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -274,6 +274,16 @@ msgstr "Nieuwe evenement status naam"
 #: classes/Pronamic_Events_Plugin.php:186
 msgid "Statuses"
 msgstr "Statussen"
+
+#: classes/Pronamic_Events_Plugin.php:195
+msgid "Passed"
+msgstr "Verlopen"
+
+#: classes/Pronamic_Events_Plugin.php:200
+msgid "Passed <span class=\"count\">(%s)</span>"
+msgid_plural "Passed <span class=\"count\">(%s)</span>"
+msgstr[0] "Verlopen <span class=\"count\">(%s)</span>"
+msgstr[1] "Verlopen <span class=\"count\">(%s)</span>"
 
 #: classes/Pronamic_Events_Plugin_Admin.php:52
 msgid "General"

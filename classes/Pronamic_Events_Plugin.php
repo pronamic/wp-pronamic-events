@@ -189,6 +189,16 @@ class Pronamic_Events_Plugin {
 			'query_var'    => true,
 			'rewrite'      => array( 'slug' => $slug ),
 		) );
+
+		// Post status
+		register_post_status( 'passed', array(
+			'label'                     => __( 'Passed', 'pronamic_events' ),
+			'public'                    => true,
+			'exclude_from_search'       => false,
+			'show_in_admin_all_list'    => true,
+			'show_in_admin_status_list' => true,
+			'label_count'               => _n_noop( 'Passed <span class="count">(%s)</span>', 'Passed <span class="count">(%s)</span>', 'pronamic_events' ),
+		) );
 	}
 
 	//////////////////////////////////////////////////
@@ -366,6 +376,16 @@ class Pronamic_Events_Plugin {
 			$statuses[] = $status_upcoming;
 		} else {
 			$statuses[] = $status_passed;
+
+			global $wpdb;
+
+			$wpdb->update(
+				$wpdb->posts,
+				array( 'post_status' => 'passed' ),
+				array( 'ID' => $post_id ),
+				array( '%s' ),
+				array( '%d' )
+			);
 		}
 
 		wp_set_object_terms( $post_id, $statuses, 'pronamic_event_status' );

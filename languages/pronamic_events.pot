@@ -4,14 +4,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Events 1.1.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-events\n"
-"POT-Creation-Date: 2014-10-20 10:05:55+00:00\n"
+"POT-Creation-Date: 2014-10-31 14:32:01+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Generator: grunt-wp-i18n 0.4.8\n"
+"X-Generator: grunt-wp-i18n 0.4.9\n"
 
 #: admin/meta-box-event-details.php:29 admin/meta-box-event-repeats.php:22
 #: classes/Pronamic_Events_Plugin_Admin.php:356
@@ -269,6 +269,16 @@ msgstr ""
 #: classes/Pronamic_Events_Plugin.php:186
 msgid "Statuses"
 msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:195
+msgid "Passed"
+msgstr ""
+
+#: classes/Pronamic_Events_Plugin.php:200
+msgid "Passed <span class=\"count\">(%s)</span>"
+msgid_plural "Passed <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
 
 #: classes/Pronamic_Events_Plugin_Admin.php:52
 msgid "General"
