@@ -384,7 +384,7 @@ class Pronamic_Events_Plugin {
 				array( 'post_status' => 'passed' ),
 				array( 'ID' => $post_id, 'post_status' => 'publish' ),
 				array( '%s' ),
-				array( '%d' )
+				array( '%d', '%s' )
 			);
 		}
 
