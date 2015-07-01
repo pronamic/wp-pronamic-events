@@ -323,6 +323,11 @@ class Pronamic_Events_Plugin_Admin {
 		$end_date = empty( $end_date ) ? $start_date : $end_date;
 		$end_time = empty( $end_time ) ? $start_time : $end_time;
 
+		if ( $all_day ) {
+			$start_time = '00:00';
+			$end_time   = '23:59';
+		}
+
 		$start_timestamp = strtotime( $start_date . ' ' . $start_time );
 		$end_timestamp   = strtotime( $end_date . ' ' . $end_time );
 
@@ -356,8 +361,8 @@ class Pronamic_Events_Plugin_Admin {
 	 * @param array $columns
 	 */
 	public function manage_posts_columns( $columns ) {
-		$columns['pronamic_start_date']   = __( 'Start Date', 'pronamic_events' );
-		$columns['pronamic_end_date']     = __( 'End Date', 'pronamic_events' );
+		$columns['pronamic_start_date'] = __( 'Start Date', 'pronamic_events' );
+		$columns['pronamic_end_date']   = __( 'End Date', 'pronamic_events' );
 
 		$columns = apply_filters( 'manage_pronamic_events_columns', $columns );
 
@@ -365,8 +370,8 @@ class Pronamic_Events_Plugin_Admin {
 
 		foreach ( $columns as $name => $label ) {
 			if ( 'author' === $name ) {
-				$new_columns['pronamic_start_date']   = $columns['pronamic_start_date'];
-				$new_columns['pronamic_end_date']     = $columns['pronamic_end_date'];
+				$new_columns['pronamic_start_date'] = $columns['pronamic_start_date'];
+				$new_columns['pronamic_end_date']   = $columns['pronamic_end_date'];
 
 				if ( isset( $columns['pronamic_event_repeat'] ) ) {
 					$new_columns['pronamic_event_repeat'] = $columns['pronamic_event_repeat'];
@@ -404,7 +409,7 @@ class Pronamic_Events_Plugin_Admin {
 	 * @param string $post_id
 	 */
 	public function manage_posts_custom_column( $column_name, $post_id ) {
-		$post = get_post( $post_id );
+		$all_day = get_post_meta( $post_id, '_pronamic_event_all_day', true );
 
 		switch ( $column_name ) {
 			case 'pronamic_start_date' :
@@ -415,7 +420,11 @@ class Pronamic_Events_Plugin_Admin {
 				$h_time = pronamic_get_the_start_date( __( 'Y/m/d', 'pronamic_events' ), $post_id );
 				$hours  = pronamic_get_the_start_date( __( 'g:i:s', 'pronamic_events' ), $post_id );
 
-				printf( '<abbr title="%s">%s</abbr><br />%s', $t_time, $h_time, $hours );
+				if ( $all_day ) {
+					printf( '<abbr title="%s">%s</abbr>', esc_attr( $t_time ), esc_html( $h_time ) );
+				} else {
+					printf( '<abbr title="%s">%s</abbr><br />%s', esc_attr( $t_time ), esc_html( $h_time ), esc_html( $hours ) );
+				}
 
 				break;
 
@@ -427,7 +436,11 @@ class Pronamic_Events_Plugin_Admin {
 				$h_time = pronamic_get_the_end_date( __( 'Y/m/d', 'pronamic_events' ), $post_id );
 				$hours  = pronamic_get_the_end_date( __( 'g:i:s', 'pronamic_events' ), $post_id );
 
-				printf( '<abbr title="%s">%s</abbr><br />%s', $t_time, $h_time, $hours );
+				if ( $all_day ) {
+					printf( '<abbr title="%s">%s</abbr>', esc_attr( $t_time ), esc_html( $h_time ) );
+				} else {
+					printf( '<abbr title="%s">%s</abbr><br />%s', esc_attr( $t_time ), esc_html( $h_time ), esc_html( $hours ) );
+				}
 
 				break;
 
@@ -435,7 +448,7 @@ class Pronamic_Events_Plugin_Admin {
 
 				$repeat = get_post_meta( $post_id, '_pronamic_event_repeat', true );
 
-				if ( $repeat || $post->post_parent ) {
+				if ( $repeat || wp_get_post_parent_id( $post_id ) ) {
 					echo '<span class="dashicons dashicons-backup" />';
 				}
 
