@@ -315,6 +315,8 @@ class Pronamic_Events_Plugin_Admin {
 		$end_date = filter_input( INPUT_POST, 'pronamic_end_date', FILTER_SANITIZE_STRING );
 		$end_time = filter_input( INPUT_POST, 'pronamic_end_time', FILTER_SANITIZE_STRING );
 
+		$all_day = filter_input( INPUT_POST, 'pronamic_event_all_day', FILTER_VALIDATE_BOOLEAN );
+
 		$location = filter_input( INPUT_POST, 'pronamic_location', FILTER_SANITIZE_STRING );
 		$url      = filter_input( INPUT_POST, 'pronamic_event_url', FILTER_SANITIZE_STRING );
 
@@ -325,8 +327,9 @@ class Pronamic_Events_Plugin_Admin {
 		$end_timestamp   = strtotime( $end_date . ' ' . $end_time );
 
 		$meta = array(
-			'_pronamic_location'  => $location,
-			'_pronamic_event_url' => $url,
+			'_pronamic_event_all_day' => $all_day,
+			'_pronamic_location'      => $location,
+			'_pronamic_event_url'     => $url,
 		);
 
 		$meta = pronamic_events_get_start_date_meta( $start_timestamp, $meta );
