@@ -1,33 +1,35 @@
-# Copyright (C) 2014 Pronamic
+# Copyright (C) 2015 Pronamic
 # This file is distributed under the GPL.
 msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Events 1.1.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-events\n"
-"POT-Creation-Date: 2014-10-31 14:32:01+00:00\n"
+"POT-Creation-Date: 2015-07-01 12:26:26+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Generator: grunt-wp-i18n 0.4.9\n"
+"X-Generator: grunt-wp-i18n 0.5.2\n"
 
-#: admin/meta-box-event-details.php:29 admin/meta-box-event-repeats.php:22
-#: classes/Pronamic_Events_Plugin_Admin.php:356
-msgid "Start Date"
+#: admin/meta-box-event-details.php:31
+msgid "Date"
 msgstr ""
 
-#: admin/meta-box-event-details.php:38 admin/meta-box-event-repeats.php:23
-#: classes/Pronamic_Events_Plugin_Admin.php:357
-msgid "End Date"
+#: admin/meta-box-event-details.php:38
+msgid "to"
 msgstr ""
 
-#: admin/meta-box-event-details.php:51
+#: admin/meta-box-event-details.php:48
+msgid "All day"
+msgstr ""
+
+#: admin/meta-box-event-details.php:59
 msgid "Location"
 msgstr ""
 
-#: admin/meta-box-event-details.php:56
+#: admin/meta-box-event-details.php:64
 msgid "Website"
 msgstr ""
 
@@ -120,6 +122,16 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
+#: admin/meta-box-event-repeats.php:22
+#: classes/Pronamic_Events_Plugin_Admin.php:361
+msgid "Start Date"
+msgstr ""
+
+#: admin/meta-box-event-repeats.php:23
+#: classes/Pronamic_Events_Plugin_Admin.php:362
+msgid "End Date"
+msgstr ""
+
 #: admin/meta-box-event-repeats.php:24
 msgid "In Series"
 msgstr ""
@@ -129,20 +141,20 @@ msgid "Actions"
 msgstr ""
 
 #: admin/meta-box-event-repeats.php:40 admin/meta-box-event-repeats.php:51
-#: classes/Pronamic_Events_Plugin_Admin.php:411
-#: classes/Pronamic_Events_Plugin_Admin.php:423
+#: classes/Pronamic_Events_Plugin_Admin.php:416
+#: classes/Pronamic_Events_Plugin_Admin.php:428
 msgid "Y/m/d g:i:s A"
 msgstr ""
 
 #: admin/meta-box-event-repeats.php:41 admin/meta-box-event-repeats.php:52
-#: classes/Pronamic_Events_Plugin_Admin.php:412
-#: classes/Pronamic_Events_Plugin_Admin.php:424
+#: classes/Pronamic_Events_Plugin_Admin.php:417
+#: classes/Pronamic_Events_Plugin_Admin.php:429
 msgid "Y/m/d"
 msgstr ""
 
 #: admin/meta-box-event-repeats.php:42 admin/meta-box-event-repeats.php:53
-#: classes/Pronamic_Events_Plugin_Admin.php:413
-#: classes/Pronamic_Events_Plugin_Admin.php:425
+#: classes/Pronamic_Events_Plugin_Admin.php:418
+#: classes/Pronamic_Events_Plugin_Admin.php:430
 msgid "g:i:s"
 msgstr ""
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Events\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-events\n"
-"POT-Creation-Date: 2014-10-31 14:32:01+00:00\n"
-"PO-Revision-Date: 2014-10-31 16:10+0100\n"
+"POT-Creation-Date: 2015-07-01 12:26:26+00:00\n"
+"PO-Revision-Date: 2015-07-01 14:27+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -14,24 +14,26 @@ msgstr ""
 "_n_noop:1,2;__ngettext_noop:1,2;_x:2c,1;_nc:1,2;esc_attr_e;esc_html_e;"
 "esc_attr__;_nx:4c,1,2;_nx_noop:4c,1,2;esc_html_x:2c,1;esc_html__;_ex:2c,1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.6.10\n"
+"X-Generator: Poedit 1.7.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: admin/meta-box-event-details.php:29 admin/meta-box-event-repeats.php:22
-#: classes/Pronamic_Events_Plugin_Admin.php:356
-msgid "Start Date"
-msgstr "Startdatum"
+#: admin/meta-box-event-details.php:31
+msgid "Date"
+msgstr "Datum"
 
-#: admin/meta-box-event-details.php:38 admin/meta-box-event-repeats.php:23
-#: classes/Pronamic_Events_Plugin_Admin.php:357
-msgid "End Date"
-msgstr "Einddatum"
+#: admin/meta-box-event-details.php:38
+msgid "to"
+msgstr "t/m"
 
-#: admin/meta-box-event-details.php:51
+#: admin/meta-box-event-details.php:48
+msgid "All day"
+msgstr "Gehele dag"
+
+#: admin/meta-box-event-details.php:59
 msgid "Location"
 msgstr "Locatie"
 
-#: admin/meta-box-event-details.php:56
+#: admin/meta-box-event-details.php:64
 msgid "Website"
 msgstr "Website"
 
@@ -125,6 +127,16 @@ msgstr "Let op: Alle afspraken in de reeks worden gewijzigd."
 msgid "Title"
 msgstr "Titel"
 
+#: admin/meta-box-event-repeats.php:22
+#: classes/Pronamic_Events_Plugin_Admin.php:361
+msgid "Start Date"
+msgstr "Startdatum"
+
+#: admin/meta-box-event-repeats.php:23
+#: classes/Pronamic_Events_Plugin_Admin.php:362
+msgid "End Date"
+msgstr "Einddatum"
+
 #: admin/meta-box-event-repeats.php:24
 msgid "In Series"
 msgstr "In reeks"
@@ -134,20 +146,20 @@ msgid "Actions"
 msgstr "Acties"
 
 #: admin/meta-box-event-repeats.php:40 admin/meta-box-event-repeats.php:51
-#: classes/Pronamic_Events_Plugin_Admin.php:411
-#: classes/Pronamic_Events_Plugin_Admin.php:423
+#: classes/Pronamic_Events_Plugin_Admin.php:416
+#: classes/Pronamic_Events_Plugin_Admin.php:428
 msgid "Y/m/d g:i:s A"
 msgstr "j F Y H:i"
 
 #: admin/meta-box-event-repeats.php:41 admin/meta-box-event-repeats.php:52
-#: classes/Pronamic_Events_Plugin_Admin.php:412
-#: classes/Pronamic_Events_Plugin_Admin.php:424
+#: classes/Pronamic_Events_Plugin_Admin.php:417
+#: classes/Pronamic_Events_Plugin_Admin.php:429
 msgid "Y/m/d"
 msgstr "j F Y"
 
 #: admin/meta-box-event-repeats.php:42 admin/meta-box-event-repeats.php:53
-#: classes/Pronamic_Events_Plugin_Admin.php:413
-#: classes/Pronamic_Events_Plugin_Admin.php:425
+#: classes/Pronamic_Events_Plugin_Admin.php:418
+#: classes/Pronamic_Events_Plugin_Admin.php:430
 msgid "g:i:s"
 msgstr "H:i"
 
@@ -453,9 +465,6 @@ msgstr "Evenement status"
 
 #~ msgid "ID"
 #~ msgstr "ID"
-
-#~ msgid "Date"
-#~ msgstr "Datum"
 
 #~ msgid "Interval"
 #~ msgstr "Interval"
