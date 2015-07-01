@@ -10,18 +10,25 @@ module.exports = function( grunt ) {
 					'-lf': null
 				}
 			},
-			all: [ '**/*.php', '!node_modules/**', '!wp-svn/**' ]
+			all: [
+				'**/*.php',
+				'!node_modules/**',
+				'!wp-svn/**'
+			]
 		},
 
 		// PHP Code Sniffer
 		phpcs: {
 			application: {
-				dir: [ './' ],
+				src: [
+					'**/*.php',
+					'!deploy/**',
+					'!node_modules/**'
+				],
 			},
 			options: {
 				standard: 'phpcs.ruleset.xml',
-				extensions: 'php',
-				ignore: 'wp-svn,deploy,node_modules'
+				showSniffCodes: true
 			}
 		},
 
@@ -76,7 +83,12 @@ module.exports = function( grunt ) {
 					cwd: '',
 					domainPath: 'languages',
 					type: 'wp-plugin',
-					exclude: [ 'deploy/.*', 'wp-svn/.*' ],
+					updatePoFiles: true,
+					exclude: [
+						'deploy/.*',
+						'node_modules/.*',
+						'wp-svn/.*'
+					],
 				}
 			}
 		},
