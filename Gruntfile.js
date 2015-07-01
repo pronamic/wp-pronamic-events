@@ -104,6 +104,7 @@ module.exports = function( grunt ) {
 					'!phpcs.ruleset.xml',
 					'!phpmd.ruleset.xml',
 					'!readme.md',
+					'!deploy/**',
 					'!node_modules/**'
 				],
 				dest: 'deploy/latest',
