@@ -221,14 +221,14 @@ class Pronamic_Events_Plugin {
 	 * @return array
 	 */
 	public function request( $request ) {
-		if ( isset( $request['orderby'] ) && 'pronamic_start_date' == $request['orderby'] ) {
+		if ( isset( $request['orderby'] ) && 'pronamic_start_date' === $request['orderby'] ) {
 			$request = array_merge( $request, array(
 				'meta_key' => '_pronamic_start_date',
 				'orderby'  => 'meta_value_num',
 			) );
 		}
 
-		if ( isset( $request['orderby'] ) && 'pronamic_end_date' == $request['orderby'] ) {
+		if ( isset( $request['orderby'] ) && 'pronamic_end_date' === $request['orderby'] ) {
 			$request = array_merge( $request, array(
 				'meta_key' => '_pronamic_end_date',
 				'orderby'  => 'meta_value_num',
@@ -275,7 +275,7 @@ class Pronamic_Events_Plugin {
 				$query->set( 'orderby', $orderby );
 			}
 
-			if ( 'pronamic_event_start_date' == $orderby && empty( $order ) ) {
+			if ( 'pronamic_event_start_date' === $orderby && empty( $order ) ) {
 				// Default = Ascending
 				$order = 'ASC';
 
@@ -284,7 +284,7 @@ class Pronamic_Events_Plugin {
 		}
 
 		// Order by
-		if ( 'pronamic_event_start_date' == $orderby ) {
+		if ( 'pronamic_event_start_date' === $orderby ) {
 			$query->set( 'orderby', 'meta_value_num date' );
 			$query->set( 'meta_key', '_pronamic_start_date' );
 		}
@@ -322,7 +322,7 @@ class Pronamic_Events_Plugin {
 			$post = get_post( $post );
 		}
 
-		if ( 'pronamic_event' != $post->post_type ) {
+		if ( 'pronamic_event' !== get_post_type( $post ) ) {
 			return;
 		}
 
@@ -339,9 +339,7 @@ class Pronamic_Events_Plugin {
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public function post_class( $classes, $class, $post_id ) {
-		$post = get_post( $post_id );
-
-		if ( 'pronamic_event' == $post->post_type ) {
+		if ( 'pronamic_event' === get_post_type( $post_id ) ) {
 			$end = get_post_meta( $post_id, '_pronamic_end_date', true );
 
 			if ( $end < time() ) {

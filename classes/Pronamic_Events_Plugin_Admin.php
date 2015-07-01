@@ -120,7 +120,7 @@ class Pronamic_Events_Plugin_Admin {
 		// Maybe update
 		global $pronamic_events_db_version;
 
-		if ( get_option( 'pronamic_events_db_version' ) != $pronamic_events_db_version ) {
+		if ( get_option( 'pronamic_events_db_version' ) !== $pronamic_events_db_version ) {
 			$this->upgrade();
 
 			update_option( 'pronamic_events_db_version', $pronamic_events_db_version );
@@ -364,7 +364,7 @@ class Pronamic_Events_Plugin_Admin {
 		$new_columns = array();
 
 		foreach ( $columns as $name => $label ) {
-			if ( 'author' == $name ) {
+			if ( 'author' === $name ) {
 				$new_columns['pronamic_start_date']   = $columns['pronamic_start_date'];
 				$new_columns['pronamic_end_date']     = $columns['pronamic_end_date'];
 

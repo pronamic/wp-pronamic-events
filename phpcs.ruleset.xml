@@ -3,13 +3,17 @@
 	<description>A custom set of rules to check for the Pronamic Events WordPress plugin.</description>
 
 	<rule ref="WordPress">
+		<exclude name="Squiz.Commenting" />
+
+		<exclude name="Generic.Files.LowercasedFilename.NotFound" />
 		<exclude name="Generic.PHP.NoSilencedErrors.Discouraged" />
 
 		<exclude name="WordPress.XSS.EscapeOutput" />
 
 		<exclude name="WordPress.NamingConventions.ValidFunctionName" />
-		<exclude name="WordPress.WhiteSpace.ScopeIndent" />
 		<exclude name="WordPress.Files.FileName" />
+
+		<exclude name="WordPress.Variables.GlobalVariables" />
 
 		<exclude name="WordPress.VIP.DirectDatabaseQuery" />		
 		<exclude name="WordPress.VIP.RestrictedFunctions.file_get_contents" />

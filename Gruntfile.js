@@ -12,8 +12,8 @@ module.exports = function( grunt ) {
 			},
 			all: [
 				'**/*.php',
-				'!node_modules/**',
-				'!wp-svn/**'
+				'!deploy/**',
+				'!node_modules/**'
 			]
 		},
 
@@ -86,8 +86,7 @@ module.exports = function( grunt ) {
 					updatePoFiles: true,
 					exclude: [
 						'deploy/.*',
-						'node_modules/.*',
-						'wp-svn/.*'
+						'node_modules/.*'
 					],
 				}
 			}
@@ -105,10 +104,9 @@ module.exports = function( grunt ) {
 					'!phpcs.ruleset.xml',
 					'!phpmd.ruleset.xml',
 					'!readme.md',
-					'!node_modules/**',
-					'!wp-svn/**'
+					'!node_modules/**'
 				],
-				dest: 'deploy',
+				dest: 'deploy/latest',
 				expand: true,
 				dot: true
 			},
@@ -117,7 +115,7 @@ module.exports = function( grunt ) {
 		// Clean
 		clean: {
 			deploy: {
-				src: [ 'deploy' ]
+				src: [ 'deploy/latest' ]
 			},
 		},
 
@@ -126,7 +124,7 @@ module.exports = function( grunt ) {
 			app: {
 				options: {
 					svnUrl: 'http://plugins.svn.wordpress.org/pronamic-events/',
-					svnDir: 'wp-svn',
+					svnDir: 'deploy/wp-svn',
 					svnUsername: 'pronamic',
 					deployDir: 'deploy',
 					version: '<%= pkg.version %>',

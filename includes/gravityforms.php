@@ -7,7 +7,7 @@
  * @param int $form_id
  */
 function pronamic_events_gform_field_advanced_settings( $position ) {
-	if ( $position == 100 ) : ?>
+	if ( 100 === $position ) : ?>
 
 		<li class="date_format_setting field_setting" style="display: list-item;">
 			<input type="checkbox" id="pronamic_events_is_start_date" onclick="SetFieldProperty('isEventStartDate', this.checked); ToggleInputName();" />
@@ -154,7 +154,9 @@ function pronamic_events_gform_post_data( $post_data, $form, $lead ) {
 	$fields =& $post_data['post_custom_fields'];
 
 	// Backwards compatibility
-	if ( true ) {
+	$backwards_compatibility = true;
+
+	if ( $backwards_compatibility ) {
 		// Start date
 		if ( isset( $fields['_pronamic_start_date_date'] ) ) {
 			$start_date = $fields['_pronamic_start_date_date'];

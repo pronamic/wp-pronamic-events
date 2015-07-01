@@ -44,7 +44,7 @@ class Pronamic_Events_RepeatModule_Admin {
 				'high'
 			);
 
-			if ( 0 == $post->post_parent ) {
+			if ( empty( $post->post_parent ) ) {
 				add_meta_box(
 					'pronamic_events_repeats_meta_box',
 					__( 'Event Repeats', 'pronamic_events' ),
@@ -151,9 +151,7 @@ class Pronamic_Events_RepeatModule_Admin {
 					'post_type'    => $post->post_type,
 				);
 
-				if ( isset( $repeat_events[ $hash_code ] ) ) {
-
-				} else {
+				if ( ! isset( $repeat_events[ $hash_code ] ) ) {
 					$repeat_post_id = wp_insert_post( $post_data );
 
 					$start_timestamp = $e->get_start()->format( 'U' );

@@ -33,7 +33,7 @@ $ends_on_until = get_post_meta( $post->ID, '_pronamic_event_ends_on_until', true
 
 ?>
 
-<?php if ( 0 != $post->post_parent ) : ?>
+<?php if ( ! empty( $post->post_parent ) ) : ?>
 
 	<p>
 		<em><?php

@@ -15,4 +15,4 @@ $pronamic_events_version = '1.0.0';
  */
 global $pronamic_events_db_version;
 
-$pronamic_events_db_version = 100;
+$pronamic_events_db_version = '100';
