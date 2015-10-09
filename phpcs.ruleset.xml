@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="Pronamic Events">
-	<description>A custom set of rules to check for the Pronamic Events WordPress plugin.</description>
 
+<ruleset name="Pronamic Events">
 	<rule ref="WordPress">
 		<exclude name="Squiz.Commenting" />
 
