@@ -152,6 +152,54 @@ module.exports = function( grunt ) {
 			},
 		},
 
+		// Compress
+		compress: {
+			deploy: {
+				options: {
+					archive: 'deploy/archives/<%= pkg.name %>.<%= pkg.version %>.zip'
+				},
+				expand: true,
+				cwd: 'deploy/latest',
+				src: ['**/*'],
+				dest: '<%= pkg.name %>/'
+			}
+		},
+
+		// Git checkout
+		gitcheckout: {
+			tag: {
+				options: {
+					branch: 'tags/<%= pkg.version %>'
+				}
+			},
+			develop: {
+				options: {
+					branch: 'develop'
+				}
+			}
+		},
+
+		// S3
+		aws_s3: {
+			options: {
+				region: 'eu-central-1'
+			},
+			deploy: {
+				options: {
+					bucket: 'downloads.pronamic.eu',
+					differential: true
+				},
+				files: [
+					{
+						expand: true,
+						cwd: 'deploy/archives/',
+						src: '<%= pkg.name %>.<%= pkg.version %>.zip',
+						dest: 'plugins/<%= pkg.name %>/'
+					}
+				]
+			}
+		},
+		
 		// WordPress deploy
 		rt_wp_deploy: {
 			app: {
@@ -163,7 +211,7 @@ module.exports = function( grunt ) {
 					version: '<%= pkg.version %>',
 				}
 			}
-		},
+		}
 	} );
 
 	// Default task(s).
@@ -171,13 +219,23 @@ module.exports = function( grunt ) {
 	grunt.registerTask( 'pot', [ 'checktextdomain', 'makepot' ] );
 
 	grunt.registerTask( 'deploy', [
-		'checkwpversion',
+		'default',
 		'clean:deploy',
-		'copy:deploy'
+		'copy:deploy',
+		'compress:deploy'
 	] );
 
 	grunt.registerTask( 'wp-deploy', [
+		'gitcheckout:tag',
 		'deploy',
-		'rt_wp_deploy'
+		'rt_wp_deploy',
+		'gitcheckout:develop'
+	] );
+	
+	grunt.registerTask( 's3-deploy', [
+		'gitcheckout:tag',
+		'deploy',
+		'aws_s3:deploy',
+		'gitcheckout:develop'
 	] );
 };
