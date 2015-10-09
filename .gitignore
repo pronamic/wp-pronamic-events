@@ -8,6 +8,3 @@
 
 # Grunt
 /node_modules/
-
-# WordPress SVN
-/wp-svn/

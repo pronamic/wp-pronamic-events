@@ -6,7 +6,7 @@
  */
 global $pronamic_events_version;
 
-$pronamic_events_version = '1.0.0';
+$pronamic_events_version = '1.2.0';
 
 /**
  * Holds the Pronamic Events DB revision, increments when changes are made to the Pronamic Events DB schema.
@@ -15,4 +15,4 @@ $pronamic_events_version = '1.0.0';
  */
 global $pronamic_events_db_version;
 
-$pronamic_events_db_version = 100;
+$pronamic_events_db_version = '120';

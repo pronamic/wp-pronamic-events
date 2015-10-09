@@ -86,7 +86,7 @@ class Pronamic_Events_Plugin {
 		// Text domain
 		$rel_path = dirname( plugin_basename( $this->file ) ) . '/languages/';
 
-		load_plugin_textdomain( 'pronamic_events', false, $rel_path );
+		load_plugin_textdomain( 'pronamic-events', false, $rel_path );
 	}
 
 	//////////////////////////////////////////////////
@@ -97,22 +97,22 @@ class Pronamic_Events_Plugin {
 	public function init() {
 		// Post type
 		$slug = get_option( 'pronamic_event_base' );
-		$slug = empty( $slug ) ? _x( 'events', 'slug', 'pronamic_events' ) : $slug;
+		$slug = empty( $slug ) ? _x( 'events', 'slug', 'pronamic-events' ) : $slug;
 
 		register_post_type( 'pronamic_event', array(
 			'labels'             => array(
-				'name'               => _x( 'Events', 'post type general name', 'pronamic_events' ),
-				'singular_name'      => _x( 'Event', 'post type singular name', 'pronamic_events' ),
-				'add_new'            => _x( 'Add New', 'event', 'pronamic_events' ),
-				'add_new_item'       => __( 'Add New Event', 'pronamic_events' ),
-				'edit_item'          => __( 'Edit Event', 'pronamic_events' ),
-				'new_item'           => __( 'New Event', 'pronamic_events' ),
-				'view_item'          => __( 'View Event', 'pronamic_events' ),
-				'search_items'       => __( 'Search Events', 'pronamic_events' ),
-				'not_found'          => __( 'No events found', 'pronamic_events' ),
-				'not_found_in_trash' => __( 'No events found in Trash', 'pronamic_events' ),
-				'parent_item_colon'  => __( 'Parent Event:', 'pronamic_events' ),
-				'menu_name'          => _x( 'Events', 'menu_name', 'pronamic_events' ),
+				'name'               => _x( 'Events', 'post type general name', 'pronamic-events' ),
+				'singular_name'      => _x( 'Event', 'post type singular name', 'pronamic-events' ),
+				'add_new'            => _x( 'Add New', 'event', 'pronamic-events' ),
+				'add_new_item'       => __( 'Add New Event', 'pronamic-events' ),
+				'edit_item'          => __( 'Edit Event', 'pronamic-events' ),
+				'new_item'           => __( 'New Event', 'pronamic-events' ),
+				'view_item'          => __( 'View Event', 'pronamic-events' ),
+				'search_items'       => __( 'Search Events', 'pronamic-events' ),
+				'not_found'          => __( 'No events found', 'pronamic-events' ),
+				'not_found_in_trash' => __( 'No events found in Trash', 'pronamic-events' ),
+				'parent_item_colon'  => __( 'Parent Event:', 'pronamic-events' ),
+				'menu_name'          => _x( 'Events', 'menu_name', 'pronamic-events' ),
 			),
 			'public'             => true,
 			'publicly_queryable' => true,
@@ -144,22 +144,22 @@ class Pronamic_Events_Plugin {
 
 		// Category
 		$slug = get_option( 'pronamic_event_category_base' );
-		$slug = empty( $slug ) ? _x( 'event-category', 'slug', 'pronamic_events' ) : $slug;
+		$slug = empty( $slug ) ? _x( 'event-category', 'slug', 'pronamic-events' ) : $slug;
 
 		register_taxonomy( 'pronamic_event_category', 'pronamic_event', array(
 			'hierarchical' => true,
 			'labels'       => array(
-				'name'              => _x( 'Event categories', 'class general name', 'pronamic_events' ),
-				'singular_name'     => _x( 'Event category', 'class singular name', 'pronamic_events' ),
-				'search_items'      => __( 'Search Event categories', 'pronamic_events' ),
-				'all_items'         => __( 'All Event categories', 'pronamic_events' ),
-				'parent_item'       => __( 'Parent Event category', 'pronamic_events' ),
-				'parent_item_colon' => __( 'Parent Event category:', 'pronamic_events' ),
-				'edit_item'         => __( 'Edit Event category', 'pronamic_events' ),
-				'update_item'       => __( 'Update Event category', 'pronamic_events' ),
-				'add_new_item'      => __( 'Add New Event category', 'pronamic_events' ),
-				'new_item_name'     => __( 'New Event category Name', 'pronamic_events' ),
-				'menu_name'         => __( 'Categories', 'pronamic_events' ),
+				'name'              => _x( 'Event categories', 'class general name', 'pronamic-events' ),
+				'singular_name'     => _x( 'Event category', 'class singular name', 'pronamic-events' ),
+				'search_items'      => __( 'Search Event categories', 'pronamic-events' ),
+				'all_items'         => __( 'All Event categories', 'pronamic-events' ),
+				'parent_item'       => __( 'Parent Event category', 'pronamic-events' ),
+				'parent_item_colon' => __( 'Parent Event category:', 'pronamic-events' ),
+				'edit_item'         => __( 'Edit Event category', 'pronamic-events' ),
+				'update_item'       => __( 'Update Event category', 'pronamic-events' ),
+				'add_new_item'      => __( 'Add New Event category', 'pronamic-events' ),
+				'new_item_name'     => __( 'New Event category Name', 'pronamic-events' ),
+				'menu_name'         => __( 'Categories', 'pronamic-events' ),
 			),
 			'show_ui'      => true,
 			'query_var'    => true,
@@ -168,26 +168,36 @@ class Pronamic_Events_Plugin {
 
 		// Status
 		$slug = get_option( 'pronamic_event_status_base' );
-		$slug = empty( $slug ) ? _x( 'event-status', 'slug', 'pronamic_events' ) : $slug;
+		$slug = empty( $slug ) ? _x( 'event-status', 'slug', 'pronamic-events' ) : $slug;
 
 		register_taxonomy( 'pronamic_event_status', 'pronamic_event', array(
 			'hierarchical' => true,
 			'labels'       => array(
-				'name'              => _x( 'Event statuses', 'class general name', 'pronamic_events' ),
-				'singular_name'     => _x( 'Event status', 'class singular name', 'pronamic_events' ),
-				'search_items'      => __( 'Search Event statuses', 'pronamic_events' ),
-				'all_items'         => __( 'All Event statuses', 'pronamic_events' ),
-				'parent_item'       => __( 'Parent Event status', 'pronamic_events' ),
-				'parent_item_colon' => __( 'Parent Event status:', 'pronamic_events' ),
-				'edit_item'         => __( 'Edit Event status', 'pronamic_events' ),
-				'update_item'       => __( 'Update Event status', 'pronamic_events' ),
-				'add_new_item'      => __( 'Add New Event status', 'pronamic_events' ),
-				'new_item_name'     => __( 'New Event status Name', 'pronamic_events' ),
-				'menu_name'         => __( 'Statuses', 'pronamic_events' ),
+				'name'              => _x( 'Event statuses', 'class general name', 'pronamic-events' ),
+				'singular_name'     => _x( 'Event status', 'class singular name', 'pronamic-events' ),
+				'search_items'      => __( 'Search Event statuses', 'pronamic-events' ),
+				'all_items'         => __( 'All Event statuses', 'pronamic-events' ),
+				'parent_item'       => __( 'Parent Event status', 'pronamic-events' ),
+				'parent_item_colon' => __( 'Parent Event status:', 'pronamic-events' ),
+				'edit_item'         => __( 'Edit Event status', 'pronamic-events' ),
+				'update_item'       => __( 'Update Event status', 'pronamic-events' ),
+				'add_new_item'      => __( 'Add New Event status', 'pronamic-events' ),
+				'new_item_name'     => __( 'New Event status Name', 'pronamic-events' ),
+				'menu_name'         => __( 'Statuses', 'pronamic-events' ),
 			),
 			'show_ui'      => true,
 			'query_var'    => true,
 			'rewrite'      => array( 'slug' => $slug ),
+		) );
+
+		// Post status
+		register_post_status( 'passed', array(
+			'label'                     => __( 'Passed', 'pronamic-events' ),
+			'public'                    => true,
+			'exclude_from_search'       => false,
+			'show_in_admin_all_list'    => true,
+			'show_in_admin_status_list' => true,
+			'label_count'               => _n_noop( 'Passed <span class="count">(%s)</span>', 'Passed <span class="count">(%s)</span>', 'pronamic-events' ),
 		) );
 	}
 
@@ -211,14 +221,14 @@ class Pronamic_Events_Plugin {
 	 * @return array
 	 */
 	public function request( $request ) {
-		if ( isset( $request['orderby'] ) && 'pronamic_start_date' == $request['orderby'] ) {
+		if ( isset( $request['orderby'] ) && 'pronamic_start_date' === $request['orderby'] ) {
 			$request = array_merge( $request, array(
 				'meta_key' => '_pronamic_start_date',
 				'orderby'  => 'meta_value_num',
 			) );
 		}
 
-		if ( isset( $request['orderby'] ) && 'pronamic_end_date' == $request['orderby'] ) {
+		if ( isset( $request['orderby'] ) && 'pronamic_end_date' === $request['orderby'] ) {
 			$request = array_merge( $request, array(
 				'meta_key' => '_pronamic_end_date',
 				'orderby'  => 'meta_value_num',
@@ -265,7 +275,7 @@ class Pronamic_Events_Plugin {
 				$query->set( 'orderby', $orderby );
 			}
 
-			if ( 'pronamic_event_start_date' == $orderby && empty( $order ) ) {
+			if ( 'pronamic_event_start_date' === $orderby && empty( $order ) ) {
 				// Default = Ascending
 				$order = 'ASC';
 
@@ -274,7 +284,7 @@ class Pronamic_Events_Plugin {
 		}
 
 		// Order by
-		if ( 'pronamic_event_start_date' == $orderby ) {
+		if ( 'pronamic_event_start_date' === $orderby ) {
 			$query->set( 'orderby', 'meta_value_num date' );
 			$query->set( 'meta_key', '_pronamic_start_date' );
 		}
@@ -312,7 +322,7 @@ class Pronamic_Events_Plugin {
 			$post = get_post( $post );
 		}
 
-		if ( 'pronamic_event' != $post->post_type ) {
+		if ( 'pronamic_event' !== get_post_type( $post ) ) {
 			return;
 		}
 
@@ -329,9 +339,7 @@ class Pronamic_Events_Plugin {
 	 * @SuppressWarnings(PHPMD.UnusedFormalParameter)
 	 */
 	public function post_class( $classes, $class, $post_id ) {
-		$post = get_post( $post_id );
-
-		if ( 'pronamic_event' == $post->post_type ) {
+		if ( 'pronamic_event' === get_post_type( $post_id ) ) {
 			$end = get_post_meta( $post_id, '_pronamic_end_date', true );
 
 			if ( $end < time() ) {
@@ -366,6 +374,16 @@ class Pronamic_Events_Plugin {
 			$statuses[] = $status_upcoming;
 		} else {
 			$statuses[] = $status_passed;
+
+			global $wpdb;
+
+			$wpdb->update(
+				$wpdb->posts,
+				array( 'post_status' => 'passed' ),
+				array( 'ID' => $post_id, 'post_status' => 'publish' ),
+				array( '%s' ),
+				array( '%d', '%s' )
+			);
 		}
 
 		wp_set_object_terms( $post_id, $statuses, 'pronamic_event_status' );

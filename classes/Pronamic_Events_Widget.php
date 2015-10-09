@@ -13,9 +13,9 @@ class Pronamic_Events_Widget extends WP_Widget {
 	public function __construct() {
 		parent::__construct(
 			'pronamic_events_widget', // Base ID
-			__( 'Pronamic Events', 'pronamic_events' ), // Name
+			__( 'Pronamic Events', 'pronamic-events' ), // Name
 			array( // Arguments
-				'description' => __( 'The most recent events on your site', 'pronamic_events' ),
+				'description' => __( 'The most recent events on your site', 'pronamic-events' ),
 			)
 		);
 	}
@@ -109,10 +109,10 @@ class Pronamic_Events_Widget extends WP_Widget {
 		$number = isset( $instance['number'] ) ? absint( $instance['number'] ) : 5;
 
 		?>
-		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'pronamic_events' ); ?></label>
+		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'pronamic-events' ); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" /></p>
 
-		<p><label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php _e( 'Number of posts to show:', 'pronamic_events' ); ?></label>
+		<p><label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php _e( 'Number of posts to show:', 'pronamic-events' ); ?></label>
 		<input id="<?php echo $this->get_field_id( 'number' ); ?>" name="<?php echo $this->get_field_name( 'number' ); ?>" type="text" value="<?php echo $number; ?>" size="3" /></p>
 		<?php
 	}
