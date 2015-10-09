@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma, kjtolsma
 Tags: pronamic, events, agenda
 Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-events&source=wp-plugin-readme-txt
 Requires at least: 3.0
-Tested up to: 4.0
+Tested up to: 4.3.1
 Stable tag: 1.2.0
 
 Pronamic Events is a basic plugin to add some Events functionality.
@@ -71,6 +71,7 @@ Upload the Pronamic Events folder to your wp-content/plugins folder.
 
 = 1.2.0 =
 *	Feature - Added support for 'All day' flag.
+*	Tweak - Changed text domain from 'pronamic_events' to 'pronamic-events'.
 
 = 1.1.1 =
 *	Tweak - Added 'pronamic_events_date_offset' filter.

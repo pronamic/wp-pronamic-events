@@ -37,7 +37,7 @@ class Pronamic_Events_RepeatModule_Admin {
 		if ( post_type_supports( $post_type, 'pronamic_event_repeat' ) ) {
 			add_meta_box(
 				'pronamic_events_repeat_meta_box',
-				__( 'Event Repeat', 'pronamic_events' ),
+				__( 'Event Repeat', 'pronamic-events' ),
 				array( $this, 'meta_box_event_repeat' ),
 				$post_type,
 				'normal',
@@ -47,7 +47,7 @@ class Pronamic_Events_RepeatModule_Admin {
 			if ( empty( $post->post_parent ) ) {
 				add_meta_box(
 					'pronamic_events_repeats_meta_box',
-					__( 'Event Repeats', 'pronamic_events' ),
+					__( 'Event Repeats', 'pronamic-events' ),
 					array( $this, 'meta_box_event_repeats' ),
 					$post_type,
 					'normal',
@@ -255,7 +255,7 @@ class Pronamic_Events_RepeatModule_Admin {
 	 * @param array $columns
 	 */
 	public function manage_pronamic_events_columns( $columns ) {
-		$columns['pronamic_event_repeat'] = sprintf( '<span class="dashicons dashicons-backup" title="%s" />', __( 'Repeat', 'pronamic_events' ) );
+		$columns['pronamic_event_repeat'] = sprintf( '<span class="dashicons dashicons-backup" title="%s" />', __( 'Repeat', 'pronamic-events' ) );
 
 		return $columns;
 	}

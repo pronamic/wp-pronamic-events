@@ -25,7 +25,7 @@ if ( ! empty( $title ) ) {
 <?php else : ?>
 
 	<p>
-		<em><?php _e( 'No upcoming events.', 'pronamic_events' ); ?></em>
+		<em><?php _e( 'No upcoming events.', 'pronamic-events' ); ?></em>
 	</p>
 
 <?php endif; ?>

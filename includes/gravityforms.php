@@ -13,14 +13,14 @@ function pronamic_events_gform_field_advanced_settings( $position ) {
 			<input type="checkbox" id="pronamic_events_is_start_date" onclick="SetFieldProperty('isEventStartDate', this.checked); ToggleInputName();" />
 
 			<label for="pronamic_events_is_start_date" class="inline">
-				<?php _e( 'Is Event Start Date', 'pronamic_events' ); ?>
+				<?php _e( 'Is Event Start Date', 'pronamic-events' ); ?>
 			</label>
 		</li>
 		<li class="time_format_setting field_setting" style="display: list-item;">
 			<input type="checkbox" id="pronamic_events_is_start_time" onclick="SetFieldProperty('isEventStartTime', this.checked); ToggleInputName();" />
 
 			<label for="pronamic_events_is_start_time" class="inline">
-				<?php _e( 'Is Event Start Time', 'pronamic_events' ); ?>
+				<?php _e( 'Is Event Start Time', 'pronamic-events' ); ?>
 			</label>
 		</li>
 
@@ -28,14 +28,14 @@ function pronamic_events_gform_field_advanced_settings( $position ) {
 			<input type="checkbox" id="pronamic_events_is_end_date" onclick="SetFieldProperty('isEventEndDate', this.checked); ToggleInputName();" />
 
 			<label for="pronamic_events_is_end_date" class="inline">
-				<?php _e( 'Is Event End Date', 'pronamic_events' ); ?>
+				<?php _e( 'Is Event End Date', 'pronamic-events' ); ?>
 			</label>
 		</li>
 		<li class="time_format_setting field_setting" style="display: list-item;">
 			<input type="checkbox" id="pronamic_events_is_end_time" onclick="SetFieldProperty('isEventEndTime', this.checked); ToggleInputName();" />
 
 			<label for="pronamic_events_is_end_time" class="inline">
-				<?php _e( 'Is Event End Time', 'pronamic_events' ); ?>
+				<?php _e( 'Is Event End Time', 'pronamic-events' ); ?>
 			</label>
 		</li>
 

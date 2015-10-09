@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Events\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-events\n"
-"POT-Creation-Date: 2015-07-01 12:26:26+00:00\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-events\n"
+"POT-Creation-Date: 2015-10-09 12:16:19+00:00\n"
 "PO-Revision-Date: 2015-07-01 15:30+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
@@ -17,23 +17,23 @@ msgstr ""
 "X-Generator: Poedit 1.7.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: admin/meta-box-event-details.php:31
+#: admin/meta-box-event-details.php:36
 msgid "Date"
 msgstr "Datum"
 
-#: admin/meta-box-event-details.php:38
+#: admin/meta-box-event-details.php:43
 msgid "to"
 msgstr "t/m"
 
-#: admin/meta-box-event-details.php:48
+#: admin/meta-box-event-details.php:53
 msgid "All day"
 msgstr "Gehele dag"
 
-#: admin/meta-box-event-details.php:59
+#: admin/meta-box-event-details.php:64
 msgid "Location"
 msgstr "Locatie"
 
-#: admin/meta-box-event-details.php:64
+#: admin/meta-box-event-details.php:69
 msgid "Website"
 msgstr "Website"
 
@@ -78,7 +78,7 @@ msgid "This event is part of a <a href=\"%s\">repeated series</a>."
 msgstr "Dit evenement is onderdeel van een <a href=\"%s\">herhaalde reeks</a>."
 
 #: admin/meta-box-event-repeat.php:55
-#: classes/Pronamic_Events_RepeatModule_Admin.php:260
+#: classes/Pronamic_Events_RepeatModule_Admin.php:258
 msgid "Repeat"
 msgstr "Herhalen"
 
@@ -128,12 +128,12 @@ msgid "Title"
 msgstr "Titel"
 
 #: admin/meta-box-event-repeats.php:22
-#: classes/Pronamic_Events_Plugin_Admin.php:361
+#: classes/Pronamic_Events_Plugin_Admin.php:364
 msgid "Start Date"
 msgstr "Startdatum"
 
 #: admin/meta-box-event-repeats.php:23
-#: classes/Pronamic_Events_Plugin_Admin.php:362
+#: classes/Pronamic_Events_Plugin_Admin.php:365
 msgid "End Date"
 msgstr "Einddatum"
 
@@ -146,20 +146,20 @@ msgid "Actions"
 msgstr "Acties"
 
 #: admin/meta-box-event-repeats.php:40 admin/meta-box-event-repeats.php:51
-#: classes/Pronamic_Events_Plugin_Admin.php:416
-#: classes/Pronamic_Events_Plugin_Admin.php:428
+#: classes/Pronamic_Events_Plugin_Admin.php:419
+#: classes/Pronamic_Events_Plugin_Admin.php:435
 msgid "Y/m/d g:i:s A"
 msgstr "j F Y H:i"
 
 #: admin/meta-box-event-repeats.php:41 admin/meta-box-event-repeats.php:52
-#: classes/Pronamic_Events_Plugin_Admin.php:417
-#: classes/Pronamic_Events_Plugin_Admin.php:429
+#: classes/Pronamic_Events_Plugin_Admin.php:420
+#: classes/Pronamic_Events_Plugin_Admin.php:436
 msgid "Y/m/d"
 msgstr "j F Y"
 
 #: admin/meta-box-event-repeats.php:42 admin/meta-box-event-repeats.php:53
-#: classes/Pronamic_Events_Plugin_Admin.php:418
-#: classes/Pronamic_Events_Plugin_Admin.php:430
+#: classes/Pronamic_Events_Plugin_Admin.php:421
+#: classes/Pronamic_Events_Plugin_Admin.php:437
 msgid "g:i:s"
 msgstr "H:i"
 
@@ -386,7 +386,8 @@ msgid "No upcoming events."
 msgstr "Geen toekomstige evenementen."
 
 #. Plugin URI of the plugin/theme
-msgid "http://www.happywp.com/plugins/pronamic-events/"
+#, fuzzy
+msgid "http://www.pronamic.eu/plugins/pronamic-events/"
 msgstr "http://www.happywp.com/plugins/pronamic-events/"
 
 #. Description of the plugin/theme

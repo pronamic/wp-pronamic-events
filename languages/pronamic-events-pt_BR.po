@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Events\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-events\n"
-"POT-Creation-Date: 2015-07-01 13:30:04+00:00\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-events\n"
+"POT-Creation-Date: 2015-10-09 12:16:19+00:00\n"
 "PO-Revision-Date: 2015-07-01 14:26+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
@@ -409,8 +409,9 @@ msgid "No upcoming events."
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "http://www.happywp.com/plugins/pronamic-events/"
-msgstr ""
+#, fuzzy
+msgid "http://www.pronamic.eu/plugins/pronamic-events/"
+msgstr "http://pronamic.nl/contact/"
 
 #. Description of the plugin/theme
 msgid "This plugin add some basic Event functionality to WordPress."
@@ -1422,9 +1423,6 @@ msgstr "Evento base "
 
 #~ msgid "Blocks"
 #~ msgstr "Blokken"
-
-#~ msgid "http://pronamic.eu/contact/"
-#~ msgstr "http://pronamic.nl/contact/"
 
 #~ msgid "Support"
 #~ msgstr "Support"

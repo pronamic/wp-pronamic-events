@@ -33,14 +33,14 @@ if ( $all_day ) {
 	<tbody>
 		<tr>
 			<th scope="row">
-				<label for="pronamic_start_date"><?php _e( 'Date', 'pronamic_events' ); ?></label>
+				<label for="pronamic_start_date"><?php _e( 'Date', 'pronamic-events' ); ?></label>
 			</th>
 			<td>
 				<div>
 					<input class="pronamic_date" type="text" id="pronamic_start_date" name="pronamic_start_date" value="<?php echo esc_attr( $start_date ); ?>" size="14" />
 					<input class="pronamic_time" style="<?php echo esc_attr( $time_style ); ?>" type="text" id="pronamic_start_time" name="pronamic_start_time" value="<?php echo esc_attr( $start_time ); ?>" size="6" placeholder="00:00" />
 				
-					<?php esc_html_e( 'to', 'pronamic_events' ); ?>
+					<?php esc_html_e( 'to', 'pronamic-events' ); ?>
 
 					<input class="pronamic_date" type="text" id="pronamic_end_date" name="pronamic_end_date" value="<?php echo esc_attr( $end_date ); ?>" size="14"  />
 					<input class="pronamic_time" style="<?php echo esc_attr( $time_style ); ?>" type="text" id="pronamic_end_time" name="pronamic_end_time" value="<?php echo esc_attr( $end_time ); ?>" size="6" placeholder="00:00" />
@@ -50,7 +50,7 @@ if ( $all_day ) {
 					<label for="pronamic_event_all_day">
 						<input type="checkbox" id="pronamic_event_all_day" name="pronamic_event_all_day" value="true" <?php checked( $all_day ); ?> />
 
-						<?php esc_html_e( 'All day', 'pronamic_events' ); ?>
+						<?php esc_html_e( 'All day', 'pronamic-events' ); ?>
 					</label>
 				</div>
 			</td>
@@ -61,12 +61,12 @@ if ( $all_day ) {
 		$fields = array(
 			'location' => array(
 				'id'       => 'pronamic_location',
-				'label'    => __( 'Location', 'pronamic_events' ),
+				'label'    => __( 'Location', 'pronamic-events' ),
 				'meta_key' => '_pronamic_location',
 			),
 			'website' => array(
 				'id'       => 'pronamic_event_url',
-				'label'    => __( 'Website', 'pronamic_events' ),
+				'label'    => __( 'Website', 'pronamic-events' ),
 				'meta_key' => '_pronamic_event_url',
 			),
 		);

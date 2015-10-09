@@ -49,14 +49,14 @@ class Pronamic_Events_Plugin_Admin {
 		// General
 		add_settings_section(
 			'pronamic_events_general', // id
-			__( 'General', 'pronamic_events' ), // title
+			__( 'General', 'pronamic-events' ), // title
 			'__return_false', // callback
 			'pronamic_events' // page
 		);
 
 		add_settings_field(
 			'pronamic_event_status_upcoming', // id
-			__( 'Upcoming Event Status', 'pronamic_events' ), // title
+			__( 'Upcoming Event Status', 'pronamic-events' ), // title
 			array( $this, 'dropdown_statuses' ), // callback
 			'pronamic_events', // page
 			'pronamic_events_general', // section
@@ -65,7 +65,7 @@ class Pronamic_Events_Plugin_Admin {
 
 		add_settings_field(
 			'pronamic_event_status_passed', // id
-			__( 'Passed Event Status ', 'pronamic_events' ), // title
+			__( 'Passed Event Status ', 'pronamic-events' ), // title
 			array( $this, 'dropdown_statuses' ), // callback
 			'pronamic_events', // page
 			'pronamic_events_general', // section
@@ -77,14 +77,14 @@ class Pronamic_Events_Plugin_Admin {
 		// @see http://core.trac.wordpress.org/ticket/9296
 		add_settings_section(
 			'pronamic_events_permalinks', // id
-			__( 'Permalinks', 'pronamic_events' ), // title
+			__( 'Permalinks', 'pronamic-events' ), // title
 			'__return_false', // callback
 			'pronamic_events' // page
 		);
 
 		add_settings_field(
 			'pronamic_event_base', // id
-			__( 'Event base', 'pronamic_events' ), // title
+			__( 'Event base', 'pronamic-events' ), // title
 			array( $this, 'input_text' ), // callback
 			'pronamic_events', // page
 			'pronamic_events_permalinks', // section
@@ -93,7 +93,7 @@ class Pronamic_Events_Plugin_Admin {
 
 		add_settings_field(
 			'pronamic_event_category_base', // id
-			__( 'Category base', 'pronamic_events' ), // title
+			__( 'Category base', 'pronamic-events' ), // title
 			array( __CLASS__, 'input_text' ), // callback
 			'pronamic_events', // page
 			'pronamic_events_permalinks', // section
@@ -102,7 +102,7 @@ class Pronamic_Events_Plugin_Admin {
 
 		add_settings_field(
 			'pronamic_event_status_base', // id
-			__( 'Status base', 'pronamic_events' ), // title
+			__( 'Status base', 'pronamic-events' ), // title
 			array( __CLASS__, 'input_text' ), // callback
 			'pronamic_events', // page
 			'pronamic_events_permalinks', // section
@@ -133,8 +133,8 @@ class Pronamic_Events_Plugin_Admin {
 	public function admin_menu() {
 		add_submenu_page(
 			'edit.php?post_type=pronamic_event', // parent_slug
-			__( 'Pronamic Events Settings', 'pronamic_events' ), // page_title
-			__( 'Settings', 'pronamic_events' ), // menu_title
+			__( 'Pronamic Events Settings', 'pronamic-events' ), // page_title
+			__( 'Settings', 'pronamic-events' ), // menu_title
 			'manage_options', // capability
 			'pronamic_events_settings', // menu_slug
 			array( $this, 'page_settings' ) // function
@@ -187,7 +187,7 @@ class Pronamic_Events_Plugin_Admin {
 	 */
 	public function dropdown_statuses( $args ) {
 		wp_dropdown_categories( array(
-			'show_option_none' => __( '&mdash; Select Status &mdash;', 'pronamic_events' ),
+			'show_option_none' => __( '&mdash; Select Status &mdash;', 'pronamic-events' ),
 			'hide_empty'       => false,
 			'selected'         => get_option( $args['label_for'] ),
 			'name'             => $args['label_for'],
@@ -270,7 +270,7 @@ class Pronamic_Events_Plugin_Admin {
 		if ( post_type_supports( $post_type, 'pronamic_event' ) || post_type_supports( $post_type, 'pronamic_event_repeat' ) ) {
 			add_meta_box(
 				'pronamic_events_details_meta_box',
-				__( 'Event Details', 'pronamic_events' ),
+				__( 'Event Details', 'pronamic-events' ),
 				array( $this, 'meta_box_event_details' ),
 				$post_type,
 				'normal',
@@ -361,8 +361,8 @@ class Pronamic_Events_Plugin_Admin {
 	 * @param array $columns
 	 */
 	public function manage_posts_columns( $columns ) {
-		$columns['pronamic_start_date'] = __( 'Start Date', 'pronamic_events' );
-		$columns['pronamic_end_date']   = __( 'End Date', 'pronamic_events' );
+		$columns['pronamic_start_date'] = __( 'Start Date', 'pronamic-events' );
+		$columns['pronamic_end_date']   = __( 'End Date', 'pronamic-events' );
 
 		$columns = apply_filters( 'manage_pronamic_events_columns', $columns );
 
@@ -416,9 +416,9 @@ class Pronamic_Events_Plugin_Admin {
 				// @see http://translate.wordpress.org/projects/wp/3.5.x/admin/nl/default?filters[term]=Y%2Fm%2Fd&filters[user_login]=&filters[status]=current_or_waiting_or_fuzzy_or_untranslated&filter=Filter&sort[by]=priority&sort[how]=desc
 				// @see https://github.com/WordPress/WordPress/blob/3.5.1/wp-admin/includes/class-wp-posts-list-table.php#L572
 
-				$t_time = pronamic_get_the_start_date( __( 'Y/m/d g:i:s A', 'pronamic_events' ), $post_id );
-				$h_time = pronamic_get_the_start_date( __( 'Y/m/d', 'pronamic_events' ), $post_id );
-				$hours  = pronamic_get_the_start_date( __( 'g:i:s', 'pronamic_events' ), $post_id );
+				$t_time = pronamic_get_the_start_date( __( 'Y/m/d g:i:s A', 'pronamic-events' ), $post_id );
+				$h_time = pronamic_get_the_start_date( __( 'Y/m/d', 'pronamic-events' ), $post_id );
+				$hours  = pronamic_get_the_start_date( __( 'g:i:s', 'pronamic-events' ), $post_id );
 
 				if ( $all_day ) {
 					printf( '<abbr title="%s">%s</abbr>', esc_attr( $t_time ), esc_html( $h_time ) );
@@ -432,9 +432,9 @@ class Pronamic_Events_Plugin_Admin {
 				// @see http://translate.wordpress.org/projects/wp/3.5.x/admin/nl/default?filters[term]=Y%2Fm%2Fd&filters[user_login]=&filters[status]=current_or_waiting_or_fuzzy_or_untranslated&filter=Filter&sort[by]=priority&sort[how]=desc
 				// @see https://github.com/WordPress/WordPress/blob/3.5.1/wp-admin/includes/class-wp-posts-list-table.php#L572
 
-				$t_time = pronamic_get_the_end_date( __( 'Y/m/d g:i:s A', 'pronamic_events' ), $post_id );
-				$h_time = pronamic_get_the_end_date( __( 'Y/m/d', 'pronamic_events' ), $post_id );
-				$hours  = pronamic_get_the_end_date( __( 'g:i:s', 'pronamic_events' ), $post_id );
+				$t_time = pronamic_get_the_end_date( __( 'Y/m/d g:i:s A', 'pronamic-events' ), $post_id );
+				$h_time = pronamic_get_the_end_date( __( 'Y/m/d', 'pronamic-events' ), $post_id );
+				$hours  = pronamic_get_the_end_date( __( 'g:i:s', 'pronamic-events' ), $post_id );
 
 				if ( $all_day ) {
 					printf( '<abbr title="%s">%s</abbr>', esc_attr( $t_time ), esc_html( $h_time ) );

@@ -18,11 +18,11 @@ if ( $repeat_events ) : ?>
 	<table class="pronamic-event-repeats-table">
 		<thead>
 			<tr>
-				<th scope="col"><?php _e( 'Title', 'pronamic_events' ); ?></th>
-				<th scope="col"><?php _e( 'Start Date', 'pronamic_events' ); ?></th>
-				<th scope="col"><?php _e( 'End Date', 'pronamic_events' ); ?></th>
-				<th scope="col"><?php _e( 'In Series', 'pronamic_events' ); ?></th>
-				<th scope="col"><?php _e( 'Actions', 'pronamic_events' ); ?></th>
+				<th scope="col"><?php _e( 'Title', 'pronamic-events' ); ?></th>
+				<th scope="col"><?php _e( 'Start Date', 'pronamic-events' ); ?></th>
+				<th scope="col"><?php _e( 'End Date', 'pronamic-events' ); ?></th>
+				<th scope="col"><?php _e( 'In Series', 'pronamic-events' ); ?></th>
+				<th scope="col"><?php _e( 'Actions', 'pronamic-events' ); ?></th>
 			</tr>
 		</thead>
 
@@ -37,9 +37,9 @@ if ( $repeat_events ) : ?>
 					<td>
 						<?php
 
-						$t_time = pronamic_get_the_start_date( __( 'Y/m/d g:i:s A', 'pronamic_events' ), $repeat_event->post->ID );
-						$h_time = pronamic_get_the_start_date( __( 'Y/m/d', 'pronamic_events' ), $repeat_event->post->ID );
-						$hours  = pronamic_get_the_start_date( __( 'g:i:s', 'pronamic_events' ), $repeat_event->post->ID );
+						$t_time = pronamic_get_the_start_date( __( 'Y/m/d g:i:s A', 'pronamic-events' ), $repeat_event->post->ID );
+						$h_time = pronamic_get_the_start_date( __( 'Y/m/d', 'pronamic-events' ), $repeat_event->post->ID );
+						$hours  = pronamic_get_the_start_date( __( 'g:i:s', 'pronamic-events' ), $repeat_event->post->ID );
 
 						printf( '<abbr title="%s">%s</abbr><br />%s', $t_time, $h_time, $hours );
 
@@ -48,9 +48,9 @@ if ( $repeat_events ) : ?>
 					<td>
 						<?php
 
-						$t_time = pronamic_get_the_end_date( __( 'Y/m/d g:i:s A', 'pronamic_events' ), $repeat_event->post->ID );
-						$h_time = pronamic_get_the_end_date( __( 'Y/m/d', 'pronamic_events' ), $repeat_event->post->ID );
-						$hours  = pronamic_get_the_end_date( __( 'g:i:s', 'pronamic_events' ), $repeat_event->post->ID );
+						$t_time = pronamic_get_the_end_date( __( 'Y/m/d g:i:s A', 'pronamic-events' ), $repeat_event->post->ID );
+						$h_time = pronamic_get_the_end_date( __( 'Y/m/d', 'pronamic-events' ), $repeat_event->post->ID );
+						$hours  = pronamic_get_the_end_date( __( 'g:i:s', 'pronamic-events' ), $repeat_event->post->ID );
 
 						printf( '<abbr title="%s">%s</abbr><br />%s', $t_time, $h_time, $hours );
 
@@ -61,13 +61,13 @@ if ( $repeat_events ) : ?>
 
 						$hash_key = $repeat_event->get_event_hash_code();
 
-						echo isset( $data[ $hash_key ] ) ? __( 'Yes', 'pronamic_events' ) : __( 'No', 'pronamic_events' );
+						echo isset( $data[ $hash_key ] ) ? __( 'Yes', 'pronamic-events' ) : __( 'No', 'pronamic-events' );
 
 						?>
 					</td>
 					<td class="pronamic-event-repeats-actions">
-						<?php edit_post_link( __( 'Edit', 'pronamic_events' ), null, null, $repeat_event->post->ID ); ?> |
-						<a class="submitdelete" href="<?php echo get_delete_post_link( $repeat_event->post->ID ); ?>"><?php _e( 'Trash', 'pronamic_events' ); ?></a>
+						<?php edit_post_link( __( 'Edit', 'pronamic-events' ), null, null, $repeat_event->post->ID ); ?> |
+						<a class="submitdelete" href="<?php echo get_delete_post_link( $repeat_event->post->ID ); ?>"><?php _e( 'Trash', 'pronamic-events' ); ?></a>
 					</td>
 				</tr>
 
@@ -79,7 +79,7 @@ if ( $repeat_events ) : ?>
 <?php else : ?>
 
 	<p>
-		<?php _e( 'No repeats available for this event.', 'pronamic_events' ); ?>
+		<?php _e( 'No repeats available for this event.', 'pronamic-events' ); ?>
 	</p>
 
 <?php endif; ?>

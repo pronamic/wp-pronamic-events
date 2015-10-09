@@ -10,18 +10,18 @@ $event = new Pronamic_WP_Event( $post );
 $repeat_helper = new Pronamic_Events_RepeatEventHelper( $event );
 
 $options = array(
-	'0'        => __( '&mdash; Select Repeat &mdash;', 'pronamic_events' ),
-	'daily'    => __( 'Daily', 'pronamic_events' ),
-	'weekly'   => __( 'Weekly', 'pronamic_events' ),
-	'monthly'  => __( 'Monthly', 'pronamic_events' ),
-	'annually' => __( 'Annually', 'pronamic_events' ),
+	'0'        => __( '&mdash; Select Repeat &mdash;', 'pronamic-events' ),
+	'daily'    => __( 'Daily', 'pronamic-events' ),
+	'weekly'   => __( 'Weekly', 'pronamic-events' ),
+	'monthly'  => __( 'Monthly', 'pronamic-events' ),
+	'annually' => __( 'Annually', 'pronamic-events' ),
 );
 
 $options_interval_suffix = array(
-	'daily'    => __( 'days', 'pronamic_events' ),
-	'weekly'   => __( 'weeks', 'pronamic_events' ),
-	'monthly'  => __( 'moths', 'pronamic_events' ),
-	'annually' => __( 'year', 'pronamic_events' ),
+	'daily'    => __( 'days', 'pronamic-events' ),
+	'weekly'   => __( 'weeks', 'pronamic-events' ),
+	'monthly'  => __( 'moths', 'pronamic-events' ),
+	'annually' => __( 'year', 'pronamic-events' ),
 );
 
 $repeat        = get_post_meta( $post->ID, '_pronamic_event_repeat', true );
@@ -39,7 +39,7 @@ $ends_on_until = get_post_meta( $post->ID, '_pronamic_event_ends_on_until', true
 		<em><?php
 
 		printf(
-			__( 'This event is part of a <a href="%s">repeated series</a>.', 'pronamic_events' ),
+			__( 'This event is part of a <a href="%s">repeated series</a>.', 'pronamic-events' ),
 			get_edit_post_link( $post->post_parent )
 		);
 
@@ -52,12 +52,12 @@ $ends_on_until = get_post_meta( $post->ID, '_pronamic_event_ends_on_until', true
 		<tbody>
 			<tr>
 				<th scope="row">
-					<label for="pronamic_event_repeat"><?php _e( 'Repeat', 'pronamic_events' ); ?></label>
+					<label for="pronamic_event_repeat"><?php _e( 'Repeat', 'pronamic-events' ); ?></label>
 				</th>
 				<td>
 					<label for="pronamic_event_repeat">
 						<input type="checkbox" value="1" id="pronamic_event_repeat" name="_pronamic_event_repeat" <?php checked( $repeat ); ?> />
-						<?php _e( 'Enable repeat', 'pronamic_events' ); ?>
+						<?php _e( 'Enable repeat', 'pronamic-events' ); ?>
 					</label>
 
 					<script type="text/javascript">
@@ -78,7 +78,7 @@ $ends_on_until = get_post_meta( $post->ID, '_pronamic_event_ends_on_until', true
 			</tr>
 			<tr class="hide-if-no-repeat">
 				<th scope="row">
-					<label for="pronamic_event_repeat_frequency"><?php _e( 'Frequency', 'pronamic_events' ); ?></label>
+					<label for="pronamic_event_repeat_frequency"><?php _e( 'Frequency', 'pronamic-events' ); ?></label>
 				</th>
 				<td>
 					<select id="pronamic_event_repeat_frequency" name="_pronamic_event_repeat_frequency">
@@ -105,7 +105,7 @@ $ends_on_until = get_post_meta( $post->ID, '_pronamic_event_ends_on_until', true
 			</tr>
 			<tr class="hide-if-no-repeat">
 				<th scope="row">
-					<label for="pronamic_event_repeat_interval"><?php _e( 'Repeat every', 'pronamic_events' ); ?></label>
+					<label for="pronamic_event_repeat_interval"><?php _e( 'Repeat every', 'pronamic-events' ); ?></label>
 				</th>
 				<td>
 					<select id="pronamic_event_repeat_interval" name="_pronamic_event_repeat_interval">
@@ -123,12 +123,12 @@ $ends_on_until = get_post_meta( $post->ID, '_pronamic_event_ends_on_until', true
 						?>
 					</select>
 
-					<span id="pronamic_event_repeat_interval_suffix"><?php _e( 'days/weeks/months/year', 'pronamic_events' ); ?></span>
+					<span id="pronamic_event_repeat_interval_suffix"><?php _e( 'days/weeks/months/year', 'pronamic-events' ); ?></span>
 				</td>
 			</tr>
 			<tr class="hide-if-no-repeat">
 				<th scope="row">
-					<?php _e( 'Ends On', 'pronamic_events' ); ?>
+					<?php _e( 'Ends On', 'pronamic-events' ); ?>
 				</th>
 				<td>
 					<div>
@@ -137,7 +137,7 @@ $ends_on_until = get_post_meta( $post->ID, '_pronamic_event_ends_on_until', true
 						<?php
 
 						printf(
-							__( 'After %s instances', 'pronamic_events' ),
+							__( 'After %s instances', 'pronamic-events' ),
 							sprintf( '<input type="text" name="_pronamic_event_ends_on_count" value="%s" size="2"  />', $ends_on_count )
 						);
 
@@ -150,7 +150,7 @@ $ends_on_until = get_post_meta( $post->ID, '_pronamic_event_ends_on_until', true
 						<?php
 
 						printf(
-							__( 'Until %s', 'pronamic_events' ),
+							__( 'Until %s', 'pronamic-events' ),
 							sprintf( '<input class="pronamic_date" type="text" id="pronamic_event_ends_on_until" name="_pronamic_event_ends_on_until" value="%s" size="14"  />', $ends_on_until )
 						);
 
@@ -160,12 +160,12 @@ $ends_on_until = get_post_meta( $post->ID, '_pronamic_event_ends_on_until', true
 			</tr>
 			<tr class="hide-if-no-repeat">
 				<th scope="row">
-					<?php _e( 'Number Repeats', 'pronamic_events' ); ?>
+					<?php _e( 'Number Repeats', 'pronamic-events' ); ?>
 				</th>
 				<td>
 					<?php echo $repeat_helper->get_number_repeats(); ?>
 
-					<span class="description"><br /><?php printf( __( 'Note: Due to performance there is currently an maximum of %d repeats.', 'pronamic_events' ), Pronamic_Events_RepeatModule::MAX_REPEATS ); ?></span>
+					<span class="description"><br /><?php printf( __( 'Note: Due to performance there is currently an maximum of %d repeats.', 'pronamic-events' ), Pronamic_Events_RepeatModule::MAX_REPEATS ); ?></span>
 				</td>
 			</tr>
 		</tbody>
@@ -189,7 +189,7 @@ $ends_on_until = get_post_meta( $post->ID, '_pronamic_event_ends_on_until', true
 				var submit = true;
 
 				if ( $( '#pronamic_event_repeat' ).prop( 'checked' ) ) {
-					submit = confirm( '<?php echo esc_js( __( 'Note: All events in the series are changed.', 'pronamic_events' ) ); ?>' );
+					submit = confirm( '<?php echo esc_js( __( 'Note: All events in the series are changed.', 'pronamic-events' ) ); ?>' );
 				}
 
 				return submit;

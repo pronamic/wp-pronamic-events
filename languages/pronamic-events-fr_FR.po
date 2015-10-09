@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Events\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-events\n"
-"POT-Creation-Date: 2015-07-01 13:30:04+00:00\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-events\n"
+"POT-Creation-Date: 2015-10-09 12:16:19+00:00\n"
 "PO-Revision-Date: 2013-11-13 12:11+0100\n"
 "Last-Translator: \n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
@@ -459,7 +459,7 @@ msgid "No upcoming events."
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "http://www.happywp.com/plugins/pronamic-events/"
+msgid "http://www.pronamic.eu/plugins/pronamic-events/"
 msgstr ""
 
 #. Description of the plugin/theme
