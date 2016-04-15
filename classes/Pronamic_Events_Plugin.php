@@ -29,7 +29,9 @@ class Pronamic_Events_Plugin {
 		$this->file    = $file;
 		$this->dirname = plugin_dir_path( $file );
 
-		register_activation_hook( $this->file, array( $this, 'flush_rewrite_rules' ) );
+		// Activation and deactivation hooks
+		register_activation_hook( $file, array( $this, 'activation_hook' ) );
+		register_deactivation_hook( $file, 'flush_rewrite_rules' );
 
 		// Includes
 		require_once $this->dirname . '/includes/version.php';
@@ -38,9 +40,9 @@ class Pronamic_Events_Plugin {
 		require_once $this->dirname . '/includes/template.php';
 
 		// Actions
-		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
+		add_action( 'plugins_loaded', array( $this, 'load_text_domain' ) );
 
-		add_action( 'init', array( $this, 'init' ) );
+		add_action( 'init', array( $this, 'register_content_types' ) );
 
 		add_action( 'widgets_init', array( $this, 'widgets_init' ) );
 
@@ -69,32 +71,39 @@ class Pronamic_Events_Plugin {
 	//////////////////////////////////////////////////
 
 	/**
-	 * Flush rewrite rules
+	 * Activation hook.
+	 *
+	 * @see https://codex.wordpress.org/Function_Reference/register_activation_hook
+	 * @see https://codex.wordpress.org/Function_Reference/flush_rewrite_rules
 	 */
-	public function flush_rewrite_rules() {
-		$this->init();
+	public function activation_hook() {
+		// Make sure to load text domain.
+		$this->load_text_domain();
 
+		// Make sure to register content types.
+		$this->register_content_types();
+
+		// Flush rewrite rueles.
 		flush_rewrite_rules();
 	}
 
 	//////////////////////////////////////////////////
 
 	/**
-	 * Plugins loaded
+	 * Load text domain.
+	 *
+	 * @see https://codex.wordpress.org/Function_Reference/load_plugin_textdomain
 	 */
-	public function plugins_loaded() {
-		// Text domain
-		$rel_path = dirname( plugin_basename( $this->file ) ) . '/languages/';
-
-		load_plugin_textdomain( 'pronamic-events', false, $rel_path );
+	public function load_text_domain() {
+		load_plugin_textdomain( 'pronamic-events', false, plugin_basename( dirname( $this->file ) ) . '/languages' );
 	}
 
 	//////////////////////////////////////////////////
 
 	/**
-	 * Initialize
+	 * Register content types.
 	 */
-	public function init() {
+	public function register_content_types() {
 		// Post type
 		$slug = get_option( 'pronamic_event_base' );
 		$slug = empty( $slug ) ? _x( 'events', 'slug', 'pronamic-events' ) : $slug;
