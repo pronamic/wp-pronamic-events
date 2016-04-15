@@ -18,16 +18,18 @@ License: GPL
 GitHub URI: https://github.com/pronamic/wp-pronamic-events
 */
 
-require_once dirname( __FILE__ ) . '/classes/Pronamic_Events_Plugin.php';
-require_once dirname( __FILE__ ) . '/classes/Pronamic_Events_Widget.php';
-require_once dirname( __FILE__ ) . '/classes/Pronamic_Events_Plugin_Admin.php';
-require_once dirname( __FILE__ ) . '/classes/Pronamic_Events_RepeatModule.php';
-require_once dirname( __FILE__ ) . '/classes/Pronamic_Events_RepeatModule_Admin.php';
-require_once dirname( __FILE__ ) . '/classes/Pronamic_Events_RepeatEventHelper.php';
-require_once dirname( __FILE__ ) . '/classes/Pronamic_DateEventInterface.php';
-require_once dirname( __FILE__ ) . '/classes/Pronamic_DateEvent.php';
-require_once dirname( __FILE__ ) . '/classes/Pronamic_WP_Event.php';
+/**
+ * Autoload
+ */
+if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
+	require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+} elseif ( version_compare( PHP_VERSION, '5.2', '>=' ) ) {
+	require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload_52.php';
+}
 
+/**
+ * Create plugin
+ */
 global $pronamic_events_plugin;
 
 $pronamic_events_plugin = new Pronamic_Events_Plugin( __FILE__ );

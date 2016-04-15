@@ -15,7 +15,8 @@ module.exports = function( grunt ) {
 			all: [
 				'**/*.php',
 				'!deploy/**',
-				'!node_modules/**'
+				'!node_modules/**',
+				'!vendor/**'
 			]
 		},
 
@@ -25,10 +26,12 @@ module.exports = function( grunt ) {
 				src: [
 					'**/*.php',
 					'!deploy/**',
-					'!node_modules/**'
+					'!node_modules/**',
+					'!vendor/**'
 				],
 			},
 			options: {
+				bin: 'vendor/bin/phpcs',
 				standard: 'phpcs.ruleset.xml',
 				showSniffCodes: true
 			}
@@ -40,7 +43,7 @@ module.exports = function( grunt ) {
 				dir: '.'
 			},
 			options: {
-				exclude: 'node_modules',
+				exclude: 'node_modules,vendor',
 				reportFormat: 'xml',
 				rulesets: 'phpmd.ruleset.xml'
 			}
@@ -118,7 +121,8 @@ module.exports = function( grunt ) {
 					updatePoFiles: true,
 					exclude: [
 						'deploy/.*',
-						'node_modules/.*'
+						'node_modules/.*',
+						'vendor/.*',
 					],
 				}
 			}
