@@ -9,50 +9,87 @@
 			<?php the_archive_description( '<div class="taxonomy-description">', '</div>' ); ?>
 		</header>
 
-		<?php if ( have_posts() ) : ?>
+		<div class="entry-content">
 
-			<table>
-				<thead>
-					<tr>
-						<th scope="col"><?php esc_html_e( 'Title', 'ntta-courses' ); ?></th>
-						<th scope="col"><?php esc_html_e( 'Date', 'ntta-courses' ); ?></th>
-						<th scope="col"><?php esc_html_e( 'Location', 'ntta-courses' ); ?></th>
-						<th scope="col"><?php esc_html_e( 'Website', 'ntta-courses' ); ?></th>
-					</tr>
-				</thead>
+			<?php if ( have_posts() ) : ?>
 
-				<tbody>
+				<table>
+					<thead>
+						<tr>
+							<?php 
 
-					<?php while ( have_posts() ) : the_post(); ?>
+							$columns = array(
+								'title' => __( 'Title', 'pronamic-events' ),
+								'date'  => __( 'Date', 'pronamic-events' ),
+							);
 
-						<tr id="post-<?php the_ID(); ?>">
-							<td>
-								<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-							</td>
-							<td>
+							foreach ( $columns as $key => $text ) : ?>
 
-							</td>
-							<td>
+								<th scope="col">
+									<?php
 
-							</td>
-							<td>
+									$link = add_query_arg( array(
+										'order'   => get_query_var( 'order' ) === 'ASC' ? 'DESC' : 'ASC',
+										'orderby' => $key,
+									) );
 
-							</td>
+									if ( $key === get_query_var( 'orderby' ) ) {
+										$text = sprintf(
+											__( '%s %s', 'pronamic-events' ),
+											esc_html( $text ),
+											get_query_var( 'order' ) === 'ASC' ? '▲' : '▼'
+										);
+									}
+
+									printf(
+										'<a href="%s">%s</a>',
+										esc_attr( $link ),
+										esc_html( $text )
+									);
+
+									?>
+								</th>
+
+							<?php endforeach; ?>
+
+							<th scope="col"><?php esc_html_e( 'Location', 'pronamic-events' ); ?></th>
+							<th scope="col"><?php esc_html_e( 'Website', 'pronamic-events' ); ?></th>
 						</tr>
+					</thead>
 
-					<?php endwhile; ?>
+					<tbody>
 
-				</tbody>
-			</table>
+						<?php while ( have_posts() ) : the_post(); ?>
 
-		<?php else : ?>
+							<tr id="post-<?php the_ID(); ?>">
+								<td>
+									<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+								</td>
+								<td>
+									<?php pronamic_the_start_date(); ?>
+								</td>
+								<td>
+									<?php pronamic_the_location(); ?>
+								</td>
+								<td>
+									<?php pronamic_event_the_url(); ?>
+								</td>
+							</tr>
 
-			<p>
-				<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'ntta-courses' ); ?></p>
-			</p>
+						<?php endwhile; ?>
 
-		<?php endif; ?>
+					</tbody>
+				</table>
 
+			<?php else : ?>
+
+				<p>
+					<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'ntta-courses' ); ?></p>
+				</p>
+
+			<?php endif; ?>
+
+		</div>
 	</div>
 </div>
 
