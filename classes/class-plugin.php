@@ -60,6 +60,8 @@ class Pronamic_Events_Plugin {
 		// Admin
 		if ( is_admin() ) {
 			$this->admin = new Pronamic_Events_Plugin_Admin( $this );
+		} else {
+			$this->template_loader = new Pronamic_Events_TemplateLoader( $this );
 		}
 
 		// Events repeat
