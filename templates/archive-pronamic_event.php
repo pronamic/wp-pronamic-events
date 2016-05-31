@@ -84,7 +84,7 @@
 			<?php else : ?>
 
 				<p>
-					<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'ntta-courses' ); ?></p>
+					<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'pronamic-events' ); ?></p>
 				</p>
 
 			<?php endif; ?>
