@@ -161,7 +161,9 @@ module.exports = function( grunt ) {
 					'!phpmd.ruleset.xml',
 					'!readme.md',
 					'!deploy/**',
-					'!node_modules/**'
+					'!node_modules/**',
+					'!bower_components/**',
+					'!vendor/**'
 				],
 				dest: 'deploy/latest',
 				expand: true,
@@ -190,6 +192,17 @@ module.exports = function( grunt ) {
 			deploy: {
 				src: [ 'deploy/latest' ]
 			},
+		},
+
+		// Composer
+		composer: {
+			options : {
+				cwd: 'deploy/latest',
+				flags: [
+					'no-dev',
+					'prefer-dist'
+				]
+			}
 		},
 
 		// Compress
@@ -264,6 +277,7 @@ module.exports = function( grunt ) {
 		'default',
 		'clean:deploy',
 		'copy:deploy',
+		'composer:install',
 		'compress:deploy'
 	] );
 
