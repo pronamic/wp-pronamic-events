@@ -383,9 +383,14 @@ class Pronamic_Events_Plugin {
 		$status_upcoming = intval( get_option( 'pronamic_event_status_upcoming' ) );
 		$status_passed   = intval( get_option( 'pronamic_event_status_passed' ) );
 
+		// https://developer.wordpress.org/reference/functions/get_the_terms/
 		$statuses = get_the_terms( $post_id, 'pronamic_event_status' );
 
-		$status_ids = wp_list_pluck( $statuses, 'term_id' );
+		$status_ids = array();
+
+		if ( is_array( $statuses ) ) {
+			$status_ids = wp_list_pluck( $statuses, 'term_id' );
+		}
 
 		// @see http://stackoverflow.com/a/9268826
 		$status_ids = array_diff( $status_ids, array( $status_upcoming, $status_passed ) );
