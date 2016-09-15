@@ -38,7 +38,7 @@
 				</div>
 
 				<footer class="entry-footer">
-					<?php edit_post_link( __( 'Edit', 'ntta-courses' ), '<span class="edit-link">', '</span>' ); ?>
+					<?php edit_post_link( __( 'Edit', 'pronamic-events' ), '<span class="edit-link">', '</span>' ); ?>
 				</footer>
 			</article>
 

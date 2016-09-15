@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Events\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-events\n"
-"POT-Creation-Date: 2015-10-09 12:16:19+00:00\n"
+"POT-Creation-Date: 2016-09-15 08:10:51+00:00\n"
 "PO-Revision-Date: 2015-07-01 14:26+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Generator: Poedit 1.7.4\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: admin/meta-box-event-details.php:36
+#: admin/meta-box-event-details.php:36 templates/archive-pronamic_event.php:23
 msgid "Date"
 msgstr "Datum"
 
@@ -30,12 +30,14 @@ msgstr ""
 msgid "All day"
 msgstr ""
 
-#: admin/meta-box-event-details.php:64
+#: admin/meta-box-event-details.php:64 templates/archive-pronamic_event.php:55
+#: templates/single-pronamic_event.php:23
 #, fuzzy
 msgid "Location"
 msgstr "Localização:"
 
-#: admin/meta-box-event-details.php:69
+#: admin/meta-box-event-details.php:69 templates/archive-pronamic_event.php:56
+#: templates/single-pronamic_event.php:30
 #, fuzzy
 msgid "Website"
 msgstr "Website:"
@@ -77,69 +79,68 @@ msgstr ""
 msgid "year"
 msgstr ""
 
-#: admin/meta-box-event-repeat.php:42
+#: admin/meta-box-event-repeat.php:45
 msgid "This event is part of a <a href=\"%s\">repeated series</a>."
 msgstr ""
 
-#: admin/meta-box-event-repeat.php:55
-#: classes/Pronamic_Events_RepeatModule_Admin.php:258
+#: admin/meta-box-event-repeat.php:66 classes/class-repeat-module-admin.php:262
 msgid "Repeat"
 msgstr ""
 
-#: admin/meta-box-event-repeat.php:60
+#: admin/meta-box-event-repeat.php:71
 #, fuzzy
 msgid "Enable repeat"
 msgstr "Inschakelen"
 
-#: admin/meta-box-event-repeat.php:81
+#: admin/meta-box-event-repeat.php:92
 msgid "Frequency"
 msgstr ""
 
-#: admin/meta-box-event-repeat.php:108
+#: admin/meta-box-event-repeat.php:119
 msgid "Repeat every"
 msgstr ""
 
-#: admin/meta-box-event-repeat.php:126
+#: admin/meta-box-event-repeat.php:137
 msgid "days/weeks/months/year"
 msgstr ""
 
-#: admin/meta-box-event-repeat.php:131
+#: admin/meta-box-event-repeat.php:142
 msgid "Ends On"
 msgstr ""
 
-#: admin/meta-box-event-repeat.php:140
+#: admin/meta-box-event-repeat.php:163
 msgid "After %s instances"
 msgstr ""
 
-#: admin/meta-box-event-repeat.php:153
+#: admin/meta-box-event-repeat.php:179
 msgid "Until %s"
 msgstr ""
 
-#: admin/meta-box-event-repeat.php:163
+#: admin/meta-box-event-repeat.php:191
 #, fuzzy
 msgid "Number Repeats"
 msgstr "Aantal betalingen"
 
-#: admin/meta-box-event-repeat.php:168
+#: admin/meta-box-event-repeat.php:196
 msgid "Note: Due to performance there is currently an maximum of %d repeats."
 msgstr ""
 
-#: admin/meta-box-event-repeat.php:192
+#: admin/meta-box-event-repeat.php:220
 msgid "Note: All events in the series are changed."
 msgstr ""
 
-#: admin/meta-box-event-repeats.php:21
+#: admin/meta-box-event-repeats.php:21 templates/archive-pronamic_event.php:22
 #, fuzzy
 msgid "Title"
 msgstr "Título:"
 
-#: admin/meta-box-event-repeats.php:22
-#: classes/Pronamic_Events_Plugin_Admin.php:364
+#: admin/meta-box-event-repeats.php:22 classes/class-admin.php:332
+#: templates/single-pronamic_event.php:15
 msgid "Start Date"
 msgstr "Data inicial"
 
-#: admin/meta-box-event-repeats.php:23
-#: classes/Pronamic_Events_Plugin_Admin.php:365
+#: admin/meta-box-event-repeats.php:23 classes/class-admin.php:333
+#: templates/single-pronamic_event.php:18
 msgid "End Date"
 msgstr "Data final"
 
@@ -152,222 +153,219 @@ msgstr ""
 msgid "Actions"
 msgstr "Acties"
 
-#: admin/meta-box-event-repeats.php:40 admin/meta-box-event-repeats.php:51
-#: classes/Pronamic_Events_Plugin_Admin.php:419
-#: classes/Pronamic_Events_Plugin_Admin.php:435
+#: admin/meta-box-event-repeats.php:40 admin/meta-box-event-repeats.php:56
+#: classes/class-admin.php:387 classes/class-admin.php:403
 msgid "Y/m/d g:i:s A"
 msgstr "j F Y H:i"
 
-#: admin/meta-box-event-repeats.php:41 admin/meta-box-event-repeats.php:52
-#: classes/Pronamic_Events_Plugin_Admin.php:420
-#: classes/Pronamic_Events_Plugin_Admin.php:436
+#: admin/meta-box-event-repeats.php:41 admin/meta-box-event-repeats.php:57
+#: classes/class-admin.php:388 classes/class-admin.php:404
 msgid "Y/m/d"
 msgstr "j F Y"
 
-#: admin/meta-box-event-repeats.php:42 admin/meta-box-event-repeats.php:53
-#: classes/Pronamic_Events_Plugin_Admin.php:421
-#: classes/Pronamic_Events_Plugin_Admin.php:437
+#: admin/meta-box-event-repeats.php:42 admin/meta-box-event-repeats.php:58
+#: classes/class-admin.php:389 classes/class-admin.php:405
 msgid "g:i:s"
 msgstr "H:i"
 
-#: admin/meta-box-event-repeats.php:64
+#: admin/meta-box-event-repeats.php:74
 msgid "Yes"
 msgstr "Ja"
 
-#: admin/meta-box-event-repeats.php:64
+#: admin/meta-box-event-repeats.php:74
 msgid "No"
 msgstr "Nee"
 
-#: admin/meta-box-event-repeats.php:69
+#: admin/meta-box-event-repeats.php:79 templates/single-pronamic_event.php:41
 msgid "Edit"
 msgstr "Bewerken"
 
-#: admin/meta-box-event-repeats.php:70
+#: admin/meta-box-event-repeats.php:80
 msgid "Trash"
 msgstr ""
 
-#: admin/meta-box-event-repeats.php:82
+#: admin/meta-box-event-repeats.php:92
 msgid "No repeats available for this event."
 msgstr ""
 
-#: classes/Pronamic_Events_Plugin.php:107
+#: classes/class-admin.php:52
+msgid "General"
+msgstr "Algemeen"
+
+#: classes/class-admin.php:59
+#, fuzzy
+msgid "Upcoming Event Status"
+msgstr "Configurações do Pronamic eventos"
+
+#: classes/class-admin.php:68
+#, fuzzy
+msgid "Passed Event Status "
+msgstr "Is Data inicial do evento"
+
+#: classes/class-admin.php:80
+msgid "Permalinks"
+msgstr "Permalinks"
+
+#: classes/class-admin.php:87
+msgid "Event base"
+msgstr "Evento base "
+
+#: classes/class-admin.php:96
+msgid "Category base"
+msgstr ""
+
+#: classes/class-admin.php:105
+#, fuzzy
+msgid "Status base"
+msgstr "Status"
+
+#: classes/class-admin.php:136
+msgid "Pronamic Events Settings"
+msgstr "Configurações do Pronamic eventos"
+
+#: classes/class-admin.php:137
+msgid "Settings"
+msgstr "Configurações"
+
+#: classes/class-admin.php:190
+#, fuzzy
+msgid "&mdash; Select Status &mdash;"
+msgstr "&mdash; Selecteren &mdash;"
+
+#: classes/class-admin.php:239
+msgid "Event Details"
+msgstr "Detalhes do evento"
+
+#: classes/class-plugin.php:118
 msgid "Add New Event"
 msgstr "Adicionar Novo Evento"
 
-#: classes/Pronamic_Events_Plugin.php:108
+#: classes/class-plugin.php:119
 msgid "Edit Event"
 msgstr "Editar Evento"
 
-#: classes/Pronamic_Events_Plugin.php:109
+#: classes/class-plugin.php:120
 msgid "New Event"
 msgstr "Novo Evento"
 
-#: classes/Pronamic_Events_Plugin.php:110
+#: classes/class-plugin.php:121
 msgid "View Event"
 msgstr "Ver Evento"
 
-#: classes/Pronamic_Events_Plugin.php:111
+#: classes/class-plugin.php:122
 msgid "Search Events"
 msgstr "Buscar Eventos"
 
-#: classes/Pronamic_Events_Plugin.php:112
+#: classes/class-plugin.php:123
 msgid "No events found"
 msgstr "Nenhum evento encontrado"
 
-#: classes/Pronamic_Events_Plugin.php:113
+#: classes/class-plugin.php:124
 msgid "No events found in Trash"
 msgstr "Nenhum evento encontrado na lixeira"
 
-#: classes/Pronamic_Events_Plugin.php:114
+#: classes/class-plugin.php:125
 msgid "Parent Event:"
 msgstr "Evento Mãe:"
 
-#: classes/Pronamic_Events_Plugin.php:154
+#: classes/class-plugin.php:165
 msgid "Search Event categories"
 msgstr "Buscar categorias de evento"
 
-#: classes/Pronamic_Events_Plugin.php:155
+#: classes/class-plugin.php:166
 msgid "All Event categories"
 msgstr "Todas as categorias de evento"
 
-#: classes/Pronamic_Events_Plugin.php:156
+#: classes/class-plugin.php:167
 msgid "Parent Event category"
 msgstr "Categoria mãe de evento:"
 
-#: classes/Pronamic_Events_Plugin.php:157
+#: classes/class-plugin.php:168
 msgid "Parent Event category:"
 msgstr "Categoria mãe de evento:"
 
-#: classes/Pronamic_Events_Plugin.php:158
+#: classes/class-plugin.php:169
 msgid "Edit Event category"
 msgstr "Editar categoria de evento"
 
-#: classes/Pronamic_Events_Plugin.php:159
+#: classes/class-plugin.php:170
 msgid "Update Event category"
 msgstr "Atualizar categoria"
 
-#: classes/Pronamic_Events_Plugin.php:160
+#: classes/class-plugin.php:171
 msgid "Add New Event category"
 msgstr "Adicionar nova categoria de evento"
 
-#: classes/Pronamic_Events_Plugin.php:161
+#: classes/class-plugin.php:172
 msgid "New Event category Name"
 msgstr "Nome da nova categoria de evento"
 
-#: classes/Pronamic_Events_Plugin.php:162
+#: classes/class-plugin.php:173
 #, fuzzy
 msgid "Categories"
 msgstr "Categorias de evento"
 
-#: classes/Pronamic_Events_Plugin.php:178
+#: classes/class-plugin.php:189
 #, fuzzy
 msgid "Search Event statuses"
 msgstr "Buscar categorias de evento"
 
-#: classes/Pronamic_Events_Plugin.php:179
+#: classes/class-plugin.php:190
 #, fuzzy
 msgid "All Event statuses"
 msgstr "Todas as categorias de evento"
 
-#: classes/Pronamic_Events_Plugin.php:180
+#: classes/class-plugin.php:191
 #, fuzzy
 msgid "Parent Event status"
 msgstr "Evento Mãe:"
 
-#: classes/Pronamic_Events_Plugin.php:181
+#: classes/class-plugin.php:192
 #, fuzzy
 msgid "Parent Event status:"
 msgstr "Evento Mãe:"
 
-#: classes/Pronamic_Events_Plugin.php:182
+#: classes/class-plugin.php:193
 #, fuzzy
 msgid "Edit Event status"
 msgstr "Editar Evento"
 
-#: classes/Pronamic_Events_Plugin.php:183
+#: classes/class-plugin.php:194
 #, fuzzy
 msgid "Update Event status"
 msgstr "Atualizar categoria"
 
-#: classes/Pronamic_Events_Plugin.php:184
+#: classes/class-plugin.php:195
 #, fuzzy
 msgid "Add New Event status"
 msgstr "Adicionar Novo Evento"
 
-#: classes/Pronamic_Events_Plugin.php:185
+#: classes/class-plugin.php:196
 #, fuzzy
 msgid "New Event status Name"
 msgstr "Nome da nova categoria de evento"
 
-#: classes/Pronamic_Events_Plugin.php:186
+#: classes/class-plugin.php:197
 #, fuzzy
 msgid "Statuses"
 msgstr "Status"
 
-#: classes/Pronamic_Events_Plugin.php:195
+#: classes/class-plugin.php:206
 msgid "Passed"
 msgstr ""
 
-#: classes/Pronamic_Events_Plugin.php:200
+#: classes/class-plugin.php:211
 msgid "Passed <span class=\"count\">(%s)</span>"
 msgid_plural "Passed <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: classes/Pronamic_Events_Plugin_Admin.php:52
-msgid "General"
-msgstr "Algemeen"
-
-#: classes/Pronamic_Events_Plugin_Admin.php:59
-#, fuzzy
-msgid "Upcoming Event Status"
-msgstr "Configurações do Pronamic eventos"
-
-#: classes/Pronamic_Events_Plugin_Admin.php:68
-#, fuzzy
-msgid "Passed Event Status "
-msgstr "Is Data inicial do evento"
-
-#: classes/Pronamic_Events_Plugin_Admin.php:80
-msgid "Permalinks"
-msgstr "Permalinks"
-
-#: classes/Pronamic_Events_Plugin_Admin.php:87
-msgid "Event base"
-msgstr "Evento base "
-
-#: classes/Pronamic_Events_Plugin_Admin.php:96
-msgid "Category base"
-msgstr ""
-
-#: classes/Pronamic_Events_Plugin_Admin.php:105
-#, fuzzy
-msgid "Status base"
-msgstr "Status"
-
-#: classes/Pronamic_Events_Plugin_Admin.php:136
-msgid "Pronamic Events Settings"
-msgstr "Configurações do Pronamic eventos"
-
-#: classes/Pronamic_Events_Plugin_Admin.php:137
-msgid "Settings"
-msgstr "Configurações"
-
-#: classes/Pronamic_Events_Plugin_Admin.php:190
-#, fuzzy
-msgid "&mdash; Select Status &mdash;"
-msgstr "&mdash; Selecteren &mdash;"
-
-#: classes/Pronamic_Events_Plugin_Admin.php:273
-msgid "Event Details"
-msgstr "Detalhes do evento"
-
-#: classes/Pronamic_Events_RepeatModule_Admin.php:40
+#: classes/class-repeat-module-admin.php:40
 #, fuzzy
 msgid "Event Repeat"
 msgstr "Detalhes do evento"
 
-#: classes/Pronamic_Events_RepeatModule_Admin.php:50
+#: classes/class-repeat-module-admin.php:50
 #, fuzzy
 msgid "Event Repeats"
 msgstr "Evento base "
@@ -376,15 +374,15 @@ msgstr "Evento base "
 msgid "Pronamic Events"
 msgstr "Pronamic Eventos"
 
-#: classes/Pronamic_Events_Widget.php:18
+#: classes/class-widget.php:18
 msgid "The most recent events on your site"
 msgstr "Os mais recentes eventos em seu site"
 
-#: classes/Pronamic_Events_Widget.php:112
+#: classes/class-widget.php:112
 msgid "Title:"
 msgstr "Título:"
 
-#: classes/Pronamic_Events_Widget.php:115
+#: classes/class-widget.php:115
 msgid "Number of posts to show:"
 msgstr "Nº de posts para mostrar:"
 
@@ -404,13 +402,23 @@ msgstr "Is Data final do evento"
 msgid "Is Event End Time"
 msgstr "Is Hora final do evento"
 
+#: templates/archive-pronamic_event.php:38
+msgid "%1$s %2$s"
+msgstr ""
+
+#: templates/archive-pronamic_event.php:87
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
 #: templates/widget-pronamic-events.php:28
 msgid "No upcoming events."
 msgstr ""
 
 #. Plugin URI of the plugin/theme
 #, fuzzy
-msgid "http://www.pronamic.eu/plugins/pronamic-events/"
+msgid "https://www.pronamic.eu/plugins/pronamic-events/"
 msgstr "http://pronamic.nl/contact/"
 
 #. Description of the plugin/theme
@@ -424,63 +432,63 @@ msgstr "Pronamic iDEAL"
 
 #. Author URI of the plugin/theme
 #, fuzzy
-msgid "http://www.pronamic.eu/"
+msgid "https://www.pronamic.eu/"
 msgstr "http://pronamic.nl/"
 
-#: classes/Pronamic_Events_Plugin.php:100
+#: classes/class-plugin.php:111
 msgctxt "slug"
 msgid "events"
 msgstr "agenda"
 
-#: classes/Pronamic_Events_Plugin.php:147
+#: classes/class-plugin.php:158
 #, fuzzy
 msgctxt "slug"
 msgid "event-category"
 msgstr "Categoria de evento"
 
-#: classes/Pronamic_Events_Plugin.php:171
+#: classes/class-plugin.php:182
 #, fuzzy
 msgctxt "slug"
 msgid "event-status"
 msgstr "agenda"
 
-#: classes/Pronamic_Events_Plugin.php:104
+#: classes/class-plugin.php:115
 msgctxt "post type general name"
 msgid "Events"
 msgstr "Eventos"
 
-#: classes/Pronamic_Events_Plugin.php:105
+#: classes/class-plugin.php:116
 msgctxt "post type singular name"
 msgid "Event"
 msgstr "Evento"
 
-#: classes/Pronamic_Events_Plugin.php:106
+#: classes/class-plugin.php:117
 msgctxt "event"
 msgid "Add New"
 msgstr "Adicionar Novo"
 
-#: classes/Pronamic_Events_Plugin.php:115
+#: classes/class-plugin.php:126
 msgctxt "menu_name"
 msgid "Events"
 msgstr "Eventos"
 
-#: classes/Pronamic_Events_Plugin.php:152
+#: classes/class-plugin.php:163
 msgctxt "class general name"
 msgid "Event categories"
 msgstr "Categorias de evento"
 
-#: classes/Pronamic_Events_Plugin.php:176
+#: classes/class-plugin.php:187
 #, fuzzy
 msgctxt "class general name"
 msgid "Event statuses"
 msgstr "Evento base "
 
-#: classes/Pronamic_Events_Plugin.php:153
+#: classes/class-plugin.php:164
 msgctxt "class singular name"
 msgid "Event category"
 msgstr "Categoria de evento"
 
-#: classes/Pronamic_Events_Plugin.php:177
+#: classes/class-plugin.php:188
 #, fuzzy
 msgctxt "class singular name"
 msgid "Event status"
