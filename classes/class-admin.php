@@ -213,52 +213,7 @@ class Pronamic_Events_Plugin_Admin {
 			wp_enqueue_script( 'jquery-ui-datepicker' );
 
 			wp_enqueue_style( 'jquery-ui-datepicker', plugins_url( '/jquery-ui/themes/base/jquery.ui.all.css', $this->plugin->file ) );
-
-			self::enqueue_jquery_ui_i18n_path( 'datepicker' );
 		}
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Get jQuery UI i18n file
-	 * https://github.com/jquery/jquery-ui/tree/master/ui/i18n
-	 *
-	 * @param string $module
-	 */
-	private function enqueue_jquery_ui_i18n_path( $module ) {
-		$result = false;
-
-		// Retrive the WordPress locale, for example 'en_GB'
-		$locale = get_locale();
-
-		// jQuery UI uses 'en-GB' notation, replace underscore with hyphen
-		$locale = str_replace( '_', '-', $locale );
-
-		// Create an search array with two variants 'en-GB' and 'en'
-		$search = array(
-			// en-GB
-			$locale,
-			// en
-			substr( $locale, 0, 2 ),
-		);
-
-		foreach ( $search as $name ) {
-			$path = sprintf( '/jquery-ui/languages/jquery.ui.%s-%s.js', $module, $name );
-
-			$file = $this->plugin->dirname . $path;
-
-			if ( is_readable( $file ) ) {
-				wp_enqueue_script(
-					'jquery-ui-' . $module . '-' . $name,
-					plugins_url( $path, $this->plugin->file )
-				);
-
-				break;
-			}
-		}
-
-		return $result;
 	}
 
 	//////////////////////////////////////////////////
