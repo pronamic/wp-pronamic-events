@@ -1,0 +1,28 @@
+{
+  "name": "pronamic-events",
+  "description": "This plugin add some basic Event functionality to WordPress.",
+  "main": "",
+  "authors": [
+    "Pronamic"
+  ],
+  "license": "GPL-3.0",
+  "keywords": [
+    "pronamic",
+    "events",
+    "wordpress",
+    "wp"
+  ],
+  "homepage": "https://github.com/pronamic/wp-pronamic-events",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "wp-jquery-ui-datepicker-skins": "https://github.com/xwp/wp-jquery-ui-datepicker-skins.git",
+    "jquery-ui": "^1.11.1"
+  }
+}

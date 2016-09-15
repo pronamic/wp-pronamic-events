@@ -130,6 +130,26 @@ module.exports = function( grunt ) {
 
 		// Copy
 		copy: {
+			assets: {
+				files: [
+					{ // jQuery UI - https://jqueryui.com/
+						expand: true,
+						cwd: 'bower_components/jquery-ui',
+						src: [
+							'themes/base/**'
+						],
+						dest: 'assets/jquery-ui'
+					},
+					{ // jQuery UI Datepicker Skins for WordPress - https://github.com/xwp/wp-jquery-ui-datepicker-skins
+						expand: true,
+						cwd: 'bower_components/wp-jquery-ui-datepicker-skins/css/',
+						src: [
+							'datepicker.css'
+						],
+						dest: 'assets/wp-jquery-ui-datepicker-skins'
+					},
+				]
+			},
 			deploy: {
 				src: [
 					'**',
@@ -147,6 +167,22 @@ module.exports = function( grunt ) {
 				expand: true,
 				dot: true
 			},
+		},
+
+
+		// CSS min
+		cssmin: {
+			styles: {
+				files: {
+
+				}
+			},
+			assets: {
+				files: {
+					// jQuery UI Datepicker Skins for WordPress - https://github.com/xwp/wp-jquery-ui-datepicker-skins
+					'assets/wp-jquery-ui-datepicker-skins/datepicker.min.css': 'assets/wp-jquery-ui-datepicker-skins/datepicker.css'
+				}
+			}
 		},
 
 		// Clean
@@ -220,6 +256,8 @@ module.exports = function( grunt ) {
 
 	// Default task(s).
 	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpcs', 'checkwpversion' ] );
+	grunt.registerTask( 'assets', [ 'copy:assets' ] );
+	grunt.registerTask( 'min', [ 'cssmin' ] );
 	grunt.registerTask( 'pot', [ 'checktextdomain', 'makepot' ] );
 
 	grunt.registerTask( 'deploy', [
