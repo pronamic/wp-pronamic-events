@@ -251,11 +251,13 @@ class Pronamic_Events_Plugin_Admin {
 			return;
 		}
 
-		if ( ! isset( $_POST['pronamic_events_nonce_details'] ) ) {
+		if ( ! filter_has_var( INPUT_POST, 'pronamic_events_nonce_details' ) ) {
 			return;
 		}
 
-		if ( ! wp_verify_nonce( $_POST['pronamic_events_nonce_details'], 'pronamic_events_edit_details' ) ) {
+		$nonce = filter_input( INPUT_POST, 'pronamic_events_nonce_details', FILTER_SANITIZE_STRING );
+
+		if ( ! wp_verify_nonce( $nonce, 'pronamic_events_edit_details' ) ) {
 			return;
 		}
 

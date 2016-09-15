@@ -6,7 +6,7 @@ flush_rewrite_rules();
 
 ?>
 <div class="wrap">
-	<h2><?php echo get_admin_page_title(); ?></h2>
+	<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
 
 	<form name="form" action="options.php" method="post">
 		<?php settings_fields( 'pronamic_events' ); ?>

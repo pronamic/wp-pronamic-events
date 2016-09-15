@@ -16,7 +16,7 @@
 				<table>
 					<thead>
 						<tr>
-							<?php 
+							<?php
 
 							$columns = array(
 								'title' => __( 'Title', 'pronamic-events' ),
@@ -33,9 +33,9 @@
 										'orderby' => $key,
 									) );
 
-									if ( $key === get_query_var( 'orderby' ) ) {
+									if ( get_query_var( 'orderby' ) === $key ) {
 										$text = sprintf(
-											__( '%s %s', 'pronamic-events' ),
+											__( '%1$s %2$s', 'pronamic-events' ),
 											esc_html( $text ),
 											get_query_var( 'order' ) === 'ASC' ? '▲' : '▼'
 										);

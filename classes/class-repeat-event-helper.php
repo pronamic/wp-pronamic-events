@@ -138,7 +138,6 @@ class Pronamic_Events_RepeatEventHelper {
 			$data[ $e->get_event_hash_code() ] = $e;
 		}
 
-		// Return
 		return $data;
 	}
 

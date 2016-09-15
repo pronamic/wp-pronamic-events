@@ -33,7 +33,7 @@ if ( $all_day ) {
 	<tbody>
 		<tr>
 			<th scope="row">
-				<label for="pronamic_start_date"><?php _e( 'Date', 'pronamic-events' ); ?></label>
+				<label for="pronamic_start_date"><?php esc_html_e( 'Date', 'pronamic-events' ); ?></label>
 			</th>
 			<td>
 				<div>
@@ -80,7 +80,7 @@ if ( $all_day ) {
 					<label for="<?php echo esc_attr( $field['id'] ); ?>"><?php echo esc_html( $field['label'] ); ?></label>
 				</th>
 				<td>
-					<input type="text" id="<?php echo esc_attr( $field['id'] ); ?>" name="<?php echo esc_attr( $field['id'] ); ?>" value="<?php echo get_post_meta( $post->ID, $field['meta_key'], true ); ?>" size="25" />
+					<input type="text" id="<?php echo esc_attr( $field['id'] ); ?>" name="<?php echo esc_attr( $field['id'] ); ?>" value="<?php echo esc_attr( get_post_meta( $post->ID, $field['meta_key'], true ) ); ?>" size="25" />
 				</td>
 			</tr>
 

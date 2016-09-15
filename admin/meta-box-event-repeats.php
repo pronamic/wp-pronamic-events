@@ -18,11 +18,11 @@ if ( $repeat_events ) : ?>
 	<table class="pronamic-event-repeats-table">
 		<thead>
 			<tr>
-				<th scope="col"><?php _e( 'Title', 'pronamic-events' ); ?></th>
-				<th scope="col"><?php _e( 'Start Date', 'pronamic-events' ); ?></th>
-				<th scope="col"><?php _e( 'End Date', 'pronamic-events' ); ?></th>
-				<th scope="col"><?php _e( 'In Series', 'pronamic-events' ); ?></th>
-				<th scope="col"><?php _e( 'Actions', 'pronamic-events' ); ?></th>
+				<th scope="col"><?php esc_html_e( 'Title', 'pronamic-events' ); ?></th>
+				<th scope="col"><?php esc_html_e( 'Start Date', 'pronamic-events' ); ?></th>
+				<th scope="col"><?php esc_html_e( 'End Date', 'pronamic-events' ); ?></th>
+				<th scope="col"><?php esc_html_e( 'In Series', 'pronamic-events' ); ?></th>
+				<th scope="col"><?php esc_html_e( 'Actions', 'pronamic-events' ); ?></th>
 			</tr>
 		</thead>
 
@@ -41,7 +41,12 @@ if ( $repeat_events ) : ?>
 						$h_time = pronamic_get_the_start_date( __( 'Y/m/d', 'pronamic-events' ), $repeat_event->post->ID );
 						$hours  = pronamic_get_the_start_date( __( 'g:i:s', 'pronamic-events' ), $repeat_event->post->ID );
 
-						printf( '<abbr title="%s">%s</abbr><br />%s', $t_time, $h_time, $hours );
+						printf(
+							'<abbr title="%s">%s</abbr><br />%s',
+							esc_attr( $t_time ),
+							esc_html( $h_time ),
+							esc_html( $hours )
+						);
 
 						?>
 					</td>
@@ -52,7 +57,12 @@ if ( $repeat_events ) : ?>
 						$h_time = pronamic_get_the_end_date( __( 'Y/m/d', 'pronamic-events' ), $repeat_event->post->ID );
 						$hours  = pronamic_get_the_end_date( __( 'g:i:s', 'pronamic-events' ), $repeat_event->post->ID );
 
-						printf( '<abbr title="%s">%s</abbr><br />%s', $t_time, $h_time, $hours );
+						printf(
+							'<abbr title="%s">%s</abbr><br />%s',
+							esc_attr( $t_time ),
+							esc_html( $h_time ),
+							esc_html( $hours )
+						);
 
 						?>
 					</td>
@@ -61,13 +71,13 @@ if ( $repeat_events ) : ?>
 
 						$hash_key = $repeat_event->get_event_hash_code();
 
-						echo isset( $data[ $hash_key ] ) ? __( 'Yes', 'pronamic-events' ) : __( 'No', 'pronamic-events' );
+						echo esc_html( isset( $data[ $hash_key ] ) ? __( 'Yes', 'pronamic-events' ) : __( 'No', 'pronamic-events' ) );
 
 						?>
 					</td>
 					<td class="pronamic-event-repeats-actions">
 						<?php edit_post_link( __( 'Edit', 'pronamic-events' ), null, null, $repeat_event->post->ID ); ?> |
-						<a class="submitdelete" href="<?php echo get_delete_post_link( $repeat_event->post->ID ); ?>"><?php _e( 'Trash', 'pronamic-events' ); ?></a>
+						<a class="submitdelete" href="<?php echo esc_attr( get_delete_post_link( $repeat_event->post->ID ) ); ?>"><?php esc_html_e( 'Trash', 'pronamic-events' ); ?></a>
 					</td>
 				</tr>
 
@@ -79,7 +89,7 @@ if ( $repeat_events ) : ?>
 <?php else : ?>
 
 	<p>
-		<?php _e( 'No repeats available for this event.', 'pronamic-events' ); ?>
+		<?php esc_html_e( 'No repeats available for this event.', 'pronamic-events' ); ?>
 	</p>
 
 <?php endif; ?>

@@ -85,11 +85,13 @@ class Pronamic_Events_RepeatModule_Admin {
 			return;
 		}
 
-		if ( ! isset( $_POST['pronamic_events_nonce_repeat'] ) ) {
+		if ( ! filter_has_var( INPUT_POST, 'pronamic_events_nonce_repeat' ) ) {
 			return;
 		}
 
-		if ( ! wp_verify_nonce( $_POST['pronamic_events_nonce_repeat'], 'pronamic_events_edit_repeat' ) ) {
+		$nonce = filter_input( INPUT_POST, 'pronamic_events_nonce_repeat', FILTER_SANITIZE_STRING );
+
+		if ( ! wp_verify_nonce( $nonce, 'pronamic_events_edit_repeat' ) ) {
 			return;
 		}
 
@@ -209,9 +211,11 @@ class Pronamic_Events_RepeatModule_Admin {
 
 			$taxonomy_names = get_object_taxonomies( $post );
 			foreach ( $taxonomy_names as $taxonomy ) {
-				$terms = wp_get_object_terms( $post->ID, $taxonomy, array( 'fields' => 'ids' ) );
+				$terms = get_the_terms( $post_id, $taxonomy );
 
-				$taxonomies[ $taxonomy ] = $terms;
+				$term_ids = wp_list_pluck( $terms, 'term_id' );
+
+				$taxonomies[ $taxonomy ] = $term_ids;
 			}
 
 			// Posts

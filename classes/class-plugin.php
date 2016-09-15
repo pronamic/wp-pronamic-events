@@ -376,15 +376,17 @@ class Pronamic_Events_Plugin {
 		$status_upcoming = intval( get_option( 'pronamic_event_status_upcoming' ) );
 		$status_passed   = intval( get_option( 'pronamic_event_status_passed' ) );
 
-		$statuses = wp_get_object_terms( $post_id, 'pronamic_event_status', array( 'fields' => 'ids' ) );
+		$statuses = get_the_terms( $post_id, 'pronamic_event_status' );
+
+		$status_ids = wp_list_pluck( $statuses, 'term_id' );
 
 		// @see http://stackoverflow.com/a/9268826
-		$statuses = array_diff( $statuses, array( $status_upcoming, $status_passed ) );
+		$status_ids = array_diff( $status_ids, array( $status_upcoming, $status_passed ) );
 
 		if ( $end > time() ) {
-			$statuses[] = $status_upcoming;
+			$status_ids[] = $status_upcoming;
 		} else {
-			$statuses[] = $status_passed;
+			$status_ids[] = $status_passed;
 
 			global $wpdb;
 
@@ -397,6 +399,6 @@ class Pronamic_Events_Plugin {
 			);
 		}
 
-		wp_set_object_terms( $post_id, $statuses, 'pronamic_event_status' );
+		wp_set_object_terms( $post_id, $status_ids, 'pronamic_event_status' );
 	}
 }

@@ -63,11 +63,11 @@ class Pronamic_Events_Widget extends WP_Widget {
 			$template = $pronamic_events_plugin->dirname . '/templates/widget-pronamic-events.php';
 		}
 
-		echo $args['before_widget'];
+		echo $args['before_widget']; // WPCS: XSS ok.
 
 		include $template;
 
-		echo $args['after_widget'];
+		echo $args['after_widget']; // WPCS: XSS ok.
 
 		// Query reset
 		$wp_query = null;
@@ -109,11 +109,11 @@ class Pronamic_Events_Widget extends WP_Widget {
 		$number = isset( $instance['number'] ) ? absint( $instance['number'] ) : 5;
 
 		?>
-		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'pronamic-events' ); ?></label>
-		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" /></p>
+		<p><label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'pronamic-events' ); ?></label>
+		<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" /></p>
 
-		<p><label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php _e( 'Number of posts to show:', 'pronamic-events' ); ?></label>
-		<input id="<?php echo $this->get_field_id( 'number' ); ?>" name="<?php echo $this->get_field_name( 'number' ); ?>" type="text" value="<?php echo $number; ?>" size="3" /></p>
+		<p><label for="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>"><?php esc_html_e( 'Number of posts to show:', 'pronamic-events' ); ?></label>
+		<input id="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'number' ) ); ?>" type="text" value="<?php echo esc_attr( $number ); ?>" size="3" /></p>
 		<?php
 	}
 }
