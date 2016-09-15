@@ -4,23 +4,14 @@
 	<rule ref="WordPress">
 		<exclude name="Squiz.Commenting" />
 
-		<exclude name="Generic.Files.LowercasedFilename.NotFound" />
-		<exclude name="Generic.PHP.NoSilencedErrors.Discouraged" />
-
-		<exclude name="WordPress.XSS.EscapeOutput" />
-
-		<exclude name="WordPress.NamingConventions.ValidFunctionName" />
 		<exclude name="WordPress.Files.FileName" />
 
 		<exclude name="WordPress.Variables.GlobalVariables" />
 
-		<exclude name="WordPress.VIP.DirectDatabaseQuery" />		
-		<exclude name="WordPress.VIP.RestrictedFunctions.file_get_contents" />
-		<exclude name="WordPress.VIP.RestrictedFunctions.wp_remote_get" />
-		<exclude name="WordPress.VIP.FileSystemWritesDisallow" />
-		<exclude name="WordPress.VIP.SuperGlobalInputUsage" />
-		<exclude name="WordPress.VIP.ValidatedSanitizedInput" />
-		<exclude name="WordPress.VIP.PostsPerPage.posts_per_page" />
+		<exclude name="WordPress.VIP.DirectDatabaseQuery" />
+
+		<exclude name="WordPress.VIP.RestrictedFunctions.get_posts" />
+
 		<exclude name="WordPress.VIP.SlowDBQuery.slow_db_query" />
 	</rule>
 </ruleset>

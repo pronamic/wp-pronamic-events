@@ -36,14 +36,25 @@ $ends_on_until = get_post_meta( $post->ID, '_pronamic_event_ends_on_until', true
 <?php if ( ! empty( $post->post_parent ) ) : ?>
 
 	<p>
-		<em><?php
+		<?php
 
-		printf(
-			__( 'This event is part of a <a href="%s">repeated series</a>.', 'pronamic-events' ),
-			get_edit_post_link( $post->post_parent )
+		echo '<em>';
+
+		echo wp_kses(
+			sprintf(
+				__( 'This event is part of a <a href="%s">repeated series</a>.', 'pronamic-events' ),
+				esc_attr( get_edit_post_link( $post->post_parent ) )
+			),
+			array(
+				'a' => array(
+					'href' => true,
+				),
+			)
 		);
 
-		?></em>
+		echo '</em>';
+
+		?>
 	</p>
 
 <?php else : ?>
@@ -52,12 +63,12 @@ $ends_on_until = get_post_meta( $post->ID, '_pronamic_event_ends_on_until', true
 		<tbody>
 			<tr>
 				<th scope="row">
-					<label for="pronamic_event_repeat"><?php _e( 'Repeat', 'pronamic-events' ); ?></label>
+					<label for="pronamic_event_repeat"><?php esc_html_e( 'Repeat', 'pronamic-events' ); ?></label>
 				</th>
 				<td>
 					<label for="pronamic_event_repeat">
 						<input type="checkbox" value="1" id="pronamic_event_repeat" name="_pronamic_event_repeat" <?php checked( $repeat ); ?> />
-						<?php _e( 'Enable repeat', 'pronamic-events' ); ?>
+						<?php esc_html_e( 'Enable repeat', 'pronamic-events' ); ?>
 					</label>
 
 					<script type="text/javascript">
@@ -78,7 +89,7 @@ $ends_on_until = get_post_meta( $post->ID, '_pronamic_event_ends_on_until', true
 			</tr>
 			<tr class="hide-if-no-repeat">
 				<th scope="row">
-					<label for="pronamic_event_repeat_frequency"><?php _e( 'Frequency', 'pronamic-events' ); ?></label>
+					<label for="pronamic_event_repeat_frequency"><?php esc_html_e( 'Frequency', 'pronamic-events' ); ?></label>
 				</th>
 				<td>
 					<select id="pronamic_event_repeat_frequency" name="_pronamic_event_repeat_frequency">
@@ -105,7 +116,7 @@ $ends_on_until = get_post_meta( $post->ID, '_pronamic_event_ends_on_until', true
 			</tr>
 			<tr class="hide-if-no-repeat">
 				<th scope="row">
-					<label for="pronamic_event_repeat_interval"><?php _e( 'Repeat every', 'pronamic-events' ); ?></label>
+					<label for="pronamic_event_repeat_interval"><?php esc_html_e( 'Repeat every', 'pronamic-events' ); ?></label>
 				</th>
 				<td>
 					<select id="pronamic_event_repeat_interval" name="_pronamic_event_repeat_interval">
@@ -123,12 +134,12 @@ $ends_on_until = get_post_meta( $post->ID, '_pronamic_event_ends_on_until', true
 						?>
 					</select>
 
-					<span id="pronamic_event_repeat_interval_suffix"><?php _e( 'days/weeks/months/year', 'pronamic-events' ); ?></span>
+					<span id="pronamic_event_repeat_interval_suffix"><?php esc_html_e( 'days/weeks/months/year', 'pronamic-events' ); ?></span>
 				</td>
 			</tr>
 			<tr class="hide-if-no-repeat">
 				<th scope="row">
-					<?php _e( 'Ends On', 'pronamic-events' ); ?>
+					<?php esc_html_e( 'Ends On', 'pronamic-events' ); ?>
 				</th>
 				<td>
 					<div>
@@ -136,9 +147,23 @@ $ends_on_until = get_post_meta( $post->ID, '_pronamic_event_ends_on_until', true
 
 						<?php
 
-						printf(
-							__( 'After %s instances', 'pronamic-events' ),
-							sprintf( '<input type="text" name="_pronamic_event_ends_on_count" value="%s" size="2"  />', $ends_on_count )
+						$allowed_html = array(
+							'input' => array(
+								'id'     => true,
+								'name'   => true,
+								'type'   => true,
+								'value'  => true,
+								'size'   => true,
+								'class'  => true,
+							),
+						);
+
+						echo wp_kses(
+							sprintf(
+								__( 'After %s instances', 'pronamic-events' ),
+								sprintf( '<input type="text" name="_pronamic_event_ends_on_count" value="%s" size="2"  />', esc_attr( $ends_on_count ) )
+							),
+							$allowed_html
 						);
 
 						?>
@@ -149,9 +174,12 @@ $ends_on_until = get_post_meta( $post->ID, '_pronamic_event_ends_on_until', true
 
 						<?php
 
-						printf(
-							__( 'Until %s', 'pronamic-events' ),
-							sprintf( '<input class="pronamic_date" type="text" id="pronamic_event_ends_on_until" name="_pronamic_event_ends_on_until" value="%s" size="14"  />', $ends_on_until )
+						echo wp_kses(
+							sprintf(
+								__( 'Until %s', 'pronamic-events' ),
+								sprintf( '<input class="pronamic_date" type="text" id="pronamic_event_ends_on_until" name="_pronamic_event_ends_on_until" value="%s" size="14"  />', esc_attr( $ends_on_until ) )
+							),
+							$allowed_html
 						);
 
 						?>
@@ -160,12 +188,12 @@ $ends_on_until = get_post_meta( $post->ID, '_pronamic_event_ends_on_until', true
 			</tr>
 			<tr class="hide-if-no-repeat">
 				<th scope="row">
-					<?php _e( 'Number Repeats', 'pronamic-events' ); ?>
+					<?php esc_html_e( 'Number Repeats', 'pronamic-events' ); ?>
 				</th>
 				<td>
-					<?php echo $repeat_helper->get_number_repeats(); ?>
+					<?php echo esc_html( $repeat_helper->get_number_repeats() ); ?>
 
-					<span class="description"><br /><?php printf( __( 'Note: Due to performance there is currently an maximum of %d repeats.', 'pronamic-events' ), Pronamic_Events_RepeatModule::MAX_REPEATS ); ?></span>
+					<span class="description"><br /><?php printf( esc_html__( 'Note: Due to performance there is currently an maximum of %d repeats.', 'pronamic-events' ), esc_html( Pronamic_Events_RepeatModule::MAX_REPEATS ) ); ?></span>
 				</td>
 			</tr>
 		</tbody>

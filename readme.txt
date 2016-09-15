@@ -1,10 +1,10 @@
 === Pronamic Events ===
 Contributors: pronamic, remcotolsma, kjtolsma 
 Tags: pronamic, events, agenda
-Donate link: http://pronamic.eu/donate/?for=wp-plugin-pronamic-events&source=wp-plugin-readme-txt
+Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-events&source=wp-plugin-readme-txt
 Requires at least: 3.0
 Tested up to: 4.3.1
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 
 Pronamic Events is a basic plugin to add some Events functionality.
 
@@ -69,6 +69,14 @@ Upload the Pronamic Events folder to your wp-content/plugins folder.
 
 == Changelog ==
 
+= 1.2.2 =
+*	Fixed - Flush rewrite rules on plugin activation.
+*	Tweak - Use Composer for autoload.
+*	Feature - Added a template loader for default templates for single event and archive event.
+*	Feature - Added default template for archive and singular.
+*	Tweak - Removed jQuery date picket language files https://make.wordpress.org/core/2016/07/06/jquery-ui-datepicker-localization-in-4-6/.
+*	Tweak - Switched to Bower and use WordPress date picker style from https://github.com/xwp/wp-jquery-ui-datepicker-skins.
+
 = 1.2.1 =
 *	Tweak - WordPress Coding Standards optimizations.
 
@@ -124,9 +132,9 @@ Upload the Pronamic Events folder to your wp-content/plugins folder.
 
 == Links ==
 
-*	[Pronamic](http://pronamic.eu/)
-*	[Remco Tolsma](http://remcotolsma.nl/)
-*	[Karel-Jan Tolsma](http://kareljantolsma.nl/)
+*	[Pronamic](https://www.pronamic.eu/)
+*	[Remco Tolsma](http://www.remcotolsma.nl/)
+*	[Karel-Jan Tolsma](http://www.kareljantolsma.nl/)
 *	[Markdown's Syntax Documentation][markdown syntax]
 
 [markdown syntax]: http://daringfireball.net/projects/markdown/syntax

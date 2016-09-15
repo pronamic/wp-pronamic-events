@@ -15,7 +15,8 @@ module.exports = function( grunt ) {
 			all: [
 				'**/*.php',
 				'!deploy/**',
-				'!node_modules/**'
+				'!node_modules/**',
+				'!vendor/**'
 			]
 		},
 
@@ -25,10 +26,12 @@ module.exports = function( grunt ) {
 				src: [
 					'**/*.php',
 					'!deploy/**',
-					'!node_modules/**'
+					'!node_modules/**',
+					'!vendor/**'
 				],
 			},
 			options: {
+				bin: 'vendor/bin/phpcs',
 				standard: 'phpcs.ruleset.xml',
 				showSniffCodes: true
 			}
@@ -40,7 +43,7 @@ module.exports = function( grunt ) {
 				dir: '.'
 			},
 			options: {
-				exclude: 'node_modules',
+				exclude: 'node_modules,vendor',
 				reportFormat: 'xml',
 				rulesets: 'phpmd.ruleset.xml'
 			}
@@ -118,7 +121,8 @@ module.exports = function( grunt ) {
 					updatePoFiles: true,
 					exclude: [
 						'deploy/.*',
-						'node_modules/.*'
+						'node_modules/.*',
+						'vendor/.*',
 					],
 				}
 			}
@@ -126,6 +130,26 @@ module.exports = function( grunt ) {
 
 		// Copy
 		copy: {
+			assets: {
+				files: [
+					{ // jQuery UI - https://jqueryui.com/
+						expand: true,
+						cwd: 'bower_components/jquery-ui',
+						src: [
+							'themes/base/**'
+						],
+						dest: 'assets/jquery-ui'
+					},
+					{ // jQuery UI Datepicker Skins for WordPress - https://github.com/xwp/wp-jquery-ui-datepicker-skins
+						expand: true,
+						cwd: 'bower_components/wp-jquery-ui-datepicker-skins/css/',
+						src: [
+							'datepicker.css'
+						],
+						dest: 'assets/wp-jquery-ui-datepicker-skins'
+					},
+				]
+			},
 			deploy: {
 				src: [
 					'**',
@@ -137,7 +161,9 @@ module.exports = function( grunt ) {
 					'!phpmd.ruleset.xml',
 					'!readme.md',
 					'!deploy/**',
-					'!node_modules/**'
+					'!node_modules/**',
+					'!bower_components/**',
+					'!vendor/**'
 				],
 				dest: 'deploy/latest',
 				expand: true,
@@ -145,11 +171,38 @@ module.exports = function( grunt ) {
 			},
 		},
 
+
+		// CSS min
+		cssmin: {
+			styles: {
+				files: {
+
+				}
+			},
+			assets: {
+				files: {
+					// jQuery UI Datepicker Skins for WordPress - https://github.com/xwp/wp-jquery-ui-datepicker-skins
+					'assets/wp-jquery-ui-datepicker-skins/datepicker.min.css': 'assets/wp-jquery-ui-datepicker-skins/datepicker.css'
+				}
+			}
+		},
+
 		// Clean
 		clean: {
 			deploy: {
 				src: [ 'deploy/latest' ]
 			},
+		},
+
+		// Composer
+		composer: {
+			options : {
+				cwd: 'deploy/latest',
+				flags: [
+					'no-dev',
+					'prefer-dist'
+				]
+			}
 		},
 
 		// Compress
@@ -216,12 +269,15 @@ module.exports = function( grunt ) {
 
 	// Default task(s).
 	grunt.registerTask( 'default', [ 'jshint', 'phplint', 'phpcs', 'checkwpversion' ] );
+	grunt.registerTask( 'assets', [ 'copy:assets' ] );
+	grunt.registerTask( 'min', [ 'cssmin' ] );
 	grunt.registerTask( 'pot', [ 'checktextdomain', 'makepot' ] );
 
 	grunt.registerTask( 'deploy', [
 		'default',
 		'clean:deploy',
 		'copy:deploy',
+		'composer:install',
 		'compress:deploy'
 	] );
 

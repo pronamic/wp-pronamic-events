@@ -23,7 +23,7 @@ function pronamic_get_the_start_date( $format = null, $post_id = null ) {
  * @return echo the start date
  */
 function pronamic_the_start_date( $format = null, $post_id = null ) {
-	echo pronamic_get_the_start_date( $format, $post_id );
+	echo esc_html( pronamic_get_the_start_date( $format, $post_id ) );
 }
 
 /**
@@ -64,7 +64,7 @@ function pronamic_get_the_end_date( $format = null, $post_id = null ) {
  * @return echo the end date
  */
 function pronamic_the_end_date( $format = null, $post_id = null ) {
-	echo pronamic_get_the_end_date( $format, $post_id );
+	echo esc_html( pronamic_get_the_end_date( $format, $post_id ) );
 }
 
 /**
@@ -97,7 +97,7 @@ function pronamic_get_the_location( $post_id = null ) {
  * Echo the location of the post
  */
 function pronamic_the_location( $post_id = null ) {
-	echo pronamic_get_the_location( $post_id );
+	echo esc_html( pronamic_get_the_location( $post_id ) );
 }
 
 /**
@@ -128,7 +128,7 @@ function pronamic_event_get_the_url( $post_id = null ) {
  * Echo the URL of the event
  */
 function pronamic_event_the_url( $post_id = null ) {
-	echo pronamic_event_get_the_url( $post_id );
+	echo esc_html( pronamic_event_get_the_url( $post_id ) );
 }
 
 /**

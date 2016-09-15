@@ -1,3 +1,6 @@
+# Bower
+/bower_components/
+
 # Deploy
 /deploy/
 
@@ -8,3 +11,6 @@
 
 # Grunt
 /node_modules/
+
+# Composer
+/vendor/
