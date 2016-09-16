@@ -3,8 +3,8 @@ Contributors: pronamic, remcotolsma, kjtolsma
 Tags: pronamic, events, agenda
 Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-events&source=wp-plugin-readme-txt
 Requires at least: 3.0
-Tested up to: 4.3.1
-Stable tag: 1.2.2
+Tested up to: 4.6.1
+Stable tag: 1.2.3
 
 Pronamic Events is a basic plugin to add some Events functionality.
 
@@ -68,6 +68,10 @@ Upload the Pronamic Events folder to your wp-content/plugins folder.
 
 
 == Changelog ==
+
+= 1.2.3 =
+*	Fixed - Make sure to check if $status is a array `get_the_terms ` can also return `false` or a `WP_Error`.
+*	Tweak - Improved support for non public post types and make sure to add start and end date columns after title column.
 
 = 1.2.2 =
 *	Fixed - Flush rewrite rules on plugin activation.
