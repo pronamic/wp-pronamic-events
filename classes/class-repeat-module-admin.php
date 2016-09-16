@@ -213,9 +213,11 @@ class Pronamic_Events_RepeatModule_Admin {
 			foreach ( $taxonomy_names as $taxonomy ) {
 				$terms = get_the_terms( $post_id, $taxonomy );
 
-				$term_ids = wp_list_pluck( $terms, 'term_id' );
+				if ( is_array( $terms ) ) {
+					$term_ids = wp_list_pluck( $terms, 'term_id' );
 
-				$taxonomies[ $taxonomy ] = $term_ids;
+					$taxonomies[ $taxonomy ] = $term_ids;
+				}
 			}
 
 			// Posts
