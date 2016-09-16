@@ -36,7 +36,7 @@ class Pronamic_Events_Plugin_Admin {
 	 * Admin intialize
 	 */
 	function admin_init() {
-		foreach ( get_post_types( array( 'public' => true ) ) as $post_type ) {
+		foreach ( get_post_types() as $post_type ) {
 			if ( post_type_supports( $post_type, 'pronamic_event' ) ) {
 				$screen_id = 'edit-' . $post_type;
 
@@ -337,7 +337,9 @@ class Pronamic_Events_Plugin_Admin {
 		$new_columns = array();
 
 		foreach ( $columns as $name => $label ) {
-			if ( 'author' === $name ) {
+			$new_columns[ $name ] = $label;
+
+			if ( 'title' === $name ) {
 				$new_columns['pronamic_start_date'] = $columns['pronamic_start_date'];
 				$new_columns['pronamic_end_date']   = $columns['pronamic_end_date'];
 
@@ -345,8 +347,6 @@ class Pronamic_Events_Plugin_Admin {
 					$new_columns['pronamic_event_repeat'] = $columns['pronamic_event_repeat'];
 				}
 			}
-
-			$new_columns[ $name ] = $label;
 		}
 
 		$columns = $new_columns;
