@@ -32,7 +32,9 @@ if ( $repeat_events ) : ?>
 
 				<tr>
 					<td>
-						<?php edit_post_link( get_the_title( $repeat_event->post ), null, null, $repeat_event->post->ID ); ?>
+						<a href="<?php echo esc_url( get_permalink( $repeat_event->post ) ); ?>">
+							<?php echo esc_html( get_the_title( $repeat_event->post ) ); ?>
+						</a>
 					</td>
 					<td>
 						<?php

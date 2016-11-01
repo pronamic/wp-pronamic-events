@@ -1,6 +1,6 @@
 {
   "name": "pronamic-events",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "This plugin add some basic Event functionality to WordPress.",
   "repository": {
     "type": "git",
@@ -30,7 +30,7 @@
     "grunt-contrib-cssmin": "^1.0.2",
     "grunt-contrib-jshint": "~1.0.0",
     "grunt-contrib-uglify": "~2.0.0",
-    "grunt-git": "^1.0.0",
+    "grunt-git": "^1.0.1",
     "grunt-phpcs": "^0.4.0",
     "grunt-phplint": "0.0.8",
     "grunt-phpmd": "^0.1.1",
