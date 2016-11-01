@@ -216,7 +216,7 @@ class Pronamic_Events_Plugin_Admin {
 				'jquery-ui-theme-base',
 				plugins_url( '/assets/jquery-ui/themes/base/all.css', $this->plugin->file ),
 				array(),
-				'1.11.1'
+				'1.12.1'
 			);
 
 			wp_enqueue_style(
