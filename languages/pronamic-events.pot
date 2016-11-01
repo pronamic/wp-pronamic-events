@@ -2,9 +2,9 @@
 # This file is distributed under the GPL.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic Events 1.2.3\n"
+"Project-Id-Version: Pronamic Events 1.2.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-events\n"
-"POT-Creation-Date: 2016-09-16 07:12:27+00:00\n"
+"POT-Creation-Date: 2016-11-01 13:51:00+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -75,7 +75,7 @@ msgstr ""
 msgid "This event is part of a <a href=\"%s\">repeated series</a>."
 msgstr ""
 
-#: admin/meta-box-event-repeat.php:66 classes/class-repeat-module-admin.php:262
+#: admin/meta-box-event-repeat.php:66 classes/class-repeat-module-admin.php:264
 msgid "Repeat"
 msgstr ""
 
@@ -141,38 +141,38 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: admin/meta-box-event-repeats.php:40 admin/meta-box-event-repeats.php:56
+#: admin/meta-box-event-repeats.php:42 admin/meta-box-event-repeats.php:58
 #: classes/class-admin.php:387 classes/class-admin.php:403
 msgid "Y/m/d g:i:s A"
 msgstr ""
 
-#: admin/meta-box-event-repeats.php:41 admin/meta-box-event-repeats.php:57
+#: admin/meta-box-event-repeats.php:43 admin/meta-box-event-repeats.php:59
 #: classes/class-admin.php:388 classes/class-admin.php:404
 msgid "Y/m/d"
 msgstr ""
 
-#: admin/meta-box-event-repeats.php:42 admin/meta-box-event-repeats.php:58
+#: admin/meta-box-event-repeats.php:44 admin/meta-box-event-repeats.php:60
 #: classes/class-admin.php:389 classes/class-admin.php:405
 msgid "g:i:s"
 msgstr ""
 
-#: admin/meta-box-event-repeats.php:74
+#: admin/meta-box-event-repeats.php:76
 msgid "Yes"
 msgstr ""
 
-#: admin/meta-box-event-repeats.php:74
+#: admin/meta-box-event-repeats.php:76
 msgid "No"
 msgstr ""
 
-#: admin/meta-box-event-repeats.php:79 templates/single-pronamic_event.php:41
+#: admin/meta-box-event-repeats.php:81 templates/single-pronamic_event.php:41
 msgid "Edit"
 msgstr ""
 
-#: admin/meta-box-event-repeats.php:80
+#: admin/meta-box-event-repeats.php:82
 msgid "Trash"
 msgstr ""
 
-#: admin/meta-box-event-repeats.php:92
+#: admin/meta-box-event-repeats.php:94
 msgid "No repeats available for this event."
 msgstr ""
 
@@ -220,143 +220,143 @@ msgstr ""
 msgid "Event Details"
 msgstr ""
 
-#: classes/class-plugin.php:118
+#: classes/class-plugin.php:116
 msgid "Add New Event"
 msgstr ""
 
-#: classes/class-plugin.php:119
+#: classes/class-plugin.php:117
 msgid "Edit Event"
 msgstr ""
 
-#: classes/class-plugin.php:120
+#: classes/class-plugin.php:118
 msgid "New Event"
 msgstr ""
 
-#: classes/class-plugin.php:121
+#: classes/class-plugin.php:119
 msgid "View Event"
 msgstr ""
 
-#: classes/class-plugin.php:122
+#: classes/class-plugin.php:120
 msgid "Search Events"
 msgstr ""
 
-#: classes/class-plugin.php:123
+#: classes/class-plugin.php:121
 msgid "No events found."
 msgstr ""
 
-#: classes/class-plugin.php:124
+#: classes/class-plugin.php:122
 msgid "No events found in Trash."
 msgstr ""
 
-#: classes/class-plugin.php:125
+#: classes/class-plugin.php:123
 msgid "Parent Event:"
 msgstr ""
 
-#: classes/class-plugin.php:126
+#: classes/class-plugin.php:124
 msgid "All Events"
 msgstr ""
 
-#: classes/class-plugin.php:127
+#: classes/class-plugin.php:125
 msgid "Event Archives"
 msgstr ""
 
-#: classes/class-plugin.php:128
+#: classes/class-plugin.php:126
 msgid "Insert into event"
 msgstr ""
 
-#: classes/class-plugin.php:129
+#: classes/class-plugin.php:127
 msgid "Uploaded to this event"
 msgstr ""
 
-#: classes/class-plugin.php:130
+#: classes/class-plugin.php:128
 msgid "Filter events list"
 msgstr ""
 
-#: classes/class-plugin.php:131
+#: classes/class-plugin.php:129
 msgid "Events list navigation"
 msgstr ""
 
-#: classes/class-plugin.php:132
+#: classes/class-plugin.php:130
 msgid "Events list"
 msgstr ""
 
-#: classes/class-plugin.php:172
+#: classes/class-plugin.php:170
 msgid "Search Event categories"
 msgstr ""
 
-#: classes/class-plugin.php:173
+#: classes/class-plugin.php:171
 msgid "All Event categories"
 msgstr ""
 
-#: classes/class-plugin.php:174
+#: classes/class-plugin.php:172
 msgid "Parent Event category"
 msgstr ""
 
-#: classes/class-plugin.php:175
+#: classes/class-plugin.php:173
 msgid "Parent Event category:"
 msgstr ""
 
-#: classes/class-plugin.php:176
+#: classes/class-plugin.php:174
 msgid "Edit Event category"
 msgstr ""
 
-#: classes/class-plugin.php:177
+#: classes/class-plugin.php:175
 msgid "Update Event category"
 msgstr ""
 
-#: classes/class-plugin.php:178
+#: classes/class-plugin.php:176
 msgid "Add New Event category"
 msgstr ""
 
-#: classes/class-plugin.php:179
+#: classes/class-plugin.php:177
 msgid "New Event category Name"
 msgstr ""
 
-#: classes/class-plugin.php:180
+#: classes/class-plugin.php:178
 msgid "Categories"
 msgstr ""
 
-#: classes/class-plugin.php:196
+#: classes/class-plugin.php:194
 msgid "Search Event statuses"
 msgstr ""
 
-#: classes/class-plugin.php:197
+#: classes/class-plugin.php:195
 msgid "All Event statuses"
 msgstr ""
 
-#: classes/class-plugin.php:198
+#: classes/class-plugin.php:196
 msgid "Parent Event status"
 msgstr ""
 
-#: classes/class-plugin.php:199
+#: classes/class-plugin.php:197
 msgid "Parent Event status:"
 msgstr ""
 
-#: classes/class-plugin.php:200
+#: classes/class-plugin.php:198
 msgid "Edit Event status"
 msgstr ""
 
-#: classes/class-plugin.php:201
+#: classes/class-plugin.php:199
 msgid "Update Event status"
 msgstr ""
 
-#: classes/class-plugin.php:202
+#: classes/class-plugin.php:200
 msgid "Add New Event status"
 msgstr ""
 
-#: classes/class-plugin.php:203
+#: classes/class-plugin.php:201
 msgid "New Event status Name"
 msgstr ""
 
-#: classes/class-plugin.php:204
+#: classes/class-plugin.php:202
 msgid "Statuses"
 msgstr ""
 
-#: classes/class-plugin.php:213
+#: classes/class-plugin.php:211
 msgid "Passed"
 msgstr ""
 
-#: classes/class-plugin.php:218
+#: classes/class-plugin.php:216
 msgid "Passed <span class=\"count\">(%s)</span>"
 msgid_plural "Passed <span class=\"count\">(%s)</span>"
 msgstr[0] ""
@@ -432,57 +432,57 @@ msgstr ""
 msgid "https://www.pronamic.eu/"
 msgstr ""
 
-#: classes/class-plugin.php:111
+#: classes/class-plugin.php:109
 msgctxt "slug"
 msgid "events"
 msgstr ""
 
-#: classes/class-plugin.php:165
+#: classes/class-plugin.php:163
 msgctxt "slug"
 msgid "event-category"
 msgstr ""
 
-#: classes/class-plugin.php:189
+#: classes/class-plugin.php:187
 msgctxt "slug"
 msgid "event-status"
 msgstr ""
 
-#: classes/class-plugin.php:115
+#: classes/class-plugin.php:113
 msgctxt "post type general name"
 msgid "Events"
 msgstr ""
 
-#: classes/class-plugin.php:116
+#: classes/class-plugin.php:114
 msgctxt "post type singular name"
 msgid "Event"
 msgstr ""
 
-#: classes/class-plugin.php:117
+#: classes/class-plugin.php:115
 msgctxt "event"
 msgid "Add New"
 msgstr ""
 
-#: classes/class-plugin.php:133
+#: classes/class-plugin.php:131
 msgctxt "menu_name"
 msgid "Events"
 msgstr ""
 
-#: classes/class-plugin.php:170
+#: classes/class-plugin.php:168
 msgctxt "class general name"
 msgid "Event categories"
 msgstr ""
 
-#: classes/class-plugin.php:194
+#: classes/class-plugin.php:192
 msgctxt "class general name"
 msgid "Event statuses"
 msgstr ""
 
-#: classes/class-plugin.php:171
+#: classes/class-plugin.php:169
 msgctxt "class singular name"
 msgid "Event category"
 msgstr ""
 
-#: classes/class-plugin.php:195
+#: classes/class-plugin.php:193
 msgctxt "class singular name"
 msgid "Event status"
 msgstr ""
