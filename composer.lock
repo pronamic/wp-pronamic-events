@@ -4,9 +4,75 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c628d3efb7b9b3d4436b245262755152",
-    "content-hash": "3b2cc0f27863d4e48881807f8a1dcb9a",
+    "hash": "6c14a6247e60d8e4340fdcefbd4162a2",
+    "content-hash": "9e0846ec4a09c0e1a52af47a4e97e2f2",
     "packages": [
+        {
+            "name": "sabre/vobject",
+            "version": "3.5.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fruux/sabre-vobject.git",
+                "reference": "129d80533a9ec0d9cacfb50b51180c34edb6874c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fruux/sabre-vobject/zipball/129d80533a9ec0d9cacfb50b51180c34edb6874c",
+                "reference": "129d80533a9ec0d9cacfb50b51180c34edb6874c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.3.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*",
+                "squizlabs/php_codesniffer": "*"
+            },
+            "bin": [
+                "bin/vobject",
+                "bin/generate_vcards"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sabre\\VObject\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Evert Pot",
+                    "email": "me@evertpot.com",
+                    "homepage": "http://evertpot.com/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Dominik Tobschall",
+                    "email": "dominik@fruux.com",
+                    "homepage": "http://tobschall.de/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "The VObject library for PHP allows you to easily parse and manipulate iCalendar and vCard objects",
+            "homepage": "http://sabre.io/vobject/",
+            "keywords": [
+                "VObject",
+                "iCalendar",
+                "jCal",
+                "jCard",
+                "vCard"
+            ],
+            "time": "2016-10-07 03:20:40"
+        },
         {
             "name": "xrstf/composer-php52",
             "version": "v1.0.20",

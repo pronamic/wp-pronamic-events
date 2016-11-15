@@ -62,9 +62,12 @@ class Pronamic_Events_Plugin {
 			$this->admin = new Pronamic_Events_Plugin_Admin( $this );
 		}
 
-		// Events repeat
 		if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
+			// Events repeat
 			$this->repeat_module = new Pronamic_Events_RepeatModule( $this );
+
+			// Share endpoint
+			$this->share_endpoints = new Pronamic_Events_ShareEndpoints( $this );
 		}
 	}
 

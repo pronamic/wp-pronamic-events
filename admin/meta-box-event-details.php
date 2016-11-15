@@ -56,6 +56,39 @@ if ( $all_day ) {
 			</td>
 		</tr>
 
+		<?php if ( 'publish' === get_post_status() && version_compare( PHP_VERSION, '5.3', '>=' ) ) : ?>
+
+			<tr>
+				<th scope="row">
+					<?php esc_html_e( 'Share', 'pronamic-events' ); ?>
+				</th>
+				<td>
+					<?php
+
+					$endpoints = array(
+						'icalendar'       => __( 'iCalendar', 'pronamic-events' ),
+						'google-calendar' => __( 'Google Calendar', 'pronamic-events' ),
+						'yahoo-calendar'  => __( 'Yahoo Calendar', 'pronamic-events' ),
+					);
+
+					$anchors = array();
+
+					foreach ( $endpoints as $endpoint => $label ) {
+						$anchors[] = sprintf(
+							'<a href="%s" target="_blank">%s</a>',
+							esc_attr( get_permalink() . $endpoint ),
+							esc_html( $label )
+						);
+					}
+
+					echo implode( $anchors, ' | ' ); // WPCS: XSS ok.
+
+					?>
+				</td>
+			</tr>
+
+		<?php endif; ?>
+
 		<?php
 
 		$fields = array(
