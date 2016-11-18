@@ -11,7 +11,8 @@
 	},
     "require": {
         "xrstf/composer-php52": "1.*",
-        "sabre/vobject": "^3.4"
+        "sabre/vobject": "^3.4",
+        "sabre/uri": "^1"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^2.7",
