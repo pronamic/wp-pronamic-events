@@ -33,6 +33,7 @@ $query = new WP_Query( array(
 	'post_type'                 => 'pronamic_event',
 	'pronamic_event_date_after' => false,
 	'orderby'                   => 'pronamic_event_start_date',
+	'order'                     => 'ASC',
 	'meta_query'                => array(
 		array(
 			'key'     => '_pronamic_end_date',
