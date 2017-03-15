@@ -28,6 +28,25 @@ $query = new WP_Query( array(
 ) );
 ```
 
+```php
+$query = new WP_Query( array(
+	'post_type'                 => 'pronamic_event',
+	'pronamic_event_date_after' => false,
+	'orderby'                   => 'pronamic_event_start_date',
+	'meta_query'                => array(
+		array(
+			'key'     => '_pronamic_end_date',
+			'value'   => array(
+				strtotime( '01-01-2016' ),
+				strtotime( '01-05-2016' ),
+			),
+			'compare' => 'BETWEEN',
+			'type'    => 'NUMERIC',
+		),
+	),
+) );
+```
+
 ### Parameters
 
 #### pronamic_event_date_after
