@@ -28,6 +28,7 @@ class Pronamic_Events_Plugin_Admin {
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
 
 		add_action( 'save_post', array( $this, 'save_post' ) );
+		add_action( 'delete_post', array( $this, 'delete_post' ) );
 	}
 
 	//////////////////////////////////////////////////
@@ -319,6 +320,15 @@ class Pronamic_Events_Plugin_Admin {
 		wp_clear_scheduled_hook( 'pronamic_event_status_update', array( $post_id ) );
 
 		wp_schedule_single_event( $end_timestamp, 'pronamic_event_status_update', array( $post_id ) );
+	}
+
+	//////////////////////////////////////////////////
+
+	/**
+	 * Delete post
+	 */
+	public function delete_post( $post_id ) {
+		wp_clear_scheduled_hook( 'pronamic_event_status_update', array( $post_id ) );
 	}
 
 	//////////////////////////////////////////////////
