@@ -168,6 +168,8 @@ class Pronamic_Events_RepeatModule_Admin {
 					foreach ( $meta as $key => $value ) {
 						update_post_meta( $repeat_post_id, $key, $value );
 					}
+
+					$this->plugin->admin->schedule_status_update( $repeat_post_id, $end_timestamp );
 				}
 			}
 

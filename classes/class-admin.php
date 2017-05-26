@@ -317,7 +317,15 @@ class Pronamic_Events_Plugin_Admin {
 		// Status update
 		$this->plugin->event_status_update( $post_id );
 
-		wp_clear_scheduled_hook( 'pronamic_event_status_update', array( $post_id ) );
+		$this->schedule_status_update( $post_id, $end_timestamp );
+	}
+
+	public function schedule_status_update( $post_id, $end_timestamp ) {
+		if ( wp_is_post_revision( $post_id ) ) {
+			return;
+		}
+
+		wp_clear_scheduled_hook( 'pronamic_event_status_update', array( intval( $post_id ) ) );
 
 		wp_schedule_single_event( $end_timestamp, 'pronamic_event_status_update', array( $post_id ) );
 	}
