@@ -336,7 +336,11 @@ class Pronamic_Events_Plugin_Admin {
 	 * Delete post
 	 */
 	public function delete_post( $post_id ) {
-		wp_clear_scheduled_hook( 'pronamic_event_status_update', array( $post_id ) );
+		if ( wp_is_post_revision( $post_id ) ) {
+			return;
+		}
+
+		wp_clear_scheduled_hook( 'pronamic_event_status_update', array( intval( $post_id ) ) );
 	}
 
 	//////////////////////////////////////////////////
