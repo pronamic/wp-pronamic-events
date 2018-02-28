@@ -57,6 +57,8 @@ class Pronamic_Events_Plugin {
 
 		add_filter( 'post_class', array( $this, 'post_class' ), 10, 3 );
 
+		add_filter( 'oembed_request_post_id', array( $this, 'oembed_request_passed_event' ), 10, 2 );
+
 		// Admin
 		if ( is_admin() ) {
 			$this->admin = new Pronamic_Events_Plugin_Admin( $this );
@@ -417,5 +419,31 @@ class Pronamic_Events_Plugin {
 				array( '%d', '%s' )
 			);
 		}
+	}
+
+	/**
+	 * Allow oEmbed requests for passed events.
+	 *
+	 * @param $post_id
+	 * @param $request_url
+	 */
+	public function oembed_request_passed_event( $post_id, $request_url ) {
+		$post = get_post( $post_id );
+
+		if ( ! $post ) {
+			return $post_id;
+		}
+
+		if ( 'pronamic_event' !== $post->post_type ) {
+			return $post_id;
+		}
+
+		if ( 'passed' !== $post->post_status ) {
+			return $post_id;
+		}
+
+		$post->post_status = 'publish';
+
+		return $post;
 	}
 }
