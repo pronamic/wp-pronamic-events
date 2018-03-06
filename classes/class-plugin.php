@@ -425,25 +425,26 @@ class Pronamic_Events_Plugin {
 	}
 
 	/**
-	 * Allow oEmbed requests for passed events.
+	 * The WordPress `get_oembed_response_data` function will return `false` when the 
+	 * post status is not equal to 'publish'. This is not desired for event posts with
+	 * the post status 'passed'. Therefor we will simulate the 'publish' post status.
 	 *
+	 * @see https://github.com/WordPress/WordPress/blob/4.9/wp-includes/class-wp-oembed-controller.php#L110-L118
+	 * @see https://github.com/WordPress/WordPress/blob/4.9/wp-includes/embed.php#L487-L507
 	 * @param $post_id
 	 * @param $request_url
 	 */
 	public function oembed_request_passed_event( $post_id, $request_url ) {
+		if ( 'passed' !== get_post_status( $post_id ) ) {
+			return $post_id;
+		}
+
+		if ( ! post_type_supports( get_post_type( $post_id ), 'pronamic_event' ) ) {
+			return $post_id;
+		}
+
+		// Simulate post status 'publish'.
 		$post = get_post( $post_id );
-
-		if ( ! $post ) {
-			return $post_id;
-		}
-
-		if ( 'pronamic_event' !== $post->post_type ) {
-			return $post_id;
-		}
-
-		if ( 'passed' !== $post->post_status ) {
-			return $post_id;
-		}
 
 		$post->post_status = 'publish';
 
