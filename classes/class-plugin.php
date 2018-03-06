@@ -64,6 +64,9 @@ class Pronamic_Events_Plugin {
 			$this->admin = new Pronamic_Events_Plugin_Admin( $this );
 		}
 
+		// Feed module.
+		$this->feed_module = new Pronamic_Events_FeedModule( $this );
+
 		if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
 			// Events repeat
 			$this->repeat_module = new Pronamic_Events_RepeatModule( $this );
