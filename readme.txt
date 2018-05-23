@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma, kjtolsma
 Tags: pronamic, events, agenda
 Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-events&source=wp-plugin-readme-txt
 Requires at least: 3.0
-Tested up to: 4.6.1
+Tested up to: 4.9.6
 Stable tag: 1.2.5
 
 Pronamic Events is a basic plugin to add some Events functionality.
