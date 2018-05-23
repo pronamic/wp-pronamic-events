@@ -57,14 +57,22 @@ class Pronamic_Events_Plugin {
 
 		add_filter( 'post_class', array( $this, 'post_class' ), 10, 3 );
 
+		add_filter( 'oembed_request_post_id', array( $this, 'oembed_request_passed_event' ), 10, 2 );
+
 		// Admin
 		if ( is_admin() ) {
 			$this->admin = new Pronamic_Events_Plugin_Admin( $this );
 		}
 
-		// Events repeat
+		// Feed module.
+		$this->feed_module = new Pronamic_Events_FeedModule( $this );
+
 		if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
+			// Events repeat
 			$this->repeat_module = new Pronamic_Events_RepeatModule( $this );
+
+			// Share endpoint
+			$this->share_endpoints = new Pronamic_Events_ShareEndpoints( $this );
 		}
 	}
 
@@ -381,23 +389,29 @@ class Pronamic_Events_Plugin {
 		$status_upcoming = intval( get_option( 'pronamic_event_status_upcoming' ) );
 		$status_passed   = intval( get_option( 'pronamic_event_status_passed' ) );
 
-		// https://developer.wordpress.org/reference/functions/get_the_terms/
-		$statuses = get_the_terms( $post_id, 'pronamic_event_status' );
+		if ( $status_upcoming || $status_passed ) {
+			// https://developer.wordpress.org/reference/functions/get_the_terms/
+			$statuses = get_the_terms( $post_id, 'pronamic_event_status' );
 
-		$status_ids = array();
+			$status_ids = array();
 
-		if ( is_array( $statuses ) ) {
-			$status_ids = wp_list_pluck( $statuses, 'term_id' );
+			if ( is_array( $statuses ) ) {
+				$status_ids = wp_list_pluck( $statuses, 'term_id' );
+			}
+
+			// @see http://stackoverflow.com/a/9268826
+			$status_ids = array_diff( $status_ids, array( $status_upcoming, $status_passed ) );
+
+			if ( $end > time() ) {
+				$status_ids[] = $status_upcoming;
+			} else {
+				$status_ids[] = $status_passed;
+			}
+
+			wp_set_object_terms( $post_id, $status_ids, 'pronamic_event_status' );
 		}
 
-		// @see http://stackoverflow.com/a/9268826
-		$status_ids = array_diff( $status_ids, array( $status_upcoming, $status_passed ) );
-
-		if ( $end > time() ) {
-			$status_ids[] = $status_upcoming;
-		} else {
-			$status_ids[] = $status_passed;
-
+		if ( $end <= time() ) {
 			global $wpdb;
 
 			$wpdb->update(
@@ -408,7 +422,32 @@ class Pronamic_Events_Plugin {
 				array( '%d', '%s' )
 			);
 		}
+	}
 
-		wp_set_object_terms( $post_id, $status_ids, 'pronamic_event_status' );
+	/**
+	 * The WordPress `get_oembed_response_data` function will return `false` when the
+	 * post status is not equal to 'publish'. This is not desired for event posts with
+	 * the post status 'passed'. Therefor we will simulate the 'publish' post status.
+	 *
+	 * @see https://github.com/WordPress/WordPress/blob/4.9/wp-includes/class-wp-oembed-controller.php#L110-L118
+	 * @see https://github.com/WordPress/WordPress/blob/4.9/wp-includes/embed.php#L487-L507
+	 * @param $post_id
+	 * @param $request_url
+	 */
+	public function oembed_request_passed_event( $post_id, $request_url ) {
+		if ( 'passed' !== get_post_status( $post_id ) ) {
+			return $post_id;
+		}
+
+		if ( ! post_type_supports( get_post_type( $post_id ), 'pronamic_event' ) ) {
+			return $post_id;
+		}
+
+		// Simulate post status 'publish'.
+		$post = get_post( $post_id );
+
+		$post->post_status = 'publish';
+
+		return $post;
 	}
 }
