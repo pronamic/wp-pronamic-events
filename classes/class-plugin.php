@@ -425,7 +425,7 @@ class Pronamic_Events_Plugin {
 	}
 
 	/**
-	 * The WordPress `get_oembed_response_data` function will return `false` when the 
+	 * The WordPress `get_oembed_response_data` function will return `false` when the
 	 * post status is not equal to 'publish'. This is not desired for event posts with
 	 * the post status 'passed'. Therefor we will simulate the 'publish' post status.
 	 *

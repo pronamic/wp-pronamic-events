@@ -54,7 +54,7 @@ class Pronamic_Events_FeedModule {
 		if ( pronamic_has_start_date() ) {
 			echo "\t\t";
 
-			printf(
+			printf( // WPCS: xss ok.
 				'<ev:startdate>%s</ev:startdate>',
 				pronamic_get_the_start_date( DATE_ATOM )
 			);
@@ -65,7 +65,7 @@ class Pronamic_Events_FeedModule {
 		if ( pronamic_has_end_date() ) {
 			echo "\t\t";
 
-			printf(
+			printf( // WPCS: xss ok.
 				'<ev:enddate>%s</ev:enddate>',
 				pronamic_get_the_end_date( DATE_ATOM )
 			);
@@ -76,7 +76,7 @@ class Pronamic_Events_FeedModule {
 		if ( pronamic_has_location() ) {
 			echo "\t\t";
 
-			printf(
+			printf( // WPCS: xss ok.
 				'<ev:location>%s</ev:location>',
 				pronamic_get_the_location()
 			);
