@@ -115,7 +115,7 @@ class Pronamic_Events_Plugin_Admin {
 		add_settings_field(
 			'pronamic_event_category_base', // id
 			__( 'Category base', 'pronamic-events' ), // title
-			array( __CLASS__, 'input_text' ), // callback
+			array( $this, 'input_text' ), // callback
 			'pronamic_events', // page
 			'pronamic_events_permalinks', // section
 			array( 'label_for' => 'pronamic_event_category_base' ) // args
@@ -124,7 +124,7 @@ class Pronamic_Events_Plugin_Admin {
 		add_settings_field(
 			'pronamic_event_status_base', // id
 			__( 'Status base', 'pronamic-events' ), // title
-			array( __CLASS__, 'input_text' ), // callback
+			array( $this, 'input_text' ), // callback
 			'pronamic_events', // page
 			'pronamic_events_permalinks', // section
 			array( 'label_for' => 'pronamic_event_status_base' ) // args

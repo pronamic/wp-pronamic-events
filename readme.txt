@@ -72,6 +72,7 @@ Upload the Pronamic Events folder to your wp-content/plugins folder.
 
 = 1.2.5 =
 *	Feature - Custom date slug support for repeatable events.
+*	Fixed - Fix non-static method message.
 
 = 1.2.3 =
 *	Fixed - Make sure to check if $status is a array `get_the_terms ` can also return `false` or a `WP_Error`.
