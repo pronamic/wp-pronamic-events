@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Events 1.2.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-events\n"
-"POT-Creation-Date: 2018-05-23 13:29:31+00:00\n"
+"POT-Creation-Date: 2018-10-16 11:11:18+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -91,7 +91,8 @@ msgstr ""
 msgid "This event is part of a <a href=\"%s\">repeated series</a>."
 msgstr ""
 
-#: admin/meta-box-event-repeat.php:66 classes/class-repeat-module-admin.php:266
+#: admin/meta-box-event-repeat.php:66 classes/class-admin.php:79
+#: classes/class-repeat-module-admin.php:273
 msgid "Repeat"
 msgstr ""
 
@@ -139,12 +140,12 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: admin/meta-box-event-repeats.php:22 classes/class-admin.php:354
+#: admin/meta-box-event-repeats.php:22 classes/class-admin.php:383
 #: templates/single-pronamic_event.php:15
 msgid "Start Date"
 msgstr ""
 
-#: admin/meta-box-event-repeats.php:23 classes/class-admin.php:355
+#: admin/meta-box-event-repeats.php:23 classes/class-admin.php:384
 #: templates/single-pronamic_event.php:18
 msgid "End Date"
 msgstr ""
@@ -158,17 +159,17 @@ msgid "Actions"
 msgstr ""
 
 #: admin/meta-box-event-repeats.php:42 admin/meta-box-event-repeats.php:58
-#: classes/class-admin.php:409 classes/class-admin.php:425
+#: classes/class-admin.php:438 classes/class-admin.php:454
 msgid "Y/m/d g:i:s A"
 msgstr ""
 
 #: admin/meta-box-event-repeats.php:43 admin/meta-box-event-repeats.php:59
-#: classes/class-admin.php:410 classes/class-admin.php:426
+#: classes/class-admin.php:439 classes/class-admin.php:455
 msgid "Y/m/d"
 msgstr ""
 
 #: admin/meta-box-event-repeats.php:44 admin/meta-box-event-repeats.php:60
-#: classes/class-admin.php:411 classes/class-admin.php:427
+#: classes/class-admin.php:440 classes/class-admin.php:456
 msgid "g:i:s"
 msgstr ""
 
@@ -204,35 +205,43 @@ msgstr ""
 msgid "Passed Event Status "
 msgstr ""
 
-#: classes/class-admin.php:81
+#: classes/class-admin.php:86
+msgid "Date format slug"
+msgstr ""
+
+#: classes/class-admin.php:92
+msgid "Use date_i18n() format. E.g. d-m-Y."
+msgstr ""
+
+#: classes/class-admin.php:101
 msgid "Permalinks"
 msgstr ""
 
-#: classes/class-admin.php:88
+#: classes/class-admin.php:108
 msgid "Event base"
 msgstr ""
 
-#: classes/class-admin.php:97
+#: classes/class-admin.php:117
 msgid "Category base"
 msgstr ""
 
-#: classes/class-admin.php:106
+#: classes/class-admin.php:126
 msgid "Status base"
 msgstr ""
 
-#: classes/class-admin.php:137
+#: classes/class-admin.php:159
 msgid "Pronamic Events Settings"
 msgstr ""
 
-#: classes/class-admin.php:138
+#: classes/class-admin.php:160
 msgid "Settings"
 msgstr ""
 
-#: classes/class-admin.php:191
+#: classes/class-admin.php:220
 msgid "&mdash; Select Status &mdash;"
 msgstr ""
 
-#: classes/class-admin.php:240
+#: classes/class-admin.php:269
 msgid "Event Details"
 msgstr ""
 

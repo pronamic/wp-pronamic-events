@@ -144,6 +144,12 @@ class Pronamic_Events_RepeatModule_Admin {
 			foreach ( $data as $e ) {
 				$hash_code = $e->get_event_hash_code();
 
+				$post_name = $post->post_name;
+
+				if ( get_option( 'pronamic_event_repeat_slug_date_format' ) ) {
+					$post_name = sanitize_title( $post->post_title . '-' . $e->get_start()->format( get_option( 'pronamic_event_repeat_slug_date_format' ) ) );
+				}
+
 				$post_data = array(
 					'post_title'   => $post->post_title,
 					'post_content' => $post->post_content,
@@ -151,6 +157,7 @@ class Pronamic_Events_RepeatModule_Admin {
 					'post_parent'  => $post->ID,
 					'post_status'  => $post->post_status,
 					'post_type'    => $post->post_type,
+					'post_name'    => $post_name,
 				);
 
 				if ( ! isset( $repeat_events[ $hash_code ] ) ) {

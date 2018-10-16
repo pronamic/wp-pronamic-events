@@ -73,6 +73,26 @@ class Pronamic_Events_Plugin_Admin {
 			array( 'label_for' => 'pronamic_event_status_passed' ) // args
 		);
 
+		// Repeat
+		add_settings_section(
+			'pronamic_events_repeat', // id
+			__( 'Repeat', 'pronamic-events' ), // title
+			'__return_false', // callback
+			'pronamic_events' // page
+		);
+
+		add_settings_field(
+			'pronamic_event_repeat_slug_date_format', // id
+			__( 'Date format slug', 'pronamic-events' ), // title
+			array( $this, 'input_text' ), // callback
+			'pronamic_events', // page
+			'pronamic_events_repeat', // section
+			array(
+				'label_for'   => 'pronamic_event_repeat_slug_date_format',
+				'description' => __( 'Use date_i18n() format. E.g. d-m-Y.', 'pronamic-events' ),
+			)
+		);
+
 		// Permalinks
 		// Un we can't add the permalink options to permalink settings page
 		// @see http://core.trac.wordpress.org/ticket/9296
@@ -113,6 +133,8 @@ class Pronamic_Events_Plugin_Admin {
 		// Register settings
 		register_setting( 'pronamic_events', 'pronamic_event_status_upcoming' );
 		register_setting( 'pronamic_events', 'pronamic_event_status_passed' );
+
+		register_setting( 'pronamic_events', 'pronamic_event_repeat_slug_date_format' );
 
 		register_setting( 'pronamic_events', 'pronamic_event_base' );
 		register_setting( 'pronamic_events', 'pronamic_event_category_base' );
@@ -179,6 +201,13 @@ class Pronamic_Events_Plugin_Admin {
 			esc_attr( get_option( $args['label_for'] ) ),
 			'regular-text code'
 		);
+
+		if ( isset( $args['description'] ) ) {
+			printf(
+				'<p class="description">%s</p>',
+				esc_html( $args['description'] )
+			);
+		}
 	}
 
 	/**

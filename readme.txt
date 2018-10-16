@@ -70,6 +70,9 @@ Upload the Pronamic Events folder to your wp-content/plugins folder.
 
 == Changelog ==
 
+= 1.2.5 =
+*	Feature - Custom date slug support for repeatable events.
+
 = 1.2.3 =
 *	Fixed - Make sure to check if $status is a array `get_the_terms ` can also return `false` or a `WP_Error`.
 *	Tweak - Improved support for non public post types and make sure to add start and end date columns after title column.

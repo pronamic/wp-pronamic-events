@@ -4,6 +4,10 @@
         {
             "name": "Remco Tolsma",
             "email": "info@remcotolsma.nl"
+        },
+        {
+            "name": "Karel-Jan Tolsma",
+            "email": "info@kareljantolsma.nl"
         }
     ],
 	"autoload": {
