@@ -26,8 +26,10 @@ class Pronamic_WP_Event implements Pronamic_DateEventInterface {
 	//////////////////////////////////////////////////
 
 	public function get_event_hash_code() {
-		$start_date = pronamic_get_the_start_date( 'U', $this->post->ID );
-		$end_date   = pronamic_get_the_end_date( 'U', $this->post->ID );
+		$format = apply_filters( 'pronamic_events_hash_code_format', 'U' );
+
+		$start_date = pronamic_get_the_start_date( $format, $this->post->ID );
+		$end_date   = pronamic_get_the_end_date( $format, $this->post->ID );
 
 		$hash_code = '' . $start_date . '-' . $end_date;
 

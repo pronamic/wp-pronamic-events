@@ -27,6 +27,10 @@ if ( $all_day ) {
 	$time_style = 'display: none;';
 }
 
+$event = new Pronamic_WP_Event( $post );
+
+$repeat_helper = new Pronamic_Events_RepeatEventHelper( $event );
+
 ?>
 
 <table class="form-table">
@@ -52,6 +56,15 @@ if ( $all_day ) {
 
 						<?php esc_html_e( 'All day', 'pronamic-events' ); ?>
 					</label>
+
+					<?php if ( $repeat_helper->is_repeat_enabled() ) : ?>
+						<label for="pronamic_event_update_existing">
+							<input type="checkbox" id="pronamic_event_update_existing" name="pronamic_event_update_existing" />
+
+							<?php esc_html_e( 'Update existing events', 'pronamic-events' ); ?>
+						</label>
+
+					<?php endif; ?>
 				</div>
 			</td>
 		</tr>

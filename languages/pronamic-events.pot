@@ -1,52 +1,56 @@
-# Copyright (C) 2018 Pronamic
+# Copyright (C) 2019 Pronamic
 # This file is distributed under the GPL.
 msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Events 1.2.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-events\n"
-"POT-Creation-Date: 2018-10-16 11:11:18+00:00\n"
+"POT-Creation-Date: 2019-04-25 15:03:28+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n1.0.2\n"
 
-#: admin/meta-box-event-details.php:36 templates/archive-pronamic_event.php:23
+#: admin/meta-box-event-details.php:40 templates/archive-pronamic_event.php:23
 msgid "Date"
 msgstr ""
 
-#: admin/meta-box-event-details.php:43
+#: admin/meta-box-event-details.php:47
 msgid "to"
 msgstr ""
 
-#: admin/meta-box-event-details.php:53
+#: admin/meta-box-event-details.php:57
 msgid "All day"
 msgstr ""
 
-#: admin/meta-box-event-details.php:63
+#: admin/meta-box-event-details.php:64
+msgid "Update existing events"
+msgstr ""
+
+#: admin/meta-box-event-details.php:76
 msgid "Share"
 msgstr ""
 
-#: admin/meta-box-event-details.php:69
+#: admin/meta-box-event-details.php:82
 msgid "iCalendar"
 msgstr ""
 
-#: admin/meta-box-event-details.php:70
+#: admin/meta-box-event-details.php:83
 msgid "Google Calendar"
 msgstr ""
 
-#: admin/meta-box-event-details.php:71
+#: admin/meta-box-event-details.php:84
 msgid "Yahoo Calendar"
 msgstr ""
 
-#: admin/meta-box-event-details.php:97 templates/archive-pronamic_event.php:55
+#: admin/meta-box-event-details.php:110 templates/archive-pronamic_event.php:55
 #: templates/single-pronamic_event.php:23
 msgid "Location"
 msgstr ""
 
-#: admin/meta-box-event-details.php:102 templates/archive-pronamic_event.php:56
+#: admin/meta-box-event-details.php:115 templates/archive-pronamic_event.php:56
 #: templates/single-pronamic_event.php:30
 msgid "Website"
 msgstr ""
@@ -92,7 +96,7 @@ msgid "This event is part of a <a href=\"%s\">repeated series</a>."
 msgstr ""
 
 #: admin/meta-box-event-repeat.php:66 classes/class-admin.php:79
-#: classes/class-repeat-module-admin.php:273
+#: classes/class-repeat-module-admin.php:287
 msgid "Repeat"
 msgstr ""
 

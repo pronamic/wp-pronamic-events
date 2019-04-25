@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Events\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-events\n"
-"POT-Creation-Date: 2018-03-06 12:30:15+00:00\n"
+"POT-Creation-Date: 2019-04-25 15:03:28+00:00\n"
 "PO-Revision-Date: 2013-11-13 12:11+0100\n"
 "Last-Translator: \n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
@@ -22,44 +22,48 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 
 # @ pronamic_events
-#: admin/meta-box-event-details.php:36 templates/archive-pronamic_event.php:23
+#: admin/meta-box-event-details.php:40 templates/archive-pronamic_event.php:23
 #, fuzzy
 msgid "Date"
 msgstr "Date de fin"
 
-#: admin/meta-box-event-details.php:43
+#: admin/meta-box-event-details.php:47
 msgid "to"
 msgstr ""
 
-#: admin/meta-box-event-details.php:53
+#: admin/meta-box-event-details.php:57
 msgid "All day"
 msgstr ""
 
-#: admin/meta-box-event-details.php:63
+#: admin/meta-box-event-details.php:64
+msgid "Update existing events"
+msgstr ""
+
+#: admin/meta-box-event-details.php:76
 msgid "Share"
 msgstr ""
 
-#: admin/meta-box-event-details.php:69
+#: admin/meta-box-event-details.php:82
 msgid "iCalendar"
 msgstr ""
 
-#: admin/meta-box-event-details.php:70
+#: admin/meta-box-event-details.php:83
 msgid "Google Calendar"
 msgstr ""
 
-#: admin/meta-box-event-details.php:71
+#: admin/meta-box-event-details.php:84
 msgid "Yahoo Calendar"
 msgstr ""
 
 # @ pronamic_events
-#: admin/meta-box-event-details.php:97 templates/archive-pronamic_event.php:55
+#: admin/meta-box-event-details.php:110 templates/archive-pronamic_event.php:55
 #: templates/single-pronamic_event.php:23
 #, fuzzy
 msgid "Location"
 msgstr "Lieu:"
 
 # @ pronamic_events
-#: admin/meta-box-event-details.php:102 templates/archive-pronamic_event.php:56
+#: admin/meta-box-event-details.php:115 templates/archive-pronamic_event.php:56
 #: templates/single-pronamic_event.php:30
 #, fuzzy
 msgid "Website"
@@ -105,7 +109,8 @@ msgstr ""
 msgid "This event is part of a <a href=\"%s\">repeated series</a>."
 msgstr ""
 
-#: admin/meta-box-event-repeat.php:66 classes/class-repeat-module-admin.php:266
+#: admin/meta-box-event-repeat.php:66 classes/class-admin.php:79
+#: classes/class-repeat-module-admin.php:287
 msgid "Repeat"
 msgstr ""
 
@@ -156,13 +161,13 @@ msgid "Title"
 msgstr "Titre:"
 
 # @ pronamic_events
-#: admin/meta-box-event-repeats.php:22 classes/class-admin.php:354
+#: admin/meta-box-event-repeats.php:22 classes/class-admin.php:383
 #: templates/single-pronamic_event.php:15
 msgid "Start Date"
 msgstr "Date de départ"
 
 # @ pronamic_events
-#: admin/meta-box-event-repeats.php:23 classes/class-admin.php:355
+#: admin/meta-box-event-repeats.php:23 classes/class-admin.php:384
 #: templates/single-pronamic_event.php:18
 msgid "End Date"
 msgstr "Date de fin"
@@ -179,19 +184,19 @@ msgstr "Lieu:"
 
 # @ pronamic_events
 #: admin/meta-box-event-repeats.php:42 admin/meta-box-event-repeats.php:58
-#: classes/class-admin.php:409 classes/class-admin.php:425
+#: classes/class-admin.php:438 classes/class-admin.php:454
 msgid "Y/m/d g:i:s A"
 msgstr "an/mois/jour g:i:s A"
 
 # @ pronamic_events
 #: admin/meta-box-event-repeats.php:43 admin/meta-box-event-repeats.php:59
-#: classes/class-admin.php:410 classes/class-admin.php:426
+#: classes/class-admin.php:439 classes/class-admin.php:455
 msgid "Y/m/d"
 msgstr "an/mois/jour "
 
 # @ pronamic_events
 #: admin/meta-box-event-repeats.php:44 admin/meta-box-event-repeats.php:60
-#: classes/class-admin.php:411 classes/class-admin.php:427
+#: classes/class-admin.php:440 classes/class-admin.php:456
 msgid "g:i:s"
 msgstr "H:i"
 
@@ -231,40 +236,48 @@ msgstr "Réglages des évènements"
 msgid "Passed Event Status "
 msgstr "Départ de l'évènement"
 
+#: classes/class-admin.php:86
+msgid "Date format slug"
+msgstr ""
+
+#: classes/class-admin.php:92
+msgid "Use date_i18n() format. E.g. d-m-Y."
+msgstr ""
+
 # @ pronamic_events
-#: classes/class-admin.php:81
+#: classes/class-admin.php:101
 msgid "Permalinks"
 msgstr "Liens permanents"
 
 # @ pronamic_events
-#: classes/class-admin.php:88
+#: classes/class-admin.php:108
 msgid "Event base"
 msgstr "Base d'Evènements"
 
-#: classes/class-admin.php:97
+#: classes/class-admin.php:117
 msgid "Category base"
 msgstr ""
 
-#: classes/class-admin.php:106
+#: classes/class-admin.php:126
 msgid "Status base"
 msgstr ""
 
 # @ pronamic_events
-#: classes/class-admin.php:137
+#: classes/class-admin.php:159
 msgid "Pronamic Events Settings"
 msgstr "Réglages des évènements"
 
 # @ pronamic_events
-#: classes/class-admin.php:138
+#: classes/class-admin.php:160
 msgid "Settings"
 msgstr "Réglages"
 
-#: classes/class-admin.php:191
+#: classes/class-admin.php:220
 msgid "&mdash; Select Status &mdash;"
 msgstr ""
 
 # @ pronamic_events
-#: classes/class-admin.php:240
+#: classes/class-admin.php:269
 msgid "Event Details"
 msgstr "details d'évènement "
 

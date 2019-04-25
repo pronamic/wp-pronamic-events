@@ -66,7 +66,9 @@ class Pronamic_DateEvent implements Pronamic_DateEventInterface {
 	 * @see Pronamic_DateEventInterface::get_event_hash_code()
 	 */
 	public function get_event_hash_code() {
-		$hash_code = '' . $this->start->format( 'U' ) . '-' . $this->end->format( 'U' );
+		$format = apply_filters( 'pronamic_events_hash_code_format', 'U' );
+
+		$hash_code = '' . $this->start->format( $format ) . '-' . $this->end->format( $format );
 
 		return $hash_code;
 	}

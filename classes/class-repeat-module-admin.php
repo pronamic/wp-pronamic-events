@@ -123,6 +123,11 @@ class Pronamic_Events_RepeatModule_Admin {
 	 * @param string $post_id
 	 */
 	public function save_repeats( $post_id ) {
+		// Add filters.
+		if ( filter_input( INPUT_POST, 'pronamic_event_update_existing', FILTER_VALIDATE_BOOLEAN ) ) {
+			add_filter( 'pronamic_events_hash_code_format', array( $this, 'hash_code_format_ymd' ) );
+		}
+
 		// Create repeated posts
 		$post  = get_post( $post_id );
 
@@ -162,22 +167,24 @@ class Pronamic_Events_RepeatModule_Admin {
 
 				if ( ! isset( $repeat_events[ $hash_code ] ) ) {
 					$repeat_post_id = wp_insert_post( $post_data );
-
-					$start_timestamp = $e->get_start()->format( 'U' );
-					$end_timestamp   = $e->get_end()->format( 'U' );
-
-					$meta = array();
-
-					$meta = pronamic_events_get_start_date_meta( $start_timestamp, $meta );
-					$meta = pronamic_events_get_end_date_meta( $end_timestamp, $meta );
-
-					// Save meta data
-					foreach ( $meta as $key => $value ) {
-						update_post_meta( $repeat_post_id, $key, $value );
-					}
-
-					$this->plugin->admin->schedule_status_update( $repeat_post_id, $end_timestamp );
+				} else {
+					$repeat_post_id = $repeat_events[ $hash_code ]->post->ID;
 				}
+
+				$start_timestamp = $e->get_start()->format( 'U' );
+				$end_timestamp   = $e->get_end()->format( 'U' );
+
+				$meta = array();
+
+				$meta = pronamic_events_get_start_date_meta( $start_timestamp, $meta );
+				$meta = pronamic_events_get_end_date_meta( $end_timestamp, $meta );
+
+				// Save meta data
+				foreach ( $meta as $key => $value ) {
+					update_post_meta( $repeat_post_id, $key, $value );
+				}
+
+				$this->plugin->admin->schedule_status_update( $repeat_post_id, $end_timestamp );
 			}
 
 			/*
@@ -255,11 +262,18 @@ class Pronamic_Events_RepeatModule_Admin {
 				}
 			}
 
+			// Remove filters.
+			remove_filter( 'pronamic_events_hash_code_format', array( $this, 'hash_code_format_ymd' ) );
+
 			// Add filters
 			add_filter( 'save_post', array( $this->plugin->admin, 'save_post' ) );
 			add_filter( 'save_post', array( $this, 'save_post' ) );
 			add_filter( 'save_post', array( $this, 'save_repeats' ) );
 		}
+	}
+
+	public function hash_code_format_ymd() {
+		return 'Ymd';
 	}
 
 	//////////////////////////////////////////////////

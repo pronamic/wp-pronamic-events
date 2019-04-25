@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Events\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-events\n"
-"POT-Creation-Date: 2018-10-16 11:11:18+00:00\n"
-"PO-Revision-Date: 2018-10-16 13:12+0200\n"
-"Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
+"POT-Creation-Date: 2019-04-25 15:03:28+00:00\n"
+"PO-Revision-Date: 2019-04-25 17:04+0200\n"
+"Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
 "MIME-Version: 1.0\n"
@@ -14,40 +14,44 @@ msgstr ""
 "X-Generator: Poedit 2.2\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: admin/meta-box-event-details.php:36 templates/archive-pronamic_event.php:23
+#: admin/meta-box-event-details.php:40 templates/archive-pronamic_event.php:23
 msgid "Date"
 msgstr "Datum"
 
-#: admin/meta-box-event-details.php:43
+#: admin/meta-box-event-details.php:47
 msgid "to"
 msgstr "t/m"
 
-#: admin/meta-box-event-details.php:53
+#: admin/meta-box-event-details.php:57
 msgid "All day"
 msgstr "Gehele dag"
 
-#: admin/meta-box-event-details.php:63
+#: admin/meta-box-event-details.php:64
+msgid "Update existing events"
+msgstr "Bestaande evenementen bijwerken"
+
+#: admin/meta-box-event-details.php:76
 msgid "Share"
 msgstr "Deel"
 
-#: admin/meta-box-event-details.php:69
+#: admin/meta-box-event-details.php:82
 msgid "iCalendar"
 msgstr "iCalendar"
 
-#: admin/meta-box-event-details.php:70
+#: admin/meta-box-event-details.php:83
 msgid "Google Calendar"
 msgstr "Google Calendar"
 
-#: admin/meta-box-event-details.php:71
+#: admin/meta-box-event-details.php:84
 msgid "Yahoo Calendar"
 msgstr "Yahoo Calendar"
 
-#: admin/meta-box-event-details.php:97 templates/archive-pronamic_event.php:55
+#: admin/meta-box-event-details.php:110 templates/archive-pronamic_event.php:55
 #: templates/single-pronamic_event.php:23
 msgid "Location"
 msgstr "Locatie"
 
-#: admin/meta-box-event-details.php:102 templates/archive-pronamic_event.php:56
+#: admin/meta-box-event-details.php:115 templates/archive-pronamic_event.php:56
 #: templates/single-pronamic_event.php:30
 msgid "Website"
 msgstr "Website"
@@ -93,7 +97,7 @@ msgid "This event is part of a <a href=\"%s\">repeated series</a>."
 msgstr "Dit evenement is onderdeel van een <a href=\"%s\">herhaalde reeks</a>."
 
 #: admin/meta-box-event-repeat.php:66 classes/class-admin.php:79
-#: classes/class-repeat-module-admin.php:273
+#: classes/class-repeat-module-admin.php:287
 msgid "Repeat"
 msgstr "Herhalen"
 
