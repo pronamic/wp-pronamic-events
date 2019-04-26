@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Events 1.2.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-events\n"
-"POT-Creation-Date: 2019-04-25 15:03:28+00:00\n"
+"POT-Creation-Date: 2019-04-26 07:05:54+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,32 +25,32 @@ msgstr ""
 msgid "All day"
 msgstr ""
 
-#: admin/meta-box-event-details.php:64
-msgid "Update existing events"
+#: admin/meta-box-event-details.php:66
+msgid "Update time of existing event repeats"
 msgstr ""
 
-#: admin/meta-box-event-details.php:76
+#: admin/meta-box-event-details.php:78
 msgid "Share"
 msgstr ""
 
-#: admin/meta-box-event-details.php:82
+#: admin/meta-box-event-details.php:84
 msgid "iCalendar"
 msgstr ""
 
-#: admin/meta-box-event-details.php:83
+#: admin/meta-box-event-details.php:85
 msgid "Google Calendar"
 msgstr ""
 
-#: admin/meta-box-event-details.php:84
+#: admin/meta-box-event-details.php:86
 msgid "Yahoo Calendar"
 msgstr ""
 
-#: admin/meta-box-event-details.php:110 templates/archive-pronamic_event.php:55
+#: admin/meta-box-event-details.php:112 templates/archive-pronamic_event.php:55
 #: templates/single-pronamic_event.php:23
 msgid "Location"
 msgstr ""
 
-#: admin/meta-box-event-details.php:115 templates/archive-pronamic_event.php:56
+#: admin/meta-box-event-details.php:117 templates/archive-pronamic_event.php:56
 #: templates/single-pronamic_event.php:30
 msgid "Website"
 msgstr ""
@@ -96,7 +96,7 @@ msgid "This event is part of a <a href=\"%s\">repeated series</a>."
 msgstr ""
 
 #: admin/meta-box-event-repeat.php:66 classes/class-admin.php:79
-#: classes/class-repeat-module-admin.php:287
+#: classes/class-repeat-module-admin.php:291
 msgid "Repeat"
 msgstr ""
 

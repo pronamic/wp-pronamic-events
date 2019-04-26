@@ -56,12 +56,14 @@ $repeat_helper = new Pronamic_Events_RepeatEventHelper( $event );
 
 						<?php esc_html_e( 'All day', 'pronamic-events' ); ?>
 					</label>
+				</div>
 
+				<div>
 					<?php if ( $repeat_helper->is_repeat_enabled() ) : ?>
 						<label for="pronamic_event_update_existing">
 							<input type="checkbox" id="pronamic_event_update_existing" name="pronamic_event_update_existing" />
 
-							<?php esc_html_e( 'Update existing events', 'pronamic-events' ); ?>
+							<?php esc_html_e( 'Update time of existing event repeats', 'pronamic-events' ); ?>
 						</label>
 
 					<?php endif; ?>
