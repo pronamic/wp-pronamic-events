@@ -124,7 +124,9 @@ class Pronamic_Events_RepeatModule_Admin {
 	 */
 	public function save_repeats( $post_id ) {
 		// Add filters.
-		if ( filter_input( INPUT_POST, 'pronamic_event_update_existing', FILTER_VALIDATE_BOOLEAN ) ) {
+		$update_existing = filter_input( INPUT_POST, 'pronamic_event_update_existing', FILTER_VALIDATE_BOOLEAN );
+
+		if ( $update_existing ) {
 			add_filter( 'pronamic_events_hash_code_format', array( $this, 'hash_code_format_ymd' ) );
 		}
 
@@ -167,8 +169,10 @@ class Pronamic_Events_RepeatModule_Admin {
 
 				if ( ! isset( $repeat_events[ $hash_code ] ) ) {
 					$repeat_post_id = wp_insert_post( $post_data );
-				} else {
+				} elseif ( $update_existing ) {
 					$repeat_post_id = $repeat_events[ $hash_code ]->post->ID;
+				} else {
+					continue;
 				}
 
 				$start_timestamp = $e->get_start()->format( 'U' );
