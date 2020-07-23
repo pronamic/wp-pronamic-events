@@ -18,7 +18,12 @@ class Pronamic_Events_Plugin {
 	 */
 	public $dirname;
 
-	//////////////////////////////////////////////////
+	/**
+	 * Schema.org module.
+	 *
+	 * @var Pronamic_Events_Schema_Module
+	 */
+	protected $schema_module;
 
 	/**
 	 * Constructs and initializes an Pronamic Events plugin
@@ -74,6 +79,9 @@ class Pronamic_Events_Plugin {
 			// Share endpoint
 			$this->share_endpoints = new Pronamic_Events_ShareEndpoints( $this );
 		}
+
+		// Schema.org data module integration through WordPress SEO plugin.
+		$this->schema_module = new Pronamic_Events_Schema_Module();
 	}
 
 	//////////////////////////////////////////////////
