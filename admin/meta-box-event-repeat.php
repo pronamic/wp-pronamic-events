@@ -42,6 +42,7 @@ $ends_on_until = get_post_meta( $post->ID, '_pronamic_event_ends_on_until', true
 
 		echo wp_kses(
 			sprintf(
+				/* translators: %s: post parent edit URL */
 				__( 'This event is part of a <a href="%s">repeated series</a>.', 'pronamic-events' ),
 				esc_attr( get_edit_post_link( $post->post_parent ) )
 			),
@@ -149,17 +150,18 @@ $ends_on_until = get_post_meta( $post->ID, '_pronamic_event_ends_on_until', true
 
 						$allowed_html = array(
 							'input' => array(
-								'id'     => true,
-								'name'   => true,
-								'type'   => true,
-								'value'  => true,
-								'size'   => true,
-								'class'  => true,
+								'id'    => true,
+								'name'  => true,
+								'type'  => true,
+								'value' => true,
+								'size'  => true,
+								'class' => true,
 							),
 						);
 
 						echo wp_kses(
 							sprintf(
+								/* translators: %s: input field */
 								__( 'After %s instances', 'pronamic-events' ),
 								sprintf( '<input type="text" name="_pronamic_event_ends_on_count" value="%s" size="2"  />', esc_attr( $ends_on_count ) )
 							),
@@ -176,6 +178,7 @@ $ends_on_until = get_post_meta( $post->ID, '_pronamic_event_ends_on_until', true
 
 						echo wp_kses(
 							sprintf(
+								/* translators: %s: input field */
 								__( 'Until %s', 'pronamic-events' ),
 								sprintf( '<input class="pronamic_date" type="text" id="pronamic_event_ends_on_until" name="_pronamic_event_ends_on_until" value="%s" size="14"  />', esc_attr( $ends_on_until ) )
 							),
@@ -193,7 +196,21 @@ $ends_on_until = get_post_meta( $post->ID, '_pronamic_event_ends_on_until', true
 				<td>
 					<?php echo esc_html( $repeat_helper->get_number_repeats() ); ?>
 
-					<span class="description"><br /><?php printf( esc_html__( 'Note: Due to performance there is currently an maximum of %d repeats.', 'pronamic-events' ), esc_html( Pronamic_Events_RepeatModule::MAX_REPEATS ) ); ?></span>
+					<span class="description">
+						<br />
+
+						<?php
+
+						echo esc_html(
+							sprintf(
+								/* translators: %d: maximum number of repeats */
+								__( 'Note: Due to performance there is currently an maximum of %d repeats.', 'pronamic-events' ),
+								Pronamic_Events_RepeatModule::MAX_REPEATS
+							)
+						);
+
+						?>
+					</span>
 				</td>
 			</tr>
 		</tbody>

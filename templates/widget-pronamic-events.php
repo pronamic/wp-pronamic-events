@@ -1,7 +1,8 @@
 <?php
 
 if ( ! empty( $title ) ) {
-	echo $args['before_title'] . $title . $args['after_title']; // WPCS: XSS ok.
+	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	echo $args['before_title'] . $title . $args['after_title'];
 }
 
 ?>
@@ -10,10 +11,15 @@ if ( ! empty( $title ) ) {
 
 	<ul>
 
-		<?php while ( have_posts() ) : the_post(); ?>
+		<?php
+
+		while ( have_posts() ) :
+			the_post();
+
+			?>
 
 			<li>
-				<a href="<?php the_permalink() ?>"><?php the_title(); ?></a><br />
+				<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a><br />
 
 				<?php pronamic_the_start_date(); ?> / <?php pronamic_the_end_date(); ?>
 			</li>

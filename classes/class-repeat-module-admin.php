@@ -125,7 +125,7 @@ class Pronamic_Events_RepeatModule_Admin {
 		}
 
 		// Create repeated posts
-		$post  = get_post( $post_id );
+		$post = get_post( $post_id );
 
 		$event = new Pronamic_WP_Event( $post );
 
@@ -200,22 +200,24 @@ class Pronamic_Events_RepeatModule_Admin {
 			);
 
 			// Meta
-			$ignore = array_flip( array(
-				'_edit_last',
-				'_pronamic_start_date',
-				'_pronamic_event_start_date',
-				'_pronamic_event_start_date_gmt',
-				'_pronamic_end_date',
-				'_pronamic_event_end_date',
-				'_pronamic_event_end_date_gmt',
-				'_pronamic_event_repeat',
-				'_pronamic_event_repeat_frequency',
-				'_pronamic_event_repeat_interval',
-				'_pronamic_event_ends_on',
-				'_pronamic_event_ends_on_count',
-				'_pronamic_event_ends_on_until',
-				'_edit_lock',
-			) );
+			$ignore = array_flip(
+				array(
+					'_edit_last',
+					'_pronamic_start_date',
+					'_pronamic_event_start_date',
+					'_pronamic_event_start_date_gmt',
+					'_pronamic_end_date',
+					'_pronamic_event_end_date',
+					'_pronamic_event_end_date_gmt',
+					'_pronamic_event_repeat',
+					'_pronamic_event_repeat_frequency',
+					'_pronamic_event_repeat_interval',
+					'_pronamic_event_ends_on',
+					'_pronamic_event_ends_on_count',
+					'_pronamic_event_ends_on_until',
+					'_edit_lock',
+				)
+			);
 
 			$post_custom = get_post_custom( $post->ID );
 			$post_custom = array_diff_key( $post_custom, $ignore );

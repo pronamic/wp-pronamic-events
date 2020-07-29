@@ -32,7 +32,7 @@ class Pronamic_Events_Plugin_Admin {
 	/**
 	 * Admin intialize
 	 */
-	function admin_init() {
+	public function admin_init() {
 		foreach ( get_post_types() as $post_type ) {
 			if ( post_type_supports( $post_type, 'pronamic_event' ) ) {
 				$screen_id = 'edit-' . $post_type;
@@ -208,14 +208,16 @@ class Pronamic_Events_Plugin_Admin {
 	 * @param array $args
 	 */
 	public function dropdown_statuses( $args ) {
-		wp_dropdown_categories( array(
-			'show_option_none' => __( '&mdash; Select Status &mdash;', 'pronamic-events' ),
-			'hide_empty'       => false,
-			'selected'         => get_option( $args['label_for'] ),
-			'name'             => $args['label_for'],
-			'id'               => $args['label_for'],
-			'taxonomy'         => 'pronamic_event_status',
-		) );
+		wp_dropdown_categories(
+			array(
+				'show_option_none' => __( '&mdash; Select Status &mdash;', 'pronamic-events' ),
+				'hide_empty'       => false,
+				'selected'         => get_option( $args['label_for'] ),
+				'name'             => $args['label_for'],
+				'id'               => $args['label_for'],
+				'taxonomy'         => 'pronamic_event_status',
+			)
+		);
 	}
 
 	/**
@@ -224,7 +226,14 @@ class Pronamic_Events_Plugin_Admin {
 	 * @param string $hook
 	 */
 	public function admin_enqueue_scripts() {
-		wp_enqueue_style( 'pronamic-events', plugins_url( '/admin/css/pronamic-events.css', $this->plugin->file ) );
+		global $pronamic_events_version;
+
+		wp_enqueue_style(
+			'pronamic-events',
+			plugins_url( '/admin/css/pronamic-events.css', $this->plugin->file ),
+			array(),
+			$pronamic_events_version
+		);
 
 		// Screen
 		$screen = get_current_screen();
@@ -241,7 +250,9 @@ class Pronamic_Events_Plugin_Admin {
 
 			wp_enqueue_style(
 				'wp-jquery-ui-datepicker-skins',
-				plugins_url( '/assets/wp-jquery-ui-datepicker-skins/datepicker.css', $this->plugin->file )
+				plugins_url( '/assets/wp-jquery-ui-datepicker-skins/datepicker.css', $this->plugin->file ),
+				array(),
+				$pronamic_events_version
 			);
 
 		}
@@ -411,7 +422,7 @@ class Pronamic_Events_Plugin_Admin {
 		$all_day = get_post_meta( $post_id, '_pronamic_event_all_day', true );
 
 		switch ( $column_name ) {
-			case 'pronamic_start_date' :
+			case 'pronamic_start_date':
 				// @see http://translate.wordpress.org/projects/wp/3.5.x/admin/nl/default?filters[term]=Y%2Fm%2Fd&filters[user_login]=&filters[status]=current_or_waiting_or_fuzzy_or_untranslated&filter=Filter&sort[by]=priority&sort[how]=desc
 				// @see https://github.com/WordPress/WordPress/blob/3.5.1/wp-admin/includes/class-wp-posts-list-table.php#L572
 
@@ -427,7 +438,7 @@ class Pronamic_Events_Plugin_Admin {
 
 				break;
 
-			case 'pronamic_end_date' :
+			case 'pronamic_end_date':
 				// @see http://translate.wordpress.org/projects/wp/3.5.x/admin/nl/default?filters[term]=Y%2Fm%2Fd&filters[user_login]=&filters[status]=current_or_waiting_or_fuzzy_or_untranslated&filter=Filter&sort[by]=priority&sort[how]=desc
 				// @see https://github.com/WordPress/WordPress/blob/3.5.1/wp-admin/includes/class-wp-posts-list-table.php#L572
 
@@ -443,8 +454,7 @@ class Pronamic_Events_Plugin_Admin {
 
 				break;
 
-			case 'pronamic_event_repeat' :
-
+			case 'pronamic_event_repeat':
 				$repeat = get_post_meta( $post_id, '_pronamic_event_repeat', true );
 
 				if ( $repeat || wp_get_post_parent_id( $post_id ) ) {

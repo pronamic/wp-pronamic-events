@@ -23,18 +23,22 @@
 								'date'  => __( 'Date', 'pronamic-events' ),
 							);
 
-							foreach ( $columns as $key => $text ) : ?>
+							foreach ( $columns as $key => $text ) :
+								?>
 
 								<th scope="col">
 									<?php
 
-									$link = add_query_arg( array(
-										'order'   => get_query_var( 'order' ) === 'ASC' ? 'DESC' : 'ASC',
-										'orderby' => $key,
-									) );
+									$url = add_query_arg(
+										array(
+											'order'   => get_query_var( 'order' ) === 'ASC' ? 'DESC' : 'ASC',
+											'orderby' => $key,
+										)
+									);
 
 									if ( get_query_var( 'orderby' ) === $key ) {
 										$text = sprintf(
+											/* translators: 1: column name, 2: order symbol */
 											__( '%1$s %2$s', 'pronamic-events' ),
 											esc_html( $text ),
 											get_query_var( 'order' ) === 'ASC' ? '▲' : '▼'
@@ -43,7 +47,7 @@
 
 									printf(
 										'<a href="%s">%s</a>',
-										esc_attr( $link ),
+										esc_attr( $url ),
 										esc_html( $text )
 									);
 
@@ -59,7 +63,12 @@
 
 					<tbody>
 
-						<?php while ( have_posts() ) : the_post(); ?>
+						<?php
+
+						while ( have_posts() ) :
+							the_post();
+
+							?>
 
 							<tr id="post-<?php the_ID(); ?>">
 								<td>

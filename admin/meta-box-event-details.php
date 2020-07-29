@@ -12,7 +12,7 @@ if ( pronamic_has_start_date() ) {
 
 $end_timestamp = get_post_meta( $post->ID, '_pronamic_end_date', true );
 
-if ( pronamic_has_end_date( ) ) {
+if ( pronamic_has_end_date() ) {
 	$end_date = pronamic_get_the_end_date( 'd-m-Y' );
 	$end_time = pronamic_get_the_end_date( 'H:i' );
 } else {
@@ -43,7 +43,7 @@ $repeat_helper = new Pronamic_Events_RepeatEventHelper( $event );
 				<div>
 					<input class="pronamic_date" type="text" id="pronamic_start_date" name="pronamic_start_date" value="<?php echo esc_attr( $start_date ); ?>" size="14" />
 					<input class="pronamic_time" style="<?php echo esc_attr( $time_style ); ?>" type="text" id="pronamic_start_time" name="pronamic_start_time" value="<?php echo esc_attr( $start_time ); ?>" size="6" placeholder="00:00" />
-				
+
 					<?php esc_html_e( 'to', 'pronamic-events' ); ?>
 
 					<input class="pronamic_date" type="text" id="pronamic_end_date" name="pronamic_end_date" value="<?php echo esc_attr( $end_date ); ?>" size="14"  />
@@ -96,7 +96,8 @@ $repeat_helper = new Pronamic_Events_RepeatEventHelper( $event );
 						);
 					}
 
-					echo implode( $anchors, ' | ' ); // WPCS: XSS ok.
+					// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					echo implode( ' | ', $anchors );
 
 					?>
 				</td>
@@ -112,7 +113,7 @@ $repeat_helper = new Pronamic_Events_RepeatEventHelper( $event );
 				'label'    => __( 'Location', 'pronamic-events' ),
 				'meta_key' => '_pronamic_location',
 			),
-			'website' => array(
+			'website'  => array(
 				'id'       => 'pronamic_event_url',
 				'label'    => __( 'Website', 'pronamic-events' ),
 				'meta_key' => '_pronamic_event_url',
@@ -121,7 +122,8 @@ $repeat_helper = new Pronamic_Events_RepeatEventHelper( $event );
 
 		$fields = apply_filters( 'pronamic_event_fields', $fields, $post );
 
-		foreach ( $fields as $field ) : ?>
+		foreach ( $fields as $field ) :
+			?>
 
 			<tr>
 				<th scope="row">

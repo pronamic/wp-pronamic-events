@@ -5,7 +5,7 @@
 
 global $post;
 
-$event  = new Pronamic_WP_Event( $post );
+$event = new Pronamic_WP_Event( $post );
 
 $repeat_helper = new Pronamic_Events_RepeatEventHelper( $event );
 

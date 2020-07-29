@@ -35,7 +35,9 @@ class Pronamic_Events_Widget extends WP_Widget {
 
 		$title = apply_filters( 'widget_title', $instance['title'] );
 
-		if ( empty( $instance['number'] ) || ! $number = absint( $instance['number'] ) ) {
+		$number = absint( $instance['number'] );
+
+		if ( empty( $instance['number'] ) ) {
 			$number = 10;
 		}
 
@@ -43,19 +45,22 @@ class Pronamic_Events_Widget extends WP_Widget {
 		$original_query = $wp_query;
 
 		$wp_query = null;
-		$wp_query = new WP_Query( array(
-			'post_type'           => 'pronamic_event',
-			'posts_per_page'      => $number,
-			'no_found_rows'       => true,
-			'post_status'         => 'publish',
-			'ignore_sticky_posts' => true,
-		) );
+		$wp_query = new WP_Query(
+			array(
+				'post_type'           => 'pronamic_event',
+				'posts_per_page'      => $number,
+				'no_found_rows'       => true,
+				'post_status'         => 'publish',
+				'ignore_sticky_posts' => true,
+			)
+		);
 
 		// Start output
-		$templates = array();
-		$templates[] = 'widget-pronamic-events-' . $args['id'] . '.php';
-		$templates[] = 'widget-pronamic-events-' . $args['widget_id'] . '.php';
-		$templates[] = 'widget-pronamic-events.php';
+		$templates = array(
+			'widget-pronamic-events-' . $args['id'] . '.php',
+			'widget-pronamic-events-' . $args['widget_id'] . '.php',
+			'widget-pronamic-events.php',
+		);
 
 		$template = locate_template( $templates );
 
@@ -63,11 +68,13 @@ class Pronamic_Events_Widget extends WP_Widget {
 			$template = $pronamic_events_plugin->dirname . '/templates/widget-pronamic-events.php';
 		}
 
-		echo $args['before_widget']; // WPCS: XSS ok.
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo $args['before_widget'];
 
 		include $template;
 
-		echo $args['after_widget']; // WPCS: XSS ok.
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo $args['after_widget'];
 
 		// Query reset
 		$wp_query = null;
@@ -91,7 +98,7 @@ class Pronamic_Events_Widget extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
 
-		$instance['title']  = strip_tags( $new_instance['title'] );
+		$instance['title']  = wp_strip_all_tags( $new_instance['title'] );
 		$instance['number'] = (int) $new_instance['number'];
 
 		return $instance;
@@ -105,7 +112,7 @@ class Pronamic_Events_Widget extends WP_Widget {
 	 * @param array $instance Previously saved values from database.
 	 */
 	public function form( $instance ) {
-		$title = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
+		$title  = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
 		$number = isset( $instance['number'] ) ? absint( $instance['number'] ) : 5;
 
 		?>

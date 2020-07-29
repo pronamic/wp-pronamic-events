@@ -11,18 +11,18 @@ class Pronamic_Events_Schema_Event extends Yoast\WP\SEO\Generators\Schema\Abstra
 	/**
 	 * Event attendance mode.
 	 */
-	const SCHEMA_MIXED_ATTENDANCE_MODE = 'https://schema.org/MixedEventAttendanceMode';
+	const SCHEMA_MIXED_ATTENDANCE_MODE   = 'https://schema.org/MixedEventAttendanceMode';
 	const SCHEMA_OFFLINE_ATTENDANCE_MODE = 'https://schema.org/OfflineEventAttendanceMode';
-	const SCHEMA_ONLINE_ATTENDANCE_MODE = 'https://schema.org/OnlineEventAttendanceMode';
+	const SCHEMA_ONLINE_ATTENDANCE_MODE  = 'https://schema.org/OnlineEventAttendanceMode';
 
 	/**
 	 * Event status type.
 	 */
-	const SCHEMA_EVENT_STATUS_CANCELLED = 'https://schema.org/EventCancelled';
+	const SCHEMA_EVENT_STATUS_CANCELLED    = 'https://schema.org/EventCancelled';
 	const SCHEMA_EVENT_STATUS_MOVED_ONLINE = 'https://schema.org/EventMovedOnline';
-	const SCHEMA_EVENT_STATUS_POSTPONED = 'https://schema.org/EventPostponed';
-	const SCHEMA_EVENT_STATUS_RESCHEDULED = 'https://schema.org/EventRescheduled';
-	const SCHEMA_EVENT_STATUS_SCHEDULED = 'https://schema.org/EventScheduled';
+	const SCHEMA_EVENT_STATUS_POSTPONED    = 'https://schema.org/EventPostponed';
+	const SCHEMA_EVENT_STATUS_RESCHEDULED  = 'https://schema.org/EventRescheduled';
+	const SCHEMA_EVENT_STATUS_SCHEDULED    = 'https://schema.org/EventScheduled';
 
 	/**
 	 * WordPress SEO context object.

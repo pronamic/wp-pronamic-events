@@ -82,20 +82,23 @@ class Pronamic_Events_ShareEndpoints {
 	 * @see http://stackoverflow.com/questions/22757908/google-calendar-render-action-template-parameter-documentation
 	 */
 	private function share_google_calendar() {
-		$start = $this->get_start_date( );
-		$end   = $this->get_end_date( );
+		$start = $this->get_start_date();
+		$end   = $this->get_end_date();
 
 		if ( false === $start || false === $end ) {
 			return;
 		}
 
-		$url = add_query_arg( array(
-			'action'   => 'TEMPLATE',
-			'text'     => get_the_title(),
-			'dates'    => '' . $start->format( 'Ymd\THis\Z' ) . '/' . $end->format( 'Ymd\THis\Z' ),
-			'details'  => get_the_content(),
-			'location' => pronamic_get_the_location(),
-		), 'https://www.google.com/calendar/render' );
+		$url = add_query_arg(
+			array(
+				'action'   => 'TEMPLATE',
+				'text'     => get_the_title(),
+				'dates'    => '' . $start->format( 'Ymd\THis\Z' ) . '/' . $end->format( 'Ymd\THis\Z' ),
+				'details'  => get_the_content(),
+				'location' => pronamic_get_the_location(),
+			),
+			'https://www.google.com/calendar/render'
+		);
 
 		wp_redirect( $url );
 
@@ -108,8 +111,8 @@ class Pronamic_Events_ShareEndpoints {
 	 * @see http://taskboy.com/blog/Creating_events_for_Yahoo_and_Google_calendars.html
 	 */
 	private function share_yahoo_calendar() {
-		$start = $this->get_start_date( );
-		$end   = $this->get_end_date( );
+		$start = $this->get_start_date();
+		$end   = $this->get_end_date();
 
 		if ( false === $start || false === $end ) {
 			return;
@@ -120,16 +123,19 @@ class Pronamic_Events_ShareEndpoints {
 		$hours   = floor( $seconds / 3600 );
 		$minutes = floor( ( $seconds - ( $hours * 3600 ) ) / 60 );
 
-		$url = add_query_arg( array(
-			'v'      => '60',
-			'view'   => 'd',
-			'type'   => '20',
-			'title'  => get_the_title(),
-			'st'     => $start->format( 'Ymd\THis\Z' ),
-			'dur'    => '' . sprintf( '%02d', $hours ) . sprintf( '%02d', $minutes ),
-			'desc'   => get_the_content(),
-			'in_loc' => pronamic_get_the_location(),
-		), 'http://calendar.yahoo.com/' );
+		$url = add_query_arg(
+			array(
+				'v'      => '60',
+				'view'   => 'd',
+				'type'   => '20',
+				'title'  => get_the_title(),
+				'st'     => $start->format( 'Ymd\THis\Z' ),
+				'dur'    => '' . sprintf( '%02d', $hours ) . sprintf( '%02d', $minutes ),
+				'desc'   => get_the_content(),
+				'in_loc' => pronamic_get_the_location(),
+			),
+			'http://calendar.yahoo.com/'
+		);
 
 		wp_redirect( $url );
 
@@ -140,8 +146,8 @@ class Pronamic_Events_ShareEndpoints {
 	 * Share iCalendar.
 	 */
 	private function share_icalendar() {
-		$start = $this->get_start_date( );
-		$end   = $this->get_end_date( );
+		$start = $this->get_start_date();
+		$end   = $this->get_end_date();
 
 		if ( false === $start || false === $end ) {
 			return;
@@ -149,20 +155,23 @@ class Pronamic_Events_ShareEndpoints {
 
 		$post = get_post();
 
-		$vcalendar = new \Sabre\VObject\Component\VCalendar( array(
-			'VEVENT' => array(
-				'SUMMARY'     => get_the_title(),
-				'DTSTART'     => $start,
-				'DTEND'       => $end,
-				'DESCRIPTION' => get_the_content(),
-				'LOCATION'    => pronamic_get_the_location(),
-			),
-		) );
+		$vcalendar = new \Sabre\VObject\Component\VCalendar(
+			array(
+				'VEVENT' => array(
+					'SUMMARY'     => get_the_title(),
+					'DTSTART'     => $start,
+					'DTEND'       => $end,
+					'DESCRIPTION' => get_the_content(),
+					'LOCATION'    => pronamic_get_the_location(),
+				),
+			)
+		);
 
 		header( 'Content-Type: text/calendar; charset=' . get_option( 'blog_charset' ) );
 		header( 'Content-Disposition: inline; filename=' . $post->post_name . '.ics' );
 
-		echo $vcalendar->serialize(); // WPCS: XSS ok.
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo $vcalendar->serialize();
 
 		exit;
 	}
@@ -180,11 +189,11 @@ class Pronamic_Events_ShareEndpoints {
 		}
 
 		switch ( $share ) {
-			case 'icalendar' :
+			case 'icalendar':
 				return $this->share_icalendar();
-			case 'google-calendar' :
+			case 'google-calendar':
 				return $this->share_google_calendar();
-			case 'yahoo-calendar' :
+			case 'yahoo-calendar':
 				return $this->share_yahoo_calendar();
 		}
 	}

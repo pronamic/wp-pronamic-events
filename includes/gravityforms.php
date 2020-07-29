@@ -39,7 +39,8 @@ function pronamic_events_gform_field_advanced_settings( $position ) {
 			</label>
 		</li>
 
-	<?php endif;
+		<?php
+	endif;
 }
 
 add_action( 'gform_field_advanced_settings', 'pronamic_events_gform_field_advanced_settings' );
@@ -85,11 +86,14 @@ function pronamic_events_gform_parse_time( $value ) {
 	$result = date_parse( $value );
 
 	if ( $result ) {
-		$date_info = array_intersect_key( $result, array(
-			'hour'   => 0,
-			'minute' => 0,
-			'second' => 0,
-		) );
+		$date_info = array_intersect_key(
+			$result,
+			array(
+				'hour'   => 0,
+				'minute' => 0,
+				'second' => 0,
+			)
+		);
 	}
 
 	return $date_info;
@@ -98,12 +102,14 @@ function pronamic_events_gform_parse_time( $value ) {
 /**
  * Gravity Forms post data
  *
- * @param array $post_data
- * @param array $form
- * @param array $lead
+ * @param array $post_data Post data.
+ * @param array $form      Gravity Forms form.
+ * @param array $lead      Gravity Forms entry.
+ * @return array
  */
 function pronamic_events_gform_post_data( $post_data, $form, $lead ) {
-	$start_date = $end_date = null;
+	$start_date = null;
+	$end_date   = null;
 
 	// Init
 	$start_date = array();
@@ -200,10 +206,10 @@ function pronamic_events_gform_post_data( $post_data, $form, $lead ) {
 		$end   = array_merge( $today, $end );
 
 		$timestamp = mktime( $start['hour'], $start['minute'], $start['second'], $start['month'], $start['day'], $start['year'] );
-		$fields = pronamic_events_get_start_date_meta( $timestamp, $fields );
+		$fields    = pronamic_events_get_start_date_meta( $timestamp, $fields );
 
 		$timestamp = mktime( $end['hour'], $end['minute'], $end['second'], $end['month'], $end['day'], $end['year'] );
-		$fields = pronamic_events_get_end_date_meta( $timestamp, $fields );
+		$fields    = pronamic_events_get_end_date_meta( $timestamp, $fields );
 	}
 
 	return $post_data;
