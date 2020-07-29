@@ -84,8 +84,6 @@ class Pronamic_Events_Plugin {
 		$this->schema_module = new Pronamic_Events_Schema_Module();
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Activation hook.
 	 *
@@ -103,8 +101,6 @@ class Pronamic_Events_Plugin {
 		flush_rewrite_rules();
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Load text domain.
 	 *
@@ -113,8 +109,6 @@ class Pronamic_Events_Plugin {
 	public function load_text_domain() {
 		load_plugin_textdomain( 'pronamic-events', false, plugin_basename( dirname( $this->file ) ) . '/languages' );
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Register content types.
@@ -233,16 +227,12 @@ class Pronamic_Events_Plugin {
 		) );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Widgets initialize
 	 */
 	public function widgets_init() {
 		register_widget( 'Pronamic_Events_Widget' );
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Request
@@ -269,8 +259,6 @@ class Pronamic_Events_Plugin {
 
 		return $request;
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Pre get posts
@@ -381,8 +369,6 @@ class Pronamic_Events_Plugin {
 
 		return $classes;
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Event status update

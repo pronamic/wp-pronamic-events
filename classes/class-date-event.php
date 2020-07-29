@@ -18,8 +18,6 @@ class Pronamic_DateEvent implements Pronamic_DateEventInterface {
 		$this->end   = ( null === $end ) ? $this->start : $end;
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Get start date
 	 *
@@ -38,8 +36,6 @@ class Pronamic_DateEvent implements Pronamic_DateEventInterface {
 		$this->start = $date;
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Get end date
 	 *
@@ -57,8 +53,6 @@ class Pronamic_DateEvent implements Pronamic_DateEventInterface {
 	public function set_end( DateTime $date ) {
 		$this->end = $date;
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Get event hash code

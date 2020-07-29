@@ -3,13 +3,9 @@
 class Pronamic_WP_Event implements Pronamic_DateEventInterface {
 	public $post;
 
-	//////////////////////////////////////////////////
-
 	public function __construct( $post ) {
 		$this->post = get_post( $post );
 	}
-
-	//////////////////////////////////////////////////
 
 	public function get_start_date() {
 		$date = get_post_meta( $this->post->ID, '_pronamic_event_start_date', true );
@@ -22,8 +18,6 @@ class Pronamic_WP_Event implements Pronamic_DateEventInterface {
 
 		return $date;
 	}
-
-	//////////////////////////////////////////////////
 
 	public function get_event_hash_code() {
 		$format = apply_filters( 'pronamic_events_hash_code_format', 'U' );

@@ -28,8 +28,6 @@ class Pronamic_Events_ShareEndpoints {
 		add_action( 'template_redirect', array( $this, 'template_redirect' ) );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Initialize.
 	 *

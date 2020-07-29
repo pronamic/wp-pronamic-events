@@ -11,8 +11,6 @@ class Pronamic_Events_RepeatModule_Admin {
 	 */
 	private $plugin;
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Constructs and initializes an Pronamic Events plugin admin object
 	 */
@@ -27,8 +25,6 @@ class Pronamic_Events_RepeatModule_Admin {
 
 		add_filter( 'manage_pronamic_events_columns', array( $this, 'manage_pronamic_events_columns' ) );
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Add meta boxes
@@ -72,8 +68,6 @@ class Pronamic_Events_RepeatModule_Admin {
 	public function meta_box_event_repeats() {
 		include $this->plugin->dirname . '/admin/meta-box-event-repeats.php';
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Save post
@@ -279,8 +273,6 @@ class Pronamic_Events_RepeatModule_Admin {
 	public function hash_code_format_ymd() {
 		return 'Ymd';
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Manage edit columns

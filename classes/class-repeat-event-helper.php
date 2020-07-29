@@ -8,8 +8,6 @@ class Pronamic_Events_RepeatEventHelper {
 	 */
 	private $event;
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Construct and intialize an repeat event helper
 	 *
@@ -19,15 +17,11 @@ class Pronamic_Events_RepeatEventHelper {
 		$this->event = $event;
 	}
 
-	//////////////////////////////////////////////////
-
 	public function is_repeat_enabled() {
 		$repeat_enabled = get_post_meta( $this->event->post->ID, '_pronamic_event_repeat', true );
 
 		return $repeat_enabled;
 	}
-
-	//////////////////////////////////////////////////
 
 	public function get_number_repeats() {
 		$number = 0;
@@ -40,8 +34,6 @@ class Pronamic_Events_RepeatEventHelper {
 
 		return $number;
 	}
-
-	//////////////////////////////////////////////////
 
 	public function get_period( $start_date = null ) {
 		$period = null;
@@ -141,8 +133,6 @@ class Pronamic_Events_RepeatEventHelper {
 		return $data;
 	}
 
-	//////////////////////////////////////////////////
-
 	public function get_repeat_posts_query_args( $args = array() ) {
 		$post = $this->event->post;
 
@@ -165,8 +155,6 @@ class Pronamic_Events_RepeatEventHelper {
 
 		return $posts;
 	}
-
-	//////////////////////////////////////////////////
 
 	public function get_repeat_events() {
 		$events = array();

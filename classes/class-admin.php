@@ -11,8 +11,6 @@ class Pronamic_Events_Plugin_Admin {
 	 */
 	private $plugin;
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Constructs and initializes an Pronamic Events plugin admin object
 	 */
@@ -30,8 +28,6 @@ class Pronamic_Events_Plugin_Admin {
 		add_action( 'save_post', array( $this, 'save_post' ) );
 		add_action( 'delete_post', array( $this, 'delete_post' ) );
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Admin intialize
@@ -164,8 +160,6 @@ class Pronamic_Events_Plugin_Admin {
 		);
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Upgrade
 	 */
@@ -178,8 +172,6 @@ class Pronamic_Events_Plugin_Admin {
 			orbis_events_upgrade_100();
 		}
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Page settings
@@ -226,8 +218,6 @@ class Pronamic_Events_Plugin_Admin {
 		) );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Admin enqueue scripts
 	 *
@@ -256,8 +246,6 @@ class Pronamic_Events_Plugin_Admin {
 
 		}
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Add meta boxes
@@ -359,8 +347,6 @@ class Pronamic_Events_Plugin_Admin {
 		wp_schedule_single_event( $end_timestamp, 'pronamic_event_status_update', array( $post_id ) );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Delete post
 	 */
@@ -371,8 +357,6 @@ class Pronamic_Events_Plugin_Admin {
 
 		wp_clear_scheduled_hook( 'pronamic_event_status_update', array( intval( $post_id ) ) );
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Manage edit columns
@@ -405,8 +389,6 @@ class Pronamic_Events_Plugin_Admin {
 		return $columns;
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Manage edit sortable columns
 	 *
@@ -418,8 +400,6 @@ class Pronamic_Events_Plugin_Admin {
 
 		return $columns;
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Manage posts custom column
