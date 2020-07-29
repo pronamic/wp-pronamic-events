@@ -5,47 +5,55 @@ Pronamic Events is a basic plugin to add some Events functionality.
 ## WordPress Query
 
 ```php
-$query = new WP_Query( array(
-	'post_type'                 => 'pronamic_event',
-	'pronamic_event_date_after' => strtotime( 'today' ), // default
-	'orderby'                   => 'pronamic_event_start_date', // default
-) );
+$query = new WP_Query(
+    array(
+        'post_type'                 => 'pronamic_event',
+        'pronamic_event_date_after' => strtotime( 'today' ), // default
+        'orderby'                   => 'pronamic_event_start_date', // default
+    )
+);
 ```
 
 ```php
-$query = new WP_Query( array(
-	'post_type'                 => 'pronamic_event',
-	'pronamic_event_date_after' => strtotime( '-1 month' ),
-	'orderby'                   => 'date',
-) );
+$query = new WP_Query(
+    array(
+        'post_type'                 => 'pronamic_event',
+        'pronamic_event_date_after' => strtotime( '-1 month' ),
+        'orderby'                   => 'date',
+    )
+);
 ```
 
 ```php
-$query = new WP_Query( array(
-	'post_type'                 => 'pronamic_event',
-	'pronamic_event_date_after' => false,
-	'orderby'                   => 'pronamic_event_start_date',
-) );
+$query = new WP_Query(
+    array(
+        'post_type'                 => 'pronamic_event',
+        'pronamic_event_date_after' => false,
+        'orderby'                   => 'pronamic_event_start_date',
+    )
+);
 ```
 
 ```php
-$query = new WP_Query( array(
-	'post_type'                 => 'pronamic_event',
-	'pronamic_event_date_after' => false,
-	'orderby'                   => 'pronamic_event_start_date',
-	'order'                     => 'ASC',
-	'meta_query'                => array(
-		array(
-			'key'     => '_pronamic_end_date',
-			'value'   => array(
-				strtotime( '01-01-2016' ),
-				strtotime( '01-05-2016' ),
-			),
-			'compare' => 'BETWEEN',
-			'type'    => 'NUMERIC',
-		),
-	),
-) );
+$query = new WP_Query(
+    array(
+        'post_type'                 => 'pronamic_event',
+        'pronamic_event_date_after' => false,
+        'orderby'                   => 'pronamic_event_start_date',
+        'order'                     => 'ASC',
+        'meta_query'                => array(
+            array(
+                'key'     => '_pronamic_end_date',
+                'value'   => array(
+                    strtotime( '01-01-2016' ),
+                    strtotime( '01-05-2016' ),
+                ),
+                'compare' => 'BETWEEN',
+                'type'    => 'NUMERIC',
+            ),
+        ),
+    )
+);
 ```
 
 ### Parameters
