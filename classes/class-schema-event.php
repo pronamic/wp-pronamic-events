@@ -46,6 +46,10 @@ class Pronamic_Events_Schema_Event extends Yoast\WP\SEO\Generators\Schema\Abstra
 	 * @return bool
 	 */
 	public function is_needed() {
+		if ( null === $this->context->post ) {
+			return false;
+		}
+
 		$post_id = $this->context->post->ID;
 
 		$post_type = \get_post_type( $post_id );
