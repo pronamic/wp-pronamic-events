@@ -54,9 +54,10 @@ class Pronamic_Events_FeedModule {
 		if ( pronamic_has_start_date() ) {
 			echo "\t\t";
 
-			printf( // WPCS: xss ok.
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			printf(
 				'<ev:startdate>%s</ev:startdate>',
-				pronamic_get_the_start_date( DATE_ATOM )
+				esc_html( pronamic_get_the_start_date( DATE_ATOM ) )
 			);
 
 			echo "\n";
@@ -65,9 +66,10 @@ class Pronamic_Events_FeedModule {
 		if ( pronamic_has_end_date() ) {
 			echo "\t\t";
 
-			printf( // WPCS: xss ok.
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			printf(
 				'<ev:enddate>%s</ev:enddate>',
-				pronamic_get_the_end_date( DATE_ATOM )
+				esc_html( pronamic_get_the_end_date( DATE_ATOM ) )
 			);
 
 			echo "\n";
@@ -76,9 +78,10 @@ class Pronamic_Events_FeedModule {
 		if ( pronamic_has_location() ) {
 			echo "\t\t";
 
-			printf( // WPCS: xss ok.
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			printf(
 				'<ev:location>%s</ev:location>',
-				pronamic_get_the_location()
+				esc_html( pronamic_get_the_location() )
 			);
 
 			echo "\n";

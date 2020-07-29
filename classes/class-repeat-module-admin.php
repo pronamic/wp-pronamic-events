@@ -11,8 +11,6 @@ class Pronamic_Events_RepeatModule_Admin {
 	 */
 	private $plugin;
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Constructs and initializes an Pronamic Events plugin admin object
 	 */
@@ -27,8 +25,6 @@ class Pronamic_Events_RepeatModule_Admin {
 
 		add_filter( 'manage_pronamic_events_columns', array( $this, 'manage_pronamic_events_columns' ) );
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Add meta boxes
@@ -72,8 +68,6 @@ class Pronamic_Events_RepeatModule_Admin {
 	public function meta_box_event_repeats() {
 		include $this->plugin->dirname . '/admin/meta-box-event-repeats.php';
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Save post
@@ -123,8 +117,15 @@ class Pronamic_Events_RepeatModule_Admin {
 	 * @param string $post_id
 	 */
 	public function save_repeats( $post_id ) {
+		// Add filters.
+		$update_existing = filter_input( INPUT_POST, 'pronamic_event_update_existing', FILTER_VALIDATE_BOOLEAN );
+
+		if ( $update_existing ) {
+			add_filter( 'pronamic_events_hash_code_format', array( $this, 'hash_code_format_ymd' ) );
+		}
+
 		// Create repeated posts
-		$post  = get_post( $post_id );
+		$post = get_post( $post_id );
 
 		$event = new Pronamic_WP_Event( $post );
 
@@ -144,6 +145,12 @@ class Pronamic_Events_RepeatModule_Admin {
 			foreach ( $data as $e ) {
 				$hash_code = $e->get_event_hash_code();
 
+				$post_name = $post->post_name;
+
+				if ( get_option( 'pronamic_event_repeat_slug_date_format' ) ) {
+					$post_name = sanitize_title( $post->post_title . '-' . $e->get_start()->format( get_option( 'pronamic_event_repeat_slug_date_format' ) ) );
+				}
+
 				$post_data = array(
 					'post_title'   => $post->post_title,
 					'post_content' => $post->post_content,
@@ -151,26 +158,31 @@ class Pronamic_Events_RepeatModule_Admin {
 					'post_parent'  => $post->ID,
 					'post_status'  => $post->post_status,
 					'post_type'    => $post->post_type,
+					'post_name'    => $post_name,
 				);
 
 				if ( ! isset( $repeat_events[ $hash_code ] ) ) {
 					$repeat_post_id = wp_insert_post( $post_data );
-
-					$start_timestamp = $e->get_start()->format( 'U' );
-					$end_timestamp   = $e->get_end()->format( 'U' );
-
-					$meta = array();
-
-					$meta = pronamic_events_get_start_date_meta( $start_timestamp, $meta );
-					$meta = pronamic_events_get_end_date_meta( $end_timestamp, $meta );
-
-					// Save meta data
-					foreach ( $meta as $key => $value ) {
-						update_post_meta( $repeat_post_id, $key, $value );
-					}
-
-					$this->plugin->admin->schedule_status_update( $repeat_post_id, $end_timestamp );
+				} elseif ( $update_existing ) {
+					$repeat_post_id = $repeat_events[ $hash_code ]->post->ID;
+				} else {
+					continue;
 				}
+
+				$start_timestamp = $e->get_start()->format( 'U' );
+				$end_timestamp   = $e->get_end()->format( 'U' );
+
+				$meta = array();
+
+				$meta = pronamic_events_get_start_date_meta( $start_timestamp, $meta );
+				$meta = pronamic_events_get_end_date_meta( $end_timestamp, $meta );
+
+				// Save meta data
+				foreach ( $meta as $key => $value ) {
+					update_post_meta( $repeat_post_id, $key, $value );
+				}
+
+				$this->plugin->admin->schedule_status_update( $repeat_post_id, $end_timestamp );
 			}
 
 			/*
@@ -188,22 +200,24 @@ class Pronamic_Events_RepeatModule_Admin {
 			);
 
 			// Meta
-			$ignore = array_flip( array(
-				'_edit_last',
-				'_pronamic_start_date',
-				'_pronamic_event_start_date',
-				'_pronamic_event_start_date_gmt',
-				'_pronamic_end_date',
-				'_pronamic_event_end_date',
-				'_pronamic_event_end_date_gmt',
-				'_pronamic_event_repeat',
-				'_pronamic_event_repeat_frequency',
-				'_pronamic_event_repeat_interval',
-				'_pronamic_event_ends_on',
-				'_pronamic_event_ends_on_count',
-				'_pronamic_event_ends_on_until',
-				'_edit_lock',
-			) );
+			$ignore = array_flip(
+				array(
+					'_edit_last',
+					'_pronamic_start_date',
+					'_pronamic_event_start_date',
+					'_pronamic_event_start_date_gmt',
+					'_pronamic_end_date',
+					'_pronamic_event_end_date',
+					'_pronamic_event_end_date_gmt',
+					'_pronamic_event_repeat',
+					'_pronamic_event_repeat_frequency',
+					'_pronamic_event_repeat_interval',
+					'_pronamic_event_ends_on',
+					'_pronamic_event_ends_on_count',
+					'_pronamic_event_ends_on_until',
+					'_edit_lock',
+				)
+			);
 
 			$post_custom = get_post_custom( $post->ID );
 			$post_custom = array_diff_key( $post_custom, $ignore );
@@ -248,6 +262,9 @@ class Pronamic_Events_RepeatModule_Admin {
 				}
 			}
 
+			// Remove filters.
+			remove_filter( 'pronamic_events_hash_code_format', array( $this, 'hash_code_format_ymd' ) );
+
 			// Add filters
 			add_filter( 'save_post', array( $this->plugin->admin, 'save_post' ) );
 			add_filter( 'save_post', array( $this, 'save_post' ) );
@@ -255,7 +272,9 @@ class Pronamic_Events_RepeatModule_Admin {
 		}
 	}
 
-	//////////////////////////////////////////////////
+	public function hash_code_format_ymd() {
+		return 'Ymd';
+	}
 
 	/**
 	 * Manage edit columns

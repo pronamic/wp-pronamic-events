@@ -39,8 +39,6 @@ function pronamic_has_start_date( $post_id = null ) {
 	return ! empty( $date );
 }
 
-////////////////////////////////////////////////////////////
-
 /**
  * Return formatted end date
  *
@@ -80,8 +78,6 @@ function pronamic_has_end_date( $post_id = null ) {
 	return ! empty( $date );
 }
 
-////////////////////////////////////////////////////////////
-
 /**
  * Get the location of the post
  *
@@ -110,8 +106,6 @@ function pronamic_has_location( $post_id = null ) {
 
 	return ! empty( $location );
 }
-
-////////////////////////////////////////////////////////////
 
 /**
  * Get the URL of the event

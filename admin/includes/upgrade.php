@@ -16,7 +16,9 @@ function orbis_events_upgrade_100() {
 	);
 
 	foreach ( $keys as $old_key => $new_key ) {
-		$query = "INSERT
+		$query = $wpdb->prepare(
+			"
+			INSERT
 			INTO
 				$wpdb->postmeta ( post_id, meta_key, meta_value )
 			SELECT
@@ -37,10 +39,13 @@ function orbis_events_upgrade_100() {
 			GROUP BY
 				post.ID
 			;
-		";
+			",
+			$new_key,
+			$old_key,
+			$new_key
+		);
 
-		$query = $wpdb->prepare( $query, $new_key, $old_key, $new_key ); // unprepared SQL
-
-		$wpdb->query( $query ); // unprepared SQL
+		// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- Query is prepared.
+		$wpdb->query( $query );
 	}
 }

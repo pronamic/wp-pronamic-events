@@ -4,6 +4,10 @@
         {
             "name": "Remco Tolsma",
             "email": "info@remcotolsma.nl"
+        },
+        {
+            "name": "Karel-Jan Tolsma",
+            "email": "info@kareljantolsma.nl"
         }
     ],
 	"autoload": {
@@ -15,13 +19,14 @@
         "sabre/uri": "^1"
     },
     "require-dev": {
-        "squizlabs/php_codesniffer": "^2.7",
-        "wp-coding-standards/wpcs": "^0.10.0"
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+        "phpcompatibility/php-compatibility": "^9.3",
+        "phpcompatibility/phpcompatibility-wp": "^2.1",
+        "roots/wordpress": "^5.3",
+        "squizlabs/php_codesniffer": "^3.4",
+        "wp-coding-standards/wpcs": "^2.2"
     },
     "scripts": {
-        "post-autoload-dump": [
-            "xrstf\\Composer52\\Generator::onPostInstallCmd",
-            "if [[ -d vendor/wp-coding-standards/wpcs ]]; then vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs; fi"
-        ]
+        "phpcs": "vendor/bin/phpcs -s -v"
     }
 }
