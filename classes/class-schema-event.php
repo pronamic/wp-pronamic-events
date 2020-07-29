@@ -76,7 +76,7 @@ class Pronamic_Events_Schema_Event extends Yoast\WP\SEO\Generators\Schema\Abstra
 			'eventAttendanceMode' => $this->get_event_attendance_mode( $post_id ),
 			'eventStatus'         => $this->get_event_status( $post_id ),
 			'description'         => $this->get_event_description( $post_id ),
-			'location'            => $this->get_event_location( $post_id ),
+			'location'            => pronamic_get_the_location( $post_id ),
 			'image'               => $this->get_event_images( $post_id ),
 		);
 
@@ -138,28 +138,6 @@ class Pronamic_Events_Schema_Event extends Yoast\WP\SEO\Generators\Schema\Abstra
 		$content = get_extended( $post->post_content );
 
 		return $content['main'];
-	}
-
-	/**
-	 * Get event location.
-	 *
-	 * @param int $post_id Event post ID.
-	 * @return array|null
-	 */
-	private function get_event_location( $post_id ) {
-		$location = pronamic_get_the_location( $post_id );
-
-		if ( ! empty( $location ) ) {
-			return array(
-				'@type'   => 'Place',
-				'address' => array(
-					'@type'         => 'PostalAddress',
-					'streetAddress' => $location,
-				),
-			);
-		}
-
-		return null;
 	}
 
 	/**
