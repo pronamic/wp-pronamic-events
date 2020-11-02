@@ -72,7 +72,9 @@ class Pronamic_Events_RepeatEventHelper {
 
 		switch ( $ends_on ) {
 			case 'count':
-				$end = (int) $ends_on_count;
+				if ( ! empty( $ends_on_count ) ) {
+					$end = (int) $ends_on_count;
+				}
 
 				break;
 			case 'until':
