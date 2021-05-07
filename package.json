@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/pronamic/wp-pronamic-events",
   "devDependencies": {
-    "grunt": "~1.0.2",
+    "grunt": "~1.3.0",
     "grunt-aws-s3": "^2.0.0",
     "grunt-checktextdomain": "^1.0.1",
     "grunt-checkwpversion": "~0.3.0",
