@@ -1,0 +1,20 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"name": "pronamic-events/event-end-date",
+	"version": "0.1.0",
+	"title": "Event End Date",
+	"icon": "calendar",
+	"description": "Add the end date of this event.",
+	"attributes": {
+		"format": {
+			"type": "string"
+		}
+	},
+	"usesContext": [ "postId", "postType", "queryId" ],
+	"supports": {
+		"html": false
+	},
+	"textdomain": "pronamic-events",
+	"editorScript": "file:./build/index.js"
+}

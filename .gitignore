@@ -17,3 +17,7 @@
 
 # WordPress
 /wordpress/
+
+# Blocks
+/blocks/*/build/
+/blocks/*/node_modules/

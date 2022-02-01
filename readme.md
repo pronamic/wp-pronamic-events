@@ -89,6 +89,12 @@ add_filter( 'pronamic_events_date_offset', 'prefix_pronamic_events_date_offset' 
 The Pronamic Events will automatic add the `event-ended` post class if an 
 event is ended.
 
+## Multi-block plugin
+
+- https://wordpress.stackexchange.com/questions/390282/possible-to-use-wordpress-create-block-with-multiple-blocks
+- https://www.designbombs.com/reusing-functionality-for-wordpress-plugins-with-blocks/
+- https://wordpress.stackexchange.com/questions/346562/file-structure-and-react-setup-when-creating-multiple-gutenberg-blocks
+- https://github.com/pronamic/wp-pronamic-pay-fundraising
 
 ## Resources
 

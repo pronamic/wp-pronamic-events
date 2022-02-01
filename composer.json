@@ -24,7 +24,8 @@
         "phpcompatibility/phpcompatibility-wp": "^2.1",
         "roots/wordpress": "^5.3",
         "squizlabs/php_codesniffer": "^3.4",
-        "wp-coding-standards/wpcs": "^2.2"
+        "wp-coding-standards/wpcs": "^2.2",
+        "pronamic/wp-documentor": "^1.0"
     },
     "scripts": {
         "phpcs": "vendor/bin/phpcs -s -v"

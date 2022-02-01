@@ -48,6 +48,7 @@ class Pronamic_Events_Plugin {
 		add_action( 'plugins_loaded', array( $this, 'load_text_domain' ) );
 
 		add_action( 'init', array( $this, 'register_content_types' ) );
+		add_action( 'init', array( $this, 'register_block_types' ) );
 
 		add_action( 'widgets_init', array( $this, 'widgets_init' ) );
 
@@ -468,5 +469,80 @@ class Pronamic_Events_Plugin {
 		$post->post_status = 'publish';
 
 		return $post;
+	}
+
+	/**
+	 * Register block types.
+	 * 
+	 * @return void
+	 */
+	public function register_block_types() {
+		if ( ! function_exists( '\register_block_type' ) ) {
+			return;
+		}
+
+		\register_block_type( __DIR__ . '/../blocks/event-start-date', array(
+			'render_callback' => function( $attributes, $content, $block ) {
+				if ( ! array_key_exists( 'postId', $block->context ) ) {
+					return '';
+				}
+
+				$format = '';
+
+				if ( \array_key_exists( 'format', $attributes ) ) {
+					$format = $attributes['format'];
+				}
+
+				$format = ( '' === $format ) ? 'd-m-Y H:i:s' : $format;
+
+				$post_id = $block->context['postId'];
+
+				return sprintf(
+					'<div><time datetime="%s">%s</time></div>',
+					\esc_attr( pronamic_get_the_start_date( 'c', $post_id ) ),
+					\esc_html( pronamic_get_the_start_date( $format, $post_id ) )
+				);
+			},
+		) );
+
+		register_block_type( __DIR__ . '/../blocks/event-end-date', array(
+			'render_callback' => function( $attributes, $content, $block ) {
+				if ( ! array_key_exists( 'postId', $block->context ) ) {
+					return '';
+				}
+
+				$format = '';
+
+				if ( \array_key_exists( 'format', $attributes ) ) {
+					$format = $attributes['format'];
+				}
+
+				$format = ( '' === $format ) ? 'd-m-Y H:i:s' : $format;
+
+				$post_id = $block->context['postId'];
+
+				return sprintf(
+					'<div><time datetime="%s">%s</time></div>',
+					\esc_attr( pronamic_get_the_end_date( 'c', $post_id ) ),
+					\esc_html( pronamic_get_the_end_date( $format, $post_id ) )
+				);
+			},
+		) );
+
+		register_block_type( __DIR__ . '/../blocks/event-location', array(
+			'render_callback' => function( $attributes, $content, $block ) {
+				if ( ! array_key_exists( 'postId', $block->context ) ) {
+					return '';
+				}
+
+				$post_id = $block->context['postId'];
+
+				return sprintf(
+					'<div><time datetime="%s">%s</time></div>',
+					\esc_attr( pronamic_get_the_end_date( 'c', $post_id ) ),
+					\esc_html( pronamic_get_the_end_date( 'd-m-Y H:i:s', $post_id ) )
+				);
+			},
+		) );
 	}
 }
