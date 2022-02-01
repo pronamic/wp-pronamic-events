@@ -474,6 +474,8 @@ class Pronamic_Events_Plugin {
 	/**
 	 * Register block types.
 	 * 
+	 * @link https://github.com/WordPress/gutenberg/blob/trunk/packages/block-library/src/post-date/index.php
+	 * @link https://developer.wordpress.org/reference/functions/get_block_wrapper_attributes/
 	 * @return void
 	 */
 	public function register_block_types() {
@@ -498,7 +500,8 @@ class Pronamic_Events_Plugin {
 				$post_id = $block->context['postId'];
 
 				return sprintf(
-					'<div><time datetime="%s">%s</time></div>',
+					'<div %s><time datetime="%s">%s</time></div>',
+					\get_block_wrapper_attributes(),
 					\esc_attr( pronamic_get_the_start_date( 'c', $post_id ) ),
 					\esc_html( pronamic_get_the_start_date( $format, $post_id ) )
 				);
@@ -522,7 +525,8 @@ class Pronamic_Events_Plugin {
 				$post_id = $block->context['postId'];
 
 				return sprintf(
-					'<div><time datetime="%s">%s</time></div>',
+					'<div %s><time datetime="%s">%s</time></div>',
+					\get_block_wrapper_attributes(),
 					\esc_attr( pronamic_get_the_end_date( 'c', $post_id ) ),
 					\esc_html( pronamic_get_the_end_date( $format, $post_id ) )
 				);
@@ -538,9 +542,9 @@ class Pronamic_Events_Plugin {
 				$post_id = $block->context['postId'];
 
 				return sprintf(
-					'<div><time datetime="%s">%s</time></div>',
-					\esc_attr( pronamic_get_the_end_date( 'c', $post_id ) ),
-					\esc_html( pronamic_get_the_end_date( 'd-m-Y H:i:s', $post_id ) )
+					'<div %s>%s</div>',
+					\get_block_wrapper_attributes(),
+					\esc_html( pronamic_get_the_location( $post_id ) )
 				);
 			},
 		) );
