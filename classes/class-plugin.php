@@ -479,13 +479,13 @@ class Pronamic_Events_Plugin {
 	 * @return void
 	 */
 	public function register_block_types() {
-		if ( ! function_exists( '\register_block_type' ) ) {
+		if ( ! \function_exists( '\register_block_type' ) ) {
 			return;
 		}
 
 		\register_block_type( __DIR__ . '/../blocks/event-start-date', array(
 			'render_callback' => function( $attributes, $content, $block ) {
-				if ( ! array_key_exists( 'postId', $block->context ) ) {
+				if ( ! \array_key_exists( 'postId', $block->context ) ) {
 					return '';
 				}
 
@@ -499,18 +499,18 @@ class Pronamic_Events_Plugin {
 
 				$post_id = $block->context['postId'];
 
-				return sprintf(
+				return \sprintf(
 					'<div %s><time datetime="%s">%s</time></div>',
 					\get_block_wrapper_attributes(),
-					\esc_attr( pronamic_get_the_start_date( 'c', $post_id ) ),
-					\esc_html( pronamic_get_the_start_date( $format, $post_id ) )
+					\esc_attr( \pronamic_get_the_start_date( 'c', $post_id ) ),
+					\esc_html( \pronamic_get_the_start_date( $format, $post_id ) )
 				);
 			},
 		) );
 
-		register_block_type( __DIR__ . '/../blocks/event-end-date', array(
+		\register_block_type( __DIR__ . '/../blocks/event-end-date', array(
 			'render_callback' => function( $attributes, $content, $block ) {
-				if ( ! array_key_exists( 'postId', $block->context ) ) {
+				if ( ! \array_key_exists( 'postId', $block->context ) ) {
 					return '';
 				}
 
@@ -524,27 +524,27 @@ class Pronamic_Events_Plugin {
 
 				$post_id = $block->context['postId'];
 
-				return sprintf(
+				return \sprintf(
 					'<div %s><time datetime="%s">%s</time></div>',
 					\get_block_wrapper_attributes(),
-					\esc_attr( pronamic_get_the_end_date( 'c', $post_id ) ),
-					\esc_html( pronamic_get_the_end_date( $format, $post_id ) )
+					\esc_attr( \pronamic_get_the_end_date( 'c', $post_id ) ),
+					\esc_html( \pronamic_get_the_end_date( $format, $post_id ) )
 				);
 			},
 		) );
 
-		register_block_type( __DIR__ . '/../blocks/event-location', array(
+		\register_block_type( __DIR__ . '/../blocks/event-location', array(
 			'render_callback' => function( $attributes, $content, $block ) {
-				if ( ! array_key_exists( 'postId', $block->context ) ) {
+				if ( ! \array_key_exists( 'postId', $block->context ) ) {
 					return '';
 				}
 
 				$post_id = $block->context['postId'];
 
-				return sprintf(
+				return \sprintf(
 					'<div %s>%s</div>',
 					\get_block_wrapper_attributes(),
-					\esc_html( pronamic_get_the_location( $post_id ) )
+					\esc_html( \pronamic_get_the_location( $post_id ) )
 				);
 			},
 		) );
