@@ -1,16 +1,20 @@
 {
-	"$schema": "https://json.schemastore.org/block.json",
-	"apiVersion": 2,
-	"name": "pronamic-events/event-location",
-	"version": "0.1.0",
-	"title": "Event Location",
-	"category": "widgets",
-	"icon": "calendar",
-	"description": "Add the location of this event.",
-	"usesContext": [ "postId", "postType", "queryId" ],
-	"supports": {
-		"html": false
-	},
-	"textdomain": "pronamic-events",
-	"editorScript": "file:./build/index.js"
+  "$schema": "https://json.schemastore.org/block.json",
+  "apiVersion": 2,
+  "name": "pronamic-events/event-location",
+  "version": "0.1.0",
+  "title": "Event Location",
+  "category": "widgets",
+  "icon": "calendar",
+  "description": "Add the location of this event.",
+  "usesContext": [
+    "postId",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "html": false
+  },
+  "textdomain": "pronamic-events",
+  "editorScript": "file:./index.js"
 }

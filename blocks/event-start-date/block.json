@@ -1,21 +1,25 @@
 {
-	"$schema": "https://json.schemastore.org/block.json",
-	"apiVersion": 2,
-	"name": "pronamic-events/event-start-date",
-	"version": "0.1.0",
-	"title": "Event Start Date",
-	"category": "widgets",
-	"icon": "calendar",
-	"description": "Add the start date of this event.",
-	"attributes": {
-		"format": {
-			"type": "string"
-		}
-	},
-	"usesContext": [ "postId", "postType", "queryId" ],
-	"supports": {
-		"html": false
-	},
-	"textdomain": "pronamic-events",
-	"editorScript": "file:./build/index.js"
+  "$schema": "https://json.schemastore.org/block.json",
+  "apiVersion": 2,
+  "name": "pronamic-events/event-start-date",
+  "version": "0.1.0",
+  "title": "Event Start Date",
+  "category": "widgets",
+  "icon": "calendar",
+  "description": "Add the start date of this event.",
+  "attributes": {
+    "format": {
+      "type": "string"
+    }
+  },
+  "usesContext": [
+    "postId",
+    "postType",
+    "queryId"
+  ],
+  "supports": {
+    "html": false
+  },
+  "textdomain": "pronamic-events",
+  "editorScript": "file:./index.js"
 }

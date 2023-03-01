@@ -18,18 +18,25 @@
     "url": "https://github.com/pronamic/wp-pronamic-events/issues"
   },
   "homepage": "https://github.com/pronamic/wp-pronamic-events",
+  "dependencies": {
+    "@wordpress/block-editor": "^11.4.0",
+    "@wordpress/blocks": "^12.4.0",
+    "@wordpress/i18n": "^4.27.0"
+  },
   "devDependencies": {
-    "grunt": "~1.5.3",
+    "@wordpress/env": "^5.12.0",
+    "@wordpress/scripts": "^25.4.0",
+    "grunt": "~1.6.1",
     "grunt-aws-s3": "^2.0.2",
     "grunt-checktextdomain": "^1.0.1",
     "grunt-checkwpversion": "~0.3.0",
     "grunt-composer": "^0.4.5",
-    "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-clean": "^2.0.1",
     "grunt-contrib-compress": "^2.0.0",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^4.0.0",
-    "grunt-contrib-jshint": "~3.1.1",
-    "grunt-contrib-uglify": "~5.0.1",
+    "grunt-contrib-jshint": "~3.2.0",
+    "grunt-contrib-uglify": "~5.2.2",
     "grunt-git": "^1.1.1",
     "grunt-phpcs": "^0.4.0",
     "grunt-phplint": "0.1.0",
@@ -37,5 +44,9 @@
     "grunt-rt-wp-deploy": "^0.1.2",
     "grunt-wp-i18n": "~1.0.3",
     "load-grunt-tasks": "^5.1.0"
+  },
+  "scripts": {
+    "start": "wp-scripts start --webpack-src-dir=blocks-jsx --output-path=blocks",
+    "build": "wp-scripts build --webpack-src-dir=blocks-jsx --output-path=blocks"
   }
 }
