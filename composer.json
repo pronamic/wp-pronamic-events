@@ -29,5 +29,11 @@
     },
     "scripts": {
         "phpcs": "vendor/bin/phpcs -s -v"
+    },
+    "config": {
+        "allow-plugins": {
+            "roots/wordpress-core-installer": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
     }
 }
