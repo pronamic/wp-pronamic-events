@@ -52,6 +52,7 @@ class Pronamic_Events_Plugin {
 
 		add_action( 'widgets_init', array( $this, 'widgets_init' ) );
 
+		add_action( 'pre_get_posts', array( $this, 'parse_search_qualifiers' ) );
 		add_action( 'pre_get_posts', array( $this, 'pre_get_posts' ), 100 );
 
 		add_action( 'pronamic_event_status_update', array( $this, 'event_status_update' ) );
@@ -548,5 +549,44 @@ class Pronamic_Events_Plugin {
 				);
 			},
 		) );
+	}
+
+	/**
+	 * Parse search qualifiers.
+	 * 
+	 * @link https://docs.github.com/en/search-github/searching-on-github
+	 * @link https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax
+	 * @param WP_Query $query WordPress query.
+	 * @return void
+	 */
+	public function parse_search_qualifiers( $query ) {
+		if ( ! is_pronamic_events_query( $query ) ) {
+			return;
+		}
+
+		$s = $query->get( 's' );
+
+		if ( empty( $s ) ) {
+			return;
+		}
+
+		$keywords = \explode( ' ', $s );
+
+		$keywords_new = [];
+
+		foreach ( $keywords as $keyword ) {
+			if ( 'sort:event-start-date-asc' === $keyword ) {
+				$query->set( 'orderby', 'pronamic_event_start_date' );
+				$query->set( 'order', 'asc' );
+
+				continue;
+			}
+
+			$keywords_new[] = $keyword;
+		}
+
+		$s = \implode( ' ', $keywords_new );
+
+		$query->set( 's', $s );
 	}
 }
