@@ -25,8 +25,7 @@
 	},
 	"devDependencies": {
 		"@wordpress/env": "^9.0.0",
-		"@wordpress/scripts": "^26.19.0",
-		"load-grunt-tasks": "^5.1.0"
+		"@wordpress/scripts": "^26.19.0"
 	},
 	"scripts": {
 		"start": "wp-scripts start --webpack-src-dir=blocks-jsx --output-path=blocks",
