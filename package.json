@@ -1,35 +1,35 @@
 {
-  "name": "pronamic-events",
-  "version": "1.3.0",
-  "description": "This plugin add some basic Event functionality to WordPress.",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/pronamic/wp-pronamic-events"
-  },
-  "keywords": [
-    "pronamic",
-    "events",
-    "wordpress",
-    "wp"
-  ],
-  "author": "Pronamic",
-  "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/pronamic/wp-pronamic-events/issues"
-  },
-  "homepage": "https://github.com/pronamic/wp-pronamic-events",
-  "dependencies": {
-    "@wordpress/block-editor": "^12.16.0",
-    "@wordpress/blocks": "^12.25.0",
-    "@wordpress/i18n": "^4.48.0"
-  },
-  "devDependencies": {
-    "@wordpress/env": "^9.0.0",
-    "@wordpress/scripts": "^26.19.0",
-    "load-grunt-tasks": "^5.1.0"
-  },
-  "scripts": {
-    "start": "wp-scripts start --webpack-src-dir=blocks-jsx --output-path=blocks",
-    "build": "wp-scripts build --webpack-src-dir=blocks-jsx --output-path=blocks"
-  }
+	"name": "pronamic-events",
+	"version": "1.3.0",
+	"description": "This plugin add some basic Event functionality to WordPress.",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/pronamic/wp-pronamic-events"
+	},
+	"keywords": [
+		"pronamic",
+		"events",
+		"wordpress",
+		"wp"
+	],
+	"author": "Pronamic",
+	"license": "GPL-3.0",
+	"bugs": {
+		"url": "https://github.com/pronamic/wp-pronamic-events/issues"
+	},
+	"homepage": "https://github.com/pronamic/wp-pronamic-events",
+	"dependencies": {
+		"@wordpress/block-editor": "^12.16.0",
+		"@wordpress/blocks": "^12.25.0",
+		"@wordpress/i18n": "^4.48.0"
+	},
+	"devDependencies": {
+		"@wordpress/env": "^9.0.0",
+		"@wordpress/scripts": "^26.19.0",
+		"load-grunt-tasks": "^5.1.0"
+	},
+	"scripts": {
+		"start": "wp-scripts start --webpack-src-dir=blocks-jsx --output-path=blocks",
+		"build": "wp-scripts build --webpack-src-dir=blocks-jsx --output-path=blocks"
+	}
 }
