@@ -1,5 +1,7 @@
 {
 	"name": "pronamic/wp-pronamic-events",
+	"type": "wordpress-plugin",
+	"license": "GPL-2.0-or-later",
 	"authors": [
 		{
 			"name": "Remco Tolsma",
@@ -44,7 +46,7 @@
 			"@build",
 			"vendor/bin/pronamic release-to-github --working-dir=./ --build-dir=./build/staging-2/",
 			"vendor/bin/pronamic release-to-pronamic ./ ./build/staging-2/",
-			"vendor/bin/pronamic release-to-wp-org ./build/stage-2/ ./build/svn/"
+			"vendor/bin/pronamic release-to-wp-org --working-dir=./build/stage-2/ --svn-dir=./build/svn/"
 		]
 	}
 }
