@@ -19,7 +19,8 @@
 		"allow-plugins": {
 			"roots/wordpress-core-installer": true,
 			"dealerdirect/phpcodesniffer-composer-installer": true
-		}
+		},
+		"wp-slug": "pronamic-events"
 	},
 	"require": {
 		"xrstf/composer-php52": "1.*",
@@ -41,7 +42,7 @@
 		"build": "@php build/scripts/build.php",
 		"release": [
 			"@build",
-			"vendor/bin/pronamic release-to-github ./ ./build/staging-2/",
+			"vendor/bin/pronamic release-to-github --working-dir=./ --build-dir=./build/staging-2/",
 			"vendor/bin/pronamic release-to-pronamic ./ ./build/staging-2/",
 			"vendor/bin/pronamic release-to-wp-org ./build/stage-2/ ./build/svn/"
 		]
