@@ -15,6 +15,12 @@
 			"classes/"
 		]
 	},
+	"config": {
+		"allow-plugins": {
+			"roots/wordpress-core-installer": true,
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	},
 	"require": {
 		"xrstf/composer-php52": "1.*",
 		"sabre/vobject": "^3.4",
@@ -27,15 +33,17 @@
 		"roots/wordpress": "^5.3",
 		"squizlabs/php_codesniffer": "^3.4",
 		"wp-coding-standards/wpcs": "^2.2",
-		"pronamic/wp-documentor": "^1.0"
+		"pronamic/wp-documentor": "^1.0",
+		"pronamic/pronamic-cli": "^1.1"
 	},
 	"scripts": {
-		"phpcs": "vendor/bin/phpcs -s -v"
-	},
-	"config": {
-		"allow-plugins": {
-			"roots/wordpress-core-installer": true,
-			"dealerdirect/phpcodesniffer-composer-installer": true
-		}
+		"phpcs": "vendor/bin/phpcs -s -v",
+		"build": "@php build/scripts/build.php",
+		"release": [
+			"@build",
+			"vendor/bin/pronamic release-to-github ./ ./build/staging-2/",
+			"vendor/bin/pronamic release-to-pronamic ./ ./build/staging-2/",
+			"vendor/bin/pronamic release-to-wp-org ./build/stage-2/ ./build/svn/"
+		]
 	}
 }
