@@ -1,13 +1,10 @@
 # Bower
 /bower_components/
 
-# Deploy
-/deploy/
-
-# Eclipse
-/.buildpath
-/.project
-/.settings
+# Build
+/build/artifacts/
+/build/stage-1/
+/build/stage-2/
 
 # Node.js
 /node_modules/
@@ -17,7 +14,3 @@
 
 # WordPress
 /wordpress/
-
-# Blocks
-/blocks/*/build/
-/blocks/*/node_modules/
