@@ -30,7 +30,7 @@ function run_command( $command, $expected_result_code = 0 ) {
 /**
  * Build.
  */
-$slug = 'pronamic-pay-with-rabo-smart-pay-for-woocommerce';
+$slug = 'pronamic-events';
 
 $src_dir       = realpath( __DIR__ . '/../../' );
 $build_dir     = realpath( __DIR__ . '/../' );
