@@ -27,14 +27,20 @@ class Pronamic_Events_FeedModule {
      *
      * @return boolean
      */
-    protected function is_supported_post_type() {
-        $post_type = get_query_var( 'post_type' );
-
-        if ( empty( $post_type ) ) {
+    protected function is_supported_post_type($post_type = null) {
+        if ( ! $post_type ) {
             return false;
         }
 
-        return in_array( 'pronamic_event', (array) $post_type );
+        $post_types = (array) $post_type;
+
+        foreach ( $post_types as $post_type ) {
+            if ( post_type_supports( $post_type, 'pronamic_event' ) ) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
 	/**
@@ -45,7 +51,7 @@ class Pronamic_Events_FeedModule {
 	 * @see https://github.com/WordPress/WordPress/blob/4.9/wp-includes/feed-rss2.php#L30-L37
 	 */
 	public function rss2_ns() {
-		if ( ! $this->is_supported_post_type() ) {
+		if ( ! $this->is_supported_post_type( get_query_var( 'post_type' ) ) ) {
 			return;
 		}
 
@@ -60,7 +66,7 @@ class Pronamic_Events_FeedModule {
 	 * @see https://github.com/WordPress/WordPress/blob/4.9/wp-includes/feed-rss2.php#L113-L120
 	 */
 	public function rss2_item() {
-		if ( ! $this->is_supported_post_type() ) {
+		if ( ! $this->is_supported_post_type( get_post_type() ) ) {
 			return;
 		}
 
