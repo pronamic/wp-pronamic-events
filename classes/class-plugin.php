@@ -199,6 +199,7 @@ class Pronamic_Events_Plugin {
 				'show_ui'      => true,
 				'query_var'    => true,
 				'rewrite'      => array( 'slug' => $slug ),
+				'show_in_rest' => true,
 			)
 		);
 
