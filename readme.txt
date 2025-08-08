@@ -1,5 +1,5 @@
 === Pronamic Events ===
-Contributors: pronamic, remcotolsma, kjtolsma 
+Contributors: pronamic, remcotolsma, kjtolsma
 Tags: pronamic, events, agenda
 Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-events&source=wp-plugin-readme-txt
 Requires at least: 3.0
@@ -38,7 +38,7 @@ This plugin uses custom post types to add some Events functionality. Pronamic Ev
 = Gravity Forms =
 
 With [Gravity Forms](http://www.gravityforms.com/) and the [Gravity Forms + Custom Post Types](http://wordpress.org/extend/plugins/gravity-forms-custom-post-types/)
-you can create an form to create event posts. In most cases you also want to automatic fill in the event start date, end date 
+you can create an form to create event posts. In most cases you also want to automatic fill in the event start date, end date
 and location. You can set this up by checking one of the options on the date/time fields.
 
 *	Is Event Start Date
@@ -46,7 +46,7 @@ and location. You can set this up by checking one of the options on the date/tim
 *	Is Event End Date
 *	Is Event End Time
 
-For the other fields you can add Custom Fields from the Post Fields 
+For the other fields you can add Custom Fields from the Post Fields
 section and give them the correct custom field names:
 
 *	Location - Field Type = Text, Name = _pronamic_location
@@ -125,7 +125,7 @@ Upload the Pronamic Events folder to your wp-content/plugins folder.
 *	Improved saving of start and end dates
 *	Added an "Pronamic Events" widget
 *	jQuery UI datepicker i18n
-*	Events query filter end date greater then today (midnight) instead of -1 day 
+*	Events query filter end date greater then today (midnight) instead of -1 day
 
 = 0.1.3 =
 *	Improved start and end date columns
