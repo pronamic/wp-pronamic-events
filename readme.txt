@@ -6,6 +6,8 @@ Requires at least: 3.0
 Requires PHP: 5.4
 Tested up to: 6.8
 Stable tag: 1.4.0
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Pronamic Events is a basic plugin to add some Events functionality.
 
