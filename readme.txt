@@ -12,6 +12,8 @@ Pronamic Events is a basic plugin to add some Events functionality.
 
 == Description ==
 
+[Pronamic](https://www.pronamic.eu/) · [GitHub](https://github.com/pronamic/wp-pronamic-events)
+
 This plugin uses custom post types to add some Events functionality. Pronamic Events allows you to add, edit and remove events.
 
 = Template Functions =
