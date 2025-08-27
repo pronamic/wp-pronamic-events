@@ -12,6 +12,20 @@
  */
 class Pronamic_Events_ShareEndpoints {
 	/**
+	 * Plugin
+	 *
+	 * @var string
+	 */
+	public $plugin;
+
+	/**
+	 * Endpoints
+	 *
+	 * @var array
+	 */
+	public $endpoints;
+
+	/**
 	 * Constructs and initialize a Orbis vCard.
 	 */
 	public function __construct( $plugin ) {

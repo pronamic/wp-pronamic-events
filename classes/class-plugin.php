@@ -12,6 +12,27 @@ class Pronamic_Events_Plugin {
 	public $file;
 
 	/**
+	 * Plugin feed module
+	 *
+	 * @var Pronamic_Events_FeedModule
+	 */
+	public $feed_module;
+
+	/**
+	 * Plugin repeat module
+	 *
+	 * @var Pronamic_Events_RepeatModule
+	 */
+	public $repeat_module;
+
+	/**
+	 * Plugin share endpoints
+	 *
+	 * @var Pronamic_Events_ShareEndpoints
+	 */
+	public $share_endpoints;
+
+	/**
 	 * Plugin directory name
 	 *
 	 * @var string
@@ -24,6 +45,13 @@ class Pronamic_Events_Plugin {
 	 * @var Pronamic_Events_Schema_Module
 	 */
 	protected $schema_module;
+
+	/**
+	 * Admin
+	 *
+	 * @var Pronamic_Events_Plugin_Admin
+	 */
+	public $admin;
 
 	/**
 	 * Constructs and initializes an Pronamic Events plugin
