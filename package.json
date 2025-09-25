@@ -24,7 +24,7 @@
 		"@wordpress/i18n": "^4.51.0"
 	},
 	"devDependencies": {
-		"@wordpress/env": "^9.3.0",
+		"@wordpress/env": "^10.31.0",
 		"@wordpress/scripts": "^29.0.0"
 	},
 	"scripts": {
