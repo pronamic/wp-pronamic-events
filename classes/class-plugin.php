@@ -77,6 +77,7 @@ class Pronamic_Events_Plugin {
 
 		add_action( 'init', array( $this, 'register_content_types' ) );
 		add_action( 'init', array( $this, 'register_block_types' ) );
+		add_action( 'init', array( $this, 'register_meta' ) );
 
 		add_action( 'widgets_init', array( $this, 'widgets_init' ) );
 
@@ -271,6 +272,43 @@ class Pronamic_Events_Plugin {
 				/* translators: %s: count value */
 				'label_count'               => _n_noop( 'Passed <span class="count">(%s)</span>', 'Passed <span class="count">(%s)</span>', 'pronamic-events' ),
 			)
+		);
+	}
+
+	/**
+	 * Register meta.
+	 *
+	 * @return void
+	 */
+	public function register_meta() {
+		\register_post_meta(
+			'pronamic_event',
+			'_pronamic_location',
+			[
+				'type'          => 'string',
+				'single'        => true,
+				'show_in_rest'  => true,
+			]
+		);
+
+		\register_post_meta(
+			'pronamic_event',
+			'_pronamic_event_start_date',
+			[
+				'type'          => 'string',
+				'single'        => true,
+				'show_in_rest'  => true,
+			]
+		);
+
+		\register_post_meta(
+			'pronamic_event',
+			'_pronamic_event_end_date',
+			[
+				'type'          => 'string',
+				'single'        => true,
+				'show_in_rest'  => true,
+			]
 		);
 	}
 
@@ -503,7 +541,7 @@ class Pronamic_Events_Plugin {
 
 	/**
 	 * Register block types.
-	 * 
+	 *
 	 * @link https://github.com/WordPress/gutenberg/blob/trunk/packages/block-library/src/post-date/index.php
 	 * @link https://developer.wordpress.org/reference/functions/get_block_wrapper_attributes/
 	 * @return void
@@ -582,7 +620,7 @@ class Pronamic_Events_Plugin {
 
 	/**
 	 * Parse search qualifiers.
-	 * 
+	 *
 	 * @link https://docs.github.com/en/search-github/searching-on-github
 	 * @link https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax
 	 * @param WP_Query $query WordPress query.
