@@ -19,6 +19,13 @@ class Pronamic_Events_RepeatModule {
 	private $plugin;
 
 	/**
+	 * Admin
+	 *
+	 * @var Pronamic_Events_RepeatModule_Admin
+	 */
+	private $admin;
+
+	/**
 	 * Constructs and initializes an Pronamic Events plugin admin object
 	 */
 	public function __construct( Pronamic_Events_Plugin $plugin ) {
