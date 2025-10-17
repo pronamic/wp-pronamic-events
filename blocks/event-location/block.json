@@ -13,7 +13,8 @@
     "queryId"
   ],
   "supports": {
-    "html": false
+    "html": false,
+    "interactivity": true
   },
   "textdomain": "pronamic-events",
   "editorScript": "file:./index.js"
