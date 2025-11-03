@@ -17,8 +17,27 @@
     "queryId"
   ],
   "supports": {
+    "color": {
+      "background": true,
+      "text": true
+    },
     "html": false,
-    "interactivity": true
+    "interactivity": true,
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "__experimentalFontFamily": true,
+      "__experimentalFontStyle": true,
+      "__experimentalFontWeight": true,
+      "__experimentalLetterSpacing": true,
+      "__experimentalTextTransform": true,
+      "__experimentalTextDecoration": true,
+      "__experimentalWritingMode": true,
+      "fitText": true,
+      "__experimentalDefaultControls": {
+        "fontSize": true
+      }
+    }
   },
   "textdomain": "pronamic-events",
   "editorScript": "file:./index.js"
