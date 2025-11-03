@@ -18,8 +18,17 @@
     "queryId"
   ],
   "supports": {
+    "color": {
+      "background": true,
+      "text": true
+    },
     "html": false,
-    "interactivity": true
+    "interactivity": true,
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "textAlign": true
+    }
   },
   "textdomain": "pronamic-events",
   "editorScript": "file:./index.js"
