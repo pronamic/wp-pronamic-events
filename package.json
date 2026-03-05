@@ -25,7 +25,7 @@
 	},
 	"devDependencies": {
 		"@wordpress/env": "^10.34.0",
-		"@wordpress/scripts": "^30.27.0"
+		"@wordpress/scripts": "^31.6.0"
 	},
 	"scripts": {
 		"start": "wp-scripts start --webpack-src-dir=blocks-jsx --output-path=blocks",
