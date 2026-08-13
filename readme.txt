@@ -4,7 +4,7 @@ Tags: pronamic, events, agenda
 Donate link: https://www.pronamic.eu/donate/?for=wp-plugin-pronamic-events&source=wp-plugin-readme-txt
 Requires at least: 3.0
 Requires PHP: 5.4
-Tested up to: 6.8
+Tested up to: 7.1
 Stable tag: 1.4.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
